@@ -8,7 +8,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="GridStarters">
     <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/lernet-proyect.appspot.com/o/protocol.png?alt=media&token=757ae645-b561-481b-8789-8fdca85205be">
-    <meta property="og:url" content="https://www.gridstarters.com/">
+    <meta property="og:url" content="http://159.203.68.74/">
     <meta property="og:description"
         content="$5 Each・Upload A Photo Forever">
     <meta property="og:image:type" content=".png">
