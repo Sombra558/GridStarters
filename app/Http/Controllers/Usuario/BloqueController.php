@@ -59,7 +59,7 @@ class BloqueController extends Controller
                 $path = public_path().'/storage/Gridsmin/';
                 
                 if (!file_exists($path)) {
-                    mkdir($path, 0777, true);
+                    mkdir($path, 666, true);
                 }
                 $temp->save($path.$bloquecaptura->id.str_replace(' ','_',$request->file('img')->getClientOriginalName()));
                 $bloquecaptura->img= $pathoriginal;
@@ -135,7 +135,7 @@ class BloqueController extends Controller
                     $temp->resize(25,25);
                     $path = public_path().'/storage/Gridsmin/';
                     if (!file_exists($path)) {
-                        mkdir($path, 0777, true);
+                        mkdir($path, 666, true);
                     }
                     $temp->save($path.$randomString.str_replace(' ','_',$request->file('img')->getClientOriginalName()));
                     $myImg->push([
