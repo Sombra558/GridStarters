@@ -1,4 +1,3 @@
-es
 <?php
 
 namespace App\Http\Controllers\Usuario;
@@ -42,22 +41,22 @@ class BloqueController extends Controller
 
             $mybloques->push($newbloque);
         }
-   
-       
+
+
         for ($i=0; $i < $request['fila']; $i++) {
-           
+
             $origeny=0;
             for ($j=0; $j < 2; $j++) { 
                 $bloquecaptura=null;
                 $bloquecaptura=Bloque::where('codigo',$randomString2)->where('fila',$i)->where('column',$j)->first();
-           
+
                 $img = \Image::make($request->file('img'));
                 $img->resize(600,600);
                 $temp=null;
                 $temp = $img->crop(300,300,$origenx,$origeny);
                 $temp->resize(25,25);
                 $path = public_path().'/storage/Gridsmin/';
-                
+
                 if (!file_exists($path)) {
                     mkdir($path, 666, true);
                 }
@@ -66,32 +65,32 @@ class BloqueController extends Controller
                 $bloquecaptura->fragmento = 'Gridsmin/'.$bloquecaptura->id.str_replace(' ','_',$request->file('img')->getClientOriginalName());
                 $bloquecaptura->save();
                 $origeny=$origeny+$aumentoy;
-                
+
             }
-            
+
             $origenx = $origenx - $aumentox;
-            
+
         }
- 
+
         //relacionar-en-la-matriz
         $vincules = Bloque::where('codigo',$mybloques[0]->codigo)->get();
-          
 
-        
-    
+
+
+
         foreach ($vincules as $element) {
 
                 $mytemp = json_decode($matriz->matriz);
-               
+
                 $mytemp[$element->fila][$element->column]->src=$element->fragmento;
-                
+
                 $mytemp = json_encode($mytemp);
                 $matriz->matriz = $mytemp;
                 $matriz->save();
         }
-        
+
         $ruta="/grid/".$matriz->nombreURL;
-      
+
         return $ruta;
     }
     public function store2(Request $request)
@@ -144,14 +143,14 @@ class BloqueController extends Controller
                     $origemx=$origemx+$aumentox;
                 }
                 $origemy=$origemy+$aumentoy;
-              
+
             }
-            
-           
+
+
         }
-   
+
         for ($a=0; $a < $myblocks->count(); $a++) { 
-             
+
                  $myblocks[$a]->fragmento = $myImg[$a]["path"];
                  $mytemp = json_decode($matriz->matriz);
                  $mytemp[$myblocks[$a]->fila][$myblocks[$a]->column]->src=$myImg[$a]["path"];
@@ -159,7 +158,7 @@ class BloqueController extends Controller
                  $matriz->matriz = $mytemp;
                  $matriz->save();
         }
-    
+
         $ruta="/grid/".$matriz->nombreURL;
         return $ruta;
     }
