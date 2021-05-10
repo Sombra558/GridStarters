@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', 'Pages\landingController@index')->name('landing');
-Route::get('/grid/{nombreURL}', 'Pages\landingController@showgrip')->name('detalle-grip');
+Route::get('/', 'Pages\LandingController@index')->name('landing');
+Route::get('/grid/{nombreURL}', 'Pages\LandingController@showgrip')->name('detalle-grip');
 
 Auth::routes();
 
