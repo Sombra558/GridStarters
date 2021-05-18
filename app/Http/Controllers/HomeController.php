@@ -23,12 +23,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user= Auth::user()->load(['matriz']);
+        $user= Auth::user()->load(['matriz'=>function($q){
+            return $q->with(['bloques']);
+        }]);
         return view('home',compact('user'));
     }
     public function payment()
     {
         $user= Auth::user()->load(['matriz']);
         return view('User.Payment.payment',compact('user'));
+    }
+    public function mygrid()
+    {
+        $user= Auth::user()->load(['matriz'=>function($q){
+            return $q->with(['bloques']);
+        }]);
+        return view('MyProfile.MyGrids',compact('user'));
     }
 }

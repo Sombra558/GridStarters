@@ -37,14 +37,11 @@
                                 <span  v-if="bloque===null" style="color:grey!important" >No. row</span>
                                 <span v-else style="color:grey!important">{{filas}}</span>
                             </div>
-                        </div>
-
-                        
+                        </div>            
                         <div class="flexi-btn-form">
                             <input :disabled="estadoprocess" style="margin-top:65px" class="btn btn-grip" type="submit" value="Save & pay">
                              <input :disabled="estadoprocess" style="margin-top:65px" class="btn btn-cancel" type="button" value="Cancel">
                         </div>
-                        
                     </form>
                     <div v-else>
                         <input :disabled="estadoprocess" @click.prevent="createGrid()" style="margin-top:65px" class="btn btn-cancel" type="button" value="Buy Grid">
@@ -143,14 +140,13 @@
             }
         },
         methods: {
-           bannerChangeCoverPicture(){
-            document.getElementById("CoverChangeInput").click(); 
+            bannerChangeCoverPicture(){
+                document.getElementById("CoverChangeInput").click(); 
             },
             bannerChangeProfPicture() {
                 document.getElementById("ProfImgChangeInput").click(); 
             },
             fileSelected(evt) {
-
             this.lastFile = evt.target.files[0];
             this.grip.src = URL.createObjectURL(this.lastFile)
             this.$refs.preview.src = this.imageURL
@@ -167,8 +163,7 @@
                 }).catch((err) => {
                     this.estadoprocess=false;
                     console.log(err)
-                });
-                
+                }); 
             },
             crearposition(){
              this.estadoprocess=true;
@@ -177,7 +172,6 @@
              var ruta=`/crear-bloque`;
                 axios.post(ruta, formulario)
                   .then((res) => {
-                  
                    localStorage.clear();
                    window.location=res.data;
                   })
@@ -185,8 +179,7 @@
                     this.estadoprocess=false;
                     console.log(err);
                  });
-           
-        },
+            },
         },
     }
 </script>

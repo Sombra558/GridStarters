@@ -22,6 +22,8 @@ class CreateBloquesTable extends Migration
             $table->string('codigo')->nullable();
             $table->unsignedbigInteger('matriz_id');
             $table->foreign('matriz_id')->references('id')->on('grips')->onDelete('CASCADE');
+            $table->unsignedbigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
             $table->timestamps();
         });
     }

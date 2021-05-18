@@ -35,7 +35,7 @@
                                 <th scope="row">
                                     <div class="row maximizando enpadre" v-for="(fila,index) in matriz" :key="'fila'+index">
                                             
-                                            <div :style="columna.src ? 'background-image: url(/storage/'+columna.src+');' : 'background-color: #FBF9FF;'"  :id="'bloque-'+fila[index].numero+'-'+columna.numero" class="col color" v-for="(columna,k) in fila" :key="'columna'+k">
+                                            <div :style="columna.src ? 'background-image: url(/storage-public/'+columna.src+');' : 'background-color: #FBF9FF;'"  :id="'bloque-'+fila[index].numero+'-'+columna.numero" class="col color" v-for="(columna,k) in fila" :key="'columna'+k">
                                                 
                                              
                                                 

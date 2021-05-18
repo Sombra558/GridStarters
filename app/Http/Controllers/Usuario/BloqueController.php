@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Helpers\General\CollectionHelper;
+use Illuminate\Support\Facades\Auth;
 use App\Grip;
 use App\Bloque;
 use File;
@@ -18,6 +19,10 @@ class BloqueController extends Controller
         $matriz=Grip::find($request['matriz_id']);
         $aumentox=600/$request['column'];
         $aumentoy=600/$request['fila'];
+        $imageorigin = $request->file('img');
+        $pathorigin =$imageorigin->store('public/Grids');
+        $pathorigin = str_replace('public/', '', $pathorigin);
+    
         $characters2 = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ*-%$&';
         $characters2Length = strlen($characters2);
         $randomString2 = '';
@@ -29,7 +34,9 @@ class BloqueController extends Controller
                 'column' => $bloque->columna,
                 'fila' =>   $bloque->fila,
                 'codigo' => $randomString2,
+                'img' => $pathorigin,
                 'matriz_id' => $request['matriz_id'],
+                'user_id' => Auth::user()->id,
             ]);   
          }
          $myblocks = Bloque::where('codigo',$randomString2)->get();
@@ -51,7 +58,7 @@ class BloqueController extends Controller
                     $temp=null;
                     $temp = $img->crop(600/$request['column'],600/$request['fila'],$origemx,$origemy);
                     $temp->resize(25,25);
-                    $path = public_path().'/storage/Gridsmin/';
+                    $path = public_path().'/storage-public/Gridsmin/';
                     if (!file_exists($path)) {
                         mkdir($path, 0777, true);
                     }
@@ -71,6 +78,7 @@ class BloqueController extends Controller
         for ($a=0; $a < $myblocks->count(); $a++) { 
 
                  $myblocks[$a]->fragmento = $myImg[$a]["path"];
+                 $myblocks[$a]->save();
                  $mytemp = json_decode($matriz->matriz);
                  $mytemp[$myblocks[$a]->fila][$myblocks[$a]->column]->src=$myImg[$a]["path"];
                  $mytemp = json_encode($mytemp);

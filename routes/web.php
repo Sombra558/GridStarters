@@ -17,6 +17,7 @@ Route::get('/grid/{nombreURL}', 'Pages\LandingController@showgrip')->name('detal
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/mygrids', 'HomeController@mygrid')->name('mygrid');
 Route::get('/confirm-payment', 'HomeController@payment')->name('confirm-payment');
 Route::post('/create-grid', 'Usuario\GridController@store')->name('grid-create');
 Route::post('/crear-bloque', 'Usuario\BloqueController@store2')->name('grid-create');

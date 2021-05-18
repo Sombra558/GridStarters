@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-<example-component :user="{{$user}}"></example-component>
+<user-profile-component :user="{{$user}}"></user-profile-component>
 @endsection

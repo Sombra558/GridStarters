@@ -16,6 +16,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('grip-detalle-component', require('./components/Grip/gripdetalle.vue').default);
 Vue.component('btn-buy-component', require('./components/Templades/navbardetalle').default);
 Vue.component('top-component', require('./components/landing/Inicio/topusers.vue').default);
+//profile user
+Vue.component('user-profile-component', require('./components/MyProfile/MyProfile').default);
+
 
 const store = new Vuex.Store({
     state: {
