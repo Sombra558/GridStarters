@@ -9,6 +9,9 @@ use App\Helpers\General\CollectionHelper;
 use Illuminate\Support\Facades\Auth;
 use App\Grip;
 use App\Bloque;
+use App\UserBank;
+use App\AccountRegisters;
+use App\PurchasesHistory;
 use File;
 
 class BloqueController extends Controller
@@ -33,6 +36,7 @@ class BloqueController extends Controller
             $newbloque = Bloque::create([
                 'column' => $bloque->columna,
                 'fila' =>   $bloque->fila,
+                'size' =>  $request['size'],
                 'codigo' => $randomString2,
                 'img' => $pathorigin,
                 'matriz_id' => $request['matriz_id'],
@@ -85,7 +89,34 @@ class BloqueController extends Controller
                  $matriz->matriz = $mytemp;
                  $matriz->save();
         }
-
+        $userbank=UserBank::where('user_id',$matriz->user_id)->first();
+        $positivo= $request['column']*$request['fila'];
+        if ($userbank) {
+            $userbank->available=$userbank->available+$positivo*5;
+            $userbank->save();
+            AccountRegisters::create([
+                'user_banks_id' =>$userbank->id,
+                'amount' => $positivo*5,
+                'withdrawn' =>   0,
+            ]);   
+        }else{
+            $new=UserBank::create([
+                'user_id' =>$matriz->user_id,
+                'available' => $positivo*5,
+                'withdrawn' =>   0,
+            ]);
+            AccountRegisters::create([
+                'user_banks_id' =>$new->id,
+                'amount' => $positivo*5,
+                'withdrawn' =>   0,
+            ]); 
+            
+        }
+        PurchasesHistory::create([
+            'user_id' =>Auth::user()->id,
+            'amount' => $positivo*5,
+            'descripcion' =>  'Compra de bloque',
+        ]); 
         $ruta="/grid/".$matriz->nombreURL;
         return $ruta;
     }

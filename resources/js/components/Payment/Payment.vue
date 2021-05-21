@@ -5,9 +5,9 @@
                 <div class="col-md-6">
                     <form v-if="user.matriz.length>0" @submit.prevent="crearposition" id="payment-form" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="cart" :value="JSON.stringify(bloque)">
-                        
+                         <input type="hidden" name="size" :value="columnas+'x'+filas">
                         <input type="hidden" name="matriz_id" :value="user.matriz[0].id">
-                        <input v type="hidden" name="column" :value="columnas">
+                        <input type="hidden" name="column" :value="columnas">
                         <input type="hidden" name="fila" :value="filas">
                         <div class="form-groud">
                              <label for="img-grip">Upload your photo or banner</label>

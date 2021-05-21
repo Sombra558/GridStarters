@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
+use App\Grip;
+use App\User;
 class HomeController extends Controller
 {
     /**
@@ -25,7 +26,9 @@ class HomeController extends Controller
     {
         $user= Auth::user()->load(['matriz'=>function($q){
             return $q->with(['bloques']);
-        }]);
+        },'bank'=>function($q){
+            return $q->with(['registros']);
+        },'history']);
         return view('home',compact('user'));
     }
     public function payment()
@@ -38,6 +41,27 @@ class HomeController extends Controller
         $user= Auth::user()->load(['matriz'=>function($q){
             return $q->with(['bloques']);
         }]);
+        return view('MyProfile.MisCuadrilla',compact('user'));
+    }
+    public function mygriddetail()
+    {
+        $user= Auth::user()->load(['matriz'=>function($q){
+            return $q->with(['bloques']);
+        }]);
         return view('MyProfile.MyGrids',compact('user'));
+    }
+    public function showgrip($nombreURL)
+    {
+        $user= Auth::user()->load(['matriz'=>function($q){
+            return $q->with(['bloques']);
+        }]);
+        $grip= Grip::where('nombreURL',$nombreURL)->first();
+       
+        if ($grip) {
+            $grip->load('user','bloques');
+            return view('MyProfile.MiDetalle',compact('grip','user'));
+        }else{
+            return view('error.error404',compact('grip'));
+        }       
     }
 }

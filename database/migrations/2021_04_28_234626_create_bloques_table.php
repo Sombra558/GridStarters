@@ -20,6 +20,7 @@ class CreateBloquesTable extends Migration
             $table->string('column')->nullable();
             $table->string('fila')->nullable();
             $table->string('codigo')->nullable();
+            $table->string('size')->nullable();
             $table->unsignedbigInteger('matriz_id');
             $table->foreign('matriz_id')->references('id')->on('grips')->onDelete('CASCADE');
             $table->unsignedbigInteger('user_id');

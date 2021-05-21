@@ -41,4 +41,10 @@ class User extends Authenticatable
 
         return $this->hasMany('App\Grip');
       }
+      public function bank(){
+        return $this->hasMany('App\UserBank');
+      }
+      public function history(){
+        return $this->hasMany('App\PurchasesHistory');
+      }
 }

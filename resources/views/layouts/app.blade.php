@@ -783,11 +783,24 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                  
+                    <ul style="width:100%; margin-right:20px;" class="navbar-nav d-flex justify-content-end align-content-center">
+                            
+                           
+                            <div class="d-flex justify-content-end align-content-center">
+                             
+                                @if(Auth::user() != null)
+                                    <btn-grids-component></btn-grids-component>
+                                @endif
+                            
+                            </div>
+                           
+                            
+
+                    </ul>
                     
 
                     <!-- Right Side Of Navbar -->
-                    <div class="container-fluid"> 
+                   
                                                 <ul class="navbar-nav ml-auto">
                                                     @guest
                                                         <li class="nav-item">
@@ -796,12 +809,12 @@
                                                     @else
                                                         <li class="nav-item dropdown">
                                                             <div id="navbarDropdown" class="nav-link text-white " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                                                <div class="row">
+                                                                <div style="width:250px;"  class="d-flex">
                                                                 <div class="flexi-user-auth">
-                                                                <a href="/home">
-                                                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                                                </a>
-                                                                <span>{{ Auth::user()->roles[0]->name }}</span>
+                                                                        <a href="/home">
+                                                                            {{ Auth::user()->name }} <span class="caret"></span>
+                                                                        </a>
+                                                                        <span>{{ Auth::user()->roles[0]->name }}</span>
                                                                 </div>
                                                                 
                                                                 <img style="margin-left:33px" class="avatar" src="/img/user/user_min.jpg" alt="user-img">
@@ -827,7 +840,7 @@
                                                         </li>
                                                     @endguest
                                                 </ul>  
-                                            </div>    
+                    
                    
                 </div>
             </div>

@@ -67,7 +67,7 @@
                 bloqueSelected:null,
                 matriz: [],
                 bloqueconfig:{
-                    columnasize: 5,
+                    columnasize: 3,
                     filasize:3
                 }
             }

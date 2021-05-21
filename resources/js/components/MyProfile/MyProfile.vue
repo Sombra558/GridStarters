@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-3 card-grid-profile" v-for="(grid,index) in mygrids" :key="index">
                <img :src="'/storage/'+grid[0].img" alt="" srcset="">
-               <p>Size:6x7</p>
+               <p>Size: {{grid[0].size}}</p>
                <strong>Date of purchase: {{grid[0].created_at}}</strong>
             </div>
             </div>
@@ -23,9 +23,9 @@
                 <button :class="secondtag==='earnings' ? 'btn-second-tag active-2' : 'btn-second-tag'" @click.prevent="seleccionardos('earnings')">Earnings</button>
                 <button :class="secondtag==='purchases' ? 'btn-second-tag active-2' : 'btn-second-tag'" @click.prevent="seleccionardos('purchases')">Purchases</button>
             </div>
-              <table v-if="secondtag==='earnings'" style="margin-top:25px" class="table">
+              <table v-if="secondtag==='earnings'" style="margin-top:25px" class="table table-responsive">
                 <thead>
-                <tr>
+                <tr class="table-bg">
                     <th>Date</th>
                     <th>Purchases Detail</th>
                     <th>Transaction's ID</th>
@@ -34,19 +34,19 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(grid,index) in mygrids" :key="index">
-                    <td>{{grid[0].created_at}}</td>
+                <tr v-for="(grid,index) in user.bank[0].registros" :key="index">
+                    <td>{{grid.created_at}}</td>
                     <td><a href="#">View Detail</a></td>
                     <td></td>
                     <td>Paypal</td>
-                    <td>{{Number(5*grid.length)}}$</td>
+                    <td>{{grid.amount}}$</td>
                 </tr>
                
                 </tbody>
             </table>
-            <table v-if="secondtag==='purchases'" style="margin-top:25px" class="table">
+            <table v-if="secondtag==='purchases'" style="margin-top:25px" class="table table-responsive">
                 <thead>
-                <tr>
+                <tr class="table-bg">
                     <th>Date</th>
                     <th>Purchases Detail</th>
                     <th>Transaction's ID</th>
@@ -55,12 +55,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(matriz,index) in user.matriz" :key="index">
-                    <td>{{matriz.created_at}}</td>
-                    <td><a href="#">View Detail</a></td>
+                <tr v-for="(history,index) in user.history" :key="index">
+                    <td>{{history.created_at}}</td>
+                    <td>{{history.descripcion}}</td>
                     <td></td>
                     <td>Paypal</td>
-                    <td>250$</td>
+                    <td>{{history.amount}}$</td>
                 </tr>
                
                 </tbody>
@@ -71,11 +71,11 @@
             <div class="contenedor-earrings">
                 <div class="earrings">
                         <h4>Withdrawn</h4>
-                        <p>$ 35</p>
+                        <p>$ {{user.bank[0].withdrawn}}</p>
                 </div>
                 <div class="earrings">
                         <h4>Available for Withdrawal</h4>
-                        <p>$ {{available}}</p>
+                        <p>$ {{user.bank[0].available}}</p>
 
                 </div>
                 <div class="earrings">
@@ -96,19 +96,19 @@
                 <image id="image0" width="270" height="153" xlink:href="data:image/jpeg;base64,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"/>
                 </defs>
                 </svg>
-                <table style="margin-top:25px" class="table">
+                <table style="margin-top:25px" class="table table-responsive">
                     <thead>
-                    <tr>
+                    <tr class="table-bg">
                         <th>Date</th>
                         <th>Payment voucher</th>
                         <th>Amount</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="(grid,index) in mygrids" :key="index">
-                        <td>{{grid[0].created_at}}</td>
+                    <tr v-for="(grid,index) in user.bank[0].registros" :key="index">
+                        <td>{{grid.created_at}}</td>
                         <td><a href="#">View Detail</a></td>
-                        <td>{{Number(5*grid.length)}}$</td>
+                        <td>{{grid.amount}}$</td>
                     </tr>
                 
                     </tbody>
@@ -138,15 +138,6 @@
                 }
                 return sold;
             },
-            available() {
-                var sold = 0;
-                if (this.user.matriz.length>0) {
-                    this.user.matriz.forEach(e => {
-                        sold=sold+e.bloques.length;
-                    })
-                }
-                return Number(sold*5).toFixed(2);
-            }
         },
         methods: {
             seleccionar(tag) {
@@ -238,7 +229,38 @@
         line-height: 5px;
         border-bottom: 2px solid #30019B;
     }
-    .contenedor-earrings{
+    @media only screen and (max-width: 767px){
+        .contenedor-earrings{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #FBF9FF;
+        border: 1px solid #b8a7a782;
+        height: 271px;
+    }
+    .earrings{
+        flex-basis: 100%;
+        width: 271px;
+        border-bottom: 1px solid #b8a7a782;
+    }
+    .earrings h4{
+        font-family: 'Valera';
+        font-size: 16px;
+        text-align: center;
+        margin-top: 13px;
+        color: #B8A7A7;
+    }
+    .earrings p{
+        font-family: 'Valera';
+        font-size: 20px;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+    }
+    @media only screen and (min-width: 768px){
+         .contenedor-earrings{
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -246,6 +268,7 @@
         border: 1px solid #b8a7a782;
         height: 73px;
     }
+
     .earrings{
         flex-basis: calc(33.3% - 15px);
         border-left: 1px solid #b8a7a782;
@@ -265,6 +288,8 @@
         text-align: center;
         
     }
+    }
+   
     .contenedor-grid-purshace{
         display: flex;
         
@@ -274,5 +299,22 @@
         width: 100%;
         min-width:251px;
         border-radius: 8px;
+    }
+    .card-grid-profile p{
+        font-family: 'Valera';
+        font-size: 16px;
+        font-weight: 700;
+        color: #000000;
+        margin: 0;
+    }
+    .card-grid-profile strong{
+        font-family: 'Valera';
+        font-size: 16px;
+        font-weight: 700;
+        color: #000000;
+        margin: 0;
+    }
+    .table-bg{
+        background-color: #0f042613;
     }
 </style>

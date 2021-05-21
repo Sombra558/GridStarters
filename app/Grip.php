@@ -11,9 +11,8 @@ class Grip extends Model
     ];
     public function user(){
         return $this->belongsTo('App\User');
-      }
-      public function bloques(){
-
+    }
+    public function bloques(){
         return $this->hasMany('App\Bloque','matriz_id');
-      }
+    }
 }
