@@ -10,6 +10,9 @@ window.Vue = require('vue');
 
 import Vuex from 'vuex';
 Vue.use(Vuex);
+const moment = require('moment');
+require('moment/locale/es');
+Vue.prototype.moment = moment;
 
 Vue.component('payment-component', require('./components/Payment/Payment.vue').default);
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
@@ -23,6 +26,10 @@ Vue.component('btn-grids-movil-component', require('./components/Templades/btnna
 Vue.component('my-grids-component', require('./components/MyProfile/MyGrids').default);
 Vue.component('my-grids-detalle-component', require('./components/MyProfile/MyGridDetalle').default);
 
+//admin
+Vue.component('nav-admin-component', require('./components/Admin/nav').default);
+Vue.component('home-admin-component', require('./components/Admin/Pages/home').default);
+Vue.component('public-admin-component', require('./components/Admin/Pages/public-content').default);
 
 const store = new Vuex.Store({
     state: {
@@ -32,6 +39,7 @@ const store = new Vuex.Store({
         filterGrip: {
             user: "",
         },
+        stateMenu:false,
     },
     mutations: {
         setUser(state, payload) {
@@ -46,6 +54,10 @@ const store = new Vuex.Store({
         setfilterGrid(state, data) {
             state.filterGrid[data['filter']] = data.value;
         },
+        showMenuD(state, value){
+            state.stateMenu = value
+            console.log(state.stateMenu)
+        }
     
     },
     getters: {
