@@ -68,7 +68,7 @@
                 matriz: [],
                 bloqueconfig:{
                     columnasize: 3,
-                    filasize:3
+                    filasize:4
                 }
             }
         },

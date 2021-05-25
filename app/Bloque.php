@@ -9,4 +9,7 @@ class Bloque extends Model
     protected $fillable = [
         'img','codigo','matriz_id','fragmento','column','fila','user_id','size',
     ];
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }

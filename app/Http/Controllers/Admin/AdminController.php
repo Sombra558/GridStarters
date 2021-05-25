@@ -21,7 +21,26 @@ class AdminController extends Controller
     }
     public function public()
     {
-        
-        return view('Admin.Public.index');
+        $grids= Grip::all()->load(['user','bloques'=>function($q){
+            return $q->with('user');
+        }]);
+        return view('Admin.Public.index',compact('grids'));
+    }
+    public function users()
+    {
+        $users=User::all()->where('id','!=',1);
+        return view('Admin.Users.index',compact('users'));
+    }
+    public function sales()
+    {
+        $users=User::all()->where('id','!=',1);
+        $sales=PurchasesHistory::all()->load(['user']);
+        return view('Admin.Sales.Sales',compact('sales'));
+    }
+    public function reports()
+    {
+        $users=User::all()->where('id','!=',1);
+        $sales=PurchasesHistory::all()->load(['user']);
+        return view('Admin.Reports.reports',compact('sales'));
     }
 }

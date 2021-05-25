@@ -30,6 +30,9 @@ Vue.component('my-grids-detalle-component', require('./components/MyProfile/MyGr
 Vue.component('nav-admin-component', require('./components/Admin/nav').default);
 Vue.component('home-admin-component', require('./components/Admin/Pages/home').default);
 Vue.component('public-admin-component', require('./components/Admin/Pages/public-content').default);
+Vue.component('users-admin-component', require('./components/Admin/Pages/users').default);
+Vue.component('sales-admin-component', require('./components/Admin/Pages/sales').default);
+Vue.component('reports-admin-component', require('./components/Admin/Pages/reports').default);
 
 const store = new Vuex.Store({
     state: {
@@ -40,6 +43,14 @@ const store = new Vuex.Store({
             user: "",
         },
         stateMenu:false,
+        publics:[],
+        filterPublics: {
+            user: "",
+        },
+        sales:[],
+        filterSales: {
+            query: "",
+        },
     },
     mutations: {
         setUser(state, payload) {
@@ -57,7 +68,19 @@ const store = new Vuex.Store({
         showMenuD(state, value){
             state.stateMenu = value
             console.log(state.stateMenu)
-        }
+        },
+        setPublics(state, publics) {
+            state.publics = publics;
+        },
+        setfilterPublics(state, data) {
+            state.filterPublics[data['filter']] = data.value;
+        },
+        setSales(state, sales) {
+            state.sales = sales;
+        },
+        setfilterSales(state, data) {
+            state.filterSales[data['filter']] = data.value;
+        },
     
     },
     getters: {
@@ -67,6 +90,14 @@ const store = new Vuex.Store({
                 grid = grid.filter(r => r.user.name.toLowerCase().includes(state.filterGrid.user.toLowerCase()));
             }
             return grid;
+        },
+        filteredPublics(state) {
+            let publics = state.publics;
+            return publics;
+        },
+        filteredSales(state) {
+            let sales = state.sales;
+            return sales;
         },
      
     }
