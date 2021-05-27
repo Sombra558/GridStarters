@@ -28,6 +28,7 @@ Vue.component('my-grids-detalle-component', require('./components/MyProfile/MyGr
 
 //admin
 Vue.component('nav-admin-component', require('./components/Admin/nav').default);
+Vue.component('nav-show-admin-component', require('./components/Admin/btn-nav-movil').default);
 Vue.component('home-admin-component', require('./components/Admin/Pages/home').default);
 Vue.component('public-admin-component', require('./components/Admin/Pages/public-content').default);
 Vue.component('users-admin-component', require('./components/Admin/Pages/users').default);
@@ -42,14 +43,22 @@ const store = new Vuex.Store({
         filterGrip: {
             user: "",
         },
-        stateMenu:false,
+        stateMenu:true,
         publics:[],
         filterPublics: {
             user: "",
+            mes:new Date().getMonth(),
+        },
+        todosusers:[],
+        filterUsers: {
+            user: "",
+            mes:new Date().getMonth(),
         },
         sales:[],
         filterSales: {
             query: "",
+            mes:new Date().getMonth(),
+            tipo:null
         },
     },
     mutations: {
@@ -75,6 +84,12 @@ const store = new Vuex.Store({
         setfilterPublics(state, data) {
             state.filterPublics[data['filter']] = data.value;
         },
+        setUsers(state, users) {
+            state.todosusers = users;
+        },
+        setfilterUsers(state, data) {
+            state.filterUsers[data['filter']] = data.value;
+        },
         setSales(state, sales) {
             state.sales = sales;
         },
@@ -93,10 +108,54 @@ const store = new Vuex.Store({
         },
         filteredPublics(state) {
             let publics = state.publics;
+                    if (state.filterPublics.user.length > 1) {
+                        publics = publics.filter(r => r[0].user.name.toLowerCase().includes(state.filterPublics.user.toLowerCase()));
+                    }
+                publics = publics.filter(r => {
+                    var date= new Date(r[0].created_at);
+                 
+                    if (date.getMonth()===state.filterPublics.mes){
+
+                        return r;
+                    }
+                });
+            
             return publics;
+        },
+        filteredUsers(state) {
+            let todos = state.todosusers;
+       
+            if (state.filterUsers.user.length > 1) {
+                todos = todos.filter(r => r.name.toLowerCase().includes(state.filterUsers.user.toLowerCase()));
+            }
+            todos = todos.filter(r => {
+                var date= new Date(r.created_at);
+             
+                if (date.getMonth()===state.filterUsers.mes){
+
+                    return r;
+                }
+            });
+            return todos;
         },
         filteredSales(state) {
             let sales = state.sales;
+       
+            if (state.filterSales.query.length > 1) {
+                sales = sales.filter(r => r.transaction_id.toLowerCase().includes(state.filterSales.query.toLowerCase()));
+            }
+            sales = sales.filter(r => {
+                var date= new Date(r.created_at);
+             
+                if (date.getMonth()===state.filterSales.mes){
+
+                    return r;
+                }
+            });
+            if (state.filterSales.tipo!= null) {
+                sales = sales.filter(r => r.payment_method.toLowerCase().includes(state.filterSales.tipo.toLowerCase()));
+            }
+           
             return sales;
         },
      

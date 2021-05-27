@@ -4,7 +4,7 @@
         <Search action="sales" />
         <br>
       
-             <table class="table">
+             <table class="table table-responsive-sm">
                     <thead>
                     <tr class="table-bg">
                         <th>User Name</th>
@@ -18,8 +18,8 @@
                     <tr v-for="(sale,index) in filteredSales" :key="index">
                         <td>{{sale.user.email}}</td>
                         <td><a @click.prevent="mostrarmodal(sale)" href="#">View Detail</a></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{sale.transaction_id}}</td>
+                        <td>{{sale.payment_method}}</td>
                         <td>{{sale.amount}}$</td>
         
                     </tr>

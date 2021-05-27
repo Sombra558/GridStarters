@@ -1,5 +1,6 @@
 <template>
-    <div class="row">
+    <div class="container">
+        <div class="row">
         <div class="col-sm-12 col-md-4">
             <h2  class="subtitleadmin">Sold out blocks</h2>
             <div class="home-card">
@@ -21,6 +22,8 @@
             </div>
         </div>
     </div>
+    </div>
+    
 </template>
 
 <script>

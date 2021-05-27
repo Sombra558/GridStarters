@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="container">
         <h2 class="subtitleadmin">Public content</h2>
-        <Search />
+        <Search accion="publics" />
         <br>
         
              <table class="table">
@@ -16,7 +16,7 @@
                     <tbody>
                     <tr v-for="(item,index) in filteredPublics" :key="index">
                         <td>{{item[0].user.name}}</td>
-                        <td><a @click.prevent="mostrarmodal(item[0].img)" href="#">View File</a></td>
+                        <td><a style="color:#5F01F5;" @click.prevent="mostrarmodal(item[0].img)" href="#">View File</a></td>
                         <td>{{item[0].created_at}}</td>
         
                     </tr>
@@ -62,7 +62,7 @@ import Search from './Utils/search';
         },
          mounted () {
             if (this.matrices.length>0) {
-                console.log('entro 1');
+               
                 this.matrices.forEach(matriz=> {
                       if (matriz.bloques.length>0) {
                         var grupo = []
@@ -73,9 +73,9 @@ import Search from './Utils/search';
                             else{
                                 if (grupo.some(evt => evt.codigo===element.codigo)) {
                                     grupo.push(element);
-                                    console.log('coincide');
+                                  
                                 }else{
-                                    console.log('no coincide');
+                                
                                     this.bloks.push(grupo);
                                     grupo=[];
                                     grupo.push(element);
@@ -114,4 +114,8 @@ import Search from './Utils/search';
     .table-width{
         min-width: 875px;
     }
+    table{
+        font-family: 'Valera';
+    }
+
 </style>

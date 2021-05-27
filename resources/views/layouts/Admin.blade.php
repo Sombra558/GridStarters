@@ -42,7 +42,7 @@
         }
         @font-face {
             font-family: 'Rubik';
-            src: url('./fonts/Rubik/static/Rubik-Bold.ttf');
+            src: url('/fonts/Rubik/static/Rubik-Bold.ttf');
             font-weight: bold;
             font-style: normal;
             font-display: swap;
@@ -769,15 +769,15 @@
                     <img width="171px" heigth="128px" src="/img/logo.png" alt="">
                 </a>
                 <div>
-               
+               <nav-show-admin-component></nav-show-admin-component>
                            
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <svg width="41" height="26" viewBox="0 0 41 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="1" width="40" height="4" rx="2" fill="#FBF9FF"/>
                 <rect x="7" y="11" width="34" height="4" rx="2" fill="#FBF9FF"/>
                 <rect y="22" width="41" height="4" rx="2" fill="#FBF9FF"/>
                 </svg>
-                </button>
+                </button>-->
                 </div>
                
 
@@ -841,7 +841,7 @@
 
         <main style="{{Request::is('register') ? '' : 'margin-top:80px;' }}">
         <div class="row">
-            <nav-admin-component class="col-sm-3"></nav-admin-component>
+            <nav-admin-component :user="{{ Auth::user() != null ? Auth::user()->load('roles') : 0 }}" class="col-sm-3"></nav-admin-component>
             <div style="margin-top:41px;" class="col-sm-9">
                 @yield('content')
             </div>

@@ -28,7 +28,7 @@ class AdminController extends Controller
     }
     public function users()
     {
-        $users=User::all()->where('id','!=',1);
+        $users=User::where('id','!=',1)->get();
         return view('Admin.Users.index',compact('users'));
     }
     public function sales()

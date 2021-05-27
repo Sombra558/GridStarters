@@ -1,25 +1,35 @@
 <template>
     <div class="row">
-         <div class="col-md-8 input-group input-search ">
-                    <input  type="text" class="search-comp" placeholder="  Search" aria-label="Find your creator" aria-describedby="basic-addon1">
-                    <button class="icon">
-                        <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="9.76688" cy="9.76659" r="8.98856" stroke="#30019B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M16.0186 16.4851L19.5426 20" stroke="#30019B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
+         <div style="margin-bottom:10px;" class="col-sm-12 col-md-8 input-group input-search ">
+                    <input  type="text" class="search-comp" v-model="query" placeholder="  Search" aria-label="Find your creator" aria-describedby="basic-addon1">
+                 
                                           
          </div>
-         <div class="col-md-2">
-            <select  class="form-select form-select-sm col-md-5 selectReporte" aria-label=".form-select-sm example"  name="" id="">
-                <option :value="null">Mes Actual</option>
+         <div  class="col-md-4 row justify-content-between">
+               <div class="col-6">
+            <select  class="form-select form-select-sm selectReporte" aria-label=".form-select-sm example"  v-model="mes">
+                <option :value="0">January</option>
+                <option :value="1">February</option>
+                <option :value="2">March</option>
+                <option :value="3">April</option>
+                <option :value="4">May</option>
+                <option :value="5">June</option>
+                <option :value="6">July</option>
+                <option :value="7">August</option>
+                <option :value="8">September</option>
+                <option :value="9">October</option>
+                <option :value="10">November</option>
+                <option :value="11">December</option>
             </select>
          </div>
-         <div class="col-md-2">
-            <select  class="form-select form-select-sm col-md-5 selectReporte" aria-label=".form-select-sm example"  name="" id="">
+         <div class="col-6">
+            <select  class="form-select form-select-sm  selectReporte" aria-label=".form-select-sm example"  v-model="tipo">
                 <option :value="null">Tipo de pago</option>
+                 <option value="Paypal">Paypal</option>
             </select>
          </div>
+         </div>
+       
        
     </div>
 </template>
@@ -28,7 +38,41 @@
     export default {
         name:"search-component",
         props:["accion"],
-        mes:null,
+        computed: {
+             query: {
+            get() {
+                return this.$store.state.filterSales.query;
+            },
+            set(value) {
+                this.$store.commit("setfilterSales", {
+                filter: "query",
+                value,
+                });
+            },
+            },
+            mes: {
+            get() {
+                return this.$store.state.filterSales.mes;
+            },
+            set(value) {
+                this.$store.commit("setfilterSales", {
+                filter: "mes",
+                value,
+                });
+            },
+            },
+             tipo: {
+            get() {
+                return this.$store.state.filterSales.tipo;
+            },
+            set(value) {
+                this.$store.commit("setfilterSales", {
+                filter: "tipo",
+                value,
+                });
+            },
+            },
+        },
     }
 </script>
 

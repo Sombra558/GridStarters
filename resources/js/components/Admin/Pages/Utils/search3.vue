@@ -1,28 +1,51 @@
 <template>
     <div class="row">
-         <div class="col-md-9 input-group input-search ">
-                    <input  type="text" class="search-comp" placeholder="  Search" aria-label="Find your creator" aria-describedby="basic-addon1">
-                    <button class="icon">
-                        <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="9.76688" cy="9.76659" r="8.98856" stroke="#30019B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M16.0186 16.4851L19.5426 20" stroke="#30019B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
+         <div style="margin-bottom:10px;" class="col-md-7 input-group input-search ">
+                    <input  type="text" class="search-comp" v-model="query" placeholder="  Search" aria-label="Find your creator" aria-describedby="basic-addon1">
+                   
                                           
          </div>
-         
-         <div class="col-md-3">
-            <button>Descargar</button>
+         <div  class="col-md-5 row justify-content-between">
+               <div class="col-6">
+            <select  class="form-select form-select-sm selectReporte" aria-label=".form-select-sm example"  v-model="reportSelected">
+                <option :value="null"> Seleccione Reporte</option>
+                 <option v-for="report in filteredSales" :key="report.id" :value="report">{{report.transaction_id}}</option>
+               
+            </select>
          </div>
+         <div class="col-6">
+            <button :disabled="reportSelected===null ? true : false" class="btn btn-uggrad">Descargar</button>
+         </div>
+         </div>
+  
        
     </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
     export default {
         name:"search-component",
         props:["accion"],
-        mes:null,
+        data() {
+            return {
+                reportSelected: null,
+            }
+        },
+        computed: {
+            ...mapGetters(["filteredSales"]),
+            query: {
+            get() {
+                return this.$store.state.filterSales.query;
+            },
+            set(value) {
+                this.$store.commit("setfilterSales", {
+                filter: "query",
+                value,
+                });
+            },
+            },
+        },
     }
 </script>
 
@@ -33,8 +56,7 @@
     max-width: 609px;
     background-color: #2f019b0e;
     border: none;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    border-radius: 8px;
 }
 .icon{
     background-color: #2f019b0e;
@@ -92,5 +114,12 @@
             border-radius: 8px;
              color: #5F01F5!important;
              font-weight: bold;
+       }
+       .btn-uggrad{
+           background-color: #32BAB0;
+           color: #ffffff;
+           border-radius:8px;
+           width: 100%;
+           height: 44px;
        }
 </style>
