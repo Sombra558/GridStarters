@@ -17,6 +17,8 @@ class CreateAccountRegistersTable extends Migration
             $table->bigIncrements('id');
             $table->string('transaction_id')->nullable();
             $table->string('payment_method')->nullable();
+            $table->string('size')->nullable();
+            $table->string('type')->nullable();
             $table->double('amount',10,2);
             $table->unsignedbigInteger('user_banks_id');
             $table->foreign('user_banks_id')->references('id')->on('user_banks')->onDelete('CASCADE');

@@ -97,17 +97,20 @@ class BloqueController extends Controller
             AccountRegisters::create([
                 'user_banks_id' =>$userbank->id,
                 'amount' => $positivo*5,
+                'type' => "sold",
                 'withdrawn' =>   0,
             ]);   
         }else{
             $new=UserBank::create([
                 'user_id' =>$matriz->user_id,
                 'available' => $positivo*5,
+                
                 'withdrawn' =>   0,
             ]);
             AccountRegisters::create([
                 'user_banks_id' =>$new->id,
                 'amount' => $positivo*5,
+                'type' => "sold",
                 'withdrawn' =>   0,
             ]); 
             

@@ -7,5 +7,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')
     Route::get('/users', 'AdminController@users')->name('admin-users');
     Route::get('/sales', 'AdminController@sales')->name('admin-sales');
     Route::get('/reports', 'AdminController@reports')->name('admin-reports');
+    Route::get('/withdrawal', 'AdminController@retiros')->name('admin-retiros');
    
   });//end admin

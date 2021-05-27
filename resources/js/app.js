@@ -34,6 +34,7 @@ Vue.component('public-admin-component', require('./components/Admin/Pages/public
 Vue.component('users-admin-component', require('./components/Admin/Pages/users').default);
 Vue.component('sales-admin-component', require('./components/Admin/Pages/sales').default);
 Vue.component('reports-admin-component', require('./components/Admin/Pages/reports').default);
+Vue.component('retiros-admin-component', require('./components/Admin/Pages/retiros').default);
 
 const store = new Vuex.Store({
     state: {
@@ -59,6 +60,10 @@ const store = new Vuex.Store({
             query: "",
             mes:new Date().getMonth(),
             tipo:null
+        },
+        sold:[],
+        filterSold: {
+            query: "",
         },
     },
     mutations: {
@@ -95,6 +100,12 @@ const store = new Vuex.Store({
         },
         setfilterSales(state, data) {
             state.filterSales[data['filter']] = data.value;
+        },
+        setSold(state, sold) {
+            state.sold = sold;
+        },
+        setfilterSold(state, data) {
+            state.filterSold[data['filter']] = data.value;
         },
     
     },
@@ -156,6 +167,13 @@ const store = new Vuex.Store({
                 sales = sales.filter(r => r.payment_method.toLowerCase().includes(state.filterSales.tipo.toLowerCase()));
             }
            
+            return sales;
+        },
+        filteredSold(state) {
+            let sales = state.sold;
+            if (state.filterSales.query.length > 1) {
+                sales = sales.filter(r => r.transaction_id.toLowerCase().includes(state.filterSold.query.toLowerCase()));
+            } 
             return sales;
         },
      

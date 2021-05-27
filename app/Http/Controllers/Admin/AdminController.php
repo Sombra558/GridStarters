@@ -43,4 +43,15 @@ class AdminController extends Controller
         $sales=PurchasesHistory::all()->load(['user']);
         return view('Admin.Reports.reports',compact('sales'));
     }
+    public function retiros()
+    {
+        $users=User::all()->where('id','!=',1);
+        $totalblock=Bloque::all()->count();
+        $totalgrid=Grip::all()->count();
+        $accountregistersolds=AccountRegisters::where('type','sold')->get()->load(['bank'=>function($q){
+            return $q->with('user');
+        }]);
+       
+        return view('Admin.Retiros.Retiros',compact('totalblock','totalgrid','accountregistersolds'));
+    }
 }
