@@ -23,7 +23,7 @@
                 <button :class="secondtag==='earnings' ? 'btn-second-tag active-2' : 'btn-second-tag'" @click.prevent="seleccionardos('earnings')">Earnings</button>
                 <button :class="secondtag==='purchases' ? 'btn-second-tag active-2' : 'btn-second-tag'" @click.prevent="seleccionardos('purchases')">Purchases</button>
             </div>
-              <table v-if="secondtag==='earnings'" style="margin-top:25px" class="table table-responsive">
+              <table v-if="secondtag==='earnings'" style="margin-top:25px" class="table table-responsive-sm">
                 <thead>
                 <tr class="table-bg">
                     <th>Date</th>
@@ -44,7 +44,7 @@
                
                 </tbody>
             </table>
-            <table v-if="secondtag==='purchases'" style="margin-top:25px" class="table table-responsive">
+            <table v-if="secondtag==='purchases'" style="margin-top:25px" class="table table-responsive-sm">
                 <thead>
                 <tr class="table-bg">
                     <th>Date</th>
@@ -108,7 +108,8 @@
                     <tbody>
                     <tr v-for="(grid,index) in user.bank[0].retiros" :key="index">
                         <td>{{grid.created_at}}</td>
-                        <td><a href="#">View Detail</a></td>
+                        <td v-if="grid.estado==='verificado'"><a href="#" @click.prevent="mostrarmodal2(grid)">View Detail</a></td>
+                        <td v-else></td>
                          <td>{{grid.estado}}</td>
                         <td>{{grid.amount}}$</td>
                     </tr>
@@ -154,15 +155,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                
-                                <div class="user-descripcion">
-                                    <h6>User Description</h6>
-                                    <p><strong>User:</strong> {{retiroSelected.bank.user.name}}</p>
-                                    <p><strong>Email User:</strong> {{retiroSelected.bank.user.email}}</p>
-                                    <p><strong>Total Available:</strong> {{retiroSelected.bank.available}}$</p>
-                                    <p><strong>Total Withdrawn:</strong> {{retiroSelected.bank.withdrawn}}$</p>
-                                  
-                                </div>
+                              
                                  <div class="user-descripcion"> 
                                     <h6 >Request Description</h6>
                                     <p><strong>Transaction's ID:</strong> {{retiroSelected.numero_de_comprobante}}</p>
@@ -227,7 +220,15 @@
                 }).catch((err) => {
                     console.log(err);
                 });
-            }
+            },
+             mostrarmodal2(retiro){
+                if(retiro){
+                    this.retiroSelected=retiro;
+                }
+                setTimeout(function(){
+                $("#check").modal("show");
+                },200)
+            },
         },
         mounted () {
             if (this.user.matriz) {
@@ -398,5 +399,54 @@
     }
     .table-bg{
         background-color: #0f042613;
+    }
+    .updateFoto2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 250px;
+        border-radius: 5px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+
+        background-position: center center;
+    }
+     .updateFoto strong{
+       width: 100%;
+
+       text-align: center;
+   
+    }
+    .updateFoto2 strong{
+       width: 100%;
+     
+       text-align: center;
+   
+    }
+    .user-descripcion{
+        background-color:#ffffff;
+        width: calc(100% - 10px);
+        border-radius: 8px;
+        height: 150px;
+        margin-bottom: 10px;
+    }
+
+    .user-descripcion h6{
+        font-family: 'Rubik';
+        font-size: 20px;
+       margin-bottom: 5px!important;
+        margin-left: 15px;
+    }
+    .user-descripcion strong{
+        font-family: 'Valera';
+        font-size: 16px;
+        margin-bottom: 5px!important;
+        margin-left: 15px;
+    }
+    .user-descripcion p{
+        font-family: 'Valera';
+        font-size: 16px;
+        margin-bottom: 5px!important;
+        margin-left: 15px;
     }
 </style>

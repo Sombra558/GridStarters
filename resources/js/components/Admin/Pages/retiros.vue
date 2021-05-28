@@ -26,7 +26,8 @@
         </div>
         
     </div>
-    <Search />
+    <Search v-if="secondtag==='Solds'" accion="Solds" />
+    <Search v-else />
      <div style="margin-top:20px" class="contenedor-second-tag">
                 <button :class="secondtag==='Solds' ? 'btn-second-tag active-2' : 'btn-second-tag'" @click.prevent="seleccionardos('Solds')">Solds</button>
                 <button :class="secondtag==='Payment_request' ? 'btn-second-tag active-2' : 'btn-second-tag'" @click.prevent="seleccionardos('Payment_request')">Payment request</button>
@@ -64,7 +65,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                     <tr v-for="(grid,index) in retiros" :key="index">
+                     <tr v-for="(grid,index) in filteredRetiros" :key="index">
                         <td>{{grid.created_at}}</td>
                         <td>{{grid.bank.user.name}}</td>
                         <td>{{grid.email}}</td>
@@ -174,9 +175,10 @@ import Search from './Utils/search4';
         },
          mounted () {
             this.$store.commit("setSold", this.solds);
+            this.$store.commit("setRetiros", this.retiros);
         },
         computed: {
-             ...mapGetters(["filteredSold"]),
+             ...mapGetters(["filteredSold",'filteredRetiros']),
         },
         methods: {
             bannerChangeCoverPicture(){

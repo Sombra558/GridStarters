@@ -65,6 +65,10 @@ const store = new Vuex.Store({
         filterSold: {
             query: "",
         },
+        retiros:[],
+        filterRetiros: {
+            query: "",
+        },
     },
     mutations: {
         setUser(state, payload) {
@@ -106,6 +110,12 @@ const store = new Vuex.Store({
         },
         setfilterSold(state, data) {
             state.filterSold[data['filter']] = data.value;
+        },
+        setRetiros(state, retiros) {
+            state.retiros = retiros;
+        },
+        setfilterRetiros(state, data) {
+            state.filterRetiros[data['filter']] = data.value;
         },
     
     },
@@ -176,7 +186,13 @@ const store = new Vuex.Store({
             } 
             return sales;
         },
-     
+        filteredRetiros(state) {
+            let sales = state.retiros;
+            if (state.filterRetiros.query.length > 1) {
+                sales = sales.filter(r => r.numero_de_comprobante.toLowerCase().includes(state.filterRetiros.query.toLowerCase()));
+            } 
+            return sales;
+        },
     }
 });
 

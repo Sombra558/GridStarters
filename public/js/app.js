@@ -2189,6 +2189,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "search-component",
   props: ["accion"],
@@ -2204,35 +2208,13 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
-    mes: {
+    retiro: {
       get: function get() {
-        return this.$store.state.filterPublics.mes;
+        return this.$store.state.filterRetiros.query;
       },
       set: function set(value) {
-        this.$store.commit("setfilterPublics", {
-          filter: "mes",
-          value: value
-        });
-      }
-    },
-    user2: {
-      get: function get() {
-        return this.$store.state.filterUsers.user;
-      },
-      set: function set(value) {
-        this.$store.commit("setfilterUsers", {
-          filter: "user",
-          value: value
-        });
-      }
-    },
-    mes2: {
-      get: function get() {
-        return this.$store.state.filterUsers.mes;
-      },
-      set: function set(value) {
-        this.$store.commit("setfilterUsers", {
-          filter: "mes",
+        this.$store.commit("setfilterRetiros", {
+          filter: "query",
           value: value
         });
       }
@@ -2702,6 +2684,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2723,8 +2706,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   mounted: function mounted() {
     this.$store.commit("setSold", this.solds);
+    this.$store.commit("setRetiros", this.retiros);
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["filteredSold"])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["filteredSold", 'filteredRetiros'])),
   methods: {
     bannerChangeCoverPicture: function bannerChangeCoverPicture() {
       document.getElementById("CoverChangeInput").click();
@@ -3881,13 +3865,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "profile-user",
   props: ['user'],
@@ -3936,6 +3913,15 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         console.log(err);
       });
+    },
+    mostrarmodal2: function mostrarmodal2(retiro) {
+      if (retiro) {
+        this.retiroSelected = retiro;
+      }
+
+      setTimeout(function () {
+        $("#check").modal("show");
+      }, 200);
     }
   },
   mounted: function mounted() {
@@ -12293,7 +12279,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".contenedor-botones-profile[data-v-107a6970] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  height: 44px;\n  width: 100%;\n  max-width: 628px;\n  background-color: #2f019b31;\n  border-radius: 12px;\n}\n.btn-profile-tag[data-v-107a6970] {\n  height: 44px;\n  width: 100%;\n  border: none;\n  max-width: 193px;\n  height: 36px;\n  background-color: transparent;\n  border-radius: 8px;\n}\n.active[data-v-107a6970] {\n  height: 44px;\n  width: 100%;\n  border: none;\n  max-width: 193px;\n  height: 36px;\n  background-color: #2f019b83;\n  color: #ffffff;\n  border-radius: 8px;\n}\nsection[data-v-107a6970] {\n  margin-top: 16px;\n}\nsection h3[data-v-107a6970] {\n  font-family: \"Rubik\";\n  font-size: 20px;\n  font-weight: 500;\n  color: #5F01F5;\n}\n.btn-second-tag[data-v-107a6970] {\n  width: 143px;\n  font-family: \"Valera\";\n  color: #0f0426a4;\n  height: 21px;\n  background-color: transparent;\n  border: none;\n}\n.active-2[data-v-107a6970] {\n  line-height: 5px;\n  border-bottom: 2px solid #30019B;\n}\n@media only screen and (max-width: 767px) {\n.contenedor-earrings[data-v-107a6970] {\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    background-color: #FBF9FF;\n    border: 1px solid #b8a7a782;\n    height: 271px;\n}\n.earrings[data-v-107a6970] {\n    flex-basis: 100%;\n    width: 271px;\n    border-bottom: 1px solid #b8a7a782;\n}\n.earrings h4[data-v-107a6970] {\n    font-family: \"Valera\";\n    font-size: 16px;\n    text-align: center;\n    margin-top: 13px;\n    color: #B8A7A7;\n}\n.earrings p[data-v-107a6970] {\n    font-family: \"Valera\";\n    font-size: 20px;\n    margin: 0;\n    width: 100%;\n    text-align: center;\n}\n}\n@media only screen and (min-width: 768px) {\n.contenedor-earrings[data-v-107a6970] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: #FBF9FF;\n    border: 1px solid #b8a7a782;\n    height: 73px;\n}\n.earrings[data-v-107a6970] {\n    flex-basis: calc(33.3% - 15px);\n    border-left: 1px solid #b8a7a782;\n}\n.earrings h4[data-v-107a6970] {\n    font-family: \"Valera\";\n    font-size: 16px;\n    text-align: center;\n    margin: 0;\n    color: #B8A7A7;\n}\n.earrings p[data-v-107a6970] {\n    font-family: \"Valera\";\n    font-size: 20px;\n    margin: 0;\n    width: 100%;\n    text-align: center;\n}\n}\n.contenedor-grid-purshace[data-v-107a6970] {\n  display: flex;\n}\n.card-grid-profile img[data-v-107a6970] {\n  height: 207px;\n  width: 100%;\n  min-width: 251px;\n  border-radius: 8px;\n}\n.card-grid-profile p[data-v-107a6970] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0;\n}\n.card-grid-profile strong[data-v-107a6970] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0;\n}\n.table-bg[data-v-107a6970] {\n  background-color: #0f042613;\n}", ""]);
+exports.push([module.i, ".contenedor-botones-profile[data-v-107a6970] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  height: 44px;\n  width: 100%;\n  max-width: 628px;\n  background-color: #2f019b31;\n  border-radius: 12px;\n}\n.btn-profile-tag[data-v-107a6970] {\n  height: 44px;\n  width: 100%;\n  border: none;\n  max-width: 193px;\n  height: 36px;\n  background-color: transparent;\n  border-radius: 8px;\n}\n.active[data-v-107a6970] {\n  height: 44px;\n  width: 100%;\n  border: none;\n  max-width: 193px;\n  height: 36px;\n  background-color: #2f019b83;\n  color: #ffffff;\n  border-radius: 8px;\n}\nsection[data-v-107a6970] {\n  margin-top: 16px;\n}\nsection h3[data-v-107a6970] {\n  font-family: \"Rubik\";\n  font-size: 20px;\n  font-weight: 500;\n  color: #5F01F5;\n}\n.btn-second-tag[data-v-107a6970] {\n  width: 143px;\n  font-family: \"Valera\";\n  color: #0f0426a4;\n  height: 21px;\n  background-color: transparent;\n  border: none;\n}\n.active-2[data-v-107a6970] {\n  line-height: 5px;\n  border-bottom: 2px solid #30019B;\n}\n@media only screen and (max-width: 767px) {\n.contenedor-earrings[data-v-107a6970] {\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    background-color: #FBF9FF;\n    border: 1px solid #b8a7a782;\n    height: 271px;\n}\n.earrings[data-v-107a6970] {\n    flex-basis: 100%;\n    width: 271px;\n    border-bottom: 1px solid #b8a7a782;\n}\n.earrings h4[data-v-107a6970] {\n    font-family: \"Valera\";\n    font-size: 16px;\n    text-align: center;\n    margin-top: 13px;\n    color: #B8A7A7;\n}\n.earrings p[data-v-107a6970] {\n    font-family: \"Valera\";\n    font-size: 20px;\n    margin: 0;\n    width: 100%;\n    text-align: center;\n}\n}\n@media only screen and (min-width: 768px) {\n.contenedor-earrings[data-v-107a6970] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: #FBF9FF;\n    border: 1px solid #b8a7a782;\n    height: 73px;\n}\n.earrings[data-v-107a6970] {\n    flex-basis: calc(33.3% - 15px);\n    border-left: 1px solid #b8a7a782;\n}\n.earrings h4[data-v-107a6970] {\n    font-family: \"Valera\";\n    font-size: 16px;\n    text-align: center;\n    margin: 0;\n    color: #B8A7A7;\n}\n.earrings p[data-v-107a6970] {\n    font-family: \"Valera\";\n    font-size: 20px;\n    margin: 0;\n    width: 100%;\n    text-align: center;\n}\n}\n.contenedor-grid-purshace[data-v-107a6970] {\n  display: flex;\n}\n.card-grid-profile img[data-v-107a6970] {\n  height: 207px;\n  width: 100%;\n  min-width: 251px;\n  border-radius: 8px;\n}\n.card-grid-profile p[data-v-107a6970] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0;\n}\n.card-grid-profile strong[data-v-107a6970] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0;\n}\n.table-bg[data-v-107a6970] {\n  background-color: #0f042613;\n}\n.updateFoto2[data-v-107a6970] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 250px;\n  border-radius: 5px;\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  background-position: center center;\n}\n.updateFoto strong[data-v-107a6970] {\n  width: 100%;\n  text-align: center;\n}\n.updateFoto2 strong[data-v-107a6970] {\n  width: 100%;\n  text-align: center;\n}\n.user-descripcion[data-v-107a6970] {\n  background-color: #ffffff;\n  width: calc(100% - 10px);\n  border-radius: 8px;\n  height: 150px;\n  margin-bottom: 10px;\n}\n.user-descripcion h6[data-v-107a6970] {\n  font-family: \"Rubik\";\n  font-size: 20px;\n  margin-bottom: 5px !important;\n  margin-left: 15px;\n}\n.user-descripcion strong[data-v-107a6970] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  margin-bottom: 5px !important;\n  margin-left: 15px;\n}\n.user-descripcion p[data-v-107a6970] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  margin-bottom: 5px !important;\n  margin-left: 15px;\n}", ""]);
 
 // exports
 
@@ -66827,34 +66813,63 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "mt-2 col-sm-12 col-md-9 " }, [
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.user,
-            expression: "user"
-          }
-        ],
-        staticClass: "search-comp",
-        attrs: {
-          type: "text",
-          placeholder: "  Search",
-          "aria-label": "Find your creator",
-          "aria-describedby": "basic-addon1"
-        },
-        domProps: { value: _vm.user },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+    _vm.accion === "Solds"
+      ? _c("div", { staticClass: "mt-2 col-sm-12 col-md-9 " }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.user,
+                expression: "user"
+              }
+            ],
+            staticClass: "search-comp",
+            attrs: {
+              type: "text",
+              placeholder: "  Search",
+              "aria-label": "Find your creator",
+              "aria-describedby": "basic-addon1"
+            },
+            domProps: { value: _vm.user },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.user = $event.target.value
+              }
             }
-            _vm.user = $event.target.value
-          }
-        }
-      })
-    ])
+          })
+        ])
+      : _c("div", { staticClass: "mt-2 col-sm-12 col-md-9 " }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.retiro,
+                expression: "retiro"
+              }
+            ],
+            staticClass: "search-comp",
+            attrs: {
+              type: "text",
+              placeholder: "  Search",
+              "aria-label": "Find your creator",
+              "aria-describedby": "basic-addon1"
+            },
+            domProps: { value: _vm.retiro },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.retiro = $event.target.value
+              }
+            }
+          })
+        ])
   ])
 }
 var staticRenderFns = []
@@ -67303,7 +67318,9 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("Search"),
+      _vm.secondtag === "Solds"
+        ? _c("Search", { attrs: { accion: "Solds" } })
+        : _c("Search"),
       _vm._v(" "),
       _c(
         "div",
@@ -67391,7 +67408,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "tbody",
-                _vm._l(_vm.retiros, function(grid, index) {
+                _vm._l(_vm.filteredRetiros, function(grid, index) {
                   return _c("tr", { key: index }, [
                     _c("td", [_vm._v(_vm._s(grid.created_at))]),
                     _vm._v(" "),
@@ -69543,7 +69560,7 @@ var render = function() {
             ? _c(
                 "table",
                 {
-                  staticClass: "table table-responsive",
+                  staticClass: "table table-responsive-sm",
                   staticStyle: { "margin-top": "25px" }
                 },
                 [
@@ -69574,7 +69591,7 @@ var render = function() {
             ? _c(
                 "table",
                 {
-                  staticClass: "table table-responsive",
+                  staticClass: "table table-responsive-sm",
                   staticStyle: { "margin-top": "25px" }
                 },
                 [
@@ -69727,7 +69744,23 @@ var render = function() {
                   return _c("tr", { key: index }, [
                     _c("td", [_vm._v(_vm._s(grid.created_at))]),
                     _vm._v(" "),
-                    _vm._m(4, true),
+                    grid.estado === "verificado"
+                      ? _c("td", [
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.mostrarmodal2(grid)
+                                }
+                              }
+                            },
+                            [_vm._v("View Detail")]
+                          )
+                        ])
+                      : _c("td"),
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(grid.estado))]),
                     _vm._v(" "),
@@ -69759,7 +69792,7 @@ var render = function() {
           { staticClass: "modal-dialog", attrs: { role: "document" } },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(5),
+              _vm._m(4),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c(
@@ -69892,39 +69925,11 @@ var render = function() {
                     [
                       _c("div", { staticClass: "updateFoto2" }),
                       _vm._v(" "),
-                      _vm._m(6)
+                      _vm._m(5)
                     ]
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("div", { staticClass: "user-descripcion" }, [
-                      _c("h6", [_vm._v("User Description")]),
-                      _vm._v(" "),
-                      _c("p", [
-                        _c("strong", [_vm._v("User:")]),
-                        _vm._v(" " + _vm._s(_vm.retiroSelected.bank.user.name))
-                      ]),
-                      _vm._v(" "),
-                      _c("p", [
-                        _c("strong", [_vm._v("Email User:")]),
-                        _vm._v(" " + _vm._s(_vm.retiroSelected.bank.user.email))
-                      ]),
-                      _vm._v(" "),
-                      _c("p", [
-                        _c("strong", [_vm._v("Total Available:")]),
-                        _vm._v(
-                          " " + _vm._s(_vm.retiroSelected.bank.available) + "$"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("p", [
-                        _c("strong", [_vm._v("Total Withdrawn:")]),
-                        _vm._v(
-                          " " + _vm._s(_vm.retiroSelected.bank.withdrawn) + "$"
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
                     _c("div", { staticClass: "user-descripcion" }, [
                       _c("h6", [_vm._v("Request Description")]),
                       _vm._v(" "),
@@ -70018,14 +70023,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Amount")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("a", { attrs: { href: "#" } }, [_vm._v("View Detail")])
     ])
   },
   function() {
@@ -84144,6 +84141,10 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
     sold: [],
     filterSold: {
       query: ""
+    },
+    retiros: [],
+    filterRetiros: {
+      query: ""
     }
   },
   mutations: {
@@ -84186,6 +84187,12 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
     },
     setfilterSold: function setfilterSold(state, data) {
       state.filterSold[data['filter']] = data.value;
+    },
+    setRetiros: function setRetiros(state, retiros) {
+      state.retiros = retiros;
+    },
+    setfilterRetiros: function setfilterRetiros(state, data) {
+      state.filterRetiros[data['filter']] = data.value;
     }
   },
   getters: {
@@ -84267,6 +84274,17 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
       if (state.filterSales.query.length > 1) {
         sales = sales.filter(function (r) {
           return r.transaction_id.toLowerCase().includes(state.filterSold.query.toLowerCase());
+        });
+      }
+
+      return sales;
+    },
+    filteredRetiros: function filteredRetiros(state) {
+      var sales = state.retiros;
+
+      if (state.filterRetiros.query.length > 1) {
+        sales = sales.filter(function (r) {
+          return r.numero_de_comprobante.toLowerCase().includes(state.filterRetiros.query.toLowerCase());
         });
       }
 

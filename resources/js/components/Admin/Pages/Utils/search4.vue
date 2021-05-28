@@ -1,12 +1,16 @@
 <template>
  
         <div class="row">
-         <div class="mt-2 col-sm-12 col-md-9 ">
+         <div class="mt-2 col-sm-12 col-md-9 " v-if="accion==='Solds'">
                     <input  v-model="user" type="text" class="search-comp" placeholder="  Search" aria-label="Find your creator" aria-describedby="basic-addon1">
                
                                           
          </div>
-      
+          <div class="mt-2 col-sm-12 col-md-9 " v-else>
+                    <input  v-model="retiro" type="text" class="search-comp" placeholder="  Search" aria-label="Find your creator" aria-describedby="basic-addon1">
+               
+                                          
+         </div>
        
         </div>
     
@@ -29,39 +33,18 @@
                 });
             },
             },
-            mes: {
+             retiro: {
             get() {
-                return this.$store.state.filterPublics.mes;
+                return this.$store.state.filterRetiros.query;
             },
             set(value) {
-                this.$store.commit("setfilterPublics", {
-                filter: "mes",
+                this.$store.commit("setfilterRetiros", {
+                filter: "query",
                 value,
                 });
             },
             },
-            user2: {
-            get() {
-                return this.$store.state.filterUsers.user;
-            },
-            set(value) {
-                this.$store.commit("setfilterUsers", {
-                filter: "user",
-                value,
-                });
-            },
-            },
-            mes2: {
-            get() {
-                return this.$store.state.filterUsers.mes;
-            },
-            set(value) {
-                this.$store.commit("setfilterUsers", {
-                filter: "mes",
-                value,
-                });
-            },
-            },
+          
         },
     }
 </script>
