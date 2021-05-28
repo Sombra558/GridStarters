@@ -101,7 +101,8 @@
                     }
                     this.bloqueSelected= {
                         fila:fila,
-                        columna:columna.numero
+                        columna:columna.numero,
+                        matriz_id:this.grip.id
                     }
                     //origem
                     //document.querySelector(`#bloque-${this.bloqueSelected.fila}-${this.bloqueSelected.columna}`).style.backgroundColor = '#D04141';
@@ -111,7 +112,8 @@
                         for (let j = 0; j < this.bloqueconfig.columnasize; j++) {
                             bloquetemp={
                                 fila:this.bloqueSelected.fila +i,
-                                columna: this.bloqueSelected.columna+j
+                                columna: this.bloqueSelected.columna+j,
+                                matriz_id:this.grip.id
                             }
                             var tempvalidadebloque=document.querySelector(`#bloque-${this.bloqueSelected.fila +i}-${this.bloqueSelected.columna+j}`);
                             if (tempvalidadebloque!=null) {

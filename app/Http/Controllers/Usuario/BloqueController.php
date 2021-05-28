@@ -20,6 +20,7 @@ class BloqueController extends Controller
     {
         $cart = json_decode($request['cart']);
         $matriz=Grip::find($request['matriz_id']);
+    
         $aumentox=600/$request['column'];
         $aumentoy=600/$request['fila'];
         $imageorigin = $request->file('img');
@@ -39,7 +40,7 @@ class BloqueController extends Controller
                 'size' =>  $request['size'],
                 'codigo' => $randomString2,
                 'img' => $pathorigin,
-                'matriz_id' => $request['matriz_id'],
+                'matriz_id' => $matriz->id,
                 'user_id' => Auth::user()->id,
             ]);   
          }

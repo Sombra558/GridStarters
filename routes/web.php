@@ -12,3 +12,7 @@ Route::get('/confirm-payment', 'HomeController@payment')->name('confirm-payment'
 Route::post('/create-grid', 'Usuario\GridController@store')->name('grid-create');
 Route::post('/crear-bloque', 'Usuario\BloqueController@store2')->name('grid-create');
 Route::get('/home/my/{nombreURL}', 'HomeController@showgrip')->name('my-grip');
+
+//solicitud
+
+Route::post('/home/solicitud', 'Usuario\SolicitudRetiroControlle@store')->name('solicitud-create');

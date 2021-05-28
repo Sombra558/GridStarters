@@ -27,7 +27,7 @@ class HomeController extends Controller
         $user= Auth::user()->load(['matriz'=>function($q){
             return $q->with(['bloques']);
         },'bank'=>function($q){
-            return $q->with(['registros']);
+            return $q->with(['registros','retiros']);
         },'history']);
         return view('home',compact('user'));
     }

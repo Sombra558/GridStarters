@@ -2627,14 +2627,95 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "admin-retiros",
-  props: ['blocks', 'grids', 'solds'],
+  props: ['blocks', 'grids', 'solds', 'retiros'],
   data: function data() {
     return {
-      secondtag: "Solds"
+      secondtag: "Solds",
+      retiroSelected: null,
+      lastFile: null,
+      estadoprocess: false,
+      grip: {
+        src: null
+      }
     };
   },
   components: {
@@ -2645,11 +2726,55 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["filteredSold"])),
   methods: {
+    bannerChangeCoverPicture: function bannerChangeCoverPicture() {
+      document.getElementById("CoverChangeInput").click();
+    },
+    bannerChangeProfPicture: function bannerChangeProfPicture() {
+      document.getElementById("ProfImgChangeInput").click();
+    },
+    fileSelected: function fileSelected(evt) {
+      this.lastFile = evt.target.files[0];
+      this.grip.src = URL.createObjectURL(this.lastFile);
+      this.$refs.preview.src = this.imageURL;
+    },
     seleccionar: function seleccionar(tag) {
       this.selectedtag = tag;
     },
     seleccionardos: function seleccionardos(tag) {
       this.secondtag = tag;
+    },
+    mostrarmodal: function mostrarmodal(retiro) {
+      if (retiro) {
+        this.retiroSelected = retiro;
+      }
+
+      setTimeout(function () {
+        $("#checkdetail").modal("show");
+      }, 200);
+    },
+    mostrarmodal2: function mostrarmodal2(retiro) {
+      if (retiro) {
+        this.retiroSelected = retiro;
+      }
+
+      setTimeout(function () {
+        $("#check").modal("show");
+      }, 200);
+    },
+    verificar: function verificar() {
+      var _this = this;
+
+      this.estadoprocess = true;
+      var form = $("#request-form")[0];
+      var formulario = new FormData(form);
+      var ruta = "/admin/verificar/" + this.retiroSelected.id;
+      axios.post(ruta, formulario).then(function (res) {
+        window.location.reload();
+        _this.estadoprocess = false;
+      })["catch"](function (err) {
+        _this.estadoprocess = false;
+        console.log(err);
+      });
     }
   }
 });
@@ -3285,7 +3410,8 @@ __webpack_require__.r(__webpack_exports__);
 
         this.bloqueSelected = {
           fila: fila,
-          columna: columna.numero
+          columna: columna.numero,
+          matriz_id: this.grip.id
         }; //origem
         //document.querySelector(`#bloque-${this.bloqueSelected.fila}-${this.bloqueSelected.columna}`).style.backgroundColor = '#D04141';
 
@@ -3296,7 +3422,8 @@ __webpack_require__.r(__webpack_exports__);
           for (var _j = 0; _j < this.bloqueconfig.columnasize; _j++) {
             bloquetemp = {
               fila: this.bloqueSelected.fila + _i,
-              columna: this.bloqueSelected.columna + _j
+              columna: this.bloqueSelected.columna + _j,
+              matriz_id: this.grip.id
             };
             var tempvalidadebloque = document.querySelector("#bloque-".concat(this.bloqueSelected.fila + _i, "-").concat(this.bloqueSelected.columna + _j));
 
@@ -3698,6 +3825,69 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "profile-user",
   props: ['user'],
@@ -3705,7 +3895,13 @@ __webpack_require__.r(__webpack_exports__);
     return {
       selectedtag: "mygrid",
       secondtag: "earnings",
-      mygrids: []
+      mygrids: [],
+      estadoproceso: false,
+      solicitud: {
+        email: "",
+        amount: 0.00
+      },
+      retiroSelected: null
     };
   },
   computed: {
@@ -3727,6 +3923,19 @@ __webpack_require__.r(__webpack_exports__);
     },
     seleccionardos: function seleccionardos(tag) {
       this.secondtag = tag;
+    },
+    solicitarretiro: function solicitarretiro() {
+      this.estadoproceso = true;
+      var url = "/home/solicitud";
+      axios.post(url, {
+        email: this.solicitud.email,
+        amount: this.solicitud.amount,
+        user_banks_id: this.user.bank[0].id
+      }).then(function (result) {
+        window.location.reload();
+      })["catch"](function (err) {
+        console.log(err);
+      });
     }
   },
   mounted: function mounted() {
@@ -7158,6 +7367,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post(ruta, formulario).then(function (res) {
         localStorage.clear();
         window.location = res.data;
+        _this2.estadoprocess = false;
       })["catch"](function (err) {
         _this2.estadoprocess = false;
         console.log(err);
@@ -12007,7 +12217,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".subtitleadmin[data-v-1f282328] {\n  font-family: \"Rubik\";\n  font-size: 20px;\n  color: #5F01F5;\n}\n.home-card[data-v-1f282328] {\n  height: 200px;\n  width: 100%;\n  flex-direction: column;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background: linear-gradient(90deg, #30019b 0%, #5f01f5 100%);\n  border-radius: 12px;\n}\n.home-card strong[data-v-1f282328] {\n  font-family: \"Valera\";\n  font-size: 72px;\n  color: #ffffff;\n}\n.home-card span[data-v-1f282328] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  color: #ffffff;\n}\n.btn-date[data-v-1f282328] {\n  background-color: #FFFFFF;\n  margin-top: 10px;\n  border-radius: 8px;\n  height: 30px;\n  font-size: 14px;\n  width: 118px;\n  color: #0f042680;\n}\n.flexi[data-v-1f282328] {\n  display: flex;\n  justify-content: flex-end;\n  width: calc(100% - 15px);\n  align-items: center;\n}\n.contenedor-botones-profile[data-v-1f282328] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  height: 44px;\n  width: 100%;\n  max-width: 628px;\n  background-color: #2f019b31;\n  border-radius: 12px;\n}\n.btn-profile-tag[data-v-1f282328] {\n  height: 44px;\n  width: 100%;\n  border: none;\n  max-width: 193px;\n  height: 36px;\n  background-color: transparent;\n  border-radius: 8px;\n}\n.active[data-v-1f282328] {\n  height: 44px;\n  width: 100%;\n  border: none;\n  max-width: 193px;\n  height: 36px;\n  background-color: #2f019b83;\n  color: #ffffff;\n  border-radius: 8px;\n}\nsection[data-v-1f282328] {\n  margin-top: 16px;\n}\nsection h3[data-v-1f282328] {\n  font-family: \"Rubik\";\n  font-size: 20px;\n  font-weight: 500;\n  color: #5F01F5;\n}\n.btn-second-tag[data-v-1f282328] {\n  width: 143px;\n  font-family: \"Valera\";\n  color: #0f0426a4;\n  height: 21px;\n  background-color: transparent;\n  border: none;\n}\n.active-2[data-v-1f282328] {\n  line-height: 5px;\n  border-bottom: 2px solid #30019B;\n}\n@media only screen and (max-width: 767px) {\n.contenedor-earrings[data-v-1f282328] {\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    background-color: #FBF9FF;\n    border: 1px solid #b8a7a782;\n    height: 271px;\n}\n.earrings[data-v-1f282328] {\n    flex-basis: 100%;\n    width: 271px;\n    border-bottom: 1px solid #b8a7a782;\n}\n.earrings h4[data-v-1f282328] {\n    font-family: \"Valera\";\n    font-size: 16px;\n    text-align: center;\n    margin-top: 13px;\n    color: #B8A7A7;\n}\n.earrings p[data-v-1f282328] {\n    font-family: \"Valera\";\n    font-size: 20px;\n    margin: 0;\n    width: 100%;\n    text-align: center;\n}\n}\n@media only screen and (min-width: 768px) {\n.contenedor-earrings[data-v-1f282328] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: #FBF9FF;\n    border: 1px solid #b8a7a782;\n    height: 73px;\n}\n.earrings[data-v-1f282328] {\n    flex-basis: calc(33.3% - 15px);\n    border-left: 1px solid #b8a7a782;\n}\n.earrings h4[data-v-1f282328] {\n    font-family: \"Valera\";\n    font-size: 16px;\n    text-align: center;\n    margin: 0;\n    color: #B8A7A7;\n}\n.earrings p[data-v-1f282328] {\n    font-family: \"Valera\";\n    font-size: 20px;\n    margin: 0;\n    width: 100%;\n    text-align: center;\n}\n}\n.contenedor-grid-purshace[data-v-1f282328] {\n  display: flex;\n}\n.card-grid-profile img[data-v-1f282328] {\n  height: 207px;\n  width: 100%;\n  min-width: 251px;\n  border-radius: 8px;\n}\n.card-grid-profile p[data-v-1f282328] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0;\n}\n.card-grid-profile strong[data-v-1f282328] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0;\n}\n.table-bg[data-v-1f282328] {\n  background-color: #0f042613;\n}", ""]);
+exports.push([module.i, ".subtitleadmin[data-v-1f282328] {\n  font-family: \"Rubik\";\n  font-size: 20px;\n  color: #5F01F5;\n}\n.home-card[data-v-1f282328] {\n  height: 200px;\n  width: 100%;\n  flex-direction: column;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background: linear-gradient(90deg, #30019b 0%, #5f01f5 100%);\n  border-radius: 12px;\n}\n.home-card strong[data-v-1f282328] {\n  font-family: \"Valera\";\n  font-size: 72px;\n  color: #ffffff;\n}\n.home-card span[data-v-1f282328] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  color: #ffffff;\n}\n.btn-date[data-v-1f282328] {\n  background-color: #FFFFFF;\n  margin-top: 10px;\n  border-radius: 8px;\n  height: 30px;\n  font-size: 14px;\n  width: 118px;\n  color: #0f042680;\n}\n.flexi[data-v-1f282328] {\n  display: flex;\n  justify-content: flex-end;\n  width: calc(100% - 15px);\n  align-items: center;\n}\n.contenedor-botones-profile[data-v-1f282328] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  height: 44px;\n  width: 100%;\n  max-width: 628px;\n  background-color: #2f019b31;\n  border-radius: 12px;\n}\n.btn-profile-tag[data-v-1f282328] {\n  height: 44px;\n  width: 100%;\n  border: none;\n  max-width: 193px;\n  height: 36px;\n  background-color: transparent;\n  border-radius: 8px;\n}\n.active[data-v-1f282328] {\n  height: 44px;\n  width: 100%;\n  border: none;\n  max-width: 193px;\n  height: 36px;\n  background-color: #2f019b83;\n  color: #ffffff;\n  border-radius: 8px;\n}\nsection[data-v-1f282328] {\n  margin-top: 16px;\n}\nsection h3[data-v-1f282328] {\n  font-family: \"Rubik\";\n  font-size: 20px;\n  font-weight: 500;\n  color: #5F01F5;\n}\n.btn-second-tag[data-v-1f282328] {\n  width: 143px;\n  font-family: \"Valera\";\n  color: #0f0426a4;\n  height: 21px;\n  background-color: transparent;\n  border: none;\n}\n.active-2[data-v-1f282328] {\n  line-height: 5px;\n  border-bottom: 2px solid #30019B;\n}\n@media only screen and (max-width: 767px) {\n.contenedor-earrings[data-v-1f282328] {\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    background-color: #FBF9FF;\n    border: 1px solid #b8a7a782;\n    height: 271px;\n}\n.earrings[data-v-1f282328] {\n    flex-basis: 100%;\n    width: 271px;\n    border-bottom: 1px solid #b8a7a782;\n}\n.earrings h4[data-v-1f282328] {\n    font-family: \"Valera\";\n    font-size: 16px;\n    text-align: center;\n    margin-top: 13px;\n    color: #B8A7A7;\n}\n.earrings p[data-v-1f282328] {\n    font-family: \"Valera\";\n    font-size: 20px;\n    margin: 0;\n    width: 100%;\n    text-align: center;\n}\n}\n@media only screen and (min-width: 768px) {\n.contenedor-earrings[data-v-1f282328] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: #FBF9FF;\n    border: 1px solid #b8a7a782;\n    height: 73px;\n}\n.earrings[data-v-1f282328] {\n    flex-basis: calc(33.3% - 15px);\n    border-left: 1px solid #b8a7a782;\n}\n.earrings h4[data-v-1f282328] {\n    font-family: \"Valera\";\n    font-size: 16px;\n    text-align: center;\n    margin: 0;\n    color: #B8A7A7;\n}\n.earrings p[data-v-1f282328] {\n    font-family: \"Valera\";\n    font-size: 20px;\n    margin: 0;\n    width: 100%;\n    text-align: center;\n}\n}\n.contenedor-grid-purshace[data-v-1f282328] {\n  display: flex;\n}\n.card-grid-profile img[data-v-1f282328] {\n  height: 207px;\n  width: 100%;\n  min-width: 251px;\n  border-radius: 8px;\n}\n.card-grid-profile p[data-v-1f282328] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0;\n}\n.card-grid-profile strong[data-v-1f282328] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0;\n}\n.table-bg[data-v-1f282328] {\n  background-color: #0f042613;\n}\n.btn-attach[data-v-1f282328] {\n  background-color: #5F01F5;\n  height: 28px;\n  width: 136px;\n  border-radius: 4px;\n  color: #ffffff;\n}\n.updateFoto[data-v-1f282328] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 89px;\n  border-radius: 5px;\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  background-position: center center;\n}\n.updateFoto2[data-v-1f282328] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 250px;\n  border-radius: 5px;\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  background-position: center center;\n}\n.updateFoto strong[data-v-1f282328] {\n  width: 100%;\n  text-align: center;\n}\n.updateFoto2 strong[data-v-1f282328] {\n  width: 100%;\n  text-align: center;\n}\n.user-descripcion[data-v-1f282328] {\n  background-color: #ffffff;\n  width: calc(100% - 10px);\n  border-radius: 8px;\n  height: 150px;\n  margin-bottom: 10px;\n}\n.user-descripcion h6[data-v-1f282328] {\n  font-family: \"Rubik\";\n  font-size: 20px;\n  margin-bottom: 5px !important;\n  margin-left: 15px;\n}\n.user-descripcion strong[data-v-1f282328] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  margin-bottom: 5px !important;\n  margin-left: 15px;\n}\n.user-descripcion p[data-v-1f282328] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  margin-bottom: 5px !important;\n  margin-left: 15px;\n}", ""]);
 
 // exports
 
@@ -67176,7 +67386,270 @@ var render = function() {
               staticClass: "table table-responsive-sm",
               staticStyle: { "margin-top": "25px" }
             },
-            [_vm._m(2), _vm._v(" "), _c("tbody")]
+            [
+              _vm._m(2),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.retiros, function(grid, index) {
+                  return _c("tr", { key: index }, [
+                    _c("td", [_vm._v(_vm._s(grid.created_at))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(grid.bank.user.name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(grid.email))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(grid.numero_de_comprobante))]),
+                    _vm._v(" "),
+                    grid.estado === "verificado"
+                      ? _c("td", [
+                          _c(
+                            "a",
+                            {
+                              staticStyle: { color: "#5F01F5" },
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.mostrarmodal2(grid)
+                                }
+                              }
+                            },
+                            [_vm._v("View")]
+                          )
+                        ])
+                      : _c("td", [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-attach",
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.mostrarmodal(grid)
+                                }
+                              }
+                            },
+                            [_vm._v("Attach voucher")]
+                          )
+                        ])
+                  ])
+                }),
+                0
+              )
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.retiroSelected
+        ? _c(
+            "div",
+            {
+              staticClass: "modal fade",
+              attrs: {
+                id: "checkdetail",
+                tabindex: "-1",
+                role: "dialog",
+                "aria-labelledby": "exampleModalLongTitle",
+                "aria-hidden": "true"
+              }
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "modal-dialog", attrs: { role: "document" } },
+                [
+                  _c("div", { staticClass: "modal-content" }, [
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-body" }, [
+                      _c(
+                        "form",
+                        {
+                          attrs: {
+                            id: "request-form",
+                            method: "post",
+                            enctype: "multipart/form-data"
+                          },
+                          on: {
+                            submit: function($event) {
+                              $event.preventDefault()
+                              return _vm.verificar()
+                            }
+                          }
+                        },
+                        [
+                          _c("div", { staticClass: "form-groud" }, [
+                            _c("label", { attrs: { for: "img-grip" } }, [
+                              _vm._v("Upload your voucher")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "updateFoto",
+                                style: _vm.grip.src
+                                  ? "background-image: url(" +
+                                    _vm.grip.src +
+                                    ");"
+                                  : "background-color: #b7b4be4f;",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.bannerChangeProfPicture()
+                                  }
+                                }
+                              },
+                              [
+                                _c("div"),
+                                _vm._v(" "),
+                                _c(
+                                  "strong",
+                                  { staticStyle: { color: "grey!important" } },
+                                  [_vm._v("Upload File")]
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              staticClass: "d-block",
+                              staticStyle: { opacity: "0" },
+                              attrs: {
+                                id: "ProfImgChangeInput",
+                                name: "img",
+                                type: "file",
+                                accept: "image/*"
+                              },
+                              on: { change: _vm.fileSelected }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(4),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "flexi-btn-form" }, [
+                            _c("input", {
+                              staticClass: "btn btn-grip",
+                              staticStyle: { "margin-top": "65px" },
+                              attrs: {
+                                disabled: _vm.estadoprocess,
+                                type: "submit",
+                                value: "Save"
+                              }
+                            })
+                          ])
+                        ]
+                      )
+                    ])
+                  ])
+                ]
+              )
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.retiroSelected
+        ? _c(
+            "div",
+            {
+              staticClass: "modal fade",
+              attrs: {
+                id: "check",
+                tabindex: "-1",
+                role: "dialog",
+                "aria-labelledby": "exampleModalLongTitle",
+                "aria-hidden": "true"
+              }
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "modal-dialog", attrs: { role: "document" } },
+                [
+                  _c("div", { staticClass: "modal-content" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "modal-header",
+                        style: _vm.retiroSelected.img_deposito
+                          ? "background-image: url(/storage/" +
+                            _vm.retiroSelected.img_deposito +
+                            ");"
+                          : "background-color: #b7b4be4f;"
+                      },
+                      [
+                        _c("div", { staticClass: "updateFoto2" }),
+                        _vm._v(" "),
+                        _vm._m(5)
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-body" }, [
+                      _c("div", { staticClass: "user-descripcion" }, [
+                        _c("h6", [_vm._v("User Description")]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _c("strong", [_vm._v("User:")]),
+                          _vm._v(
+                            " " + _vm._s(_vm.retiroSelected.bank.user.name)
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _c("strong", [_vm._v("Email User:")]),
+                          _vm._v(
+                            " " + _vm._s(_vm.retiroSelected.bank.user.email)
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _c("strong", [_vm._v("Total Available:")]),
+                          _vm._v(
+                            " " +
+                              _vm._s(_vm.retiroSelected.bank.available) +
+                              "$"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _c("strong", [_vm._v("Total Withdrawn:")]),
+                          _vm._v(
+                            " " +
+                              _vm._s(_vm.retiroSelected.bank.withdrawn) +
+                              "$"
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "user-descripcion" }, [
+                        _c("h6", [_vm._v("Request Description")]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _c("strong", [_vm._v("Transaction's ID:")]),
+                          _vm._v(
+                            " " +
+                              _vm._s(_vm.retiroSelected.numero_de_comprobante)
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _c("strong", [_vm._v("Amount:")]),
+                          _vm._v(" " + _vm._s(_vm.retiroSelected.amount) + "$")
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _c("strong", [_vm._v("Request Date:")]),
+                          _vm._v(" " + _vm._s(_vm.retiroSelected.created_at))
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _c("strong", [_vm._v("Verify Date:")]),
+                          _vm._v(" " + _vm._s(_vm.retiroSelected.updated_at))
+                        ])
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            ]
           )
         : _vm._e()
     ],
@@ -67241,9 +67714,70 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Email")]),
         _vm._v(" "),
+        _c("th", [_vm._v("Transaction's ID")]),
+        _vm._v(" "),
         _c("th", [_vm._v("Payment data")])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLongTitle" } },
+        [_vm._v("Detalle")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-groud" }, [
+      _c("label", { attrs: { for: "img-grip" } }, [_vm._v("Transaction's ID")]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          name: "numero_de_comprobante",
+          placeholder: "Transaction's ID"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
   }
 ]
 render._withStripped = true
@@ -69099,6 +69633,8 @@ var render = function() {
             "svg",
             {
               attrs: {
+                "data-toggle": "modal",
+                "data-target": "#exampleModalLong",
                 width: "181",
                 height: "43",
                 viewBox: "0 0 181 43",
@@ -69179,7 +69715,7 @@ var render = function() {
           _c(
             "table",
             {
-              staticClass: "table table-responsive",
+              staticClass: "table table-responsive-sm",
               staticStyle: { "margin-top": "25px" }
             },
             [
@@ -69187,11 +69723,13 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "tbody",
-                _vm._l(_vm.user.bank[0].registros, function(grid, index) {
+                _vm._l(_vm.user.bank[0].retiros, function(grid, index) {
                   return _c("tr", { key: index }, [
                     _c("td", [_vm._v(_vm._s(grid.created_at))]),
                     _vm._v(" "),
                     _vm._m(4, true),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(grid.estado))]),
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(grid.amount) + "$")])
                   ])
@@ -69201,6 +69739,223 @@ var render = function() {
             ]
           )
         ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "exampleModalLong",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalLongTitle",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(5),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c(
+                  "form",
+                  {
+                    attrs: {
+                      id: "form-comprobante",
+                      method: "POST",
+                      enctype: "multipart/form-data"
+                    },
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.solicitarretiro()
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "email" } }, [
+                        _vm._v("Email")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.solicitud.email,
+                            expression: "solicitud.email"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "email" },
+                        domProps: { value: _vm.solicitud.email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.solicitud,
+                              "email",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "email" } }, [
+                        _vm._v("Amount")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.solicitud.amount,
+                            expression: "solicitud.amount"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "number", name: "amount" },
+                        domProps: { value: _vm.solicitud.amount },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.solicitud,
+                              "amount",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      staticClass: "btn btn-upgrap",
+                      attrs: { type: "submit", disabled: _vm.estadoproceso },
+                      domProps: {
+                        value: _vm.estadoproceso
+                          ? "Procesando"
+                          : "Solicitar Retiro"
+                      }
+                    })
+                  ]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _vm.retiroSelected
+      ? _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "check",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLongTitle",
+              "aria-hidden": "true"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "modal-dialog", attrs: { role: "document" } },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal-header",
+                      style: _vm.retiroSelected.img_deposito
+                        ? "background-image: url(/storage/" +
+                          _vm.retiroSelected.img_deposito +
+                          ");"
+                        : "background-color: #b7b4be4f;"
+                    },
+                    [
+                      _c("div", { staticClass: "updateFoto2" }),
+                      _vm._v(" "),
+                      _vm._m(6)
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c("div", { staticClass: "user-descripcion" }, [
+                      _c("h6", [_vm._v("User Description")]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c("strong", [_vm._v("User:")]),
+                        _vm._v(" " + _vm._s(_vm.retiroSelected.bank.user.name))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c("strong", [_vm._v("Email User:")]),
+                        _vm._v(" " + _vm._s(_vm.retiroSelected.bank.user.email))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c("strong", [_vm._v("Total Available:")]),
+                        _vm._v(
+                          " " + _vm._s(_vm.retiroSelected.bank.available) + "$"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c("strong", [_vm._v("Total Withdrawn:")]),
+                        _vm._v(
+                          " " + _vm._s(_vm.retiroSelected.bank.withdrawn) + "$"
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "user-descripcion" }, [
+                      _c("h6", [_vm._v("Request Description")]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c("strong", [_vm._v("Transaction's ID:")]),
+                        _vm._v(
+                          " " + _vm._s(_vm.retiroSelected.numero_de_comprobante)
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c("strong", [_vm._v("Amount:")]),
+                        _vm._v(" " + _vm._s(_vm.retiroSelected.amount) + "$")
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c("strong", [_vm._v("Request Date:")]),
+                        _vm._v(" " + _vm._s(_vm.retiroSelected.created_at))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c("strong", [_vm._v("Verify Date:")]),
+                        _vm._v(" " + _vm._s(_vm.retiroSelected.updated_at))
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ]
+        )
       : _vm._e()
   ])
 }
@@ -69259,6 +70014,8 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Payment voucher")]),
         _vm._v(" "),
+        _c("th", [_vm._v("Status")]),
+        _vm._v(" "),
         _c("th", [_vm._v("Amount")])
       ])
     ])
@@ -69270,6 +70027,48 @@ var staticRenderFns = [
     return _c("td", [
       _c("a", { attrs: { href: "#" } }, [_vm._v("View Detail")])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLongTitle" } },
+        [_vm._v("Cambiar Ruta")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
   }
 ]
 render._withStripped = true
@@ -69327,7 +70126,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("input", {
                   attrs: { type: "hidden", name: "matriz_id" },
-                  domProps: { value: _vm.user.matriz[0].id }
+                  domProps: { value: _vm.bloque[0].matriz_id }
                 }),
                 _vm._v(" "),
                 _c("input", {

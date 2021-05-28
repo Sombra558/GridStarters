@@ -58,21 +58,96 @@
                     <th>Date</th>
                     <th>User</th>
                     <th>Email</th>
+                    <th>Transaction's ID</th>
                     <th>Payment data</th>
              
                 </tr>
                 </thead>
                 <tbody>
-                <!--<tr v-for="(history,index) in user.history" :key="index">
-                    <td>{{history.created_at}}</td>
-                    <td>{{history.descripcion}}</td>
-                    <td></td>
-                    <td>Paypal</td>
-                    <td>{{history.amount}}$</td>
-                </tr>-->
+                     <tr v-for="(grid,index) in retiros" :key="index">
+                        <td>{{grid.created_at}}</td>
+                        <td>{{grid.bank.user.name}}</td>
+                        <td>{{grid.email}}</td>
+                          <td>{{grid.numero_de_comprobante}}</td>
+                        <td v-if="grid.estado==='verificado'"><a style="color:#5F01F5;" href="#" @click.prevent="mostrarmodal2(grid)">View</a></td>
+                        <td v-else><button class="btn btn-attach" @click.prevent="mostrarmodal(grid)">Attach voucher</button></td>
+                    </tr>
                
                 </tbody>
             </table>
+            <div v-if="retiroSelected" class="modal fade" id="checkdetail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Detalle</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form @submit.prevent="verificar()" id="request-form" method="post" enctype="multipart/form-data">
+                                   
+                                    <div class="form-groud">
+                                        <label for="img-grip">Upload your voucher</label>
+                                            <div :style="grip.src ? 'background-image: url('+grip.src+');' : 'background-color: #b7b4be4f;'" @click="bannerChangeProfPicture()" class="updateFoto">
+                                                    <div>
+                                                        
+                                                    </div>
+                                            <strong style="color:grey!important">Upload File</strong>
+                                            
+                                            </div>
+                                        <input style="opacity:0" class="d-block" id="ProfImgChangeInput" name="img" type="file" accept="image/*" @change="fileSelected">
+                                    </div>
+                                    <div class="form-groud">
+                                        <label for="img-grip">Transaction's ID</label>
+                                        <input type="text" class="form-control" name="numero_de_comprobante" placeholder="Transaction's ID">
+                                           
+                                    </div>
+                                   
+                                    <div class="flexi-btn-form">
+                                        <input :disabled="estadoprocess" style="margin-top:65px" class="btn btn-grip" type="submit" value="Save">
+                                   
+                                    </div>
+                                </form>
+                            </div>
+
+                            </div>
+                        </div>
+                </div>
+                 <div v-if="retiroSelected" class="modal fade" id="check" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div :style="retiroSelected.img_deposito ? 'background-image: url(/storage/'+retiroSelected.img_deposito+');' : 'background-color: #b7b4be4f;'" class="modal-header">
+                                 <div class="updateFoto2" ></div>
+                               
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                
+                                <div class="user-descripcion">
+                                    <h6>User Description</h6>
+                                    <p><strong>User:</strong> {{retiroSelected.bank.user.name}}</p>
+                                    <p><strong>Email User:</strong> {{retiroSelected.bank.user.email}}</p>
+                                    <p><strong>Total Available:</strong> {{retiroSelected.bank.available}}$</p>
+                                    <p><strong>Total Withdrawn:</strong> {{retiroSelected.bank.withdrawn}}$</p>
+                                  
+                                </div>
+                                 <div class="user-descripcion"> 
+                                    <h6 >Request Description</h6>
+                                    <p><strong>Transaction's ID:</strong> {{retiroSelected.numero_de_comprobante}}</p>
+                                    <p><strong>Amount:</strong> {{retiroSelected.amount}}$</p>
+                                     <p><strong>Request Date:</strong> {{retiroSelected.created_at}}</p>
+                                     <p><strong>Verify Date:</strong> {{retiroSelected.updated_at}}</p>
+                                  
+                                </div>
+                                
+                            </div>
+
+                            </div>
+                        </div>
+                </div>
     </div>
     
 </template>
@@ -82,10 +157,16 @@ import { mapGetters } from "vuex";
 import Search from './Utils/search4';
     export default {
         name:"admin-retiros",
-        props:['blocks','grids','solds'],
+        props:['blocks','grids','solds','retiros'],
         data() {
             return {
                  secondtag: "Solds",
+                 retiroSelected:null,
+                 lastFile: null,
+                    estadoprocess:false,
+                    grip:{
+                        src:null,
+                    },
             }
         },
         components: {
@@ -98,12 +179,55 @@ import Search from './Utils/search4';
              ...mapGetters(["filteredSold"]),
         },
         methods: {
+            bannerChangeCoverPicture(){
+                document.getElementById("CoverChangeInput").click(); 
+            },
+            bannerChangeProfPicture() {
+                document.getElementById("ProfImgChangeInput").click(); 
+            },
+            fileSelected(evt) {
+            this.lastFile = evt.target.files[0];
+            this.grip.src = URL.createObjectURL(this.lastFile)
+            this.$refs.preview.src = this.imageURL
+            },
             seleccionar(tag) {
                 this.selectedtag=tag;
             },
             seleccionardos(tag) {
                 this.secondtag=tag;
-            }
+            },
+             mostrarmodal(retiro){
+                if(retiro){
+                    this.retiroSelected=retiro;
+                }
+                setTimeout(function(){
+                $("#checkdetail").modal("show");
+                },200)
+            },
+             mostrarmodal2(retiro){
+                if(retiro){
+                    this.retiroSelected=retiro;
+                }
+                setTimeout(function(){
+                $("#check").modal("show");
+                },200)
+            },
+            verificar(){
+             this.estadoprocess=true;
+             let form = $("#request-form")[0];
+             let formulario = new FormData(form);
+             var ruta=`/admin/verificar/`+this.retiroSelected.id;
+                axios.post(ruta, formulario)
+                  .then((res) => {
+                   window.location.reload();
+                   this.estadoprocess=false;
+                  })
+                  .catch((err) => {
+                    this.estadoprocess=false;
+                    console.log(err);
+                 });
+            },
+        
         },
     }
 </script>
@@ -291,5 +415,72 @@ import Search from './Utils/search4';
     }
     .table-bg{
         background-color: #0f042613;
+    }
+    .btn-attach{
+        background-color: #5F01F5;
+        height: 28px;
+        width: 136px;
+        border-radius: 4px;
+        color: #ffffff;
+    }
+    .updateFoto{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 89px;
+        border-radius: 5px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+
+        background-position: center center;
+    }
+    .updateFoto2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 250px;
+        border-radius: 5px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+
+        background-position: center center;
+    }
+     .updateFoto strong{
+       width: 100%;
+
+       text-align: center;
+   
+    }
+    .updateFoto2 strong{
+       width: 100%;
+     
+       text-align: center;
+   
+    }
+    .user-descripcion{
+        background-color:#ffffff;
+        width: calc(100% - 10px);
+        border-radius: 8px;
+        height: 150px;
+        margin-bottom: 10px;
+    }
+
+    .user-descripcion h6{
+        font-family: 'Rubik';
+        font-size: 20px;
+       margin-bottom: 5px!important;
+        margin-left: 15px;
+    }
+    .user-descripcion strong{
+        font-family: 'Valera';
+        font-size: 16px;
+        margin-bottom: 5px!important;
+        margin-left: 15px;
+    }
+    .user-descripcion p{
+        font-family: 'Valera';
+        font-size: 16px;
+        margin-bottom: 5px!important;
+        margin-left: 15px;
     }
 </style>
