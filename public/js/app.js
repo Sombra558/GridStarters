@@ -4017,9 +4017,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'confirm-payment-grid',
-  props: ['user'],
+  props: ['user', 'value'],
   data: function data() {
     return {
       lastFile: null,
@@ -7321,12 +7328,10 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.estadoprocess = true;
+      var form = $("#payment-form")[0];
+      var formulario = new FormData(form);
       var url = "/create-grid";
-      axios.post(url, {
-        user_id: this.user.id,
-        matriz: JSON.stringify(this.matriz)
-      }).then(function (result) {
-        window.location = "/";
+      axios.post(url, formulario).then(function (result) {//window.location="/";
       })["catch"](function (err) {
         _this.estadoprocess = false;
         console.log(err);
@@ -73544,23 +73549,48 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-6" }, [
-        _c("div", [
-          _c("input", {
-            staticClass: "btn btn-cancel",
-            staticStyle: { "margin-top": "65px" },
-            attrs: {
-              disabled: _vm.estadoprocess,
-              type: "button",
-              value: "Buy Grid"
-            },
+        _c(
+          "form",
+          {
+            attrs: { id: "payment-form", method: "post" },
             on: {
-              click: function($event) {
+              submit: function($event) {
                 $event.preventDefault()
                 return _vm.createGrid()
               }
             }
-          })
-        ])
+          },
+          [
+            _c("input", {
+              attrs: { type: "hidden", name: "user_id" },
+              domProps: { value: this.user.id }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "hidden", name: "matriz" },
+              domProps: { value: JSON.stringify(this.matriz) }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "hidden", name: "value" },
+              domProps: { value: this.value.value }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "hidden", name: "currency", value: "usd" }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "btn btn-cancel",
+              staticStyle: { "margin-top": "65px" },
+              attrs: {
+                disabled: _vm.estadoprocess,
+                type: "submit",
+                value: "Buy Grid"
+              }
+            })
+          ]
+        )
       ]),
       _vm._v(" "),
       _vm._m(0)

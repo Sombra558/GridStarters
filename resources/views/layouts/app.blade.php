@@ -754,6 +754,184 @@
            height:46px;
            border-radius:200px;
        }
+       .updateFoto{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 89px;
+        border-radius: 5px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+
+        background-position: center center;
+    }
+     .updateFoto strong{
+       width: 100%;
+
+       text-align: center;
+   
+    }
+    .buy-tite{
+        color:#5F01F5;
+        font-family: 'valera';
+        font-size: 20px;
+        line-height: 2.6;
+        margin-top: 10px;
+        font-weight: 700;
+    }
+    form label, span{
+        color:#0F0426;
+        font-family: 'Valera';
+        font-size:16px;
+        line-height: 1.08;
+        margin-top: 10px;
+        font-weight: 700;
+    }
+    
+    
+    .maxi{
+        margin-left: 0px;
+    }
+     @media only screen and (max-width: 768px){
+            .maxi{
+                margin-left: 15px;
+            }
+            }
+
+     @media only screen and (max-width: 767px){
+            .padre-content-position{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            }
+            .content-position:first-child{
+                flex-basis: calc(50% - 2rem);
+                background-color: #b7b4be4f;
+                height: 86px;
+                
+                max-width: 140px;
+                border-radius: 5px;
+            }
+            .content-position:last-child{
+                flex-basis: calc(50% - 2rem);
+                background-color: #b7b4be4f;
+               
+                height: 86px;
+                max-width: 140px;
+                border-radius: 5px;
+            }
+            .content-position  label, span{
+                font-family: 'valera';
+                font-size:14px;
+                margin-left: 15px;
+                font-weight: 700;
+            }
+            .preview{
+            text-decoration: none;
+            background-color: #ffffff;
+            border: 1px solid #30019B;
+            color:#30019B;
+            font-family: 'valera';
+            font-size:16px;
+            max-width: 100px;
+            line-height: 2.08;
+            margin-top: 0px;
+            margin-top: 20px;
+            padding: 0px 20px;
+            font-weight: 700;
+            border-radius: 5px;
+        }
+        .padre-pago-descripcion{
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        .metod-pay h3{
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .flexi-btn-form{
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn-grip{
+            font-family: 'Valera';
+            background-color:#30019B!important;
+            color:#ffffff!important;
+            flex-basis: calc(50% - 2rem);
+            width: 144px;
+            border-radius: 10px!important;
+    }
+    .btn-cancel{
+        font-family: 'Valera';
+            background-color:#0f04263f!important;
+            color:#ffffff!important;
+             flex-basis: calc(50% - 2rem);
+            width: 144px;
+            border-radius: 10px!important;
+    }
+    }   
+     @media only screen and (min-width: 768px){
+            .padre-content-position{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                }
+            .content-position:first-child{
+                background-color: #b7b4be4f;
+                height: 86px;
+                max-width: 240px;
+              
+                border-radius: 5px;
+            }
+            .content-position:last-child{
+                background-color: #b7b4be4f;
+                height: 86px;
+              
+                max-width: 240px;
+                border-radius: 5px;
+            }
+            .content-position  label, span{
+                font-family: 'valera';
+                font-size:16px;
+          
+                font-weight: 700;
+            }
+            .preview{
+            text-decoration: none;
+            background-color: #ffffff;
+            border: 1px solid #30019B;
+            color:#30019B;
+            font-family: 'valera';
+            font-size:16px;
+            max-width: 100px;
+            line-height: 2.08;
+            margin-top: 0px;
+            padding: 0px 20px;
+            font-weight: 700;
+            border-radius: 5px;
+        }
+        .padre-pago-descripcion{
+            display: flex;
+            flex-direction: column;
+            
+            
+        }
+        .btn-grip{
+        font-family: 'Valera';
+            background-color:#30019B!important;
+            color:#ffffff!important;
+          
+            width: 181px;
+            border-radius: 10px!important;
+    }
+    .btn-cancel{
+        font-family: 'Valera';
+            background-color:#0f04263f!important;
+            color:#ffffff!important;
+            width: 144px;
+            border-radius: 10px!important;
+    }
+    }
     </style>
    
 

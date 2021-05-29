@@ -3,9 +3,16 @@
         <h2 class="buy-tite">Buy Grids</h2>
             <div class="row">
                 <div class="col-md-6">
-                    <div>
-                        <input :disabled="estadoprocess" @click.prevent="createGrid()" style="margin-top:65px" class="btn btn-cancel" type="button" value="Buy Grid">
-                    </div>
+                    
+                    <form @submit.prevent="createGrid()" id="payment-form" method="post" >
+                        <input type="hidden" name="user_id" :value="this.user.id">
+                        <input type="hidden" name="matriz" :value="JSON.stringify(this.matriz)">
+                        <input type="hidden" name="value" :value="this.value.value">
+                        <input type="hidden" name="currency" value="usd">
+                       
+                     
+                        <input :disabled="estadoprocess" style="margin-top:65px" class="btn btn-cancel" type="submit" value="Buy Grid">
+                    </form>
                 </div>
                 <div class="col-md-6 padre-pago-descripcion">
                     <img width="100%" src="/img/hora-de-impulsar-tu-negocio.png" alt="hora-de-impulsar-tu-negocio">
@@ -21,7 +28,7 @@
 <script>
     export default {
         name:'confirm-payment-grid',
-        props:['user'],
+        props:['user','value'],
         data() {
             return {
                 lastFile: null,
@@ -113,13 +120,12 @@
             },
             createGrid(){
                 this.estadoprocess=true;
+                let form = $("#payment-form")[0];
+                let formulario = new FormData(form);
                 var url = "/create-grid";
-                axios.post(url,{
-                    user_id:this.user.id,
-                    matriz:JSON.stringify(this.matriz),
-                }).then((result) => {
+                axios.post(url,formulario).then((result) => {
                     
-                     window.location="/";
+                     //window.location="/";
                 }).catch((err) => {
                     this.estadoprocess=false;
                     console.log(err)

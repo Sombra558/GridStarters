@@ -3,16 +3,29 @@
 namespace App\Http\Controllers\Usuario;
 
 use App\Http\Controllers\Controller;
-use App\Grip;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\PurchasesHistory;
+use App\Grip;
+use App\Services\PayPalService;
 use App\ConfiguracionPublica;
 class GridController extends Controller
 {
     public function store(Request $request)
     {
-        $username=Auth::user()->name;
+        $rules = [
+            'value' => ['required', 'numeric', 'min:5'],
+            'currency' => ['required', 'exists:currencies,iso'],
+           
+        ];
+
+        $request->validate($rules);
+
+        $paymentPlatform = resolve(PayPalService::class);
+
+
+        return $paymentPlatform->handlePayment($request);
+        /*$username=Auth::user()->name;
         $username=str_replace(' ','-',$username);
         $gridvalue=ConfiguracionPublica::where('nombre','grid')->first();
         do {
@@ -34,6 +47,6 @@ class GridController extends Controller
             'amount' => $gridvalue->value,
             'descripcion' =>  'Compra de Grilla',
         ]); 
-        return $evento;
+        return $evento;*/
     }
 }

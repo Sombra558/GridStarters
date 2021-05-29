@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Grip;
 use App\User;
+use App\ConfiguracionPublica;
 class HomeController extends Controller
 {
     /**
@@ -39,7 +40,8 @@ class HomeController extends Controller
     public function paymentgrid()
     {
         $user= Auth::user()->load(['matriz']);
-        return view('User.Payment.gridpayment',compact('user'));
+        $gridvalue=ConfiguracionPublica::where('nombre','grid')->first();
+        return view('User.Payment.gridpayment',compact('user','gridvalue'));
     }
     public function mygrid()
     {
