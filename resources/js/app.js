@@ -15,6 +15,7 @@ require('moment/locale/es');
 Vue.prototype.moment = moment;
 
 Vue.component('payment-component', require('./components/Payment/Payment.vue').default);
+Vue.component('grid-payment-component', require('./components/Payment/GridPayment.vue').default);
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('grip-detalle-component', require('./components/Grip/gripdetalle.vue').default);
 Vue.component('btn-buy-component', require('./components/Templades/navbardetalle').default);

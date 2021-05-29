@@ -36,6 +36,11 @@ class HomeController extends Controller
         $user= Auth::user()->load(['matriz']);
         return view('User.Payment.payment',compact('user'));
     }
+    public function paymentgrid()
+    {
+        $user= Auth::user()->load(['matriz']);
+        return view('User.Payment.gridpayment',compact('user'));
+    }
     public function mygrid()
     {
         $user= Auth::user()->load(['matriz'=>function($q){
@@ -63,5 +68,12 @@ class HomeController extends Controller
         }else{
             return view('error.error404',compact('grip'));
         }       
+    }
+    public function editarurl(Request $request,$id)
+    {
+        $solicitud=Grip::find($id);
+        $solicitud->nombreURL=$request['nombreURL'];
+        $solicitud->save();
+        return $solicitud;
     }
 }

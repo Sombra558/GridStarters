@@ -396,6 +396,17 @@
                                                             
 
                                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                                                @if(Auth::user()->roles[0]->name === 'administrador')
+                                                                <a class="dropdown-item" href="/admin">
+                                                                    Admin
+                                                                </a>
+                                                                @endif
+                                                                <a class="dropdown-item" href="/home">
+                                                                    Home
+                                                                </a>
+                                                                <a class="dropdown-item" href="/home/mygrids">
+                                                                    My Grids
+                                                                </a>
                                                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                                                 onclick="event.preventDefault();
                                                                                 document.getElementById('logout-form').submit();">

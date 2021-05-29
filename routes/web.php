@@ -9,8 +9,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/mygrids', 'HomeController@mygrid')->name('mygrid');
 Route::get('/confirm-payment', 'HomeController@payment')->name('confirm-payment');
+Route::get('/grid-confirm-payment', 'HomeController@paymentgrid')->name('confirm-payment');
 Route::post('/create-grid', 'Usuario\GridController@store')->name('grid-create');
 Route::post('/crear-bloque', 'Usuario\BloqueController@store2')->name('grid-create');
+Route::put('/home/editarurl/{id}', 'HomeController@editarurl')->name('url-edit');
 Route::get('/home/my/{nombreURL}', 'HomeController@showgrip')->name('my-grip');
 
 //solicitud

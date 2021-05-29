@@ -1,52 +1,14 @@
 <template>
     <section class="container-fluid">
-        <h2 class="buy-tite">Buy Blocks</h2>
+        <h2 class="buy-tite">Buy Grids</h2>
             <div class="row">
                 <div class="col-md-6">
-                    <form @submit.prevent="crearposition" id="payment-form" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="cart" :value="JSON.stringify(bloque)">
-                         <input type="hidden" name="size" :value="columnas+'x'+filas">
-                        <input type="hidden" name="matriz_id" :value="bloque[0].matriz_id">
-                        <input type="hidden" name="column" :value="columnas">
-                        <input type="hidden" name="fila" :value="filas">
-                        <div class="form-groud">
-                             <label for="img-grip">Upload your photo or banner</label>
-                                <div :style="grip.src ? 'background-image: url('+grip.src+');' : 'background-color: #b7b4be4f;'" @click="bannerChangeProfPicture()" class="updateFoto">
-                                        <div>
-                                            
-                                        </div>
-                                <strong style="color:grey!important">Upload File</strong>
-                                   
-                                </div>
-                            <input style="opacity:0" class="d-block" id="ProfImgChangeInput" name="img" type="file" accept="image/*" @change="fileSelected">
-                        </div>
-                        <div class="row">
-                            <span style="margin-left:0px" class="col-sm-12 col-md-9">
-                                No. of grids that you would like to block
-                            </span>
-                            <a class="preview col-sm-12 col-md-3 maxi" href="/home">Preview</a>
-                        </div>
-                        <div style="margin-top:20px;" class="padre-content-position">
-                            <div class="col-6 content-position">
-                                <label class="d-block" for="column">Column</label>
-                                <span v-if="bloque===null" style="color:grey!important">No. Column</span>
-                                <span v-else style="color:grey!important">{{columnas}}</span>
-                            </div>
-                            <div class="col-6 content-position">
-                                <label class="d-block" for="row">Row</label>
-                                <span  v-if="bloque===null" style="color:grey!important" >No. row</span>
-                                <span v-else style="color:grey!important">{{filas}}</span>
-                            </div>
-                        </div>            
-                        <div class="flexi-btn-form">
-                            <input :disabled="estadoprocess" style="margin-top:65px" class="btn btn-grip" type="submit" value="Save & pay">
-                             <input :disabled="estadoprocess" style="margin-top:65px" class="btn btn-cancel" type="button" value="Cancel">
-                        </div>
-                    </form>
-                  
+                    <div>
+                        <input :disabled="estadoprocess" @click.prevent="createGrid()" style="margin-top:65px" class="btn btn-cancel" type="button" value="Buy Grid">
+                    </div>
                 </div>
                 <div class="col-md-6 padre-pago-descripcion">
-                    <a href="/grid-confirm-payment"><img  width="100%" src="/img/hora-de-impulsar-tu-negocio.png" alt="hora-de-impulsar-tu-negocio"></a>
+                    <img width="100%" src="/img/hora-de-impulsar-tu-negocio.png" alt="hora-de-impulsar-tu-negocio">
                     <div class="metod-pay">
                         <h3>Payment methods</h3>
                         <img src="/img/PayPal-Logo.png" alt="" srcset="">
@@ -58,7 +20,7 @@
 
 <script>
     export default {
-        name:'confirm-payment',
+        name:'confirm-payment-grid',
         props:['user'],
         data() {
             return {

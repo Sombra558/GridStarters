@@ -3663,18 +3663,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "mygrids",
   props: ['user'],
   data: function data() {
     return {
       estadoproceso: false,
-      nombre: ""
+      nombre: "",
+      retiroSelected: null
     };
+  },
+  methods: {
+    editarurl: function editarurl() {
+      var url = '/home/editarurl/' + this.retiroSelected.id;
+      axios.put(url, {
+        nombreURL: this.nombreURL
+      }).then(function (result) {
+        window.location.reload();
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    mostrarmodal2: function mostrarmodal2(retiro) {
+      if (retiro) {
+        this.retiroSelected = retiro;
+      }
+
+      setTimeout(function () {
+        $("#cambiourl").modal("show");
+      }, 200);
+    }
   },
   computed: {
     nombreURL: function nombreURL() {
-      return this.nombre.replace(/[ _#.$%?¿!¡/\\🔴]/g, "-").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+      if (this.retiroSelected) {
+        return this.retiroSelected.nombreURL.replace(/[ _#.$%?¿!¡/\\🔴]/g, "-").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+      } else {
+        return null;
+      }
     }
   }
 });
@@ -3959,6 +3988,3371 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Payment/GridPayment.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Payment/GridPayment.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'confirm-payment-grid',
+  props: ['user'],
+  data: function data() {
+    return {
+      lastFile: null,
+      estadoprocess: false,
+      grip: {
+        src: null
+      },
+      bloque: null,
+      matriz: [[{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }], [{
+        numero: 0,
+        src: null
+      }, {
+        numero: 1,
+        src: null
+      }, {
+        numero: 2,
+        src: null
+      }, {
+        numero: 3,
+        src: null
+      }, {
+        numero: 4,
+        src: null
+      }, {
+        numero: 5,
+        src: null
+      }, {
+        numero: 6,
+        src: null
+      }, {
+        numero: 7,
+        src: null
+      }, {
+        numero: 8,
+        src: null
+      }, {
+        numero: 9,
+        src: null
+      }, {
+        numero: 10,
+        src: null
+      }, {
+        numero: 11,
+        src: null
+      }, {
+        numero: 12,
+        src: null
+      }, {
+        numero: 13,
+        src: null
+      }, {
+        numero: 14,
+        src: null
+      }, {
+        numero: 15,
+        src: null
+      }, {
+        numero: 16,
+        src: null
+      }, {
+        numero: 17,
+        src: null
+      }, {
+        numero: 18,
+        src: null
+      }, {
+        numero: 19,
+        src: null
+      }, {
+        numero: 20,
+        src: null
+      }, {
+        numero: 21,
+        src: null
+      }, {
+        numero: 22,
+        src: null
+      }, {
+        numero: 23,
+        src: null
+      }, {
+        numero: 24,
+        src: null
+      }, {
+        numero: 25,
+        src: null
+      }, {
+        numero: 26,
+        src: null
+      }, {
+        numero: 27,
+        src: null
+      }, {
+        numero: 28,
+        src: null
+      }, {
+        numero: 29,
+        src: null
+      }, {
+        numero: 30,
+        src: null
+      }, {
+        numero: 31,
+        src: null
+      }, {
+        numero: 32,
+        src: null
+      }, {
+        numero: 33,
+        src: null
+      }, {
+        numero: 34,
+        src: null
+      }, {
+        numero: 35,
+        src: null
+      }, {
+        numero: 36,
+        src: null
+      }, {
+        numero: 37,
+        src: null
+      }, {
+        numero: 38,
+        src: null
+      }, {
+        numero: 39,
+        src: null
+      }, {
+        numero: 40,
+        src: null
+      }, {
+        numero: 41,
+        src: null
+      }, {
+        numero: 42,
+        src: null
+      }]]
+    };
+  },
+  mounted: function mounted() {
+    var micart = localStorage.getItem('mycart');
+    micart = JSON.parse(micart);
+    console.log(micart);
+
+    if (micart) {
+      this.bloque = micart;
+    }
+  },
+  computed: {
+    columnas: function columnas() {
+      var arreglo = [];
+
+      if (this.bloque.length > 0) {
+        this.bloque.forEach(function (element) {
+          if (arreglo.length > 0) {
+            if (arreglo.some(function (evt) {
+              return evt === element.columna;
+            }) == false) {
+              arreglo.push(element.columna);
+            }
+          } else {
+            arreglo.push(element.columna);
+          }
+        });
+      }
+
+      return arreglo.length;
+    },
+    filas: function filas() {
+      var arreglo = [];
+
+      if (this.bloque.length > 0) {
+        this.bloque.forEach(function (element) {
+          if (arreglo.length > 0) {
+            if (arreglo.some(function (evt) {
+              return evt === element.fila;
+            }) == false) {
+              arreglo.push(element.fila);
+            }
+          } else {
+            arreglo.push(element.fila);
+          }
+        });
+      }
+
+      return arreglo.length;
+    }
+  },
+  methods: {
+    bannerChangeCoverPicture: function bannerChangeCoverPicture() {
+      document.getElementById("CoverChangeInput").click();
+    },
+    bannerChangeProfPicture: function bannerChangeProfPicture() {
+      document.getElementById("ProfImgChangeInput").click();
+    },
+    fileSelected: function fileSelected(evt) {
+      this.lastFile = evt.target.files[0];
+      this.grip.src = URL.createObjectURL(this.lastFile);
+      this.$refs.preview.src = this.imageURL;
+    },
+    createGrid: function createGrid() {
+      var _this = this;
+
+      this.estadoprocess = true;
+      var url = "/create-grid";
+      axios.post(url, {
+        user_id: this.user.id,
+        matriz: JSON.stringify(this.matriz)
+      }).then(function (result) {
+        window.location = "/";
+      })["catch"](function (err) {
+        _this.estadoprocess = false;
+        console.log(err);
+      });
+    },
+    crearposition: function crearposition() {
+      var _this2 = this;
+
+      this.estadoprocess = true;
+      var form = $("#payment-form")[0];
+      var formulario = new FormData(form);
+      var ruta = "/crear-bloque";
+      axios.post(ruta, formulario).then(function (res) {
+        localStorage.clear();
+        window.location = res.data;
+        _this2.estadoprocess = false;
+      })["catch"](function (err) {
+        _this2.estadoprocess = false;
+        console.log(err);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Payment/Payment.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Payment/Payment.vue?vue&type=script&lang=js& ***!
@@ -3968,8 +7362,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -12280,6 +15672,25 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 // module
 exports.push([module.i, ".contenedor-botones-profile[data-v-107a6970] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  height: 44px;\n  width: 100%;\n  max-width: 628px;\n  background-color: #2f019b31;\n  border-radius: 12px;\n}\n.btn-profile-tag[data-v-107a6970] {\n  height: 44px;\n  width: 100%;\n  border: none;\n  max-width: 193px;\n  height: 36px;\n  background-color: transparent;\n  border-radius: 8px;\n}\n.active[data-v-107a6970] {\n  height: 44px;\n  width: 100%;\n  border: none;\n  max-width: 193px;\n  height: 36px;\n  background-color: #2f019b83;\n  color: #ffffff;\n  border-radius: 8px;\n}\nsection[data-v-107a6970] {\n  margin-top: 16px;\n}\nsection h3[data-v-107a6970] {\n  font-family: \"Rubik\";\n  font-size: 20px;\n  font-weight: 500;\n  color: #5F01F5;\n}\n.btn-second-tag[data-v-107a6970] {\n  width: 143px;\n  font-family: \"Valera\";\n  color: #0f0426a4;\n  height: 21px;\n  background-color: transparent;\n  border: none;\n}\n.active-2[data-v-107a6970] {\n  line-height: 5px;\n  border-bottom: 2px solid #30019B;\n}\n@media only screen and (max-width: 767px) {\n.contenedor-earrings[data-v-107a6970] {\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    background-color: #FBF9FF;\n    border: 1px solid #b8a7a782;\n    height: 271px;\n}\n.earrings[data-v-107a6970] {\n    flex-basis: 100%;\n    width: 271px;\n    border-bottom: 1px solid #b8a7a782;\n}\n.earrings h4[data-v-107a6970] {\n    font-family: \"Valera\";\n    font-size: 16px;\n    text-align: center;\n    margin-top: 13px;\n    color: #B8A7A7;\n}\n.earrings p[data-v-107a6970] {\n    font-family: \"Valera\";\n    font-size: 20px;\n    margin: 0;\n    width: 100%;\n    text-align: center;\n}\n}\n@media only screen and (min-width: 768px) {\n.contenedor-earrings[data-v-107a6970] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: #FBF9FF;\n    border: 1px solid #b8a7a782;\n    height: 73px;\n}\n.earrings[data-v-107a6970] {\n    flex-basis: calc(33.3% - 15px);\n    border-left: 1px solid #b8a7a782;\n}\n.earrings h4[data-v-107a6970] {\n    font-family: \"Valera\";\n    font-size: 16px;\n    text-align: center;\n    margin: 0;\n    color: #B8A7A7;\n}\n.earrings p[data-v-107a6970] {\n    font-family: \"Valera\";\n    font-size: 20px;\n    margin: 0;\n    width: 100%;\n    text-align: center;\n}\n}\n.contenedor-grid-purshace[data-v-107a6970] {\n  display: flex;\n}\n.card-grid-profile img[data-v-107a6970] {\n  height: 207px;\n  width: 100%;\n  min-width: 251px;\n  border-radius: 8px;\n}\n.card-grid-profile p[data-v-107a6970] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0;\n}\n.card-grid-profile strong[data-v-107a6970] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0;\n}\n.table-bg[data-v-107a6970] {\n  background-color: #0f042613;\n}\n.updateFoto2[data-v-107a6970] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 250px;\n  border-radius: 5px;\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  background-position: center center;\n}\n.updateFoto strong[data-v-107a6970] {\n  width: 100%;\n  text-align: center;\n}\n.updateFoto2 strong[data-v-107a6970] {\n  width: 100%;\n  text-align: center;\n}\n.user-descripcion[data-v-107a6970] {\n  background-color: #ffffff;\n  width: calc(100% - 10px);\n  border-radius: 8px;\n  height: 150px;\n  margin-bottom: 10px;\n}\n.user-descripcion h6[data-v-107a6970] {\n  font-family: \"Rubik\";\n  font-size: 20px;\n  margin-bottom: 5px !important;\n  margin-left: 15px;\n}\n.user-descripcion strong[data-v-107a6970] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  margin-bottom: 5px !important;\n  margin-left: 15px;\n}\n.user-descripcion p[data-v-107a6970] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  margin-bottom: 5px !important;\n  margin-left: 15px;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Payment/GridPayment.vue?vue&type=style&index=0&id=47fd6b9c&lang=scss&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Payment/GridPayment.vue?vue&type=style&index=0&id=47fd6b9c&lang=scss&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".updateFoto[data-v-47fd6b9c] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 89px;\n  border-radius: 5px;\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  background-position: center center;\n}\n.updateFoto strong[data-v-47fd6b9c] {\n  width: 100%;\n  text-align: center;\n}\n.buy-tite[data-v-47fd6b9c] {\n  color: #5F01F5;\n  font-family: \"valera\";\n  font-size: 20px;\n  line-height: 2.6;\n  margin-top: 10px;\n  font-weight: 700;\n}\nform label[data-v-47fd6b9c], span[data-v-47fd6b9c] {\n  color: #0F0426;\n  font-family: \"Valera\";\n  font-size: 16px;\n  line-height: 1.08;\n  margin-top: 10px;\n  font-weight: 700;\n}\n.maxi[data-v-47fd6b9c] {\n  margin-left: 0px;\n}\n@media only screen and (max-width: 768px) {\n.maxi[data-v-47fd6b9c] {\n    margin-left: 15px;\n}\n}\n@media only screen and (max-width: 767px) {\n.padre-content-position[data-v-47fd6b9c] {\n    display: flex;\n    justify-content: space-between;\n    width: 100%;\n}\n.content-position[data-v-47fd6b9c]:first-child {\n    flex-basis: calc(50% - 2rem);\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 140px;\n    border-radius: 5px;\n}\n.content-position[data-v-47fd6b9c]:last-child {\n    flex-basis: calc(50% - 2rem);\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 140px;\n    border-radius: 5px;\n}\n.content-position label[data-v-47fd6b9c], span[data-v-47fd6b9c] {\n    font-family: \"valera\";\n    font-size: 14px;\n    margin-left: 15px;\n    font-weight: 700;\n}\n.preview[data-v-47fd6b9c] {\n    text-decoration: none;\n    background-color: #ffffff;\n    border: 1px solid #30019B;\n    color: #30019B;\n    font-family: \"valera\";\n    font-size: 16px;\n    max-width: 100px;\n    line-height: 2.08;\n    margin-top: 0px;\n    margin-top: 20px;\n    padding: 0px 20px;\n    font-weight: 700;\n    border-radius: 5px;\n}\n.padre-pago-descripcion[data-v-47fd6b9c] {\n    display: flex;\n    flex-direction: column-reverse;\n}\n.metod-pay h3[data-v-47fd6b9c] {\n    margin-top: 20px;\n    font-size: 18px;\n}\n.flexi-btn-form[data-v-47fd6b9c] {\n    display: flex;\n    justify-content: space-between;\n}\n.btn-grip[data-v-47fd6b9c] {\n    font-family: \"Valera\";\n    background-color: #30019B !important;\n    color: #ffffff !important;\n    flex-basis: calc(50% - 2rem);\n    width: 144px;\n    border-radius: 10px !important;\n}\n.btn-cancel[data-v-47fd6b9c] {\n    font-family: \"Valera\";\n    background-color: #0f04263f !important;\n    color: #ffffff !important;\n    flex-basis: calc(50% - 2rem);\n    width: 144px;\n    border-radius: 10px !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.padre-content-position[data-v-47fd6b9c] {\n    display: flex;\n    justify-content: space-between;\n    width: 100%;\n}\n.content-position[data-v-47fd6b9c]:first-child {\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 240px;\n    border-radius: 5px;\n}\n.content-position[data-v-47fd6b9c]:last-child {\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 240px;\n    border-radius: 5px;\n}\n.content-position label[data-v-47fd6b9c], span[data-v-47fd6b9c] {\n    font-family: \"valera\";\n    font-size: 16px;\n    font-weight: 700;\n}\n.preview[data-v-47fd6b9c] {\n    text-decoration: none;\n    background-color: #ffffff;\n    border: 1px solid #30019B;\n    color: #30019B;\n    font-family: \"valera\";\n    font-size: 16px;\n    max-width: 100px;\n    line-height: 2.08;\n    margin-top: 0px;\n    padding: 0px 20px;\n    font-weight: 700;\n    border-radius: 5px;\n}\n.padre-pago-descripcion[data-v-47fd6b9c] {\n    display: flex;\n    flex-direction: column;\n}\n.btn-grip[data-v-47fd6b9c] {\n    font-family: \"Valera\";\n    background-color: #30019B !important;\n    color: #ffffff !important;\n    width: 181px;\n    border-radius: 10px !important;\n}\n.btn-cancel[data-v-47fd6b9c] {\n    font-family: \"Valera\";\n    background-color: #0f04263f !important;\n    color: #ffffff !important;\n    width: 144px;\n    border-radius: 10px !important;\n}\n}", ""]);
 
 // exports
 
@@ -65547,6 +68958,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Payment/GridPayment.vue?vue&type=style&index=0&id=47fd6b9c&lang=scss&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Payment/GridPayment.vue?vue&type=style&index=0&id=47fd6b9c&lang=scss&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./GridPayment.vue?vue&type=style&index=0&id=47fd6b9c&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Payment/GridPayment.vue?vue&type=style&index=0&id=47fd6b9c&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Payment/Payment.vue?vue&type=style&index=0&id=561e28c2&lang=scss&scoped=true&":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Payment/Payment.vue?vue&type=style&index=0&id=561e28c2&lang=scss&scoped=true& ***!
@@ -69176,6 +72617,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid" }, [
+    _c("br"),
+    _vm._v(" "),
+    _c("h2", [_vm._v("My grids")]),
+    _vm._v(" "),
     _c(
       "table",
       {
@@ -69209,7 +72654,26 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(grid.bloques.length))]),
               _vm._v(" "),
-              _vm._m(1, true)
+              _c("td", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-upgrap",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.mostrarmodal2(grid)
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                            Cambiar Url\n                        "
+                    )
+                  ]
+                )
+              ])
             ])
           }),
           0
@@ -69217,118 +72681,127 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "exampleModalLong",
-          tabindex: "-1",
-          role: "dialog",
-          "aria-labelledby": "exampleModalLongTitle",
-          "aria-hidden": "true"
-        }
-      },
-      [
-        _c(
+    _vm.retiroSelected
+      ? _c(
           "div",
-          { staticClass: "modal-dialog", attrs: { role: "document" } },
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "cambiourl",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLongTitle",
+              "aria-hidden": "true"
+            }
+          },
           [
-            _c("div", { staticClass: "modal-content" }, [
-              _vm._m(2),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-body" }, [
-                _c(
-                  "form",
-                  {
-                    attrs: {
-                      id: "form-comprobante",
-                      method: "POST",
-                      enctype: "multipart/form-data"
-                    },
-                    on: {
-                      submit: function($event) {
-                        $event.preventDefault()
-                        return _vm.editar()
-                      }
-                    }
-                  },
-                  [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "nombreURL" } }, [
-                        _vm._v("Nombre de la ruta")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.nombre,
-                            expression: "nombre"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text", name: "nombreURL" },
-                        domProps: { value: _vm.nombre },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.nombre = $event.target.value
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "nombreURL" } }, [
-                        _vm._v("NombreURL")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.nombreURL,
-                            expression: "nombreURL"
-                          }
-                        ],
-                        staticClass: "form-control",
+            _c(
+              "div",
+              { staticClass: "modal-dialog", attrs: { role: "document" } },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c(
+                      "form",
+                      {
                         attrs: {
-                          disabled: "",
-                          type: "text",
-                          name: "nombreURL"
+                          id: "form-comprobante",
+                          method: "POST",
+                          enctype: "multipart/form-data"
                         },
-                        domProps: { value: _vm.nombreURL },
                         on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.nombreURL = $event.target.value
+                          submit: function($event) {
+                            $event.preventDefault()
+                            return _vm.editarurl()
                           }
                         }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "btn btn-upgrap",
-                      attrs: { type: "submit", disabled: _vm.estadoproceso },
-                      domProps: {
-                        value: _vm.estadoproceso ? "Procesando" : "Guardar"
-                      }
-                    })
-                  ]
-                )
-              ])
-            ])
+                      },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "nombreURL" } }, [
+                            _vm._v("Nombre de la ruta")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.retiroSelected.nombreURL,
+                                expression: "retiroSelected.nombreURL"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { type: "text", name: "nombreURL" },
+                            domProps: { value: _vm.retiroSelected.nombreURL },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.retiroSelected,
+                                  "nombreURL",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "nombreURL" } }, [
+                            _vm._v("NombreURL")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.nombreURL,
+                                expression: "nombreURL"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              disabled: "",
+                              type: "text",
+                              name: "nombreURL"
+                            },
+                            domProps: { value: _vm.nombreURL },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.nombreURL = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "btn btn-upgrap",
+                          attrs: {
+                            type: "submit",
+                            disabled: _vm.estadoproceso
+                          },
+                          domProps: {
+                            value: _vm.estadoproceso ? "Procesando" : "Guardar"
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ])
+              ]
+            )
           ]
         )
-      ]
-    )
+      : _vm._e()
   ])
 }
 var staticRenderFns = [
@@ -69352,29 +72825,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Accion")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-upgrap",
-          attrs: {
-            type: "button",
-            "data-toggle": "modal",
-            "data-target": "#exampleModalLong"
-          }
-        },
-        [
-          _vm._v(
-            "\n                            Cambiar Url\n                        "
-          )
-        ]
-      )
     ])
   },
   function() {
@@ -70074,10 +73524,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Payment/Payment.vue?vue&type=template&id=561e28c2&scoped=true&":
-/*!******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Payment/Payment.vue?vue&type=template&id=561e28c2&scoped=true& ***!
-  \******************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Payment/GridPayment.vue?vue&type=template&id=47fd6b9c&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Payment/GridPayment.vue?vue&type=template&id=47fd6b9c&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -70094,181 +73544,226 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-6" }, [
-        _vm.user.matriz.length > 0
-          ? _c(
-              "form",
-              {
-                attrs: {
-                  id: "payment-form",
-                  method: "post",
-                  enctype: "multipart/form-data"
-                },
-                on: {
-                  submit: function($event) {
-                    $event.preventDefault()
-                    return _vm.crearposition($event)
+        _c("div", [
+          _c("input", {
+            staticClass: "btn btn-cancel",
+            staticStyle: { "margin-top": "65px" },
+            attrs: {
+              disabled: _vm.estadoprocess,
+              type: "button",
+              value: "Buy Grid"
+            },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.createGrid()
+              }
+            }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(0)
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-6 padre-pago-descripcion" }, [
+      _c("img", {
+        attrs: {
+          width: "100%",
+          src: "/img/hora-de-impulsar-tu-negocio.png",
+          alt: "hora-de-impulsar-tu-negocio"
+        }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "metod-pay" }, [
+        _c("h3", [_vm._v("Payment methods")]),
+        _vm._v(" "),
+        _c("img", {
+          attrs: { src: "/img/PayPal-Logo.png", alt: "", srcset: "" }
+        })
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Payment/Payment.vue?vue&type=template&id=561e28c2&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Payment/Payment.vue?vue&type=template&id=561e28c2&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "container-fluid" }, [
+    _c("h2", { staticClass: "buy-tite" }, [_vm._v("Buy Blocks")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-6" }, [
+        _c(
+          "form",
+          {
+            attrs: {
+              id: "payment-form",
+              method: "post",
+              enctype: "multipart/form-data"
+            },
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.crearposition($event)
+              }
+            }
+          },
+          [
+            _c("input", {
+              attrs: { type: "hidden", name: "cart" },
+              domProps: { value: JSON.stringify(_vm.bloque) }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "hidden", name: "size" },
+              domProps: { value: _vm.columnas + "x" + _vm.filas }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "hidden", name: "matriz_id" },
+              domProps: { value: _vm.bloque[0].matriz_id }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "hidden", name: "column" },
+              domProps: { value: _vm.columnas }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "hidden", name: "fila" },
+              domProps: { value: _vm.filas }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-groud" }, [
+              _c("label", { attrs: { for: "img-grip" } }, [
+                _vm._v("Upload your photo or banner")
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "updateFoto",
+                  style: _vm.grip.src
+                    ? "background-image: url(" + _vm.grip.src + ");"
+                    : "background-color: #b7b4be4f;",
+                  on: {
+                    click: function($event) {
+                      return _vm.bannerChangeProfPicture()
+                    }
                   }
-                }
+                },
+                [
+                  _c("div"),
+                  _vm._v(" "),
+                  _c("strong", { staticStyle: { color: "grey!important" } }, [
+                    _vm._v("Upload File")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "d-block",
+                staticStyle: { opacity: "0" },
+                attrs: {
+                  id: "ProfImgChangeInput",
+                  name: "img",
+                  type: "file",
+                  accept: "image/*"
+                },
+                on: { change: _vm.fileSelected }
+              })
+            ]),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "padre-content-position",
+                staticStyle: { "margin-top": "20px" }
               },
               [
-                _c("input", {
-                  attrs: { type: "hidden", name: "cart" },
-                  domProps: { value: JSON.stringify(_vm.bloque) }
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: { type: "hidden", name: "size" },
-                  domProps: { value: _vm.columnas + "x" + _vm.filas }
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: { type: "hidden", name: "matriz_id" },
-                  domProps: { value: _vm.bloque[0].matriz_id }
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: { type: "hidden", name: "column" },
-                  domProps: { value: _vm.columnas }
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: { type: "hidden", name: "fila" },
-                  domProps: { value: _vm.filas }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-groud" }, [
-                  _c("label", { attrs: { for: "img-grip" } }, [
-                    _vm._v("Upload your photo or banner")
-                  ]),
-                  _vm._v(" "),
+                _c("div", { staticClass: "col-6 content-position" }, [
                   _c(
-                    "div",
-                    {
-                      staticClass: "updateFoto",
-                      style: _vm.grip.src
-                        ? "background-image: url(" + _vm.grip.src + ");"
-                        : "background-color: #b7b4be4f;",
-                      on: {
-                        click: function($event) {
-                          return _vm.bannerChangeProfPicture()
-                        }
-                      }
-                    },
-                    [
-                      _c("div"),
-                      _vm._v(" "),
-                      _c(
-                        "strong",
-                        { staticStyle: { color: "grey!important" } },
-                        [_vm._v("Upload File")]
-                      )
-                    ]
+                    "label",
+                    { staticClass: "d-block", attrs: { for: "column" } },
+                    [_vm._v("Column")]
                   ),
                   _vm._v(" "),
-                  _c("input", {
-                    staticClass: "d-block",
-                    staticStyle: { opacity: "0" },
-                    attrs: {
-                      id: "ProfImgChangeInput",
-                      name: "img",
-                      type: "file",
-                      accept: "image/*"
-                    },
-                    on: { change: _vm.fileSelected }
-                  })
+                  _vm.bloque === null
+                    ? _c("span", { staticStyle: { color: "grey!important" } }, [
+                        _vm._v("No. Column")
+                      ])
+                    : _c("span", { staticStyle: { color: "grey!important" } }, [
+                        _vm._v(_vm._s(_vm.columnas))
+                      ])
                 ]),
                 _vm._v(" "),
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "padre-content-position",
-                    staticStyle: { "margin-top": "20px" }
-                  },
-                  [
-                    _c("div", { staticClass: "col-6 content-position" }, [
-                      _c(
-                        "label",
-                        { staticClass: "d-block", attrs: { for: "column" } },
-                        [_vm._v("Column")]
-                      ),
-                      _vm._v(" "),
-                      _vm.bloque === null
-                        ? _c(
-                            "span",
-                            { staticStyle: { color: "grey!important" } },
-                            [_vm._v("No. Column")]
-                          )
-                        : _c(
-                            "span",
-                            { staticStyle: { color: "grey!important" } },
-                            [_vm._v(_vm._s(_vm.columnas))]
-                          )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-6 content-position" }, [
-                      _c(
-                        "label",
-                        { staticClass: "d-block", attrs: { for: "row" } },
-                        [_vm._v("Row")]
-                      ),
-                      _vm._v(" "),
-                      _vm.bloque === null
-                        ? _c(
-                            "span",
-                            { staticStyle: { color: "grey!important" } },
-                            [_vm._v("No. row")]
-                          )
-                        : _c(
-                            "span",
-                            { staticStyle: { color: "grey!important" } },
-                            [_vm._v(_vm._s(_vm.filas))]
-                          )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "flexi-btn-form" }, [
-                  _c("input", {
-                    staticClass: "btn btn-grip",
-                    staticStyle: { "margin-top": "65px" },
-                    attrs: {
-                      disabled: _vm.estadoprocess,
-                      type: "submit",
-                      value: "Save & pay"
-                    }
-                  }),
+                _c("div", { staticClass: "col-6 content-position" }, [
+                  _c(
+                    "label",
+                    { staticClass: "d-block", attrs: { for: "row" } },
+                    [_vm._v("Row")]
+                  ),
                   _vm._v(" "),
-                  _c("input", {
-                    staticClass: "btn btn-cancel",
-                    staticStyle: { "margin-top": "65px" },
-                    attrs: {
-                      disabled: _vm.estadoprocess,
-                      type: "button",
-                      value: "Cancel"
-                    }
-                  })
+                  _vm.bloque === null
+                    ? _c("span", { staticStyle: { color: "grey!important" } }, [
+                        _vm._v("No. row")
+                      ])
+                    : _c("span", { staticStyle: { color: "grey!important" } }, [
+                        _vm._v(_vm._s(_vm.filas))
+                      ])
                 ])
               ]
-            )
-          : _c("div", [
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "flexi-btn-form" }, [
+              _c("input", {
+                staticClass: "btn btn-grip",
+                staticStyle: { "margin-top": "65px" },
+                attrs: {
+                  disabled: _vm.estadoprocess,
+                  type: "submit",
+                  value: "Save & pay"
+                }
+              }),
+              _vm._v(" "),
               _c("input", {
                 staticClass: "btn btn-cancel",
                 staticStyle: { "margin-top": "65px" },
                 attrs: {
                   disabled: _vm.estadoprocess,
                   type: "button",
-                  value: "Buy Grid"
-                },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    return _vm.createGrid()
-                  }
+                  value: "Cancel"
                 }
               })
             ])
+          ]
+        )
       ]),
       _vm._v(" "),
       _vm._m(1)
@@ -70309,13 +73804,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-6 padre-pago-descripcion" }, [
-      _c("img", {
-        attrs: {
-          width: "100%",
-          src: "/img/hora-de-impulsar-tu-negocio.png",
-          alt: "hora-de-impulsar-tu-negocio"
-        }
-      }),
+      _c("a", { attrs: { href: "/grid-confirm-payment" } }, [
+        _c("img", {
+          attrs: {
+            width: "100%",
+            src: "/img/hora-de-impulsar-tu-negocio.png",
+            alt: "hora-de-impulsar-tu-negocio"
+          }
+        })
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "metod-pay" }, [
         _c("h3", [_vm._v("Payment methods")]),
@@ -84094,6 +87591,7 @@ __webpack_require__(/*! moment/locale/es */ "./node_modules/moment/locale/es.js"
 
 Vue.prototype.moment = moment;
 Vue.component('payment-component', __webpack_require__(/*! ./components/Payment/Payment.vue */ "./resources/js/components/Payment/Payment.vue")["default"]);
+Vue.component('grid-payment-component', __webpack_require__(/*! ./components/Payment/GridPayment.vue */ "./resources/js/components/Payment/GridPayment.vue")["default"]);
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 Vue.component('grip-detalle-component', __webpack_require__(/*! ./components/Grip/gripdetalle.vue */ "./resources/js/components/Grip/gripdetalle.vue")["default"]);
 Vue.component('btn-buy-component', __webpack_require__(/*! ./components/Templades/navbardetalle */ "./resources/js/components/Templades/navbardetalle.vue")["default"]);
@@ -85782,6 +89280,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyProfile_vue_vue_type_template_id_107a6970_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyProfile_vue_vue_type_template_id_107a6970_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Payment/GridPayment.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/Payment/GridPayment.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _GridPayment_vue_vue_type_template_id_47fd6b9c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GridPayment.vue?vue&type=template&id=47fd6b9c&scoped=true& */ "./resources/js/components/Payment/GridPayment.vue?vue&type=template&id=47fd6b9c&scoped=true&");
+/* harmony import */ var _GridPayment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GridPayment.vue?vue&type=script&lang=js& */ "./resources/js/components/Payment/GridPayment.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _GridPayment_vue_vue_type_style_index_0_id_47fd6b9c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GridPayment.vue?vue&type=style&index=0&id=47fd6b9c&lang=scss&scoped=true& */ "./resources/js/components/Payment/GridPayment.vue?vue&type=style&index=0&id=47fd6b9c&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _GridPayment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _GridPayment_vue_vue_type_template_id_47fd6b9c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _GridPayment_vue_vue_type_template_id_47fd6b9c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "47fd6b9c",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Payment/GridPayment.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Payment/GridPayment.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/Payment/GridPayment.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GridPayment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./GridPayment.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Payment/GridPayment.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GridPayment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Payment/GridPayment.vue?vue&type=style&index=0&id=47fd6b9c&lang=scss&scoped=true&":
+/*!*******************************************************************************************************************!*\
+  !*** ./resources/js/components/Payment/GridPayment.vue?vue&type=style&index=0&id=47fd6b9c&lang=scss&scoped=true& ***!
+  \*******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_GridPayment_vue_vue_type_style_index_0_id_47fd6b9c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./GridPayment.vue?vue&type=style&index=0&id=47fd6b9c&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Payment/GridPayment.vue?vue&type=style&index=0&id=47fd6b9c&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_GridPayment_vue_vue_type_style_index_0_id_47fd6b9c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_GridPayment_vue_vue_type_style_index_0_id_47fd6b9c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_GridPayment_vue_vue_type_style_index_0_id_47fd6b9c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_GridPayment_vue_vue_type_style_index_0_id_47fd6b9c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Payment/GridPayment.vue?vue&type=template&id=47fd6b9c&scoped=true&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/Payment/GridPayment.vue?vue&type=template&id=47fd6b9c&scoped=true& ***!
+  \****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GridPayment_vue_vue_type_template_id_47fd6b9c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./GridPayment.vue?vue&type=template&id=47fd6b9c&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Payment/GridPayment.vue?vue&type=template&id=47fd6b9c&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GridPayment_vue_vue_type_template_id_47fd6b9c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GridPayment_vue_vue_type_template_id_47fd6b9c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

@@ -1,5 +1,8 @@
 <template>
     <div class="container-fluid">
+            <br>
+         
+            <h2>My grids</h2>
           <table style="margin-top:25px: width:100%" class="table table-responsive">
                     <thead>
                     <tr class="table-bg">
@@ -20,14 +23,14 @@
                         <td>www.gridstarters.com/my-{{grid.nombreURL}}</td>
                         <td>{{Number(1075 - grid.bloques.length)}}</td>
                         <td>{{grid.bloques.length}}</td>
-                        <td><button type="button" class="btn btn-upgrap" data-toggle="modal" data-target="#exampleModalLong">
+                        <td><button type="button" class="btn btn-upgrap" @click.prevent="mostrarmodal2(grid)">
                                 Cambiar Url
                             </button></td>
                     </tr>
                 
                     </tbody>
                 </table>
-                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div v-if="retiroSelected" class="modal fade" id="cambiourl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                             <div class="modal-header">
@@ -37,10 +40,10 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form @submit.prevent="editar()" id="form-comprobante" method="POST" enctype="multipart/form-data">
+                                <form @submit.prevent="editarurl()" id="form-comprobante" method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="nombreURL">Nombre de la ruta</label>
-                                        <input type="text" class="form-control" v-model="nombre" name="nombreURL">
+                                        <input type="text" class="form-control" v-model="retiroSelected.nombreURL"  name="nombreURL">
                                     </div>
                                     <div class="form-group">
                                         <label for="nombreURL">NombreURL</label>
@@ -63,12 +66,38 @@
         data() {
             return {
                 estadoproceso: false,
-                nombre:""
+                nombre:"",
+                retiroSelected:null,
             }
+        },
+        methods: {
+            editarurl(){
+                var url='/home/editarurl/'+this.retiroSelected.id;
+                axios.put(url,{
+                    nombreURL:this.nombreURL,
+                }).then((result) => {
+                    window.location.reload();
+                }).catch((err) => {
+                    console.log(err);
+                });
+            },
+            mostrarmodal2(retiro){
+                if(retiro){
+                    this.retiroSelected=retiro;
+                }
+                setTimeout(function(){
+                $("#cambiourl").modal("show");
+                },200)
+            },
         },
         computed: {
             nombreURL(){
-                return this.nombre.replace(/[ _#.$%?¿!¡/\\🔴]/g,"-").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+                if (this.retiroSelected) {
+                     return this.retiroSelected.nombreURL.replace(/[ _#.$%?¿!¡/\\🔴]/g,"-").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+                }else{
+                    return null;
+                }
+               
             }
         },
     }

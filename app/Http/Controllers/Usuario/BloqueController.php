@@ -12,6 +12,8 @@ use App\Bloque;
 use App\UserBank;
 use App\AccountRegisters;
 use App\PurchasesHistory;
+use App\ConfiguracionPublica;
+use App\ConfiguracionPublica;
 use File;
 
 class BloqueController extends Controller
@@ -19,8 +21,9 @@ class BloqueController extends Controller
     public function store2(Request $request)
     {
         $cart = json_decode($request['cart']);
+        $blockvalue=ConfiguracionPublica::where('nombre','block')->first();
         $matriz=Grip::find($request['matriz_id']);
-    
+        
         $aumentox=600/$request['column'];
         $aumentoy=600/$request['fila'];
         $imageorigin = $request->file('img');
@@ -93,24 +96,24 @@ class BloqueController extends Controller
         $userbank=UserBank::where('user_id',$matriz->user_id)->first();
         $positivo= $request['column']*$request['fila'];
         if ($userbank) {
-            $userbank->available=$userbank->available+$positivo*5;
+            $userbank->available=$userbank->available+$positivo*$blockvalue->value;
             $userbank->save();
             AccountRegisters::create([
                 'user_banks_id' =>$userbank->id,
-                'amount' => $positivo*5,
+                'amount' => $positivo*$blockvalue->value,
                 'type' => "sold",
                 'withdrawn' =>   0,
             ]);   
         }else{
             $new=UserBank::create([
                 'user_id' =>$matriz->user_id,
-                'available' => $positivo*5,
+                'available' => $positivo*$blockvalue->value,
                 
                 'withdrawn' =>   0,
             ]);
             AccountRegisters::create([
                 'user_banks_id' =>$new->id,
-                'amount' => $positivo*5,
+                'amount' => $positivo*$blockvalue->value,
                 'type' => "sold",
                 'withdrawn' =>   0,
             ]); 
@@ -118,7 +121,7 @@ class BloqueController extends Controller
         }
         PurchasesHistory::create([
             'user_id' =>Auth::user()->id,
-            'amount' => $positivo*5,
+            'amount' => $positivo*$blockvalue->value,
             'descripcion' =>  'Compra de bloque',
         ]); 
         $ruta="/grid/".$matriz->nombreURL;
