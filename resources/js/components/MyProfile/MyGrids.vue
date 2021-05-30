@@ -19,8 +19,8 @@
                     <tr v-for="(grid,index) in user.matriz" :key="index">
                         <td>{{grid.created_at}}</td>
                         <td><a :href="'/home/my/'+grid.nombreURL">View Detail</a></td>
-                        <td>www.gridstarters.com/{{grid.nombreURL}}</td>
-                        <td>www.gridstarters.com/my-{{grid.nombreURL}}</td>
+                        <td>www.gridstarters.com/grid/{{grid.nombreURL}}</td>
+                        <td>www.gridstarters.com/home/my/{{grid.nombreURL}}</td>
                         <td>{{Number(1075 - grid.bloques.length)}}</td>
                         <td>{{grid.bloques.length}}</td>
                         <td><button type="button" class="btn btn-upgrap" @click.prevent="mostrarmodal2(grid)">

@@ -967,7 +967,7 @@
                             <div class="d-flex justify-content-end align-content-center">
                              
                                 @if(Auth::user() != null)
-                                    <btn-grids-component></btn-grids-component>
+                                    <btn-grids-component :user="{{$user}}"></btn-grids-component>
                                 @endif
                             
                             </div>

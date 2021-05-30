@@ -1,5 +1,5 @@
 <template>
-    <button @click.prevent="gotogrips" id="btn-grids" class="btn btn-upgrap" >
+    <button v-if="user.matriz.length>0" @click.prevent="gotogrips" id="btn-grids" class="btn btn-upgrap" >
         My Grids
     </button>
 </template>
@@ -8,6 +8,7 @@
 import { mapState } from "vuex";
     export default {
         name:"navbar-detalle",
+        props:['user'],
         data() {
             return {
                 

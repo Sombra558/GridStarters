@@ -318,14 +318,14 @@
         }
         @font-face {
             font-family: 'Valera';
-            src: url('./fonts/Valera/Varela-Regular.ttf');
+            src: url('/fonts/Valera/Varela-Regular.ttf');
             font-weight:700;
             font-style: normal;
             font-display: swap;
         }
         @font-face {
             font-family: 'Rubik';
-            src: url('./fonts/Rubik/static/Rubik-Bold.ttf');
+            src: url('/fonts/Rubik/static/Rubik-Bold.ttf');
             font-weight: bold;
             font-style: normal;
             font-display: swap;

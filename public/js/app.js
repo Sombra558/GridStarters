@@ -3933,6 +3933,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "profile-user",
   props: ['user'],
@@ -10795,6 +10802,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "navbar-detalle",
+  props: ['user'],
   data: function data() {
     return {};
   },
@@ -72799,11 +72807,11 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("td", [
-                _vm._v("www.gridstarters.com/" + _vm._s(grid.nombreURL))
+                _vm._v("www.gridstarters.com/grid/" + _vm._s(grid.nombreURL))
               ]),
               _vm._v(" "),
               _c("td", [
-                _vm._v("www.gridstarters.com/my-" + _vm._s(grid.nombreURL))
+                _vm._v("www.gridstarters.com/home/my/" + _vm._s(grid.nombreURL))
               ]),
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(Number(1075 - grid.bloques.length)))]),
@@ -73389,6 +73397,10 @@ var render = function() {
                   )
                 ]
               )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.user.matriz.length === 0
+            ? _c("div", { staticClass: "row" }, [_vm._m(4)])
             : _vm._e()
         ])
       : _vm._e(),
@@ -73411,7 +73423,7 @@ var render = function() {
           { staticClass: "modal-dialog", attrs: { role: "document" } },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(4),
+              _vm._m(5),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c(
@@ -73544,7 +73556,7 @@ var render = function() {
                     [
                       _c("div", { staticClass: "updateFoto2" }),
                       _vm._v(" "),
-                      _vm._m(5)
+                      _vm._m(6)
                     ]
                   ),
                   _vm._v(" "),
@@ -73641,6 +73653,22 @@ var staticRenderFns = [
         _c("th", [_vm._v("Status")]),
         _vm._v(" "),
         _c("th", [_vm._v("Amount")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-12 col-md-10 offset-md-1" }, [
+      _c("a", { attrs: { href: "/grid-confirm-payment" } }, [
+        _c("img", {
+          attrs: {
+            width: "100%",
+            src: "/img/hora-de-impulsar-tu-negocio.png",
+            alt: "hora-de-impulsar-tu-negocio"
+          }
+        })
       ])
     ])
   },
@@ -73890,20 +73918,22 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "button",
-    {
-      staticClass: "btn btn-upgrap",
-      attrs: { id: "btn-grids" },
-      on: {
-        click: function($event) {
-          $event.preventDefault()
-          return _vm.gotogrips($event)
-        }
-      }
-    },
-    [_vm._v("\n    My Grids\n")]
-  )
+  return _vm.user.matriz.length > 0
+    ? _c(
+        "button",
+        {
+          staticClass: "btn btn-upgrap",
+          attrs: { id: "btn-grids" },
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.gotogrips($event)
+            }
+          }
+        },
+        [_vm._v("\n    My Grids\n")]
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
