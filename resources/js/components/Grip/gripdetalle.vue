@@ -20,7 +20,9 @@
             </div>
              <div class="col-sm-12">
                  <div class="container-fluid">
+                       <a style="margin-left:15px;" href="#" @click.prevent="mostrarmodal2()">Config Block Size</a>
                      <div class="d-flex justify-content-center">
+                          
                             <table style="padding:0px;"  class="table table-responsive ">
                             <caption >{{grip.user.name}} Grid</caption>
                             <thead >
@@ -51,7 +53,32 @@
                             
                  </div>
               
- 
+             <div class="modal fade" id="cambiourl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Cambiar Ruta</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                
+                                    <div class="form-group">
+                                        <label for="nombreURL">Columns Size</label>
+                                        <input type="text" class="form-control" v-model="bloqueconfig.columnasize"  >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nombreURL">Row Size</label>
+                                        <input class="form-control" type="text" v-model="bloqueconfig.filasize">
+                                    </div>
+                                    <input type="submit"  @click.prevent="definirsize()" class="btn btn-upgrap" value="Guardar">
+                               
+                            </div>
+
+                            </div>
+                        </div>
+                </div>
                       
                   
             </div>
@@ -67,15 +94,26 @@
                 bloqueSelected:null,
                 matriz: [],
                 bloqueconfig:{
-                    columnasize: 3,
-                    filasize:4
-                }
+                    columnasize: 1,
+                    filasize:1
+                },
+                retiroSelected:null,
             }
         },
         mounted() {
             this.matriz=JSON.parse(this.grip.matriz);
         },
         methods: {
+             mostrarmodal2(){
+               
+                setTimeout(function(){
+                $("#cambiourl").modal("show");
+                },200)
+            },
+            definirsize(){
+                 localStorage.clear();
+                 $("#cambiourl").modal("hide");
+            },
             casillaSelected(fila,columna) {
                 localStorage.clear();
                 var validabloque = document.querySelector(`#bloque-${fila}-${columna.numero}`);

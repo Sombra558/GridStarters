@@ -14,7 +14,25 @@ class LandingController extends Controller
         $users= Grip::all()->load('user','bloques');
         return view('welcome',compact('users'));
     }
+    public function search () 
+    {
+        
+        $key = request('key');
+       $users=collect();
+        $coleccionusers=Grip::get()->load(['user'=>function($q) use($key){
+            return $q->where('name', 'like', "%$key%");
+        },'bloques']);
+        foreach ($coleccionusers as $key ) {
+           if($key->user){
+            $users->push($key);
+           }
+        }
+  
+ 
 
+        return view('welcome',compact('users'));
+
+    }
     public function showgrip($nombreURL)
     {
         $grip= Grip::where('nombreURL',$nombreURL)->first();

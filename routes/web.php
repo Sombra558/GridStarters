@@ -2,6 +2,7 @@
 require __DIR__ . '/admin.php';
 
 Route::get('/', 'Pages\LandingController@index')->name('landing');
+Route::post('/grid/search', 'Pages\LandingController@search')->name('search');
 Route::get('/grid/{nombreURL}', 'Pages\LandingController@showgrip')->name('detalle-grip');
 
 Auth::routes();

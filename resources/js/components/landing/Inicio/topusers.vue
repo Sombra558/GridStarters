@@ -3,7 +3,7 @@
             <h2 class="top-users-heading">Top users</h2>
             <div style="margin-bottom:100px" class="row ">
                 <div style="margin-top:20px;" class="col-sm-12 col-md-6 col-lg-4" v-for="user in users" :key="user.user.id">
-                        <CardUser :user="user" />
+                        <CardUser v-if="user.user!=null" :user="user" />
                 </div>
             </div>
     </section>

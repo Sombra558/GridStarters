@@ -544,11 +544,15 @@
                                                             </svg>
 
                                                             <h1>Upload A Photo Forever In One of our Grids</h1>
-                                                            <div class="input-group mt-5 input-search">
-                                                                <input  type="text" class="form-control" placeholder="Find your creator" aria-label="Find your creator" aria-describedby="basic-addon1">
+                                                            <form action="{{ route('search') }}" method="POST">
+                                                                @csrf
+                                                                <div class="input-group mt-5 input-search">
+                                                                <input type="text" name="key" class="form-control" placeholder="Find your creator" aria-label="Find your creator" aria-describedby="basic-addon1">
                                                                 <button class="icon"><i class="fa fa-search"></i></button>
                                                            
-                                                            </div>
+                                                                 </div>
+                                                            </form>
+                                                          
                                                     </div>
                                             </div>
                                 </div>
