@@ -166,7 +166,7 @@
                 width:100%;
                 max-width:443px;
                 border: 1px solid #D1D1D1;
-                min-height:632px;
+                min-height:680px;
                 border-radius: 8px;
             }
             .card-register .card-login-title{
@@ -355,7 +355,7 @@
                 width:100%;
                 max-width:443px;
                 border: 1px solid #D1D1D1;
-                min-height:632px;
+                min-height:680px;
                 border-radius: 8px;
             }
             .card-register .card-login-title{
@@ -575,7 +575,7 @@
                 width:100%;
                 min-width:443px;
                 border: 1px solid #D1D1D1;
-                min-height:620px;
+                min-height:680px;
                 border-radius: 8px;
             }
             .card-register .card-login-title{
@@ -659,7 +659,7 @@
             .img-decoration-login{
                 margin-top:15px;
                 background-image: url('./img/fondo-login.png');
-                height: 611px;
+                height: 690px;
                 width:100%;
                 max-width:609px!important;
                 background-repeat: no-repeat;
@@ -1035,7 +1035,7 @@
             </div>
         </nav>
 
-        <main style="{{Request::is('register') ? '' : 'margin-top:80px;' }}">
+        <main style="{{Request::is('register') ? 'margin-top:10px' : 'margin-top:80px;' }}">
             @yield('content')
         </main>
     </div>

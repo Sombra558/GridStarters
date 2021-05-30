@@ -96,6 +96,7 @@ class PayPalService
                 'size' =>  $request['size'],
                 'codigo' => $randomString2,
                 'img' => $pathorigin,
+                'estado' => true,
                 'matriz_id' => $matriz->id,
                 'user_id' => Auth::user()->id,
             ]);   
@@ -215,6 +216,7 @@ class PayPalService
             for ($a=0; $a < $myblocks->count(); $a++) { 
 
                     $myblocks[$a]->fragmento = $myImg[$a]["path"];
+                    $myblocks[$a]->estado = false;
                     $myblocks[$a]->save();
                     $mytemp = json_decode($matriz->matriz);
                     $mytemp[$myblocks[$a]->fila][$myblocks[$a]->column]->src=$myImg[$a]["path"];

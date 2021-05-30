@@ -19,6 +19,7 @@ class CreateGripsTable extends Migration
             $table->string('nombreURL');
             $table->unsignedbigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
+            $table->boolean('subscriptions_enabled')->default(false);
             $table->timestamps();
         });
     }

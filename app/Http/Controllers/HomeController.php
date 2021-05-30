@@ -26,7 +26,9 @@ class HomeController extends Controller
     public function index()
     {
         $user= Auth::user()->load(['matriz'=>function($q){
-            return $q->with(['bloques']);
+            return $q->with(['bloques'=>function($k){
+                return $k->where('estado',false);
+            }]);
         },'bank'=>function($q){
             return $q->with(['registros','retiros']);
         },'history']);
