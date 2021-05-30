@@ -1,11 +1,9 @@
 <template>
-    <section class="container-fluid">
-        <h2 class="buy-tite">Buy Blocks</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <form @submit.prevent="crearposition" id="payment-form" method="post" enctype="multipart/form-data">
+    
+                    
+                        <div>
                         <input type="hidden" name="cart" :value="JSON.stringify(bloque)">
-                         <input type="hidden" name="size" :value="columnas+'x'+filas">
+                        <input type="hidden" name="size" :value="columnas+'x'+filas">
                         <input type="hidden" name="matriz_id" :value="bloque[0].matriz_id">
                         <input type="hidden" name="column" :value="columnas">
                         <input type="hidden" name="fila" :value="filas">
@@ -38,22 +36,11 @@
                                 <span v-else style="color:grey!important">{{filas}}</span>
                             </div>
                         </div>            
-                        <div class="flexi-btn-form">
-                            <input :disabled="estadoprocess" style="margin-top:65px" class="btn btn-grip" type="submit" value="Save & pay">
-                             <input :disabled="estadoprocess" style="margin-top:65px" class="btn btn-cancel" type="button" value="Cancel">
                         </div>
-                    </form>
+                       
+                        
                   
-                </div>
-                <div class="col-md-6 padre-pago-descripcion">
-                    <a href="/grid-confirm-payment"><img  width="100%" src="/img/hora-de-impulsar-tu-negocio.png" alt="hora-de-impulsar-tu-negocio"></a>
-                    <div class="metod-pay">
-                        <h3>Payment methods</h3>
-                        <img src="/img/PayPal-Logo.png" alt="" srcset="">
-                    </div>
-                </div>
-            </div>
-    </section>
+               
 </template>
 
 <script>

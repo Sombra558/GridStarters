@@ -4003,30 +4003,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'confirm-payment-grid',
-  props: ['user', 'value'],
+  props: ['user'],
   data: function data() {
     return {
       lastFile: null,
@@ -7331,7 +7310,11 @@ __webpack_require__.r(__webpack_exports__);
       var form = $("#payment-form")[0];
       var formulario = new FormData(form);
       var url = "/create-grid";
-      axios.post(url, formulario).then(function (result) {//window.location="/";
+      axios.post(url, {
+        user_id: this.user.id,
+        matriz: JSON.stringify(this.matriz)
+      }).then(function (result) {
+        window.location = "/";
       })["catch"](function (err) {
         _this.estadoprocess = false;
         console.log(err);
@@ -7367,19 +7350,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -73029,9 +72999,9 @@ var render = function() {
                         _vm._v(" "),
                         _vm._m(1, true),
                         _vm._v(" "),
-                        _c("td"),
+                        _c("td", [_vm._v(_vm._s(grid.transaction_id))]),
                         _vm._v(" "),
-                        _c("td", [_vm._v("Paypal")]),
+                        _c("td", [_vm._v(_vm._s(grid.payment_method))]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(grid.amount) + "$")])
                       ])
@@ -73060,9 +73030,9 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(history.descripcion))]),
                         _vm._v(" "),
-                        _c("td"),
+                        _c("td", [_vm._v(_vm._s(history.transaction_id))]),
                         _vm._v(" "),
-                        _c("td", [_vm._v("Paypal")]),
+                        _c("td", [_vm._v(_vm._s(history.payment_method))]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(history.amount) + "$")])
                       ])
@@ -73544,83 +73514,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "container-fluid" }, [
-    _c("h2", { staticClass: "buy-tite" }, [_vm._v("Buy Grids")]),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-6" }, [
-        _c(
-          "form",
-          {
-            attrs: { id: "payment-form", method: "post" },
-            on: {
-              submit: function($event) {
-                $event.preventDefault()
-                return _vm.createGrid()
-              }
-            }
-          },
-          [
-            _c("input", {
-              attrs: { type: "hidden", name: "user_id" },
-              domProps: { value: this.user.id }
-            }),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "hidden", name: "matriz" },
-              domProps: { value: JSON.stringify(this.matriz) }
-            }),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "hidden", name: "value" },
-              domProps: { value: this.value.value }
-            }),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "hidden", name: "currency", value: "usd" }
-            }),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "btn btn-cancel",
-              staticStyle: { "margin-top": "65px" },
-              attrs: {
-                disabled: _vm.estadoprocess,
-                type: "submit",
-                value: "Buy Grid"
-              }
-            })
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _vm._m(0)
-    ])
+  return _c("div", [
+    _c("input", {
+      attrs: { type: "hidden", name: "matriz" },
+      domProps: { value: JSON.stringify(this.matriz) }
+    })
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6 padre-pago-descripcion" }, [
-      _c("img", {
-        attrs: {
-          width: "100%",
-          src: "/img/hora-de-impulsar-tu-negocio.png",
-          alt: "hora-de-impulsar-tu-negocio"
-        }
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "metod-pay" }, [
-        _c("h3", [_vm._v("Payment methods")]),
-        _vm._v(" "),
-        _c("img", {
-          attrs: { src: "/img/PayPal-Logo.png", alt: "", srcset: "" }
-        })
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -73642,162 +73543,110 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "container-fluid" }, [
-    _c("h2", { staticClass: "buy-tite" }, [_vm._v("Buy Blocks")]),
+  return _c("div", [
+    _c("input", {
+      attrs: { type: "hidden", name: "cart" },
+      domProps: { value: JSON.stringify(_vm.bloque) }
+    }),
     _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-6" }, [
-        _c(
-          "form",
-          {
-            attrs: {
-              id: "payment-form",
-              method: "post",
-              enctype: "multipart/form-data"
-            },
-            on: {
-              submit: function($event) {
-                $event.preventDefault()
-                return _vm.crearposition($event)
-              }
-            }
-          },
-          [
-            _c("input", {
-              attrs: { type: "hidden", name: "cart" },
-              domProps: { value: JSON.stringify(_vm.bloque) }
-            }),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "hidden", name: "size" },
-              domProps: { value: _vm.columnas + "x" + _vm.filas }
-            }),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "hidden", name: "matriz_id" },
-              domProps: { value: _vm.bloque[0].matriz_id }
-            }),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "hidden", name: "column" },
-              domProps: { value: _vm.columnas }
-            }),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "hidden", name: "fila" },
-              domProps: { value: _vm.filas }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-groud" }, [
-              _c("label", { attrs: { for: "img-grip" } }, [
-                _vm._v("Upload your photo or banner")
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "updateFoto",
-                  style: _vm.grip.src
-                    ? "background-image: url(" + _vm.grip.src + ");"
-                    : "background-color: #b7b4be4f;",
-                  on: {
-                    click: function($event) {
-                      return _vm.bannerChangeProfPicture()
-                    }
-                  }
-                },
-                [
-                  _c("div"),
-                  _vm._v(" "),
-                  _c("strong", { staticStyle: { color: "grey!important" } }, [
-                    _vm._v("Upload File")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "d-block",
-                staticStyle: { opacity: "0" },
-                attrs: {
-                  id: "ProfImgChangeInput",
-                  name: "img",
-                  type: "file",
-                  accept: "image/*"
-                },
-                on: { change: _vm.fileSelected }
-              })
-            ]),
-            _vm._v(" "),
-            _vm._m(0),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "padre-content-position",
-                staticStyle: { "margin-top": "20px" }
-              },
-              [
-                _c("div", { staticClass: "col-6 content-position" }, [
-                  _c(
-                    "label",
-                    { staticClass: "d-block", attrs: { for: "column" } },
-                    [_vm._v("Column")]
-                  ),
-                  _vm._v(" "),
-                  _vm.bloque === null
-                    ? _c("span", { staticStyle: { color: "grey!important" } }, [
-                        _vm._v("No. Column")
-                      ])
-                    : _c("span", { staticStyle: { color: "grey!important" } }, [
-                        _vm._v(_vm._s(_vm.columnas))
-                      ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-6 content-position" }, [
-                  _c(
-                    "label",
-                    { staticClass: "d-block", attrs: { for: "row" } },
-                    [_vm._v("Row")]
-                  ),
-                  _vm._v(" "),
-                  _vm.bloque === null
-                    ? _c("span", { staticStyle: { color: "grey!important" } }, [
-                        _vm._v("No. row")
-                      ])
-                    : _c("span", { staticStyle: { color: "grey!important" } }, [
-                        _vm._v(_vm._s(_vm.filas))
-                      ])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "flexi-btn-form" }, [
-              _c("input", {
-                staticClass: "btn btn-grip",
-                staticStyle: { "margin-top": "65px" },
-                attrs: {
-                  disabled: _vm.estadoprocess,
-                  type: "submit",
-                  value: "Save & pay"
-                }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "btn btn-cancel",
-                staticStyle: { "margin-top": "65px" },
-                attrs: {
-                  disabled: _vm.estadoprocess,
-                  type: "button",
-                  value: "Cancel"
-                }
-              })
-            ])
-          ]
-        )
+    _c("input", {
+      attrs: { type: "hidden", name: "size" },
+      domProps: { value: _vm.columnas + "x" + _vm.filas }
+    }),
+    _vm._v(" "),
+    _c("input", {
+      attrs: { type: "hidden", name: "matriz_id" },
+      domProps: { value: _vm.bloque[0].matriz_id }
+    }),
+    _vm._v(" "),
+    _c("input", {
+      attrs: { type: "hidden", name: "column" },
+      domProps: { value: _vm.columnas }
+    }),
+    _vm._v(" "),
+    _c("input", {
+      attrs: { type: "hidden", name: "fila" },
+      domProps: { value: _vm.filas }
+    }),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-groud" }, [
+      _c("label", { attrs: { for: "img-grip" } }, [
+        _vm._v("Upload your photo or banner")
       ]),
       _vm._v(" "),
-      _vm._m(1)
-    ])
+      _c(
+        "div",
+        {
+          staticClass: "updateFoto",
+          style: _vm.grip.src
+            ? "background-image: url(" + _vm.grip.src + ");"
+            : "background-color: #b7b4be4f;",
+          on: {
+            click: function($event) {
+              return _vm.bannerChangeProfPicture()
+            }
+          }
+        },
+        [
+          _c("div"),
+          _vm._v(" "),
+          _c("strong", { staticStyle: { color: "grey!important" } }, [
+            _vm._v("Upload File")
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "d-block",
+        staticStyle: { opacity: "0" },
+        attrs: {
+          id: "ProfImgChangeInput",
+          name: "img",
+          type: "file",
+          accept: "image/*"
+        },
+        on: { change: _vm.fileSelected }
+      })
+    ]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "padre-content-position",
+        staticStyle: { "margin-top": "20px" }
+      },
+      [
+        _c("div", { staticClass: "col-6 content-position" }, [
+          _c("label", { staticClass: "d-block", attrs: { for: "column" } }, [
+            _vm._v("Column")
+          ]),
+          _vm._v(" "),
+          _vm.bloque === null
+            ? _c("span", { staticStyle: { color: "grey!important" } }, [
+                _vm._v("No. Column")
+              ])
+            : _c("span", { staticStyle: { color: "grey!important" } }, [
+                _vm._v(_vm._s(_vm.columnas))
+              ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-6 content-position" }, [
+          _c("label", { staticClass: "d-block", attrs: { for: "row" } }, [
+            _vm._v("Row")
+          ]),
+          _vm._v(" "),
+          _vm.bloque === null
+            ? _c("span", { staticStyle: { color: "grey!important" } }, [
+                _vm._v("No. row")
+              ])
+            : _c("span", { staticStyle: { color: "grey!important" } }, [
+                _vm._v(_vm._s(_vm.filas))
+              ])
+        ])
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -73812,11 +73661,7 @@ var staticRenderFns = [
           staticClass: "col-sm-12 col-md-9",
           staticStyle: { "margin-left": "0px" }
         },
-        [
-          _vm._v(
-            "\n                            No. of grids that you would like to block\n                        "
-          )
-        ]
+        [_vm._v("\n        No. of grids that you would like to block\n    ")]
       ),
       _vm._v(" "),
       _c(
@@ -73827,30 +73672,6 @@ var staticRenderFns = [
         },
         [_vm._v("Preview")]
       )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6 padre-pago-descripcion" }, [
-      _c("a", { attrs: { href: "/grid-confirm-payment" } }, [
-        _c("img", {
-          attrs: {
-            width: "100%",
-            src: "/img/hora-de-impulsar-tu-negocio.png",
-            alt: "hora-de-impulsar-tu-negocio"
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "metod-pay" }, [
-        _c("h3", [_vm._v("Payment methods")]),
-        _vm._v(" "),
-        _c("img", {
-          attrs: { src: "/img/PayPal-Logo.png", alt: "", srcset: "" }
-        })
-      ])
     ])
   }
 ]

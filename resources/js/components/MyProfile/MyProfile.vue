@@ -37,8 +37,8 @@
                 <tr v-for="(grid,index) in user.bank[0].registros" :key="index">
                     <td>{{grid.created_at}}</td>
                     <td><a href="#">View Detail</a></td>
-                    <td></td>
-                    <td>Paypal</td>
+                    <td>{{grid.transaction_id}}</td>
+                    <td>{{grid.payment_method}}</td>
                     <td>{{grid.amount}}$</td>
                 </tr>
                
@@ -58,8 +58,8 @@
                 <tr v-for="(history,index) in user.history" :key="index">
                     <td>{{history.created_at}}</td>
                     <td>{{history.descripcion}}</td>
-                    <td></td>
-                    <td>Paypal</td>
+                    <td>{{history.transaction_id}}</td>
+                    <td>{{history.payment_method}}</td>
                     <td>{{history.amount}}$</td>
                 </tr>
                

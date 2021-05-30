@@ -13,12 +13,13 @@ use App\UserBank;
 use App\AccountRegisters;
 use App\PurchasesHistory;
 use App\ConfiguracionPublica;
-use App\ConfiguracionPublica;
+use App\Resolvers\PaymentPlatformResolver;
+use App\Services\PayPalService;
 use File;
 
 class BloqueController extends Controller
 {
-    public function store2(Request $request)
+    public function store(Request $request)
     {
         $cart = json_decode($request['cart']);
         $blockvalue=ConfiguracionPublica::where('nombre','block')->first();
@@ -126,5 +127,22 @@ class BloqueController extends Controller
         ]); 
         $ruta="/grid/".$matriz->nombreURL;
         return $ruta;
+    }
+    public function store2(Request $request)
+    {
+        $rules = [
+            'value' => ['required', 'numeric', 'min:5'],
+            'currency' => ['required', 'exists:currencies,iso'],   
+        ];
+        $request->validate($rules);
+        $paymentPlatform = resolve(PayPalService::class);
+        return $paymentPlatform->handlePaymentBlocks($request);
+    }
+    public function approval()
+    {
+      
+        $paymentPlatform = resolve(PayPalService::class);
+
+        return $paymentPlatform->handleApprovalBlock();
     }
 }

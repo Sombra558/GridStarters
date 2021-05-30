@@ -35,7 +35,8 @@ class HomeController extends Controller
     public function payment()
     {
         $user= Auth::user()->load(['matriz']);
-        return view('User.Payment.payment',compact('user'));
+        $gridvalue=ConfiguracionPublica::where('nombre','block')->first();
+        return view('User.Payment.payment',compact('user','gridvalue'));
     }
     public function paymentgrid()
     {

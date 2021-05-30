@@ -26,7 +26,7 @@
                     <tr v-for="(sale,index) in filteredSales" :key="index">
                         <td>{{sale.user.email}}</td>
                         <td><a @click.prevent="mostrarmodal(sale)" href="#">View Detail</a></td>
-                         <td>{{sale.transaction_id}}</td>
+                        <td>{{sale.transaction_id}}</td>
                         <td>{{sale.payment_method}}</td>
                         <td>{{sale.amount}}$</td>
         

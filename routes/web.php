@@ -10,6 +10,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/mygrids', 'HomeController@mygrid')->name('mygrid');
 Route::get('/confirm-payment', 'HomeController@payment')->name('confirm-payment');
 Route::get('/payments/approval', 'PaymentController@approval')->name('approval');
+Route::get('/payments/approval2', 'Usuario\BloqueController@approval')->name('approval2');
 Route::get('/payments/cancelled', 'PaymentController@cancelled')->name('cancelled');
 Route::get('/grid-confirm-payment', 'HomeController@paymentgrid')->name('grid-confirm-payment');
 Route::post('/create-grid', 'Usuario\GridController@store')->name('grid-create-grid');
