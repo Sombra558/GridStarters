@@ -478,7 +478,16 @@
         <ul style="width:100%" class="navbar-nav row m-0 flex-row justify-content-between align-content-center col-12 p-0">
         <div id="navbarDropdown" class="nav-link text-white col-12" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             <div  class="d-flex justify-content-start">
-            <div id="navbarDropdown" class="nav-link text-white col-10" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                @guest
+                <div id="navbarDropdown" class="nav-link text-white col-10" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <div class="row col-12 m-0">
+                   
+                    
+                    
+                    </div>
+                </div>
+                @else
+                <div id="navbarDropdown" class="nav-link text-white col-10" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     <div class="row col-12 m-0">
                     <div class="flexi-user-auth">
                     <a href="/home">
@@ -490,6 +499,7 @@
                     <img style="margin-left:33px" class="avatar" src="/img/user/user_min.jpg" alt="user-img">
                     </div>
                 </div>
+                @endguest
                 <div class="row align-items-center m-0 p-0 col-2">
                 <button  onclick="active()" class="navbar-toggler p-0" style="border:none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <svg width="41" height="26" viewBox="0 0 41 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -522,11 +532,24 @@
                 </g>
             </svg>
             <!-- Authentication Links -->
+            @guest
             <div>
             <!--SE SUPONE QUW VA UNA VALIDACION EN LA RUTA DE ADMIN, PERO ME DABA ERROR ASI QUE LA QUITE-->
+                <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/login">
+                   <strong>Login</strong> 
+                </a>
+                <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/register">
+                   <strong> Register </strong>
+                </a>
+            </div>
+            @else
+            <div>
+            <!--SE SUPONE QUW VA UNA VALIDACION EN LA RUTA DE ADMIN, PERO ME DABA ERROR ASI QUE LA QUITE-->
+                @if(Auth::user()->roles[0]->name === 'administrador')
                 <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/admin">
                    <strong>Admin </strong> 
                 </a>
+                @endif
                 <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/home">
                    <strong> Home </strong>
                 </a>
@@ -545,11 +568,12 @@
                     @csrf
                 </form>
             </div>
+            @endguest
         </ul>
 
         
         <div class="position-absolute" style="bottom:1rem; width:80%;">
-<ul class="row m-0 justify-content-center navbar-nav flex-row pt-5 mb-2 " style="border-top: solid 1px #ccc;">
+        <ul class="row m-0 justify-content-center navbar-nav flex-row pt-5 mb-2 " style="border-top: solid 1px #ccc;">
                         <li class="nav-item  row mx-2 justify-content-center">
                             <a class="nav-link" href="{{ route('login') }}">
                             <svg height="42" fill="#30019B " viewBox="0 0 512 512" width="42" xmlns="http://www.w3.org/2000/svg">
