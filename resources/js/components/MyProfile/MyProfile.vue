@@ -278,6 +278,9 @@
 .modal-content{
     border-radius:12px;
 }
+label{
+    font-weight: 100!important;
+}
     .contenedor-botones-profile{
         display: flex;
         justify-content: space-between;
