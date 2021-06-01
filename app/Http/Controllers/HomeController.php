@@ -25,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $retirovalue=ConfiguracionPublica::where('nombre','retiro')->first();
         $user= Auth::user()->load(['matriz'=>function($q){
             return $q->with(['bloques'=>function($k){
                 return $k->where('estado',false);
@@ -32,7 +33,7 @@ class HomeController extends Controller
         },'bank'=>function($q){
             return $q->with(['registros','retiros']);
         },'history']);
-        return view('home',compact('user'));
+        return view('home',compact('user','retirovalue'));
     }
     public function payment()
     {

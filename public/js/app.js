@@ -3949,7 +3949,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "profile-user",
-  props: ['user'],
+  props: ['user', 'retirovalue'],
   data: function data() {
     return {
       selectedtag: "mygrid",
@@ -3985,16 +3985,22 @@ __webpack_require__.r(__webpack_exports__);
     },
     solicitarretiro: function solicitarretiro() {
       this.estadoproceso = true;
-      var url = "/home/solicitud";
-      axios.post(url, {
-        email: this.solicitud.email,
-        amount: this.solicitud.amount,
-        user_banks_id: this.user.bank[0].id
-      }).then(function (result) {
-        window.location.reload();
-      })["catch"](function (err) {
-        console.log(err);
-      });
+
+      if (this.solicitud.amount >= this.retirovalue.value && this.solicitud.amount <= this.user.bank[0].available) {
+        var url = "/home/solicitud";
+        axios.post(url, {
+          email: this.solicitud.email,
+          amount: this.solicitud.amount,
+          user_banks_id: this.user.bank[0].id
+        }).then(function (result) {
+          window.location.reload();
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      } else {
+        console.log('imposible realizar transaccion');
+        this.estadoproceso = false;
+      }
     },
     mostrarmodal2: function mostrarmodal2(retiro) {
       if (retiro) {
@@ -4020,10 +4026,7 @@ __webpack_require__.r(__webpack_exports__);
               return evt.codigo === element.codigo;
             })) {
               grupo.push(element);
-              console.log('coincide');
             } else {
-              console.log('no coincide');
-
               _this.mygrids.push(grupo);
 
               grupo = [];
@@ -90093,8 +90096,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\GridStarters\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\GridStarters\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\millonario\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\millonario\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

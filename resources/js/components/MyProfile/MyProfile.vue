@@ -189,7 +189,7 @@
 <script>
     export default {
         name:"profile-user",
-        props:['user'],
+        props:['user','retirovalue'],
         data() {
             return {
                 selectedtag: "mygrid",
@@ -223,16 +223,22 @@
             },
             solicitarretiro(){
                 this.estadoproceso=true;
-                var url="/home/solicitud";
-                axios.post(url,{
-                    email:this.solicitud.email,
-                    amount:this.solicitud.amount,
-                    user_banks_id:this.user.bank[0].id
-                }).then((result) => {
-                    window.location.reload();
-                }).catch((err) => {
-                    console.log(err);
-                });
+                if (this.solicitud.amount >=this.retirovalue.value && this.solicitud.amount<=this.user.bank[0].available) {
+                    var url="/home/solicitud";
+                    axios.post(url,{
+                        email:this.solicitud.email,
+                        amount:this.solicitud.amount,
+                        user_banks_id:this.user.bank[0].id
+                    }).then((result) => {
+                        window.location.reload();
+                    }).catch((err) => {
+                        console.log(err);
+                    });
+                }else{
+                    console.log('imposible realizar transaccion');
+                    this.estadoproceso=false;
+                }
+                
             },
              mostrarmodal2(retiro){
                 if(retiro){
@@ -254,9 +260,9 @@
                         else{
                             if (grupo.some(evt => evt.codigo===element.codigo)) {
                                 grupo.push(element);
-                                console.log('coincide');
+                             
                             }else{
-                                console.log('no coincide');
+                         
                                 this.mygrids.push(grupo);
                                 grupo=[];
                                 grupo.push(element);
