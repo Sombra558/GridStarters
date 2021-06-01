@@ -3115,11 +3115,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "menu-lateral-estudiante",
@@ -3289,6 +3284,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -3703,6 +3701,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "mygrids",
   props: ['user'],
@@ -3756,6 +3759,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -10853,7 +10860,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "navbar-detalle",
@@ -15681,6 +15687,25 @@ exports.push([module.i, "@media only screen and (max-width: 540px) {\n.fondo[dat
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MyProfile/MyGrids.vue?vue&type=style&index=0&id=104d9b74&lang=scss&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MyProfile/MyGrids.vue?vue&type=style&index=0&id=104d9b74&lang=scss&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".modal-dialog[data-v-104d9b74] {\n  max-width: 600px !important;\n}\n.modal-content[data-v-104d9b74] {\n  border-radius: 12px;\n}\nlabel[data-v-104d9b74] {\n  font-weight: 100 !important;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MyProfile/MyProfile.vue?vue&type=style&index=0&id=107a6970&lang=scss&scoped=true&":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MyProfile/MyProfile.vue?vue&type=style&index=0&id=107a6970&lang=scss&scoped=true& ***!
@@ -15693,7 +15718,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".contenedor-botones-profile[data-v-107a6970] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  height: 44px;\n  width: 100%;\n  max-width: 628px;\n  background-color: #2f019b31;\n  border-radius: 12px;\n}\n.btn-profile-tag[data-v-107a6970] {\n  height: 44px;\n  width: 100%;\n  border: none;\n  max-width: 193px;\n  height: 36px;\n  background-color: transparent;\n  border-radius: 8px;\n}\n.active[data-v-107a6970] {\n  height: 44px;\n  width: 100%;\n  border: none;\n  max-width: 193px;\n  height: 36px;\n  background-color: #2f019b83;\n  color: #ffffff;\n  border-radius: 8px;\n}\nsection[data-v-107a6970] {\n  margin-top: 16px;\n}\nsection h3[data-v-107a6970] {\n  font-family: \"Rubik\";\n  font-size: 20px;\n  font-weight: 500;\n  color: #5F01F5;\n}\n.btn-second-tag[data-v-107a6970] {\n  width: 143px;\n  font-family: \"Valera\";\n  color: #0f0426a4;\n  height: 21px;\n  background-color: transparent;\n  border: none;\n}\n.active-2[data-v-107a6970] {\n  line-height: 5px;\n  border-bottom: 2px solid #30019B;\n}\n@media only screen and (max-width: 767px) {\n.contenedor-earrings[data-v-107a6970] {\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    background-color: #FBF9FF;\n    border: 1px solid #b8a7a782;\n    height: 271px;\n}\n.earrings[data-v-107a6970] {\n    flex-basis: 100%;\n    width: 271px;\n    border-bottom: 1px solid #b8a7a782;\n}\n.earrings h4[data-v-107a6970] {\n    font-family: \"Valera\";\n    font-size: 16px;\n    text-align: center;\n    margin-top: 13px;\n    color: #B8A7A7;\n}\n.earrings p[data-v-107a6970] {\n    font-family: \"Valera\";\n    font-size: 20px;\n    margin: 0;\n    width: 100%;\n    text-align: center;\n}\n}\n@media only screen and (min-width: 768px) {\n.contenedor-earrings[data-v-107a6970] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: #FBF9FF;\n    border: 1px solid #b8a7a782;\n    height: 73px;\n}\n.earrings[data-v-107a6970] {\n    flex-basis: calc(33.3% - 15px);\n    border-left: 1px solid #b8a7a782;\n}\n.earrings h4[data-v-107a6970] {\n    font-family: \"Valera\";\n    font-size: 16px;\n    text-align: center;\n    margin: 0;\n    color: #B8A7A7;\n}\n.earrings p[data-v-107a6970] {\n    font-family: \"Valera\";\n    font-size: 20px;\n    margin: 0;\n    width: 100%;\n    text-align: center;\n}\n}\n.contenedor-grid-purshace[data-v-107a6970] {\n  display: flex;\n}\n.card-grid-profile img[data-v-107a6970] {\n  height: 207px;\n  width: 100%;\n  min-width: 251px;\n  border-radius: 8px;\n}\n.card-grid-profile p[data-v-107a6970] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0;\n}\n.card-grid-profile strong[data-v-107a6970] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0;\n}\n.table-bg[data-v-107a6970] {\n  background-color: #0f042613;\n}\n.updateFoto2[data-v-107a6970] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 250px;\n  border-radius: 5px;\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  background-position: center center;\n}\n.updateFoto strong[data-v-107a6970] {\n  width: 100%;\n  text-align: center;\n}\n.updateFoto2 strong[data-v-107a6970] {\n  width: 100%;\n  text-align: center;\n}\n.user-descripcion[data-v-107a6970] {\n  background-color: #ffffff;\n  width: calc(100% - 10px);\n  border-radius: 8px;\n  height: 150px;\n  margin-bottom: 10px;\n}\n.user-descripcion h6[data-v-107a6970] {\n  font-family: \"Rubik\";\n  font-size: 20px;\n  margin-bottom: 5px !important;\n  margin-left: 15px;\n}\n.user-descripcion strong[data-v-107a6970] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  margin-bottom: 5px !important;\n  margin-left: 15px;\n}\n.user-descripcion p[data-v-107a6970] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  margin-bottom: 5px !important;\n  margin-left: 15px;\n}", ""]);
+exports.push([module.i, ".modal-dialog[data-v-107a6970] {\n  max-width: 600px !important;\n}\n.modal-content[data-v-107a6970] {\n  border-radius: 12px;\n}\n.contenedor-botones-profile[data-v-107a6970] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  height: 44px;\n  width: 100%;\n  max-width: 628px;\n  background-color: #2f019b31;\n  border-radius: 12px;\n}\n.btn-profile-tag[data-v-107a6970] {\n  height: 44px;\n  width: 100%;\n  border: none;\n  max-width: 193px;\n  height: 36px;\n  background-color: transparent;\n  border-radius: 8px;\n}\n.active[data-v-107a6970] {\n  height: 44px;\n  width: 100%;\n  border: none;\n  max-width: 193px;\n  height: 36px;\n  background-color: #2f019b83;\n  color: #ffffff;\n  border-radius: 8px;\n}\nsection[data-v-107a6970] {\n  margin-top: 16px;\n}\nsection h3[data-v-107a6970] {\n  font-family: \"Rubik\";\n  font-size: 20px;\n  font-weight: 500;\n  color: #5F01F5;\n}\n.btn-second-tag[data-v-107a6970] {\n  width: 143px;\n  font-family: \"Valera\";\n  color: #0f0426a4;\n  height: 21px;\n  background-color: transparent;\n  border: none;\n}\n.active-2[data-v-107a6970] {\n  line-height: 5px;\n  border-bottom: 2px solid #30019B;\n}\n@media only screen and (max-width: 767px) {\n.contenedor-earrings[data-v-107a6970] {\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    background-color: #FBF9FF;\n    border: 1px solid #b8a7a782;\n    height: 271px;\n}\n.earrings[data-v-107a6970] {\n    flex-basis: 100%;\n    width: 271px;\n    border-bottom: 1px solid #b8a7a782;\n}\n.earrings h4[data-v-107a6970] {\n    font-family: \"Valera\";\n    font-size: 16px;\n    text-align: center;\n    margin-top: 13px;\n    color: #B8A7A7;\n}\n.earrings p[data-v-107a6970] {\n    font-family: \"Valera\";\n    font-size: 20px;\n    margin: 0;\n    width: 100%;\n    text-align: center;\n}\n}\n@media only screen and (min-width: 768px) {\n.contenedor-earrings[data-v-107a6970] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: #FBF9FF;\n    border: 1px solid #b8a7a782;\n    height: 73px;\n}\n.earrings[data-v-107a6970] {\n    flex-basis: calc(33.3% - 15px);\n    border-left: 1px solid #b8a7a782;\n}\n.earrings h4[data-v-107a6970] {\n    font-family: \"Valera\";\n    font-size: 16px;\n    text-align: center;\n    margin: 0;\n    color: #B8A7A7;\n}\n.earrings p[data-v-107a6970] {\n    font-family: \"Valera\";\n    font-size: 20px;\n    margin: 0;\n    width: 100%;\n    text-align: center;\n}\n}\n.contenedor-grid-purshace[data-v-107a6970] {\n  display: flex;\n}\n.card-grid-profile img[data-v-107a6970] {\n  height: 207px;\n  width: 100%;\n  min-width: 251px;\n  border-radius: 8px;\n}\n.card-grid-profile p[data-v-107a6970] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0;\n}\n.card-grid-profile strong[data-v-107a6970] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0;\n}\n.table-bg[data-v-107a6970] {\n  background-color: #0f042613;\n}\n.updateFoto2[data-v-107a6970] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 250px;\n  border-radius: 5px;\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  background-position: center center;\n}\n.updateFoto strong[data-v-107a6970] {\n  width: 100%;\n  text-align: center;\n}\n.updateFoto2 strong[data-v-107a6970] {\n  width: 100%;\n  text-align: center;\n}\n.user-descripcion[data-v-107a6970] {\n  background-color: #ffffff;\n  width: calc(100% - 10px);\n  border-radius: 8px;\n  height: 150px;\n  margin-bottom: 10px;\n}\n.user-descripcion h6[data-v-107a6970] {\n  font-family: \"Rubik\";\n  font-size: 20px;\n  margin-bottom: 5px !important;\n  margin-left: 15px;\n}\n.user-descripcion strong[data-v-107a6970] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  margin-bottom: 5px !important;\n  margin-left: 15px;\n}\n.user-descripcion p[data-v-107a6970] {\n  font-family: \"Valera\";\n  font-size: 16px;\n  margin-bottom: 5px !important;\n  margin-left: 15px;\n}", ""]);
 
 // exports
 
@@ -15807,7 +15832,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.menu-secundario[data-v-6f48ed13]{\r\n    background-color: #ffffff;\r\n    width: 100%;\n}\n@media only screen and (max-width: 768px) {\n.grids-descripcion[data-v-6f48ed13]{\r\n                margin-top: 20px;\r\n                text-align: center;\r\n                font-size: 14px;\n}\n.resalte[data-v-6f48ed13]{\r\n                font-size: 16px;\r\n                line-height: 23,7px;\r\n                font-weight: 700;\r\n                color: #30019B;\n}\n}\n@media only screen and (min-width: 769px) {\n.grids-descripcion[data-v-6f48ed13]{\r\n                width: 500px;\r\n                margin-top: 0px;\r\n                 font-size: 16px;\r\n                text-align: end;\n}\n.resalte[data-v-6f48ed13]{\r\n                font-size: 20px;\r\n                line-height: 23,7px;\r\n                font-weight: 700;\r\n                color: #30019B;\n}\n}\n.avatar[data-v-6f48ed13]{\r\n       width: 85px;\r\n       height: 53px;\r\n       border-radius: 50%;\n}\np[data-v-6f48ed13]{\r\n       font-family: 'Valera';\r\n        font-size: 20px;\r\n       line-height: 23,7px;\r\n       font-weight: 500;\n}\n.username[data-v-6f48ed13]{\r\n       font-family: 'Rubik';\r\n       font-size: 20px;\r\n       line-height: 23,7px;\r\n       font-weight: bold;\n}\n.premium[data-v-6f48ed13]{\r\n       background:linear-gradient(90deg, rgba(95,1,245,1) 4.66%, rgba(50,186,176,1) 45.34%);\r\n       -webkit-background-clip: text;\r\n       color: transparent;\r\n       margin-top: -10px!important;\r\n       font-family: 'Rubik';\r\n       font-weight: 300!important;\n}\n.table thead th[data-v-6f48ed13] {\r\n        vertical-align: bottom;\r\n        border-bottom: none!important;\n}\n.table th[data-v-6f48ed13], .table td[data-v-6f48ed13] {\r\n        padding: 0rem;\r\n        vertical-align: top;\r\n        border-top:  none!important;\n}\n.enpadre[data-v-6f48ed13]:last-child{\r\n         border-bottom: 1px solid grey;\n}\n.color[data-v-6f48ed13]{\r\n        background-color: #FBF9FF;\r\n        height: 25px;\r\n        width:25px;\r\n           background-repeat: no-repeat;\r\n        background-size: 100% 100%;\r\n        border-top: 1px solid grey;\r\n        border-left: 1px solid grey;\n}\n.color[data-v-6f48ed13]:first-child{\r\n        background-color: #FBF9FF;\r\n           background-repeat: no-repeat;\r\n        background-size: 100% 100%;\r\n        height: 25px;\r\n        width:25px;\n}\n.color[data-v-6f48ed13]:last-child{\r\n        background-color: #FBF9FF;\r\n        height: 25px;\r\n           background-repeat: no-repeat;\r\n        background-size: 100% 100%;\r\n        width:25px;\r\n     \r\n        border-right: 1px solid grey;\n}\n.color[data-v-6f48ed13]:hover{\r\n        background-color: #D04141;\n}\n.maximizando[data-v-6f48ed13]{\r\n        margin-left: 15px;\r\n        min-width: 1260px;\n}\n@media only screen and (max-width: 1394px) {\n.maximizando[data-v-6f48ed13]{\r\n            margin-left: 15px;\r\n            min-width: 1395px;\n}\n}\n@media only screen and (min-width: 1395px) {\n.maximizando[data-v-6f48ed13]{\r\n                margin-left: 15px;\r\n                min-width: 1260px;\n}\n}\n.flexiando[data-v-6f48ed13]{\r\n        display: flex;\r\n        justify-content: center;\r\n        width: 100%;\n}\n.img-grid[data-v-6f48ed13]{\r\n        background-repeat: no-repeat;\r\n        background-size: contain;\r\n\r\n        background-position: center center;\n}\r\n   \r\n", ""]);
+exports.push([module.i, "\n.modal-dialog[data-v-6f48ed13]{\r\n    max-width: 600px!important;\n}\n.modal-content[data-v-6f48ed13]{\r\n    border-radius:12px;\n}\n.menu-secundario[data-v-6f48ed13]{\r\n    background-color: #ffffff;\r\n    width: 100%;\n}\nlabel[data-v-6f48ed13]{\r\n    font-weight: 100!important;\n}\n@media only screen and (max-width: 768px) {\n.grids-descripcion[data-v-6f48ed13]{\r\n                margin-top: 20px;\r\n                text-align: center;\r\n                font-size: 14px;\n}\n.resalte[data-v-6f48ed13]{\r\n                font-size: 16px;\r\n                line-height: 23,7px;\r\n                font-weight: 700;\r\n                color: #30019B;\n}\n}\n@media only screen and (min-width: 769px) {\n.grids-descripcion[data-v-6f48ed13]{\r\n                width: 500px;\r\n                margin-top: 0px;\r\n                 font-size: 16px;\r\n                text-align: end;\n}\n.resalte[data-v-6f48ed13]{\r\n                font-size: 20px;\r\n                line-height: 23,7px;\r\n                font-weight: 700;\r\n                color: #30019B;\n}\n}\n.avatar[data-v-6f48ed13]{\r\n       width: 85px;\r\n       height: 53px;\r\n       border-radius: 50%;\n}\np[data-v-6f48ed13]{\r\n       font-family: 'Valera';\r\n        font-size: 20px;\r\n       line-height: 23,7px;\r\n       font-weight: 500;\n}\n.username[data-v-6f48ed13]{\r\n       font-family: 'Rubik';\r\n       font-size: 20px;\r\n       line-height: 23,7px;\r\n       font-weight: bold;\n}\n.premium[data-v-6f48ed13]{\r\n       background:linear-gradient(90deg, rgba(95,1,245,1) 4.66%, rgba(50,186,176,1) 45.34%);\r\n       -webkit-background-clip: text;\r\n       color: transparent;\r\n       margin-top: -10px!important;\r\n       font-family: 'Rubik';\r\n       font-weight: 300!important;\n}\n.table thead th[data-v-6f48ed13] {\r\n        vertical-align: bottom;\r\n        border-bottom: none!important;\n}\n.table th[data-v-6f48ed13], .table td[data-v-6f48ed13] {\r\n        padding: 0rem;\r\n        vertical-align: top;\r\n        border-top:  none!important;\n}\n.enpadre[data-v-6f48ed13]:last-child{\r\n         border-bottom: 1px solid grey;\n}\n.color[data-v-6f48ed13]{\r\n        background-color: #FBF9FF;\r\n        height: 25px;\r\n        width:25px;\r\n           background-repeat: no-repeat;\r\n        background-size: 100% 100%;\r\n        border-top: 1px solid grey;\r\n        border-left: 1px solid grey;\n}\n.color[data-v-6f48ed13]:first-child{\r\n        background-color: #FBF9FF;\r\n           background-repeat: no-repeat;\r\n        background-size: 100% 100%;\r\n        height: 25px;\r\n        width:25px;\n}\n.color[data-v-6f48ed13]:last-child{\r\n        background-color: #FBF9FF;\r\n        height: 25px;\r\n           background-repeat: no-repeat;\r\n        background-size: 100% 100%;\r\n        width:25px;\r\n     \r\n        border-right: 1px solid grey;\n}\n.color[data-v-6f48ed13]:hover{\r\n        background-color: #D04141;\n}\n.maximizando[data-v-6f48ed13]{\r\n        margin-left: 15px;\r\n        min-width: 1260px;\n}\n@media only screen and (max-width: 1394px) {\n.maximizando[data-v-6f48ed13]{\r\n            margin-left: 15px;\r\n            min-width: 1395px;\n}\n}\n@media only screen and (min-width: 1395px) {\n.maximizando[data-v-6f48ed13]{\r\n                margin-left: 15px;\r\n                min-width: 1260px;\n}\n}\n.flexiando[data-v-6f48ed13]{\r\n        display: flex;\r\n        justify-content: center;\r\n        width: 100%;\n}\n.img-grid[data-v-6f48ed13]{\r\n        background-repeat: no-repeat;\r\n        background-size: contain;\r\n\r\n        background-position: center center;\n}\r\n   \r\n", ""]);
 
 // exports
 
@@ -68950,6 +68975,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MyProfile/MyGrids.vue?vue&type=style&index=0&id=104d9b74&lang=scss&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MyProfile/MyGrids.vue?vue&type=style&index=0&id=104d9b74&lang=scss&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./MyGrids.vue?vue&type=style&index=0&id=104d9b74&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MyProfile/MyGrids.vue?vue&type=style&index=0&id=104d9b74&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MyProfile/MyProfile.vue?vue&type=style&index=0&id=107a6970&lang=scss&scoped=true&":
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MyProfile/MyProfile.vue?vue&type=style&index=0&id=107a6970&lang=scss&scoped=true& ***!
@@ -72427,7 +72482,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "modal fade",
+          staticClass: "modal fade p-0",
           attrs: {
             id: "cambiourl",
             tabindex: "-1",
@@ -72444,82 +72499,108 @@ var render = function() {
               _c("div", { staticClass: "modal-content" }, [
                 _vm._m(3),
                 _vm._v(" "),
-                _c("div", { staticClass: "modal-body" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", { attrs: { for: "nombreURL" } }, [
-                      _vm._v("Columns Size")
+                _c(
+                  "div",
+                  {
+                    staticClass: "modal-body px-5 py-4",
+                    staticStyle: { border: "none" }
+                  },
+                  [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "nombreURL" } }, [
+                        _vm._v("Columns Size")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.bloqueconfig.columnasize,
+                            expression: "bloqueconfig.columnasize"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text" },
+                        domProps: { value: _vm.bloqueconfig.columnasize },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.bloqueconfig,
+                              "columnasize",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
                     ]),
                     _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.bloqueconfig.columnasize,
-                          expression: "bloqueconfig.columnasize"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.bloqueconfig.columnasize },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "nombreURL" } }, [
+                        _vm._v("Row Size")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.bloqueconfig.filasize,
+                            expression: "bloqueconfig.filasize"
                           }
-                          _vm.$set(
-                            _vm.bloqueconfig,
-                            "columnasize",
-                            $event.target.value
-                          )
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text" },
+                        domProps: { value: _vm.bloqueconfig.filasize },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.bloqueconfig,
+                              "filasize",
+                              $event.target.value
+                            )
+                          }
                         }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", { attrs: { for: "nombreURL" } }, [
-                      _vm._v("Row Size")
+                      })
                     ]),
                     _vm._v(" "),
-                    _c("input", {
-                      directives: [
+                    _c("div", { staticClass: "row justify-content-around" }, [
+                      _c(
+                        "button",
                         {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.bloqueconfig.filasize,
-                          expression: "bloqueconfig.filasize"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.bloqueconfig.filasize },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                          staticClass: "btn col-4",
+                          staticStyle: {
+                            border: "1.5px solid #32BAB0",
+                            color: "#32BAB0",
+                            "border-radius": "10px!important"
+                          },
+                          attrs: {
+                            "data-dismiss": "modal",
+                            "aria-label": "Close"
                           }
-                          _vm.$set(
-                            _vm.bloqueconfig,
-                            "filasize",
-                            $event.target.value
-                          )
+                        },
+                        [_vm._v(" cancelar")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "btn btn-upgrap col-3",
+                        attrs: { type: "submit", value: "Guardar" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.definirsize()
+                          }
                         }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    staticClass: "btn btn-upgrap",
-                    attrs: { type: "submit", value: "Guardar" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        return _vm.definirsize()
-                      }
-                    }
-                  })
-                ])
+                      })
+                    ])
+                  ]
+                )
               ])
             ]
           )
@@ -72575,26 +72656,33 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLongTitle" } },
-        [_vm._v("Cambiar Ruta")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
+    return _c(
+      "div",
+      { staticClass: "modal-header", staticStyle: { border: "none" } },
+      [
+        _c(
+          "h5",
+          {
+            staticClass: "modal-title w-100 text-center",
+            attrs: { id: "exampleModalLongTitle" }
+          },
+          [_c("strong", [_vm._v("Cambiar Ruta")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "close",
+            attrs: {
+              type: "button",
+              "data-dismiss": "modal",
+              "aria-label": "Close"
+            }
+          },
+          [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -72866,7 +72954,7 @@ var render = function() {
                 _c("div", { staticClass: "modal-content" }, [
                   _vm._m(1),
                   _vm._v(" "),
-                  _c("div", { staticClass: "modal-body" }, [
+                  _c("div", { staticClass: "modal-body px-5 py-4" }, [
                     _c(
                       "form",
                       {
@@ -72947,16 +73035,41 @@ var render = function() {
                           })
                         ]),
                         _vm._v(" "),
-                        _c("input", {
-                          staticClass: "btn btn-upgrap",
-                          attrs: {
-                            type: "submit",
-                            disabled: _vm.estadoproceso
-                          },
-                          domProps: {
-                            value: _vm.estadoproceso ? "Procesando" : "Guardar"
-                          }
-                        })
+                        _c(
+                          "div",
+                          { staticClass: "row justify-content-around" },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn col-4",
+                                staticStyle: {
+                                  border: "1.5px solid #32BAB0",
+                                  color: "#32BAB0",
+                                  "border-radius": "10px!important"
+                                },
+                                attrs: {
+                                  "data-dismiss": "modal",
+                                  "aria-label": "Close"
+                                }
+                              },
+                              [_vm._v(" cancelar")]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              staticClass: "btn btn-upgrap col-3",
+                              attrs: {
+                                type: "submit",
+                                disabled: _vm.estadoproceso
+                              },
+                              domProps: {
+                                value: _vm.estadoproceso
+                                  ? "Procesando"
+                                  : "Guardar"
+                              }
+                            })
+                          ]
+                        )
                       ]
                     )
                   ])
@@ -72995,26 +73108,33 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLongTitle" } },
-        [_vm._v("Cambiar Ruta")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
+    return _c(
+      "div",
+      { staticClass: "modal-header", staticStyle: { border: "none" } },
+      [
+        _c(
+          "h5",
+          {
+            staticClass: "modal-title  w-100 text-center ",
+            attrs: { id: "exampleModalLongTitle" }
+          },
+          [_c("strong", [_vm._v("Cambiar Ruta")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "close",
+            attrs: {
+              type: "button",
+              "data-dismiss": "modal",
+              "aria-label": "Close"
+            }
+          },
+          [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -73425,99 +73545,128 @@ var render = function() {
             _c("div", { staticClass: "modal-content" }, [
               _vm._m(5),
               _vm._v(" "),
-              _c("div", { staticClass: "modal-body" }, [
-                _c(
-                  "form",
-                  {
-                    attrs: {
-                      id: "form-comprobante",
-                      method: "POST",
-                      enctype: "multipart/form-data"
+              _c(
+                "div",
+                {
+                  staticClass: "modal-body px-5 py-4",
+                  staticStyle: { border: "none" }
+                },
+                [
+                  _c(
+                    "form",
+                    {
+                      attrs: {
+                        id: "form-comprobante",
+                        method: "POST",
+                        enctype: "multipart/form-data"
+                      },
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.solicitarretiro()
+                        }
+                      }
                     },
-                    on: {
-                      submit: function($event) {
-                        $event.preventDefault()
-                        return _vm.solicitarretiro()
-                      }
-                    }
-                  },
-                  [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "email" } }, [
-                        _vm._v("Email")
+                    [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "email" } }, [
+                          _vm._v("Email")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.solicitud.email,
+                              expression: "solicitud.email"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "email" },
+                          domProps: { value: _vm.solicitud.email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.solicitud,
+                                "email",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
                       ]),
                       _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.solicitud.email,
-                            expression: "solicitud.email"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text", name: "email" },
-                        domProps: { value: _vm.solicitud.email },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "email" } }, [
+                          _vm._v("Amount")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.solicitud.amount,
+                              expression: "solicitud.amount"
                             }
-                            _vm.$set(
-                              _vm.solicitud,
-                              "email",
-                              $event.target.value
-                            )
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "number", name: "amount" },
+                          domProps: { value: _vm.solicitud.amount },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.solicitud,
+                                "amount",
+                                $event.target.value
+                              )
+                            }
                           }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "email" } }, [
-                        _vm._v("Amount")
+                        })
                       ]),
                       _vm._v(" "),
-                      _c("input", {
-                        directives: [
+                      _c("div", { staticClass: "row justify-content-around" }, [
+                        _c(
+                          "button",
                           {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.solicitud.amount,
-                            expression: "solicitud.amount"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "number", name: "amount" },
-                        domProps: { value: _vm.solicitud.amount },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                            staticClass: "btn col-4",
+                            staticStyle: {
+                              border: "1.5px solid #32BAB0",
+                              color: "#32BAB0",
+                              "border-radius": "10px!important"
+                            },
+                            attrs: {
+                              "data-dismiss": "modal",
+                              "aria-label": "Close"
                             }
-                            _vm.$set(
-                              _vm.solicitud,
-                              "amount",
-                              $event.target.value
-                            )
+                          },
+                          [_vm._v(" cancelar")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "btn btn-upgrap col-3",
+                          attrs: {
+                            type: "submit",
+                            disabled: _vm.estadoproceso
+                          },
+                          domProps: {
+                            value: _vm.estadoproceso
+                              ? "Procesando"
+                              : "Solicitar Retiro"
                           }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "btn btn-upgrap",
-                      attrs: { type: "submit", disabled: _vm.estadoproceso },
-                      domProps: {
-                        value: _vm.estadoproceso
-                          ? "Procesando"
-                          : "Solicitar Retiro"
-                      }
-                    })
-                  ]
-                )
-              ])
+                        })
+                      ])
+                    ]
+                  )
+                ]
+              )
             ])
           ]
         )
@@ -73676,26 +73825,33 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLongTitle" } },
-        [_vm._v("Cambiar Ruta")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
+    return _c(
+      "div",
+      { staticClass: "modal-header ", staticStyle: { border: "none" } },
+      [
+        _c(
+          "h5",
+          {
+            staticClass: "modal-title w-100 text-center",
+            attrs: { id: "exampleModalLongTitle" }
+          },
+          [_c("strong", [_vm._v("Cambiar Ruta ")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "close",
+            attrs: {
+              type: "button",
+              "data-dismiss": "modal",
+              "aria-label": "Close"
+            }
+          },
+          [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+        )
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -73958,9 +74114,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "a",
+    "button",
     {
-      staticClass: "btn btn-upgrap2 d-md-none",
+      staticClass: "btn row align-items-center d-md-none ",
       attrs: { disabled: _vm.cart.length === 0 },
       on: {
         click: function($event) {
@@ -73970,27 +74126,9 @@ var render = function() {
       }
     },
     [
-      _c(
-        "svg",
-        {
-          attrs: {
-            xmlns: "http://www.w3.org/2000/svg",
-            width: "23.133",
-            height: "12",
-            viewBox: "0 0 23.133 20.563"
-          }
-        },
-        [
-          _c("path", {
-            attrs: {
-              id: "shopping-cart-solid",
-              d:
-                "M21.21,12.1l1.9-8.354a.964.964,0,0,0-.94-1.177H6.394L6.026.771A.964.964,0,0,0,5.082,0H.964A.964.964,0,0,0,0,.964v.643a.964.964,0,0,0,.964.964H3.77L6.592,16.363a2.249,2.249,0,1,0,2.693.344H17.7a2.248,2.248,0,1,0,2.554-.418l.222-.975a.964.964,0,0,0-.94-1.177H8.76L8.5,12.852H20.27A.964.964,0,0,0,21.21,12.1Z",
-              fill: "#fff"
-            }
-          })
-        ]
-      )
+      _c("strong", { staticStyle: { color: "#30019B", "font-size": "18px" } }, [
+        _vm._v("Go to store")
+      ])
     ]
   )
 }
@@ -89219,7 +89357,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MyGrids_vue_vue_type_template_id_104d9b74_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MyGrids.vue?vue&type=template&id=104d9b74&scoped=true& */ "./resources/js/components/MyProfile/MyGrids.vue?vue&type=template&id=104d9b74&scoped=true&");
 /* harmony import */ var _MyGrids_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MyGrids.vue?vue&type=script&lang=js& */ "./resources/js/components/MyProfile/MyGrids.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _MyGrids_vue_vue_type_style_index_0_id_104d9b74_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MyGrids.vue?vue&type=style&index=0&id=104d9b74&lang=scss&scoped=true& */ "./resources/js/components/MyProfile/MyGrids.vue?vue&type=style&index=0&id=104d9b74&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -89227,7 +89367,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _MyGrids_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _MyGrids_vue_vue_type_template_id_104d9b74_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _MyGrids_vue_vue_type_template_id_104d9b74_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -89256,6 +89396,22 @@ component.options.__file = "resources/js/components/MyProfile/MyGrids.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MyGrids_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./MyGrids.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MyProfile/MyGrids.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MyGrids_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/MyProfile/MyGrids.vue?vue&type=style&index=0&id=104d9b74&lang=scss&scoped=true&":
+/*!*****************************************************************************************************************!*\
+  !*** ./resources/js/components/MyProfile/MyGrids.vue?vue&type=style&index=0&id=104d9b74&lang=scss&scoped=true& ***!
+  \*****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_MyGrids_vue_vue_type_style_index_0_id_104d9b74_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./MyGrids.vue?vue&type=style&index=0&id=104d9b74&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MyProfile/MyGrids.vue?vue&type=style&index=0&id=104d9b74&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_MyGrids_vue_vue_type_style_index_0_id_104d9b74_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_MyGrids_vue_vue_type_style_index_0_id_104d9b74_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_MyGrids_vue_vue_type_style_index_0_id_104d9b74_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_MyGrids_vue_vue_type_style_index_0_id_104d9b74_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
 
 /***/ }),
 
@@ -89937,8 +90093,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\millonario\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\millonario\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\GridStarters\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\GridStarters\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

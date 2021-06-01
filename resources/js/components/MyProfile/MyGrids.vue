@@ -33,13 +33,13 @@
                 <div v-if="retiroSelected" class="modal fade" id="cambiourl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Cambiar Ruta</h5>
+                            <div class="modal-header" style="border:none">
+                                <h5 class="modal-title  w-100 text-center "  id="exampleModalLongTitle"> <strong>Cambiar Ruta</strong></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body px-5 py-4">
                                 <form @submit.prevent="editarurl()" id="form-comprobante" method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="nombreURL">Nombre de la ruta</label>
@@ -49,7 +49,12 @@
                                         <label for="nombreURL">NombreURL</label>
                                         <input disabled class="form-control" type="text" v-model="nombreURL" name="nombreURL">
                                     </div>
-                                    <input type="submit" :disabled="estadoproceso" class="btn btn-upgrap" :value="estadoproceso ? 'Procesando' : 'Guardar'">
+                                     <div class="row justify-content-around"> 
+                                        <button class="btn col-4" style="border: 1.5px solid #32BAB0; color:#32BAB0; border-radius: 10px!important;"  data-dismiss="modal" aria-label="Close"> cancelar</button>
+                                       
+                                        <input type="submit" :disabled="estadoproceso" class="btn btn-upgrap col-3" :value="estadoproceso ? 'Procesando' : 'Guardar'">
+                                    </div>
+                                    
                                 </form>
                             </div>
 
@@ -104,5 +109,13 @@
 </script>
 
 <style lang="scss" scoped>
-
+.modal-dialog{
+    max-width: 600px!important;
+}
+.modal-content{
+    border-radius:12px;
+}
+label{
+    font-weight: 100!important;
+}
 </style>

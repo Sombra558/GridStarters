@@ -53,17 +53,16 @@
                             
                  </div>
               
-             <div class="modal fade" id="cambiourl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+             <div class="modal fade p-0" id="cambiourl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Cambiar Ruta</h5>
+                            <div class="modal-header" style="border:none">
+                                <h5 class="modal-title w-100 text-center" id="exampleModalLongTitle"> <strong>Cambiar Ruta</strong></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                                    <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
-                                
+                            <div class="modal-body px-5 py-4" style="border:none">
                                     <div class="form-group">
                                         <label for="nombreURL">Columns Size</label>
                                         <input type="text" class="form-control" v-model="bloqueconfig.columnasize"  >
@@ -72,7 +71,11 @@
                                         <label for="nombreURL">Row Size</label>
                                         <input class="form-control" type="text" v-model="bloqueconfig.filasize">
                                     </div>
-                                    <input type="submit"  @click.prevent="definirsize()" class="btn btn-upgrap" value="Guardar">
+                                    <div class="row justify-content-around"> 
+                                        <button class="btn col-4" style="border: 1.5px solid #32BAB0; color:#32BAB0; border-radius: 10px!important;"  data-dismiss="modal" aria-label="Close"> cancelar</button>
+                                        <input type="submit"  @click.prevent="definirsize()" class="btn btn-upgrap col-3" value="Guardar">
+                                    </div>
+                                   
                                
                             </div>
 
@@ -205,9 +208,18 @@
     }
 </script>
 <style scoped>
+.modal-dialog{
+    max-width: 600px!important;
+}
+.modal-content{
+    border-radius:12px;
+}
 .menu-secundario{
     background-color: #ffffff;
     width: 100%;
+}
+label{
+    font-weight: 100!important;
 }
   @media only screen and (max-width: 768px) {
             .grids-descripcion{

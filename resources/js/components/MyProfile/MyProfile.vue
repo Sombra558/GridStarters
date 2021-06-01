@@ -129,13 +129,13 @@
             <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Cambiar Ruta</h5>
+                            <div class="modal-header " style="border:none">
+                                <h5 class="modal-title w-100 text-center" id="exampleModalLongTitle"><strong>Cambiar Ruta </strong></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body px-5 py-4" style="border:none">
                                 <form @submit.prevent="solicitarretiro()" id="form-comprobante" method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="email">Email</label>
@@ -145,8 +145,12 @@
                                         <label for="email">Amount</label>
                                         <input type="number" class="form-control" v-model="solicitud.amount" name="amount">
                                     </div>
-
-                                    <input type="submit" :disabled="estadoproceso" class="btn btn-upgrap" :value="estadoproceso ? 'Procesando' : 'Solicitar Retiro'">
+                                    <div class="row justify-content-around"> 
+                                        <button class="btn col-4" style="border: 1.5px solid #32BAB0; color:#32BAB0; border-radius: 10px!important;"  data-dismiss="modal" aria-label="Close"> cancelar</button>
+                                       
+                                        <input type="submit" :disabled="estadoproceso" class="btn btn-upgrap col-3" :value="estadoproceso ? 'Procesando' : 'Solicitar Retiro'">
+                                    </div>
+                                   
                                 </form>
                             </div>
 
@@ -268,6 +272,12 @@
 </script>
 
 <style lang="scss" scoped>
+.modal-dialog{
+    max-width: 600px!important;
+}
+.modal-content{
+    border-radius:12px;
+}
     .contenedor-botones-profile{
         display: flex;
         justify-content: space-between;

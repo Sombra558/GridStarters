@@ -61,7 +61,10 @@
         }
 
         }   
-     
+        a:hover{
+            color:#fff;
+            text-decoration:none
+        }
         .uploadforever{
             background-color:#ffffff;
             padding: 8px 15px; 
