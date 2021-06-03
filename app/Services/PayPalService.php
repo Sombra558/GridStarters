@@ -220,6 +220,8 @@ class PayPalService
                     $myblocks[$a]->save();
                     $mytemp = json_decode($matriz->matriz);
                     $mytemp[$myblocks[$a]->fila][$myblocks[$a]->column]->src=$myImg[$a]["path"];
+                    $mytemp[$myblocks[$a]->fila][$myblocks[$a]->column]->original=$myblocks[$a]->img;
+                    
                     $mytemp = json_encode($mytemp);
                     $matriz->matriz = $mytemp;
                     $matriz->save();

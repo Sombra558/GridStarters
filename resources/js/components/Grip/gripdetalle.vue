@@ -37,9 +37,10 @@
                                 <th scope="row">
                                     <div class="row maximizando enpadre" v-for="(fila,index) in matriz" :key="'fila'+index">
                                             
-                                            <div :style="columna.src ? 'background-image: url(/storage-public/'+columna.src+');' : 'background-color: #FBF9FF;'" @click.prevent="casillaSelected(Number(fila[index].numero),matriz[Number(fila[index].numero)][Number(columna.numero)])" :id="columna.src ? '' : 'bloque-'+fila[index].numero+'-'+columna.numero" class="col color" v-for="(columna,k) in fila" :key="'columna'+k">
+                                            <div>
                                                 
-                                             
+                                            </div>
+                                            <div :style="columna.src ? 'background-image: url(/storage-public/'+columna.src+');' : 'background-color: #FBF9FF;'" @click.prevent="columna.src ? mostrar(columna) :casillaSelected(Number(fila[index].numero),matriz[Number(fila[index].numero)][Number(columna.numero)])" :id="columna.src ? '' : 'bloque-'+fila[index].numero+'-'+columna.numero" class="col color" v-for="(columna,k) in fila" :key="'columna'+k">
                                                 
                                             </div>
                                     </div>
@@ -85,6 +86,22 @@
                       
                   
             </div>
+            <div v-if="blockselected" class="modal fade" id="mostrarblock" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header" style="border:none">
+                                <h5 class="modal-title  w-100 text-center "  id="exampleModalLongTitle"> <strong>Visualizar</strong></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body px-5 py-4">
+                                <img :src="'/storage/'+blockselected.original" width="100%" height="250px" alt="">
+                            </div>
+
+                            </div>
+                        </div>
+                </div>
         </div>
 
 </template>
@@ -95,6 +112,7 @@
         data() {
             return {
                 bloqueSelected:null,
+                blockselected:null,
                 matriz: [],
                 bloqueconfig:{
                     columnasize: 1,
@@ -107,6 +125,12 @@
             this.matriz=JSON.parse(this.grip.matriz);
         },
         methods: {
+             mostrar(block){
+                 this.blockselected=block;
+                setTimeout(function(){
+                $("#mostrarblock").modal("show");
+                },200)
+            },
              mostrarmodal2(){
                
                 setTimeout(function(){

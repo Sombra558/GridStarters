@@ -3523,11 +3523,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['grip'],
   data: function data() {
     return {
       bloqueSelected: null,
+      blockselected: null,
       matriz: [],
       bloqueconfig: {
         columnasize: 1,
@@ -3540,6 +3558,12 @@ __webpack_require__.r(__webpack_exports__);
     this.matriz = JSON.parse(this.grip.matriz);
   },
   methods: {
+    mostrar: function mostrar(block) {
+      this.blockselected = block;
+      setTimeout(function () {
+        $("#mostrarblock").modal("show");
+      }, 200);
+    },
     mostrarmodal2: function mostrarmodal2() {
       setTimeout(function () {
         $("#cambiourl").modal("show");
@@ -73075,37 +73099,43 @@ var render = function() {
                           key: "fila" + index,
                           staticClass: "row maximizando enpadre"
                         },
-                        _vm._l(fila, function(columna, k) {
-                          return _c("div", {
-                            key: "columna" + k,
-                            staticClass: "col color",
-                            style: columna.src
-                              ? "background-image: url(/storage-public/" +
-                                columna.src +
-                                ");"
-                              : "background-color: #FBF9FF;",
-                            attrs: {
-                              id: columna.src
-                                ? ""
-                                : "bloque-" +
-                                  fila[index].numero +
-                                  "-" +
-                                  columna.numero
-                            },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                _vm.casillaSelected(
-                                  Number(fila[index].numero),
-                                  _vm.matriz[Number(fila[index].numero)][
-                                    Number(columna.numero)
-                                  ]
-                                )
+                        [
+                          _c("div"),
+                          _vm._v(" "),
+                          _vm._l(fila, function(columna, k) {
+                            return _c("div", {
+                              key: "columna" + k,
+                              staticClass: "col color",
+                              style: columna.src
+                                ? "background-image: url(/storage-public/" +
+                                  columna.src +
+                                  ");"
+                                : "background-color: #FBF9FF;",
+                              attrs: {
+                                id: columna.src
+                                  ? ""
+                                  : "bloque-" +
+                                    fila[index].numero +
+                                    "-" +
+                                    columna.numero
+                              },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  columna.src
+                                    ? _vm.mostrar(columna)
+                                    : _vm.casillaSelected(
+                                        Number(fila[index].numero),
+                                        _vm.matriz[Number(fila[index].numero)][
+                                          Number(columna.numero)
+                                        ]
+                                      )
+                                }
                               }
-                            }
+                            })
                           })
-                        }),
-                        0
+                        ],
+                        2
                       )
                     }),
                     0
@@ -73244,7 +73274,45 @@ var render = function() {
           )
         ]
       )
-    ])
+    ]),
+    _vm._v(" "),
+    _vm.blockselected
+      ? _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "mostrarblock",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLongTitle",
+              "aria-hidden": "true"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "modal-dialog", attrs: { role: "document" } },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(4),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body px-5 py-4" }, [
+                    _c("img", {
+                      attrs: {
+                        src: "/storage/" + _vm.blockselected.original,
+                        width: "100%",
+                        height: "250px",
+                        alt: ""
+                      }
+                    })
+                  ])
+                ])
+              ]
+            )
+          ]
+        )
+      : _vm._e()
   ])
 }
 var staticRenderFns = [
@@ -73305,6 +73373,38 @@ var staticRenderFns = [
             attrs: { id: "exampleModalLongTitle" }
           },
           [_c("strong", [_vm._v("Cambiar Ruta")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "close",
+            attrs: {
+              type: "button",
+              "data-dismiss": "modal",
+              "aria-label": "Close"
+            }
+          },
+          [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "modal-header", staticStyle: { border: "none" } },
+      [
+        _c(
+          "h5",
+          {
+            staticClass: "modal-title  w-100 text-center ",
+            attrs: { id: "exampleModalLongTitle" }
+          },
+          [_c("strong", [_vm._v("Visualizar")])]
         ),
         _vm._v(" "),
         _c(
