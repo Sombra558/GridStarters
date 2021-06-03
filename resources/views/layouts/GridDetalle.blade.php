@@ -10,7 +10,7 @@
     <meta name="msapplication-navbutton-color" content="#30019B">
     <meta name="apple-mobile-web-app-status-bar-style" content="#30019B">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Gridstarters</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

@@ -85,7 +85,7 @@
             }
         },
         mounted () {
-        var micart = localStorage.getItem('mycart');
+        var micart = localStorage.getItem('mycartgridstartes');
          micart = JSON.parse(micart);
          console.log(micart);
          if (micart) {

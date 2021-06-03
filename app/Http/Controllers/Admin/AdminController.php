@@ -9,6 +9,7 @@ use App\Bloque;
 use App\UserBank;
 use App\AccountRegisters;
 use App\PurchasesHistory;
+use App\ConfiguracionPublica;
 use App\SolicutudRetiro;
 use Illuminate\Http\Request;
 
@@ -46,6 +47,9 @@ class AdminController extends Controller
     }
     public function retiros()
     {
+        $blockvalue=ConfiguracionPublica::where('nombre','block')->first();
+        $gridvalue=ConfiguracionPublica::where('nombre','grid')->first();
+        $retirovalue=ConfiguracionPublica::where('nombre','retiro')->first();
         $users=User::all()->where('id','!=',1);
         $totalblock=Bloque::all()->count();
         $totalgrid=Grip::all()->count();
@@ -56,7 +60,7 @@ class AdminController extends Controller
             return $q->with('user');
         }]);
        
-        return view('Admin.Retiros.Retiros',compact('totalblock','totalgrid','accountregistersolds','accountretirosregisters'));
+        return view('Admin.Retiros.Retiros',compact('blockvalue','gridvalue','retirovalue','totalblock','totalgrid','accountregistersolds','accountretirosregisters'));
     }
     public function verificar(Request $request,$id)
     {
@@ -75,6 +79,13 @@ class AdminController extends Controller
         $banco->withdrawn=$banco->withdrawn+$solicitud->amount;
         $banco->available=$banco->available - $solicitud->amount;
         $banco->save();
+        $solicitud->save();
+        return $solicitud;
+    }
+    public function modificarretiro(Request $request,$id)
+    {
+        $solicitud = ConfiguracionPublica::find($id);
+        $solicitud->value=$request->value;
         $solicitud->save();
         return $solicitud;
     }

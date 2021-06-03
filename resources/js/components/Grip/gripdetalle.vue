@@ -179,12 +179,12 @@
             },
               addToCart(bloque){
             //localStorage.clear();
-            var micart = localStorage.getItem('mycart');
+            var micart = localStorage.getItem('mycartgridstartes');
             if (micart) {
                 
                             micart = JSON.parse(micart);
                             micart.push(bloque);
-                            localStorage.setItem('mycart', JSON.stringify(micart));
+                            localStorage.setItem('mycartgridstartes', JSON.stringify(micart));
                             this.$store.commit("setCart",  micart);
                             console.log('agregado al carrito');
                         
@@ -197,7 +197,7 @@
             } else {
                 var minewcart =[];
                 minewcart.push(bloque);
-                localStorage.setItem('mycart', JSON.stringify(minewcart));
+                localStorage.setItem('mycartgridstartes', JSON.stringify(minewcart));
                 this.$store.commit("setCart",  minewcart);
                 console.log('agregado al carrito');
             }

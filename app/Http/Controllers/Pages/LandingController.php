@@ -17,7 +17,7 @@ class LandingController extends Controller
     public function search () 
     {
         
-        $key = request('key');
+       $key = request('key');
        $users=collect();
         $coleccionusers=Grip::get()->load(['user'=>function($q) use($key){
             return $q->where('name', 'like', "%$key%");

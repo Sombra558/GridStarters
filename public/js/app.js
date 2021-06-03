@@ -2685,11 +2685,114 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "admin-retiros",
-  props: ['blocks', 'grids', 'solds', 'retiros'],
+  props: ['blocks', 'grids', 'solds', 'retiros', 'gridvalue', 'blockvalue', 'retirovalue'],
   data: function data() {
     return {
       secondtag: "Solds",
@@ -2710,6 +2813,36 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["filteredSold", 'filteredRetiros'])),
   methods: {
+    editarretiro: function editarretiro() {
+      var url = "/admin/modificar-configuracion/" + this.retirovalue.id;
+      axios.put(url, {
+        value: this.retirovalue.value
+      }).then(function (result) {
+        window.location.reload();
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    editargrid: function editargrid() {
+      var url = "/admin/modificar-configuracion/" + this.gridvalue.id;
+      axios.put(url, {
+        value: this.gridvalue.value
+      }).then(function (result) {
+        window.location.reload();
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    editarblock: function editarblock() {
+      var url = "/admin/modificar-configuracion/" + this.blockvalue.id;
+      axios.put(url, {
+        value: this.blockvalue.value
+      }).then(function (result) {
+        window.location.reload();
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
     bannerChangeCoverPicture: function bannerChangeCoverPicture() {
       document.getElementById("CoverChangeInput").click();
     },
@@ -2726,6 +2859,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     seleccionardos: function seleccionardos(tag) {
       this.secondtag = tag;
+    },
+    mostrar: function mostrar() {
+      setTimeout(function () {
+        $("#cambiolimiteretiro").modal("show");
+      }, 200);
+    },
+    mostrar1: function mostrar1() {
+      setTimeout(function () {
+        $("#cambiolimitegrid").modal("show");
+      }, 200);
+    },
+    mostrar2: function mostrar2() {
+      setTimeout(function () {
+        $("#cambiolimiteblock").modal("show");
+      }, 200);
     },
     mostrarmodal: function mostrarmodal(retiro) {
       if (retiro) {
@@ -3468,18 +3616,18 @@ __webpack_require__.r(__webpack_exports__);
     },
     addToCart: function addToCart(bloque) {
       //localStorage.clear();
-      var micart = localStorage.getItem('mycart');
+      var micart = localStorage.getItem('mycartgridstartes');
 
       if (micart) {
         micart = JSON.parse(micart);
         micart.push(bloque);
-        localStorage.setItem('mycart', JSON.stringify(micart));
+        localStorage.setItem('mycartgridstartes', JSON.stringify(micart));
         this.$store.commit("setCart", micart);
         console.log('agregado al carrito'); //localStorage.clear();
       } else {
         var minewcart = [];
         minewcart.push(bloque);
-        localStorage.setItem('mycart', JSON.stringify(minewcart));
+        localStorage.setItem('mycartgridstartes', JSON.stringify(minewcart));
         this.$store.commit("setCart", minewcart);
         console.log('agregado al carrito');
       }
@@ -10691,7 +10839,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    var micart = localStorage.getItem('mycart');
+    var micart = localStorage.getItem('mycartgridstartes');
     micart = JSON.parse(micart);
     console.log(micart);
 
@@ -70813,7 +70961,104 @@ var render = function() {
       _c("h2", { staticClass: "subtitleadmin" }, [_vm._v("Withdrawal")]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
-        _vm._m(0),
+        _c(
+          "div",
+          {
+            staticClass: "col-sm-12 col-md-4",
+            staticStyle: { "margin-bottom": "15px" }
+          },
+          [
+            _c("div", { staticClass: "home-card" }, [
+              _c("div", { staticClass: "flexi" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-date",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.mostrar()
+                      }
+                    }
+                  },
+                  [_vm._v("Edit amount")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("strong", [_vm._v(_vm._s(_vm.retirovalue.value) + "$")]),
+              _vm._v(" "),
+              _c("span", { staticStyle: { "padding-bottom": "25px" } }, [
+                _vm._v("Withdrawal limit")
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "col-sm-12 col-md-4",
+            staticStyle: { "margin-bottom": "15px" }
+          },
+          [
+            _c("div", { staticClass: "home-card" }, [
+              _c("div", { staticClass: "flexi" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-date",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.mostrar1()
+                      }
+                    }
+                  },
+                  [_vm._v("Edit amount")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("strong", [_vm._v(_vm._s(_vm.gridvalue.value) + "$")]),
+              _vm._v(" "),
+              _c("span", { staticStyle: { "padding-bottom": "25px" } }, [
+                _vm._v("Grid Value")
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "col-sm-12 col-md-4",
+            staticStyle: { "margin-bottom": "15px" }
+          },
+          [
+            _c("div", { staticClass: "home-card" }, [
+              _c("div", { staticClass: "flexi" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-date",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.mostrar2()
+                      }
+                    }
+                  },
+                  [_vm._v("Edit amount")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("strong", [_vm._v(_vm._s(_vm.blockvalue.value) + "$")]),
+              _vm._v(" "),
+              _c("span", { staticStyle: { "padding-bottom": "25px" } }, [
+                _vm._v("Block Value")
+              ])
+            ])
+          ]
+        ),
         _vm._v(" "),
         _c(
           "div",
@@ -70894,7 +71139,7 @@ var render = function() {
               staticStyle: { "margin-top": "25px" }
             },
             [
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -70925,7 +71170,7 @@ var render = function() {
               staticStyle: { "margin-top": "25px" }
             },
             [
-              _vm._m(2),
+              _vm._m(1),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -70979,6 +71224,327 @@ var render = function() {
           )
         : _vm._e(),
       _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "cambiolimiteretiro",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "exampleModalLongTitle",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body px-5 py-4" }, [
+                  _c(
+                    "form",
+                    {
+                      attrs: {
+                        id: "form-comprobante",
+                        method: "POST",
+                        enctype: "multipart/form-data"
+                      },
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.editarretiro()
+                        }
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "nombreURL" } }, [
+                          _vm._v("Monto Minimo a Retirar")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.retirovalue.value,
+                              expression: "retirovalue.value"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "value" },
+                          domProps: { value: _vm.retirovalue.value },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.retirovalue,
+                                "value",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row justify-content-around" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn col-4",
+                            staticStyle: {
+                              border: "1.5px solid #32BAB0",
+                              color: "#32BAB0",
+                              "border-radius": "10px!important"
+                            },
+                            attrs: {
+                              "data-dismiss": "modal",
+                              "aria-label": "Close"
+                            }
+                          },
+                          [_vm._v(" cancelar")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "btn btn-upgrap col-3",
+                          attrs: {
+                            type: "submit",
+                            disabled: _vm.estadoproceso
+                          },
+                          domProps: {
+                            value: _vm.estadoproceso ? "Procesando" : "Guardar"
+                          }
+                        })
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "cambiolimitegrid",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "exampleModalLongTitle",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(3),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body px-5 py-4" }, [
+                  _c(
+                    "form",
+                    {
+                      attrs: {
+                        id: "form-comprobante",
+                        method: "POST",
+                        enctype: "multipart/form-data"
+                      },
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.editargrid()
+                        }
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "nombreURL" } }, [
+                          _vm._v("Monto Grid")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.gridvalue.value,
+                              expression: "gridvalue.value"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "value" },
+                          domProps: { value: _vm.gridvalue.value },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.gridvalue,
+                                "value",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row justify-content-around" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn col-4",
+                            staticStyle: {
+                              border: "1.5px solid #32BAB0",
+                              color: "#32BAB0",
+                              "border-radius": "10px!important"
+                            },
+                            attrs: {
+                              "data-dismiss": "modal",
+                              "aria-label": "Close"
+                            }
+                          },
+                          [_vm._v(" cancelar")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "btn btn-upgrap col-3",
+                          attrs: {
+                            type: "submit",
+                            disabled: _vm.estadoproceso
+                          },
+                          domProps: {
+                            value: _vm.estadoproceso ? "Procesando" : "Guardar"
+                          }
+                        })
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "cambiolimiteblock",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "exampleModalLongTitle",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(4),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body px-5 py-4" }, [
+                  _c(
+                    "form",
+                    {
+                      attrs: {
+                        id: "form-comprobante",
+                        method: "POST",
+                        enctype: "multipart/form-data"
+                      },
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.editarblock()
+                        }
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "nombreURL" } }, [
+                          _vm._v("Monto Block")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.blockvalue.value,
+                              expression: "blockvalue.value"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", name: "value" },
+                          domProps: { value: _vm.blockvalue.value },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.blockvalue,
+                                "value",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row justify-content-around" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn col-4",
+                            staticStyle: {
+                              border: "1.5px solid #32BAB0",
+                              color: "#32BAB0",
+                              "border-radius": "10px!important"
+                            },
+                            attrs: {
+                              "data-dismiss": "modal",
+                              "aria-label": "Close"
+                            }
+                          },
+                          [_vm._v(" cancelar")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "btn btn-upgrap col-3",
+                          attrs: {
+                            type: "submit",
+                            disabled: _vm.estadoproceso
+                          },
+                          domProps: {
+                            value: _vm.estadoproceso ? "Procesando" : "Guardar"
+                          }
+                        })
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
       _vm.retiroSelected
         ? _c(
             "div",
@@ -70998,7 +71564,7 @@ var render = function() {
                 { staticClass: "modal-dialog", attrs: { role: "document" } },
                 [
                   _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(3),
+                    _vm._m(5),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body" }, [
                       _c(
@@ -71061,7 +71627,7 @@ var render = function() {
                             })
                           ]),
                           _vm._v(" "),
-                          _vm._m(4),
+                          _vm._m(6),
                           _vm._v(" "),
                           _c("div", { staticClass: "flexi-btn-form" }, [
                             _c("input", {
@@ -71116,7 +71682,7 @@ var render = function() {
                       [
                         _c("div", { staticClass: "updateFoto2" }),
                         _vm._v(" "),
-                        _vm._m(5)
+                        _vm._m(7)
                       ]
                     ),
                     _vm._v(" "),
@@ -71199,33 +71765,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "col-sm-12 col-md-4",
-        staticStyle: { "margin-bottom": "15px" }
-      },
-      [
-        _c("div", { staticClass: "home-card" }, [
-          _c("div", { staticClass: "flexi" }, [
-            _c("button", { staticClass: "btn btn-date" }, [
-              _vm._v("Edit amount")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("strong", [_vm._v("50$")]),
-          _vm._v(" "),
-          _c("span", { staticStyle: { "padding-bottom": "25px" } }, [
-            _vm._v("Withdrawal limit")
-          ])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", { staticClass: "table-bg" }, [
         _c("th", [_vm._v("Full name")]),
@@ -71257,6 +71796,102 @@ var staticRenderFns = [
         _c("th", [_vm._v("Payment data")])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "modal-header", staticStyle: { border: "none" } },
+      [
+        _c(
+          "h5",
+          {
+            staticClass: "modal-title  w-100 text-center ",
+            attrs: { id: "exampleModalLongTitle" }
+          },
+          [_c("strong", [_vm._v("Monto Minimo")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "close",
+            attrs: {
+              type: "button",
+              "data-dismiss": "modal",
+              "aria-label": "Close"
+            }
+          },
+          [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "modal-header", staticStyle: { border: "none" } },
+      [
+        _c(
+          "h5",
+          {
+            staticClass: "modal-title  w-100 text-center ",
+            attrs: { id: "exampleModalLongTitle" }
+          },
+          [_c("strong", [_vm._v("Monto Grid")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "close",
+            attrs: {
+              type: "button",
+              "data-dismiss": "modal",
+              "aria-label": "Close"
+            }
+          },
+          [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "modal-header", staticStyle: { border: "none" } },
+      [
+        _c(
+          "h5",
+          {
+            staticClass: "modal-title  w-100 text-center ",
+            attrs: { id: "exampleModalLongTitle" }
+          },
+          [_c("strong", [_vm._v("Monto Block")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "close",
+            attrs: {
+              type: "button",
+              "data-dismiss": "modal",
+              "aria-label": "Close"
+            }
+          },
+          [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+        )
+      ]
+    )
   },
   function() {
     var _vm = this

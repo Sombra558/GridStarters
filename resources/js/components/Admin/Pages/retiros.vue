@@ -5,10 +5,29 @@
         <div style="margin-bottom:15px" class="col-sm-12 col-md-4">
        
             <div class="home-card">
-                <div class="flexi"><button class="btn btn-date">Edit amount</button></div>
-                <strong>50$</strong>
+                <div class="flexi"><button class="btn btn-date" @click.prevent="mostrar()">Edit amount</button></div>
+                <strong>{{retirovalue.value}}$</strong>
                 <span style="padding-bottom:25px">Withdrawal limit</span>
             </div>
+            
+        </div>
+         <div style="margin-bottom:15px" class="col-sm-12 col-md-4">
+       
+            <div class="home-card">
+                <div class="flexi"><button class="btn btn-date" @click.prevent="mostrar1()">Edit amount</button></div>
+                <strong>{{gridvalue.value}}$</strong>
+                <span style="padding-bottom:25px">Grid Value</span>
+            </div>
+            
+        </div>
+         <div style="margin-bottom:15px" class="col-sm-12 col-md-4">
+       
+            <div class="home-card">
+                <div class="flexi"><button class="btn btn-date" @click.prevent="mostrar2()">Edit amount</button></div>
+                <strong>{{blockvalue.value}}$</strong>
+                <span style="padding-bottom:25px">Block Value</span>
+            </div>
+            
         </div>
         <div style="margin-bottom:15px" class="col-sm-12 col-md-4">
           
@@ -76,6 +95,90 @@
                
                 </tbody>
             </table>
+            <div class="modal fade" id="cambiolimiteretiro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header" style="border:none">
+                                <h5 class="modal-title  w-100 text-center "  id="exampleModalLongTitle"> <strong>Monto Minimo</strong></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body px-5 py-4">
+                                <form @submit.prevent="editarretiro()" id="form-comprobante" method="POST" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label for="nombreURL">Monto Minimo a Retirar</label>
+                                        <input type="text" class="form-control" v-model="retirovalue.value" name="value">
+                                    </div>
+                                   
+                                     <div class="row justify-content-around"> 
+                                        <button class="btn col-4" style="border: 1.5px solid #32BAB0; color:#32BAB0; border-radius: 10px!important;"  data-dismiss="modal" aria-label="Close"> cancelar</button>
+                                       
+                                        <input type="submit" :disabled="estadoproceso" class="btn btn-upgrap col-3" :value="estadoproceso ? 'Procesando' : 'Guardar'">
+                                    </div>
+                                    
+                                </form>
+                            </div>
+
+                            </div>
+                        </div>
+                </div>
+                <div class="modal fade" id="cambiolimitegrid" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header" style="border:none">
+                                <h5 class="modal-title  w-100 text-center "  id="exampleModalLongTitle"> <strong>Monto Grid</strong></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body px-5 py-4">
+                                <form @submit.prevent="editargrid()" id="form-comprobante" method="POST" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label for="nombreURL">Monto Grid</label>
+                                        <input type="text" class="form-control" v-model="gridvalue.value" name="value">
+                                    </div>
+                                   
+                                     <div class="row justify-content-around"> 
+                                        <button class="btn col-4" style="border: 1.5px solid #32BAB0; color:#32BAB0; border-radius: 10px!important;"  data-dismiss="modal" aria-label="Close"> cancelar</button>
+                                       
+                                        <input type="submit" :disabled="estadoproceso" class="btn btn-upgrap col-3" :value="estadoproceso ? 'Procesando' : 'Guardar'">
+                                    </div>
+                                    
+                                </form>
+                            </div>
+
+                            </div>
+                        </div>
+                </div>
+                <div class="modal fade" id="cambiolimiteblock" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header" style="border:none">
+                                <h5 class="modal-title  w-100 text-center "  id="exampleModalLongTitle"> <strong>Monto Block</strong></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body px-5 py-4">
+                                <form @submit.prevent="editarblock()" id="form-comprobante" method="POST" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label for="nombreURL">Monto Block</label>
+                                        <input type="text" class="form-control" v-model="blockvalue.value" name="value">
+                                    </div>
+                                   
+                                     <div class="row justify-content-around"> 
+                                        <button class="btn col-4" style="border: 1.5px solid #32BAB0; color:#32BAB0; border-radius: 10px!important;"  data-dismiss="modal" aria-label="Close"> cancelar</button>
+                                       
+                                        <input type="submit" :disabled="estadoproceso" class="btn btn-upgrap col-3" :value="estadoproceso ? 'Procesando' : 'Guardar'">
+                                    </div>
+                                    
+                                </form>
+                            </div>
+
+                            </div>
+                        </div>
+                </div>
             <div v-if="retiroSelected" class="modal fade" id="checkdetail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -158,7 +261,7 @@ import { mapGetters } from "vuex";
 import Search from './Utils/search4';
     export default {
         name:"admin-retiros",
-        props:['blocks','grids','solds','retiros'],
+        props:['blocks','grids','solds','retiros','gridvalue','blockvalue','retirovalue'],
         data() {
             return {
                  secondtag: "Solds",
@@ -181,6 +284,36 @@ import Search from './Utils/search4';
              ...mapGetters(["filteredSold",'filteredRetiros']),
         },
         methods: {
+            editarretiro(){
+                var url="/admin/modificar-configuracion/"+this.retirovalue.id;
+                axios.put(url,{
+                    value:this.retirovalue.value,
+                }).then((result) => {
+                    window.location.reload();
+                }).catch((err) => {
+                    console.log(err);
+                });
+            },
+            editargrid(){
+                var url="/admin/modificar-configuracion/"+this.gridvalue.id;
+                axios.put(url,{
+                    value:this.gridvalue.value,
+                }).then((result) => {
+                    window.location.reload();
+                }).catch((err) => {
+                    console.log(err);
+                });
+            },
+             editarblock(){
+                var url="/admin/modificar-configuracion/"+this.blockvalue.id;
+                axios.put(url,{
+                    value:this.blockvalue.value,
+                }).then((result) => {
+                    window.location.reload();
+                }).catch((err) => {
+                    console.log(err);
+                });
+            },
             bannerChangeCoverPicture(){
                 document.getElementById("CoverChangeInput").click(); 
             },
@@ -197,6 +330,21 @@ import Search from './Utils/search4';
             },
             seleccionardos(tag) {
                 this.secondtag=tag;
+            },
+             mostrar(){
+                setTimeout(function(){
+                $("#cambiolimiteretiro").modal("show");
+                },200)
+            },
+            mostrar1(){
+                setTimeout(function(){
+                $("#cambiolimitegrid").modal("show");
+                },200)
+            },
+            mostrar2(){
+                setTimeout(function(){
+                $("#cambiolimiteblock").modal("show");
+                },200)
             },
              mostrarmodal(retiro){
                 if(retiro){
