@@ -8,6 +8,7 @@ Route::get('/grid/{nombreURL}', 'Pages\LandingController@showgrip')->name('detal
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/perfil', 'HomeController@perfil')->name('perfil');
 Route::get('/home/mygrids', 'HomeController@mygrid')->name('mygrid');
 Route::get('/confirm-payment', 'HomeController@payment')->name('confirm-payment');
 Route::get('/payments/approval', 'PaymentController@approval')->name('approval');

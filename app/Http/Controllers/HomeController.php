@@ -35,6 +35,17 @@ class HomeController extends Controller
         },'history']);
         return view('home',compact('user','retirovalue'));
     }
+    public function perfil()
+    {
+        $user= Auth::user()->load(['matriz'=>function($q){
+            return $q->with(['bloques'=>function($k){
+                return $k->where('estado',false);
+            }]);
+        },'bank'=>function($q){
+            return $q->with(['registros','retiros']);
+        },'history']);
+        return view('perfil',compact('user'));
+    }
     public function payment()
     {
         $user= Auth::user()->load(['matriz']);

@@ -26,6 +26,7 @@ Vue.component('btn-grids-component', require('./components/Templades/btnmygryps'
 Vue.component('btn-grids-movil-component', require('./components/Templades/btnnamovil').default);
 Vue.component('my-grids-component', require('./components/MyProfile/MyGrids').default);
 Vue.component('my-grids-detalle-component', require('./components/MyProfile/MyGridDetalle').default);
+Vue.component('my-perfil-component', require('./components/MyProfile/perfil').default);
 
 //admin
 Vue.component('nav-admin-component', require('./components/Admin/nav').default);
