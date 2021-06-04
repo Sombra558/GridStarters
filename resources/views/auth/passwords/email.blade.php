@@ -4,17 +4,18 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="">
+        @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
             <div class="card-reset">
                 <div class="card-reset-title">
                         <h2>Recover your password</h2>
                         <p>Enter your email. We will send you a link to recover your password</p>
                     </div>
                 <div class="card-body-reset">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    
                     
                     <form method="POST" action="{{ route('password.email') }}">
                         @csrf

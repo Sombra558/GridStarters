@@ -191,12 +191,12 @@ class PayPalService
             ]); 
     
             return redirect()
-                ->route('home')
+                ->route('mygrid')
                 ->withSuccess(['payment' => "Thanks, {$name}. We received your {$amount}{$currency} payment."]);
         }
 
         return redirect()
-            ->route('home')
+            ->route('mygrid')
             ->withErrors('We cannot capture your payment. Try again, please');
     }
     public function handleApprovalBlock()
