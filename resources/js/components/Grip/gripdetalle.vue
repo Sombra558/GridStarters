@@ -5,7 +5,7 @@
                 <div class="container-fluid">
                       <div class="row justify-content-md-between">
                                         <div class=" col-sm-12 col-md-3 row">
-                                            <div style="margin-left:8px; margin-top:5px;"><img class="col avatar" src="/img/user/user_min.jpg" alt="user-avatar"></div>
+                                            <div style="margin-left:8px; margin-top:5px;"><img v-if="grip.user.img" class="col avatar" :src="'/storage/'+grip.user.img" alt="user-avatar"><img v-else class="col avatar" src="/img/user/user_min.jpg" alt="user-avatar"></div>
                                             <div style="margin-left:8px; margin-top:5px;">
                                                 <strong style="margin:0px;" class="username">{{grip.user.name}}</strong>
                                                 <p style="margin:0px;" class="premium">Premium</p>     

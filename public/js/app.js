@@ -73849,7 +73849,27 @@ var render = function() {
       _c("div", { staticClass: "container-fluid" }, [
         _c("div", { staticClass: "row justify-content-md-between" }, [
           _c("div", { staticClass: " col-sm-12 col-md-3 row" }, [
-            _vm._m(0),
+            _c(
+              "div",
+              { staticStyle: { "margin-left": "8px", "margin-top": "5px" } },
+              [
+                _vm.grip.user.img
+                  ? _c("img", {
+                      staticClass: "col avatar",
+                      attrs: {
+                        src: "/storage/" + _vm.grip.user.img,
+                        alt: "user-avatar"
+                      }
+                    })
+                  : _c("img", {
+                      staticClass: "col avatar",
+                      attrs: {
+                        src: "/img/user/user_min.jpg",
+                        alt: "user-avatar"
+                      }
+                    })
+              ]
+            ),
             _vm._v(" "),
             _c(
               "div",
@@ -73870,7 +73890,7 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _vm._m(1)
+          _vm._m(0)
         ])
       ])
     ]),
@@ -73902,7 +73922,7 @@ var render = function() {
             [
               _c("caption", [_vm._v(_vm._s(_vm.grip.user.name) + " Grid")]),
               _vm._v(" "),
-              _vm._m(2),
+              _vm._m(1),
               _vm._v(" "),
               _c("tbody", [
                 _c("tr", [
@@ -73982,7 +74002,7 @@ var render = function() {
             { staticClass: "modal-dialog", attrs: { role: "document" } },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(3),
+                _vm._m(2),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -74112,7 +74132,7 @@ var render = function() {
               { staticClass: "modal-dialog", attrs: { role: "document" } },
               [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(4),
+                  _vm._m(3),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body px-5 py-4" }, [
                     _c("img", {
@@ -74133,21 +74153,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticStyle: { "margin-left": "8px", "margin-top": "5px" } },
-      [
-        _c("img", {
-          staticClass: "col avatar",
-          attrs: { src: "/img/user/user_min.jpg", alt: "user-avatar" }
-        })
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -74267,7 +74272,27 @@ var render = function() {
         _c("div", { staticClass: "container-fluid" }, [
           _c("div", { staticClass: "row justify-content-md-between" }, [
             _c("div", { staticClass: " col-sm-12 col-md-3 row" }, [
-              _vm._m(0),
+              _c(
+                "div",
+                { staticStyle: { "margin-left": "8px", "margin-top": "5px" } },
+                [
+                  _vm.user.img
+                    ? _c("img", {
+                        staticClass: "col avatar",
+                        attrs: {
+                          src: "/storage/" + _vm.user.img,
+                          alt: "user-avatar"
+                        }
+                      })
+                    : _c("img", {
+                        staticClass: "col avatar",
+                        attrs: {
+                          src: "/img/user/user_min.jpg",
+                          alt: "user-avatar"
+                        }
+                      })
+                ]
+              ),
               _vm._v(" "),
               _c(
                 "div",
@@ -74288,7 +74313,7 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _vm._m(1)
+            _vm._m(0)
           ])
         ])
       ]),
@@ -74306,7 +74331,7 @@ var render = function() {
                   [
                     _c("caption", [_vm._v(_vm._s(_vm.user.name) + " Grid")]),
                     _vm._v(" "),
-                    _vm._m(2),
+                    _vm._m(1),
                     _vm._v(" "),
                     _c("tbody", [
                       _c("tr", [
@@ -74359,21 +74384,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticStyle: { "margin-left": "8px", "margin-top": "5px" } },
-      [
-        _c("img", {
-          staticClass: "col avatar",
-          attrs: { src: "/img/user/user_min.jpg", alt: "user-avatar" }
-        })
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
