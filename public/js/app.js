@@ -3263,6 +3263,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "menu-lateral-estudiante",
@@ -73166,10 +73167,15 @@ var render = function() {
       _c("br"),
       _vm._v(" "),
       _c("div", { staticClass: "row m-0 align-items-center d-md-none" }, [
-        _c("img", {
-          staticClass: "img-perfil",
-          attrs: { src: "/img/user/user_min.jpg", alt: "avatar" }
-        }),
+        _vm.user.img
+          ? _c("img", {
+              staticClass: "img-perfil",
+              attrs: { src: "/storage/" + _vm.user.img, alt: "avatar" }
+            })
+          : _c("img", {
+              staticClass: "img-perfil",
+              attrs: { src: "/img/user/user_min.jpg", alt: "avatar" }
+            }),
         _vm._v(" "),
         _c(
           "div",

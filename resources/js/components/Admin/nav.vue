@@ -2,7 +2,8 @@
     <div :class="{'mostrar' : stateMenu}" class="fondo" >
         <br>
         <div class="row m-0 align-items-center d-md-none">
-            <img class="img-perfil" src="/img/user/user_min.jpg" alt="avatar">
+            <img class="img-perfil" v-if="user.img" :src="'/storage/'+user.img" alt="avatar">
+             <img class="img-perfil" v-else src="/img/user/user_min.jpg" alt="avatar">
             <div style="margin-top:15px" class="col-8">
                 <div class="nombreuser">{{user.name}}</div>
                 <span class="rol">Admin</span>
