@@ -9,6 +9,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/perfil', 'HomeController@perfil')->name('perfil');
+Route::post('/home/actualizar-perfil/{id}', 'Usuario\PerfilController@update')->name('update-perfil');
+Route::post('/home/actualizar-password', 'Usuario\PerfilController@updatecontrasena');
 Route::get('/home/mygrids', 'HomeController@mygrid')->name('mygrid');
 Route::get('/confirm-payment', 'HomeController@payment')->name('confirm-payment');
 Route::get('/payments/approval', 'PaymentController@approval')->name('approval');

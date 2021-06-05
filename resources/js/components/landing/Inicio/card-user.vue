@@ -2,7 +2,8 @@
       <div class="card-profile">
                     <div class="card-header-profile">
                         <div class="card-img-user-profile">
-                             <img src="/img/user/user_min.jpg" alt="user-img">
+                            <img v-if="user.user.img" :src="'/storage/'+user.user.img" alt="user-img">
+                             <img v-else src="/img/user/user_min.jpg" alt="user-img">
                         </div>
                         <div style="margin-left: 10px" class="card-user-data">
                               <h3>{{user.user.name}}</h3>

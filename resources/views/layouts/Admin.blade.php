@@ -813,7 +813,11 @@
                                                                         <span>{{ Auth::user()->roles[0]->name }}</span>
                                                                 </div>
                                                                 
+                                                                @if(Auth::user()->img)
+                                                                <img style="margin-left:33px" class="avatar" src="/storage/{{Auth::user()->img}}" alt="user-img">
+                                                                @else
                                                                 <img style="margin-left:33px" class="avatar" src="/img/user/user_min.jpg" alt="user-img">
+                                                                @endif
                                                                 </div>
                                                             </div>
                                                             

@@ -42,7 +42,7 @@
         }
         @font-face {
             font-family: 'Rubik';
-            src: url('./fonts/Rubik/static/Rubik-Bold.ttf');
+            src: url('/fonts/Rubik/static/Rubik-Bold.ttf');
             font-weight: bold;
             font-style: normal;
             font-display: swap;
@@ -1045,7 +1045,11 @@
                                                                         <span>{{ Auth::user()->roles[0]->name }}</span>
                                                                 </div>
                                                                 
+                                                                @if(Auth::user()->img)
+                                                                <img style="margin-left:33px" class="avatar" src="/storage/{{Auth::user()->img}}" alt="user-img">
+                                                                @else
                                                                 <img style="margin-left:33px" class="avatar" src="/img/user/user_min.jpg" alt="user-img">
+                                                                @endif
                                                                 </div>
                                                             </div>
                                                             
@@ -1063,6 +1067,9 @@
                                                                 </a>
                                                                 <a class="dropdown-item" href="/home/mygrids">
                                                                     My Grids
+                                                                </a>
+                                                                <a class="dropdown-item" href="/home/perfil">
+                                                                    My Profile
                                                                 </a>
                                                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                                                 onclick="event.preventDefault();
@@ -1102,7 +1109,11 @@
             <div style="width:250px;"  class="d-flex justify-content-start">
                 @guest
                 @else
-                <img style="margin-left:15px" class="avatar" src="/img/user/user_min.jpg" alt="user-img">
+                @if(Auth::user()->img)
+                    <img style="margin-left:33px" class="avatar" src="/storage/{{Auth::user()->img}}" alt="user-img">
+                    @else
+                    <img style="margin-left:33px" class="avatar" src="/img/user/user_min.jpg" alt="user-img">
+                    @endif
                 @endguest
             </div>
         </div>
@@ -1168,7 +1179,9 @@
                 <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/home/mygrids">
                    <strong> My Grids </strong>
                 </a>
-
+                <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/home/perfil">
+                   <strong> My Profile </strong>
+                </a>
                 <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
