@@ -139,6 +139,26 @@
             },
             definirsize(){
                  localStorage.clear();
+                 if(this.bloqueSelected!=null){
+                        document.querySelector(`#bloque-${this.bloqueSelected.fila}-${this.bloqueSelected.columna}`).style.backgroundColor = '#FBF9FF';
+                         for (let i = 0; i < this.bloqueSelected.filasize; i++) {
+                            var bloquetemp=null;
+                            for (let j = 0; j < Number(this.bloqueSelected.columnsize); j++) {
+                                var validate2bloque=null;
+                                    bloquetemp={
+                                        fila:this.bloqueSelected.fila +i,
+                                        columna: this.bloqueSelected.columna+j
+                                    }
+                                    validate2bloque=document.querySelector(`#bloque-${this.bloqueSelected.fila +i}-${this.bloqueSelected.columna+j}`);
+                                    if (validate2bloque!=null) {
+                                        document.querySelector(`#bloque-${this.bloqueSelected.fila +i}-${this.bloqueSelected.columna+j}`).style.backgroundColor = '#FBF9FF'; 
+                                    }
+
+                                    
+                            }
+                                }
+                    }
+                    localStorage.clear();
                  $("#cambiourl").modal("hide");
             },
             casillaSelected(fila,columna) {
@@ -167,7 +187,10 @@
                     this.bloqueSelected= {
                         fila:fila,
                         columna:columna.numero,
-                        matriz_id:this.grip.id
+                        matriz_id:this.grip.id,
+                        url:this.grip.nombreURL,
+                        filasize:this.bloqueconfig.filasize,
+                        columnsize:this.bloqueconfig.columnasize,
                     }
                     //origem
                     //document.querySelector(`#bloque-${this.bloqueSelected.fila}-${this.bloqueSelected.columna}`).style.backgroundColor = '#D04141';
@@ -178,7 +201,10 @@
                             bloquetemp={
                                 fila:this.bloqueSelected.fila +i,
                                 columna: this.bloqueSelected.columna+j,
-                                matriz_id:this.grip.id
+                                matriz_id:this.grip.id,
+                                url:this.grip.nombreURL,
+                                filasize:this.bloqueconfig.filasize,
+                                columnsize:this.bloqueconfig.columnasize,
                             }
                             var tempvalidadebloque=document.querySelector(`#bloque-${this.bloqueSelected.fila +i}-${this.bloqueSelected.columna+j}`);
                             if (tempvalidadebloque!=null) {

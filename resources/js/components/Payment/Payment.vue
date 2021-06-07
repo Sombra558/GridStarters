@@ -35,7 +35,12 @@
                                 <span  v-if="bloque===null" style="color:grey!important" >No. row</span>
                                 <span v-else style="color:grey!important">{{filas}}</span>
                             </div>
-                        </div>            
+                            
+                        </div> 
+                          <div class="flexi-btn-form">
+                            <input style="margin-top:65px" class="btn btn-grip" type="submit" value="Save & pay">
+                            <input @click.prevent="cancel()" style="margin-top:65px" class="btn btn-cancel" type="button" value="Cancel">
+                        </div>           
                         </div>
                        
                         
@@ -125,6 +130,9 @@
             }
         },
         methods: {
+            cancel(){
+                window.location= `/grid/${this.bloque[0].url}`;
+            },
             bannerChangeCoverPicture(){
                 document.getElementById("CoverChangeInput").click(); 
             },
@@ -172,14 +180,14 @@
 
 <style lang="scss" scoped>
     .updateFoto{
+        background-color: #b7b4be4f;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 89px;
         border-radius: 5px;
         background-repeat: no-repeat;
-        background-size: 100% 100%;
-
+        background-size: 420px 100%;
         background-position: center center;
     }
      .updateFoto strong{

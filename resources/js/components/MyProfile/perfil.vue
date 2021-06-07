@@ -66,7 +66,7 @@
                                 type="password"
                                 v-model="newcont.newPassword" 
                                 class="form-control input-style-file" 
-                                placeholder="Indroduce tu nueva Contraseña"
+                                placeholder="New Password"
                                 name="password"
                                  >
                             </div>

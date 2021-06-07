@@ -3572,6 +3572,29 @@ __webpack_require__.r(__webpack_exports__);
     },
     definirsize: function definirsize() {
       localStorage.clear();
+
+      if (this.bloqueSelected != null) {
+        document.querySelector("#bloque-".concat(this.bloqueSelected.fila, "-").concat(this.bloqueSelected.columna)).style.backgroundColor = '#FBF9FF';
+
+        for (var i = 0; i < this.bloqueSelected.filasize; i++) {
+          var bloquetemp = null;
+
+          for (var j = 0; j < Number(this.bloqueSelected.columnsize); j++) {
+            var validate2bloque = null;
+            bloquetemp = {
+              fila: this.bloqueSelected.fila + i,
+              columna: this.bloqueSelected.columna + j
+            };
+            validate2bloque = document.querySelector("#bloque-".concat(this.bloqueSelected.fila + i, "-").concat(this.bloqueSelected.columna + j));
+
+            if (validate2bloque != null) {
+              document.querySelector("#bloque-".concat(this.bloqueSelected.fila + i, "-").concat(this.bloqueSelected.columna + j)).style.backgroundColor = '#FBF9FF';
+            }
+          }
+        }
+      }
+
+      localStorage.clear();
       $("#cambiourl").modal("hide");
     },
     casillaSelected: function casillaSelected(fila, columna) {
@@ -3603,7 +3626,10 @@ __webpack_require__.r(__webpack_exports__);
         this.bloqueSelected = {
           fila: fila,
           columna: columna.numero,
-          matriz_id: this.grip.id
+          matriz_id: this.grip.id,
+          url: this.grip.nombreURL,
+          filasize: this.bloqueconfig.filasize,
+          columnsize: this.bloqueconfig.columnasize
         }; //origem
         //document.querySelector(`#bloque-${this.bloqueSelected.fila}-${this.bloqueSelected.columna}`).style.backgroundColor = '#D04141';
 
@@ -3615,7 +3641,10 @@ __webpack_require__.r(__webpack_exports__);
             bloquetemp = {
               fila: this.bloqueSelected.fila + _i,
               columna: this.bloqueSelected.columna + _j,
-              matriz_id: this.grip.id
+              matriz_id: this.grip.id,
+              url: this.grip.nombreURL,
+              filasize: this.bloqueconfig.filasize,
+              columnsize: this.bloqueconfig.columnasize
             };
             var tempvalidadebloque = document.querySelector("#bloque-".concat(this.bloqueSelected.fila + _i, "-").concat(this.bloqueSelected.columna + _j));
 
@@ -7854,6 +7883,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'confirm-payment',
   props: ['user'],
@@ -11143,6 +11177,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    cancel: function cancel() {
+      window.location = "/grid/".concat(this.bloque[0].url);
+    },
     bannerChangeCoverPicture: function bannerChangeCoverPicture() {
       document.getElementById("CoverChangeInput").click();
     },
@@ -16182,7 +16219,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".updateFoto[data-v-561e28c2] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 89px;\n  border-radius: 5px;\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  background-position: center center;\n}\n.updateFoto strong[data-v-561e28c2] {\n  width: 100%;\n  text-align: center;\n}\n.buy-tite[data-v-561e28c2] {\n  color: #5F01F5;\n  font-family: \"valera\";\n  font-size: 20px;\n  line-height: 2.6;\n  margin-top: 10px;\n  font-weight: 700;\n}\nform label[data-v-561e28c2], span[data-v-561e28c2] {\n  color: #0F0426;\n  font-family: \"Valera\";\n  font-size: 16px;\n  line-height: 1.08;\n  margin-top: 10px;\n  font-weight: 700;\n}\n.maxi[data-v-561e28c2] {\n  margin-left: 0px;\n}\n@media only screen and (max-width: 768px) {\n.maxi[data-v-561e28c2] {\n    margin-left: 15px;\n}\n}\n@media only screen and (max-width: 767px) {\n.padre-content-position[data-v-561e28c2] {\n    display: flex;\n    justify-content: space-between;\n    width: 100%;\n}\n.content-position[data-v-561e28c2]:first-child {\n    flex-basis: calc(50% - 2rem);\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 140px;\n    border-radius: 5px;\n}\n.content-position[data-v-561e28c2]:last-child {\n    flex-basis: calc(50% - 2rem);\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 140px;\n    border-radius: 5px;\n}\n.content-position label[data-v-561e28c2], span[data-v-561e28c2] {\n    font-family: \"valera\";\n    font-size: 14px;\n    margin-left: 15px;\n    font-weight: 700;\n}\n.preview[data-v-561e28c2] {\n    text-decoration: none;\n    background-color: #ffffff;\n    border: 1px solid #30019B;\n    color: #30019B;\n    font-family: \"valera\";\n    font-size: 16px;\n    max-width: 100px;\n    line-height: 2.08;\n    margin-top: 0px;\n    margin-top: 20px;\n    padding: 0px 20px;\n    font-weight: 700;\n    border-radius: 5px;\n}\n.padre-pago-descripcion[data-v-561e28c2] {\n    display: flex;\n    flex-direction: column-reverse;\n}\n.metod-pay h3[data-v-561e28c2] {\n    margin-top: 20px;\n    font-size: 18px;\n}\n.flexi-btn-form[data-v-561e28c2] {\n    display: flex;\n    justify-content: space-between;\n}\n.btn-grip[data-v-561e28c2] {\n    font-family: \"Valera\";\n    background-color: #30019B !important;\n    color: #ffffff !important;\n    flex-basis: calc(50% - 2rem);\n    width: 144px;\n    border-radius: 10px !important;\n}\n.btn-cancel[data-v-561e28c2] {\n    font-family: \"Valera\";\n    background-color: #0f04263f !important;\n    color: #ffffff !important;\n    flex-basis: calc(50% - 2rem);\n    width: 144px;\n    border-radius: 10px !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.padre-content-position[data-v-561e28c2] {\n    display: flex;\n    justify-content: space-between;\n    width: 100%;\n}\n.content-position[data-v-561e28c2]:first-child {\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 240px;\n    border-radius: 5px;\n}\n.content-position[data-v-561e28c2]:last-child {\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 240px;\n    border-radius: 5px;\n}\n.content-position label[data-v-561e28c2], span[data-v-561e28c2] {\n    font-family: \"valera\";\n    font-size: 16px;\n    font-weight: 700;\n}\n.preview[data-v-561e28c2] {\n    text-decoration: none;\n    background-color: #ffffff;\n    border: 1px solid #30019B;\n    color: #30019B;\n    font-family: \"valera\";\n    font-size: 16px;\n    max-width: 100px;\n    line-height: 2.08;\n    margin-top: 0px;\n    padding: 0px 20px;\n    font-weight: 700;\n    border-radius: 5px;\n}\n.padre-pago-descripcion[data-v-561e28c2] {\n    display: flex;\n    flex-direction: column;\n}\n.btn-grip[data-v-561e28c2] {\n    font-family: \"Valera\";\n    background-color: #30019B !important;\n    color: #ffffff !important;\n    width: 181px;\n    border-radius: 10px !important;\n}\n.btn-cancel[data-v-561e28c2] {\n    font-family: \"Valera\";\n    background-color: #0f04263f !important;\n    color: #ffffff !important;\n    width: 144px;\n    border-radius: 10px !important;\n}\n}", ""]);
+exports.push([module.i, ".updateFoto[data-v-561e28c2] {\n  background-color: #b7b4be4f;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 89px;\n  border-radius: 5px;\n  background-repeat: no-repeat;\n  background-size: 420px 100%;\n  background-position: center center;\n}\n.updateFoto strong[data-v-561e28c2] {\n  width: 100%;\n  text-align: center;\n}\n.buy-tite[data-v-561e28c2] {\n  color: #5F01F5;\n  font-family: \"valera\";\n  font-size: 20px;\n  line-height: 2.6;\n  margin-top: 10px;\n  font-weight: 700;\n}\nform label[data-v-561e28c2], span[data-v-561e28c2] {\n  color: #0F0426;\n  font-family: \"Valera\";\n  font-size: 16px;\n  line-height: 1.08;\n  margin-top: 10px;\n  font-weight: 700;\n}\n.maxi[data-v-561e28c2] {\n  margin-left: 0px;\n}\n@media only screen and (max-width: 768px) {\n.maxi[data-v-561e28c2] {\n    margin-left: 15px;\n}\n}\n@media only screen and (max-width: 767px) {\n.padre-content-position[data-v-561e28c2] {\n    display: flex;\n    justify-content: space-between;\n    width: 100%;\n}\n.content-position[data-v-561e28c2]:first-child {\n    flex-basis: calc(50% - 2rem);\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 140px;\n    border-radius: 5px;\n}\n.content-position[data-v-561e28c2]:last-child {\n    flex-basis: calc(50% - 2rem);\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 140px;\n    border-radius: 5px;\n}\n.content-position label[data-v-561e28c2], span[data-v-561e28c2] {\n    font-family: \"valera\";\n    font-size: 14px;\n    margin-left: 15px;\n    font-weight: 700;\n}\n.preview[data-v-561e28c2] {\n    text-decoration: none;\n    background-color: #ffffff;\n    border: 1px solid #30019B;\n    color: #30019B;\n    font-family: \"valera\";\n    font-size: 16px;\n    max-width: 100px;\n    line-height: 2.08;\n    margin-top: 0px;\n    margin-top: 20px;\n    padding: 0px 20px;\n    font-weight: 700;\n    border-radius: 5px;\n}\n.padre-pago-descripcion[data-v-561e28c2] {\n    display: flex;\n    flex-direction: column-reverse;\n}\n.metod-pay h3[data-v-561e28c2] {\n    margin-top: 20px;\n    font-size: 18px;\n}\n.flexi-btn-form[data-v-561e28c2] {\n    display: flex;\n    justify-content: space-between;\n}\n.btn-grip[data-v-561e28c2] {\n    font-family: \"Valera\";\n    background-color: #30019B !important;\n    color: #ffffff !important;\n    flex-basis: calc(50% - 2rem);\n    width: 144px;\n    border-radius: 10px !important;\n}\n.btn-cancel[data-v-561e28c2] {\n    font-family: \"Valera\";\n    background-color: #0f04263f !important;\n    color: #ffffff !important;\n    flex-basis: calc(50% - 2rem);\n    width: 144px;\n    border-radius: 10px !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.padre-content-position[data-v-561e28c2] {\n    display: flex;\n    justify-content: space-between;\n    width: 100%;\n}\n.content-position[data-v-561e28c2]:first-child {\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 240px;\n    border-radius: 5px;\n}\n.content-position[data-v-561e28c2]:last-child {\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 240px;\n    border-radius: 5px;\n}\n.content-position label[data-v-561e28c2], span[data-v-561e28c2] {\n    font-family: \"valera\";\n    font-size: 16px;\n    font-weight: 700;\n}\n.preview[data-v-561e28c2] {\n    text-decoration: none;\n    background-color: #ffffff;\n    border: 1px solid #30019B;\n    color: #30019B;\n    font-family: \"valera\";\n    font-size: 16px;\n    max-width: 100px;\n    line-height: 2.08;\n    margin-top: 0px;\n    padding: 0px 20px;\n    font-weight: 700;\n    border-radius: 5px;\n}\n.padre-pago-descripcion[data-v-561e28c2] {\n    display: flex;\n    flex-direction: column;\n}\n.btn-grip[data-v-561e28c2] {\n    font-family: \"Valera\";\n    background-color: #30019B !important;\n    color: #ffffff !important;\n    width: 181px;\n    border-radius: 10px !important;\n}\n.btn-cancel[data-v-561e28c2] {\n    font-family: \"Valera\";\n    background-color: #0f04263f !important;\n    color: #ffffff !important;\n    width: 144px;\n    border-radius: 10px !important;\n}\n}", ""]);
 
 // exports
 
@@ -75726,7 +75763,7 @@ var render = function() {
                         attrs: {
                           id: "email",
                           type: "password",
-                          placeholder: "Indroduce tu nueva Contraseña",
+                          placeholder: "New Password",
                           name: "password"
                         },
                         domProps: { value: _vm.newcont.newPassword },
@@ -75981,7 +76018,27 @@ var render = function() {
               ])
         ])
       ]
-    )
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "flexi-btn-form" }, [
+      _c("input", {
+        staticClass: "btn btn-grip",
+        staticStyle: { "margin-top": "65px" },
+        attrs: { type: "submit", value: "Save & pay" }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "btn btn-cancel",
+        staticStyle: { "margin-top": "65px" },
+        attrs: { type: "button", value: "Cancel" },
+        on: {
+          click: function($event) {
+            $event.preventDefault()
+            return _vm.cancel()
+          }
+        }
+      })
+    ])
   ])
 }
 var staticRenderFns = [

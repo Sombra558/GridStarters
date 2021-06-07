@@ -10,10 +10,7 @@
                     <input type="hidden" name="value" value="{{$gridvalue->value}}">
                     <input type="hidden" name="currency" value="usd">
                     <payment-component :user="{{$user}}"></payment-component>
-                    <div class="flexi-btn-form">
-                            <input style="margin-top:65px" class="btn btn-grip" type="submit" value="Save & pay">
-                            <input style="margin-top:65px" class="btn btn-cancel" type="button" value="Cancel">
-                        </div>
+                  
                     
                     </form>
                 </div>
