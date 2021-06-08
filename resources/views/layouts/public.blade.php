@@ -43,7 +43,10 @@
             background-size: 100% 100%;
             background-image: url('/img/header-escritorio.png');
         }
-       
+        .bg-millonarioB{
+            background: linear-gradient(91.97deg , #30019B 9.96%, #0F0426 89.26%);
+        }
+        
         @media only screen and (max-width: 767px){
             .btn-upgrap{
             font-family: 'Valera';
@@ -481,7 +484,7 @@
 
 <nav class="navbar navbar-expand-md navbar-light  shadow-sm fixed-top p-0 d-block d-md-none w-100">
     <div class="container-fluid">
-    <div class="bg-millonario w-100 row justify-content-between m-0  align-items-center">
+    <div class="bg-millonarioB w-100 row justify-content-between m-0  align-items-center">
         <ul style="width:100%" class="navbar-nav row m-0 flex-row justify-content-between align-content-center col-12 p-0">
         <div id="navbarDropdown" class="nav-link text-white col-12" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             <div  class="d-flex justify-content-start">
