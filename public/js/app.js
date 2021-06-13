@@ -4287,8 +4287,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module 'toastr'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-!(function webpackMissingModule() { var e = new Error("Cannot find module 'toastr/build/toastr.min.css'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -4397,8 +4395,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
-
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "perfil-component",
   props: ['user'],
@@ -4483,15 +4479,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     },
     guardarpassword: function guardarpassword() {
       if (this.newcont.password == "") {
-        !(function webpackMissingModule() { var e = new Error("Cannot find module 'toastr'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()).error('El campo "Contraseña" no puede estar vacío');
+        toastr.error('El campo "Contraseña" no puede estar vacío');
       } else if (this.newcont.newPassword != this.newcont.confirmPassword && this.newcont.newPassword != "") {
-        !(function webpackMissingModule() { var e = new Error("Cannot find module 'toastr'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()).error('La confirmación de contraseña no es igual a la contraseña indicada');
+        toastr.error('La confirmación de contraseña no es igual a la contraseña indicada');
       } else {
         var urlprueba = "/home/actualizar-password";
         axios.post(urlprueba, this.newcont).then(function (res) {
           if (res.status == 200) {
             if (res.data == "incorrecto") {
-              !(function webpackMissingModule() { var e = new Error("Cannot find module 'toastr'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()).error('La contraseña indicada es incorrecta');
+              toastr.error('La contraseña indicada es incorrecta');
             } else {
               window.location.reload();
             }
@@ -91776,8 +91772,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\GridStarters\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\GridStarters\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\millonario\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\millonario\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

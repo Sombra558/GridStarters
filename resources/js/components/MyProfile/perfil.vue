@@ -95,8 +95,7 @@
 </template>
 
 <script>
-import toastr from "toastr";
-import 'toastr/build/toastr.min.css';
+
     export default {
         name:"perfil-component",
         props:['user'],
