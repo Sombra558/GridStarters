@@ -1,4 +1,5 @@
 <template>
+
       <div class="card-profile">
                     <div class="card-header-profile">
                         <div class="card-img-user-profile">
@@ -11,6 +12,7 @@
                         </div>
                       
                     </div>
+                    <a :href="'grid/'+user.nombreURL">
                     <div class="card-profile-img-background">
                           <div :id="'body-user-'+user.id" class="card--profile-body">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -22,8 +24,10 @@
                             </a>
                     </div>
                     </div>
+                    </a>
                   
         </div>
+
 </template>
 
 <script>

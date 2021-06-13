@@ -89,4 +89,11 @@ class AdminController extends Controller
         $solicitud->save();
         return $solicitud;
     }
+    public function dergargarinforme($codigo)
+    {
+        $sales=PurchasesHistory::where('transaction_id',$codigo)->first()->load(['user']);
+        $pdf = \PDF2::loadView('Admin.Informes.InformeNotas',['matriculados' => $sales]);
+        $pdf->setPaper('letter', 'landscape');
+        return $pdf->stream('Informe.pdf', array("Attachment" => false));   
+    }
 }

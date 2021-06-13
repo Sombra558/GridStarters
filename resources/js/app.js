@@ -165,7 +165,7 @@ const store = new Vuex.Store({
             let sales = state.sales;
        
             if (state.filterSales.query.length > 1) {
-                sales = sales.filter(r => r.transaction_id.toLowerCase().includes(state.filterSales.query.toLowerCase()));
+                sales = sales.filter(r => r.transaction_id.toLowerCase().includes(state.filterSales.query.toLowerCase())||r.user.email.toLowerCase().includes(state.filterSales.query.toLowerCase()));
             }
             sales = sales.filter(r => {
                 var date= new Date(r.created_at);
@@ -183,8 +183,8 @@ const store = new Vuex.Store({
         },
         filteredSold(state) {
             let sales = state.sold;
-            if (state.filterSales.query.length > 1) {
-                sales = sales.filter(r => r.transaction_id.toLowerCase().includes(state.filterSold.query.toLowerCase()));
+            if (state.filterSold.query.length > 1) {
+                sales = sales.filter(r => r.transaction_id.toLowerCase().includes(state.filterSold.query.toLowerCase())||r.bank.user.name.toLowerCase().includes(state.filterSold.query.toLowerCase()));
             } 
             return sales;
         },

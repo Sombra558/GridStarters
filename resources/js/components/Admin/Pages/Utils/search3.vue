@@ -14,7 +14,7 @@
             </select>
          </div>
          <div class="col-6">
-            <button :disabled="reportSelected===null ? true : false" class="btn btn-uggrad">Descargar</button>
+            <button :disabled="reportSelected===null ? true : false" class="btn btn-uggrad" @click.prevent="descargar(reportSelected.transaction_id)">Descargar</button>
          </div>
          </div>
   
@@ -30,6 +30,11 @@ import { mapGetters } from "vuex";
         data() {
             return {
                 reportSelected: null,
+            }
+        },
+        methods: {
+            descargar(codigo) {
+                window.location='/admin/reports/'+codigo;
             }
         },
         computed: {

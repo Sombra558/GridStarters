@@ -71,7 +71,7 @@
                         <div class="form-group row mb-0">
                           
                                 
-                                       <a class="text-center col-md-12 registernow" href="/register">register? Click here</a>
+                                       <a class="text-center col-md-12 registernow" href="/register">Register? Click here</a>
                                 
                                 
                         </div>

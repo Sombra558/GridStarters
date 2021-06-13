@@ -27,7 +27,7 @@
                 <thead>
                 <tr class="table-bg">
                     <th>Date</th>
-                    <th>Purchases Detail</th>
+                  
                     <th>Transaction's ID</th>
                     <th>Payment Method</th>
                     <th>Amount</th>
@@ -36,7 +36,7 @@
                 <tbody v-if="user.bank.length>0">
                 <tr v-for="(grid,index) in user.bank[0].registros" :key="index">
                     <td>{{grid.created_at}}</td>
-                    <td><a href="#">View Detail</a></td>
+            
                     <td>{{grid.transaction_id}}</td>
                     <td>{{grid.payment_method}}</td>
                     <td>{{grid.amount}}$</td>
@@ -183,6 +183,32 @@
                             </div>
                         </div>
                 </div>
+                <div v-if="soldSelected" class="modal fade" id="checksold" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div :style="soldSelected.img_deposito ? 'background-image: url(/storage/'+soldSelected.img_deposito+');' : 'background-color: #b7b4be4f;'" class="modal-header">
+                                 <div class="updateFoto2" ></div>
+                               
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                              
+                                 <div class="user-descripcion"> 
+                                    <h6 >Request Description</h6>
+                                    <p><strong>Transaction's ID:</strong> {{retiroSelected.numero_de_comprobante}}</p>
+                                    <p><strong>Amount:</strong> {{retiroSelected.amount}}$</p>
+                                     <p><strong>Request Date:</strong> {{retiroSelected.created_at}}</p>
+                                     <p><strong>Verify Date:</strong> {{retiroSelected.updated_at}}</p>
+                                  
+                                </div>
+                                
+                            </div>
+
+                            </div>
+                        </div>
+                </div>
     </div>
 </template>
 
@@ -200,7 +226,8 @@
                     email:"",
                     amount:0.00
                 },
-                retiroSelected:null
+                retiroSelected:null,
+                soldSelected:null,
             }
         },
         computed: {
@@ -248,6 +275,7 @@
                 $("#check").modal("show");
                 },200)
             },
+            
         },
         mounted () {
             if (this.user.matriz.length>0) {

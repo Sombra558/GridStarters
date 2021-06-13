@@ -55,7 +55,7 @@
                 <thead>
                 <tr class="table-bg">
                     <th>Full name</th>
-                    <th>Block size</th>
+                 
                     <th>Transaction's ID</th>
                     <th>Payment Method</th>
                     <th>Amount</th>
@@ -64,9 +64,9 @@
                 <tbody>
                 <tr v-for="(grid,index) in filteredSold" :key="index">
                     <td>{{grid.bank.user.name}}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{grid.transaction_id}}</td>
+                    <td>{{grid.payment_method}}</td>
+                 
                     <td>{{grid.amount}}$</td>
                 </tr>
                
@@ -267,7 +267,7 @@ import Search from './Utils/search4';
                  secondtag: "Solds",
                  retiroSelected:null,
                  lastFile: null,
-                    estadoprocess:false,
+                 estadoproceso:false,
                     grip:{
                         src:null,
                     },

@@ -836,6 +836,9 @@
                                                                 <a class="dropdown-item" href="/home/mygrids">
                                                                     My Grids
                                                                 </a>
+                                                                <a class="dropdown-item" href="/">
+                                                                    Landing
+                                                                </a>
                                                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                                                 onclick="event.preventDefault();
                                                                                 document.getElementById('logout-form').submit();">

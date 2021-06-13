@@ -458,6 +458,9 @@
                                                                 <a class="dropdown-item" href="/home/perfil">
                                                                     My Profile
                                                                 </a>
+                                                                <a class="dropdown-item" href="/">
+                                                                    Landing
+                                                                </a>
                                                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                                                 onclick="event.preventDefault();
                                                                                 document.getElementById('logout-form').submit();">
@@ -569,6 +572,9 @@
                 </a>
                 <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/home/perfil">
                    <strong> My Profile </strong>
+                </a>
+                <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/">
+                   <strong> Landing </strong>
                 </a>
                 <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="{{ route('logout') }}"
                 onclick="event.preventDefault();

@@ -24,11 +24,11 @@
         computed: {
             user: {
             get() {
-                return this.$store.state.filterPublics.user;
+                return this.$store.state.filterSold.query;
             },
             set(value) {
-                this.$store.commit("setfilterPublics", {
-                filter: "user",
+                this.$store.commit("setfilterSold", {
+                filter: "query",
                 value,
                 });
             },

@@ -2148,6 +2148,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       reportSelected: null
     };
   },
+  methods: {
+    descargar: function descargar(codigo) {
+      window.location = '/admin/reports/' + codigo;
+    }
+  },
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["filteredSales"])), {}, {
     query: {
       get: function get() {
@@ -2199,11 +2204,11 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     user: {
       get: function get() {
-        return this.$store.state.filterPublics.user;
+        return this.$store.state.filterSold.query;
       },
       set: function set(value) {
-        this.$store.commit("setfilterPublics", {
-          filter: "user",
+        this.$store.commit("setfilterSold", {
+          filter: "query",
           value: value
         });
       }
@@ -2798,7 +2803,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       secondtag: "Solds",
       retiroSelected: null,
       lastFile: null,
-      estadoprocess: false,
+      estadoproceso: false,
       grip: {
         src: null
       }
@@ -4149,6 +4154,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "profile-user",
   props: ['user', 'retirovalue'],
@@ -4162,7 +4193,8 @@ __webpack_require__.r(__webpack_exports__);
         email: "",
         amount: 0.00
       },
-      retiroSelected: null
+      retiroSelected: null,
+      soldSelected: null
     };
   },
   computed: {
@@ -11402,6 +11434,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -71324,7 +71360,13 @@ var render = function() {
           "button",
           {
             staticClass: "btn btn-uggrad",
-            attrs: { disabled: _vm.reportSelected === null ? true : false }
+            attrs: { disabled: _vm.reportSelected === null ? true : false },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.descargar(_vm.reportSelected.transaction_id)
+              }
+            }
           },
           [_vm._v("Descargar")]
         )
@@ -72020,11 +72062,9 @@ var render = function() {
                   return _c("tr", { key: index }, [
                     _c("td", [_vm._v(_vm._s(grid.bank.user.name))]),
                     _vm._v(" "),
-                    _c("td"),
+                    _c("td", [_vm._v(_vm._s(grid.transaction_id))]),
                     _vm._v(" "),
-                    _c("td"),
-                    _vm._v(" "),
-                    _c("td"),
+                    _c("td", [_vm._v(_vm._s(grid.payment_method))]),
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(grid.amount) + "$")])
                   ])
@@ -72641,8 +72681,6 @@ var staticRenderFns = [
     return _c("thead", [
       _c("tr", { staticClass: "table-bg" }, [
         _c("th", [_vm._v("Full name")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Block size")]),
         _vm._v(" "),
         _c("th", [_vm._v("Transaction's ID")]),
         _vm._v(" "),
@@ -74912,8 +74950,6 @@ var render = function() {
                           return _c("tr", { key: index }, [
                             _c("td", [_vm._v(_vm._s(grid.created_at))]),
                             _vm._v(" "),
-                            _vm._m(1, true),
-                            _vm._v(" "),
                             _c("td", [_vm._v(_vm._s(grid.transaction_id))]),
                             _vm._v(" "),
                             _c("td", [_vm._v(_vm._s(grid.payment_method))]),
@@ -74936,7 +74972,7 @@ var render = function() {
                   staticStyle: { "margin-top": "25px" }
                 },
                 [
-                  _vm._m(2),
+                  _vm._m(1),
                   _vm._v(" "),
                   _c(
                     "tbody",
@@ -75084,7 +75120,7 @@ var render = function() {
                   staticStyle: { "margin-top": "25px" }
                 },
                 [
-                  _vm._m(3),
+                  _vm._m(2),
                   _vm._v(" "),
                   _c(
                     "tbody",
@@ -75122,7 +75158,7 @@ var render = function() {
             : _vm._e(),
           _vm._v(" "),
           _vm.user.matriz.length === 0
-            ? _c("div", { staticClass: "row" }, [_vm._m(4)])
+            ? _c("div", { staticClass: "row" }, [_vm._m(3)])
             : _vm._e()
         ])
       : _vm._e(),
@@ -75145,7 +75181,7 @@ var render = function() {
           { staticClass: "modal-dialog", attrs: { role: "document" } },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(5),
+              _vm._m(4),
               _vm._v(" "),
               _c(
                 "div",
@@ -75307,6 +75343,76 @@ var render = function() {
                     [
                       _c("div", { staticClass: "updateFoto2" }),
                       _vm._v(" "),
+                      _vm._m(5)
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c("div", { staticClass: "user-descripcion" }, [
+                      _c("h6", [_vm._v("Request Description")]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c("strong", [_vm._v("Transaction's ID:")]),
+                        _vm._v(
+                          " " + _vm._s(_vm.retiroSelected.numero_de_comprobante)
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c("strong", [_vm._v("Amount:")]),
+                        _vm._v(" " + _vm._s(_vm.retiroSelected.amount) + "$")
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c("strong", [_vm._v("Request Date:")]),
+                        _vm._v(" " + _vm._s(_vm.retiroSelected.created_at))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c("strong", [_vm._v("Verify Date:")]),
+                        _vm._v(" " + _vm._s(_vm.retiroSelected.updated_at))
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.soldSelected
+      ? _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "checksold",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLongTitle",
+              "aria-hidden": "true"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "modal-dialog", attrs: { role: "document" } },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal-header",
+                      style: _vm.soldSelected.img_deposito
+                        ? "background-image: url(/storage/" +
+                          _vm.soldSelected.img_deposito +
+                          ");"
+                        : "background-color: #b7b4be4f;"
+                    },
+                    [
+                      _c("div", { staticClass: "updateFoto2" }),
+                      _vm._v(" "),
                       _vm._m(6)
                     ]
                   ),
@@ -75355,22 +75461,12 @@ var staticRenderFns = [
       _c("tr", { staticClass: "table-bg" }, [
         _c("th", [_vm._v("Date")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Purchases Detail")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Transaction's ID")]),
         _vm._v(" "),
         _c("th", [_vm._v("Payment Method")]),
         _vm._v(" "),
         _c("th", [_vm._v("Amount")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("a", { attrs: { href: "#" } }, [_vm._v("View Detail")])
     ])
   },
   function() {
@@ -75453,6 +75549,23 @@ var staticRenderFns = [
           [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
         )
       ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
     )
   },
   function() {
@@ -75811,7 +75924,7 @@ var render = function() {
                         attrs: {
                           id: "email",
                           type: "password",
-                          placeholder: "Confirma tu contraseña",
+                          placeholder: "Confirm your password",
                           name: "password",
                           autofocus: ""
                         },
@@ -76254,61 +76367,63 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "card-profile-img-background" }, [
-      _c(
-        "div",
-        {
-          staticClass: "card--profile-body",
-          attrs: { id: "body-user-" + _vm.user.id }
-        },
-        [
-          _c(
-            "svg",
-            {
-              attrs: {
-                width: "32",
-                height: "32",
-                viewBox: "0 0 32 32",
-                fill: "none",
-                xmlns: "http://www.w3.org/2000/svg"
-              }
-            },
-            [
-              _c("path", {
+    _c("a", { attrs: { href: "grid/" + _vm.user.nombreURL } }, [
+      _c("div", { staticClass: "card-profile-img-background" }, [
+        _c(
+          "div",
+          {
+            staticClass: "card--profile-body",
+            attrs: { id: "body-user-" + _vm.user.id }
+          },
+          [
+            _c(
+              "svg",
+              {
                 attrs: {
-                  "fill-rule": "evenodd",
-                  "clip-rule": "evenodd",
-                  d:
-                    "M20.2153 16.0708C20.2153 18.3988 18.3273 20.2855 15.9993 20.2855C13.6713 20.2855 11.7847 18.3988 11.7847 16.0708C11.7847 13.7415 13.6713 11.8548 15.9993 11.8548C18.3273 11.8548 20.2153 13.7415 20.2153 16.0708Z",
-                  stroke: "#FBF9FF",
-                  "stroke-width": "1.5",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  width: "32",
+                  height: "32",
+                  viewBox: "0 0 32 32",
+                  fill: "none",
+                  xmlns: "http://www.w3.org/2000/svg"
                 }
-              }),
-              _vm._v(" "),
-              _c("path", {
-                attrs: {
-                  "fill-rule": "evenodd",
-                  "clip-rule": "evenodd",
-                  d:
-                    "M15.9974 25.8065C21.0747 25.8065 25.7187 22.1559 28.3334 16.0705C25.7187 9.9852 21.0747 6.33453 15.9974 6.33453H16.0027C10.9254 6.33453 6.28141 9.9852 3.66675 16.0705C6.28141 22.1559 10.9254 25.8065 16.0027 25.8065H15.9974Z",
-                  stroke: "#FBF9FF",
-                  "stroke-width": "1.5",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
-                }
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "grid/" + _vm.user.nombreURL } }, [
-            _vm._v(
-              "\n                          visit profile\n                      "
-            )
-          ])
-        ]
-      )
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    "fill-rule": "evenodd",
+                    "clip-rule": "evenodd",
+                    d:
+                      "M20.2153 16.0708C20.2153 18.3988 18.3273 20.2855 15.9993 20.2855C13.6713 20.2855 11.7847 18.3988 11.7847 16.0708C11.7847 13.7415 13.6713 11.8548 15.9993 11.8548C18.3273 11.8548 20.2153 13.7415 20.2153 16.0708Z",
+                    stroke: "#FBF9FF",
+                    "stroke-width": "1.5",
+                    "stroke-linecap": "round",
+                    "stroke-linejoin": "round"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  attrs: {
+                    "fill-rule": "evenodd",
+                    "clip-rule": "evenodd",
+                    d:
+                      "M15.9974 25.8065C21.0747 25.8065 25.7187 22.1559 28.3334 16.0705C25.7187 9.9852 21.0747 6.33453 15.9974 6.33453H16.0027C10.9254 6.33453 6.28141 9.9852 3.66675 16.0705C6.28141 22.1559 10.9254 25.8065 16.0027 25.8065H15.9974Z",
+                    stroke: "#FBF9FF",
+                    "stroke-width": "1.5",
+                    "stroke-linecap": "round",
+                    "stroke-linejoin": "round"
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "grid/" + _vm.user.nombreURL } }, [
+              _vm._v(
+                "\n                          visit profile\n                      "
+              )
+            ])
+          ]
+        )
+      ])
     ])
   ])
 }
@@ -89991,7 +90106,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
 
       if (state.filterSales.query.length > 1) {
         sales = sales.filter(function (r) {
-          return r.transaction_id.toLowerCase().includes(state.filterSales.query.toLowerCase());
+          return r.transaction_id.toLowerCase().includes(state.filterSales.query.toLowerCase()) || r.user.email.toLowerCase().includes(state.filterSales.query.toLowerCase());
         });
       }
 
@@ -90014,9 +90129,9 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
     filteredSold: function filteredSold(state) {
       var sales = state.sold;
 
-      if (state.filterSales.query.length > 1) {
+      if (state.filterSold.query.length > 1) {
         sales = sales.filter(function (r) {
-          return r.transaction_id.toLowerCase().includes(state.filterSold.query.toLowerCase());
+          return r.transaction_id.toLowerCase().includes(state.filterSold.query.toLowerCase()) || r.bank.user.name.toLowerCase().includes(state.filterSold.query.toLowerCase());
         });
       }
 

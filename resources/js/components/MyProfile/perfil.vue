@@ -78,7 +78,7 @@
                                 id="email" 
                                 class="form-control input-style-file"
                                 type="password"
-                                placeholder="Confirma tu contraseña"
+                                placeholder="Confirm your password"
                                 name="password" 
                                 v-model="newcont.confirmPassword"   
                                 autofocus>

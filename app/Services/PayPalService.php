@@ -156,8 +156,11 @@ class PayPalService
         if (session()->has('approvalId')) {
             $approvalId = session()->get('approvalId');
             $payment = $this->capturePayment($approvalId);
+          
             $name = $payment->payer->name->given_name;
+            $transactionId=$payment->purchase_units[0]->payments->captures[0]->id;
             $payment = $payment->purchase_units[0]->payments->captures[0]->amount;
+            
             $amount = $payment->value;
             $currency = $payment->currency_code;
             
@@ -185,8 +188,8 @@ class PayPalService
             PurchasesHistory::create([
                 'user_id' =>Auth::user()->id,
                 'amount' => $amount,
-                'descripcion' =>  'Compra de Grilla',
-                'transaction_id' => $approvalId,
+                'descripcion' =>  'Grid purchase',
+                'transaction_id' => $transactionId,
                 'payment_method' =>  'Paypal',
             ]); 
     
@@ -205,8 +208,12 @@ class PayPalService
         if (session()->has('approvalId')) {
             $approvalId = session()->get('approvalId');
             $payment = $this->capturePayment($approvalId);
+
             $name = $payment->payer->name->given_name;
+            $transactionId=$payment->purchase_units[0]->payments->captures[0]->id;
             $payment = $payment->purchase_units[0]->payments->captures[0]->amount;
+           
+           
             $amount = $payment->value;
             $currency = $payment->currency_code;
             $myblocks=session()->get('myblocks');
@@ -235,7 +242,7 @@ class PayPalService
                     'user_banks_id' =>$userbank->id,
                     'amount' => $positivo*$blockvalue->value,
                     'type' => "sold",
-                    'transaction_id' => $approvalId,
+                    'transaction_id' => $transactionId,
                     'payment_method' =>  'Paypal',
                     'withdrawn' =>   0,
                 ]);   
@@ -250,7 +257,7 @@ class PayPalService
                     'user_banks_id' =>$new->id,
                     'amount' => $positivo*$blockvalue->value,
                     'type' => "sold",
-                    'transaction_id' => $approvalId,
+                    'transaction_id' => $transactionId,
                     'payment_method' =>  'Paypal',
                     'withdrawn' =>   0,
                 ]); 
@@ -259,15 +266,13 @@ class PayPalService
             PurchasesHistory::create([
                 'user_id' =>Auth::user()->id,
                 'amount' => $positivo*$blockvalue->value,
-                'descripcion' =>  'Compra de bloque',
-                'transaction_id' => $approvalId,
+                'descripcion' =>  'Block purchase',
+                'transaction_id' => $transactionId,
                 'payment_method' =>  'Paypal',
             ]); 
             
-    
-            return redirect()
-                ->route('home')
-                ->withSuccess(['payment' => "Thanks, {$name}. We received your {$amount}{$currency} payment."]);
+            $ruta="/grid/".$matriz->nombreURL;
+            return redirect($ruta);
         }
 
         return redirect()

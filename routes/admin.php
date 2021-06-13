@@ -7,6 +7,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')
     Route::get('/users', 'AdminController@users')->name('admin-users');
     Route::get('/sales', 'AdminController@sales')->name('admin-sales');
     Route::get('/reports', 'AdminController@reports')->name('admin-reports');
+    Route::get('/reports/{codigo}', 'AdminController@dergargarinforme')->name('descargar-reports');
     Route::get('/withdrawal', 'AdminController@retiros')->name('admin-retiros');
     Route::post('/verificar/{id}', 'AdminController@verificar')->name('admin-verificar');
     Route::put('/modificar-configuracion/{id}', 'AdminController@modificarretiro')->name('admin-modificar-configuracion');
