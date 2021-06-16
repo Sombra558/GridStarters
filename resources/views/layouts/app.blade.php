@@ -1057,7 +1057,7 @@
                                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                                         
                                                             <div >
-                                                                @if(Auth::user()->roles[0]->name === 'administrador')
+                                                                @if(Auth::user()->roles[0]->name === 'Administrator')
                                                                 <a class="dropdown-item" href="/admin">
                                                                     Admin
                                                                 </a>
@@ -1169,7 +1169,7 @@
             <!--SE SUPONE QUW VA UNA VALIDACION EN LA RUTA DE ADMIN, PERO ME DABA ERROR ASI QUE LA QUITE-->
                
                
-                @if(Auth::user()->roles[0]->name === 'administrador')
+                @if(Auth::user()->roles[0]->name === 'Administrator')
                 <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/admin">
                    <strong>Admin </strong> 
                 </a>
