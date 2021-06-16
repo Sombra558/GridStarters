@@ -19,7 +19,7 @@ class StudenAndOthersRole
 
         if (isset($user_roles[0])) 
         {
-            if ($user_roles[0]->name === 'usuario') {
+            if ($user_roles[0]->name === 'User') {
                 if ($user_roles->count() > 1) {
                     return $next($request);
                 } else {

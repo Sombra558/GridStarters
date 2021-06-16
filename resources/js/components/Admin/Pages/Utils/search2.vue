@@ -24,7 +24,7 @@
          </div>
          <div class="col-6">
             <select  class="form-select form-select-sm  selectReporte" aria-label=".form-select-sm example"  v-model="tipo">
-                <option :value="null">Tipo de pago</option>
+                <option :value="null">Payment type</option>
                  <option value="Paypal">Paypal</option>
             </select>
          </div>

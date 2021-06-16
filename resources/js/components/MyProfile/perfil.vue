@@ -13,7 +13,7 @@
                                     <label for="assetsFieldHandle" class="block cursor-pointer" v-if="this.filelist == null">
                                     <div class="row flex-column align-items-center">
                                      
-                                        <span class="arrastre" >Arrastra aquí tu imagen de perfil o <strong>sube una foto</strong></span>
+                                        <span class="arrastre" >Drag your profile picture here or <strong>upload a photo</strong></span>
                                     </div>
                                     </label>
                     

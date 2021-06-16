@@ -5,14 +5,14 @@
             <h2  class="subtitleadmin">Sold out blocks</h2>
             <div class="home-card">
                 <strong>{{blocks}}</strong>
-                <button class="btn btn-date">Update {{moment().format('LL')}}</button>
+                <button class="btn btn-date">Update {{moment().locale('en').format('LL')}}</button>
             </div>
         </div>
         <div class="col-sm-12 col-md-4">
             <h2  class="subtitleadmin">Sold out grids</h2>
             <div class="home-card">
                 <strong>{{grids}}</strong>
-                <button class="btn btn-date">Update {{moment().format('LL')}}</button>
+                <button class="btn btn-date">Update {{moment().locale('en').format('LL')}}</button>
             </div>
         </div>
         <div class="col-sm-12 col-md-4">

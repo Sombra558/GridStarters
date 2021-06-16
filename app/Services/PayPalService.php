@@ -118,7 +118,7 @@ class PayPalService
                     $img = \Image::make($request->file('img'));
                     $img->resize(600,600);
                     $temp=null;
-                    $temp = $img->crop(600/$request['column'],600/$request['fila'],$origemx,$origemy);
+                    $temp = $img->crop(round(600/$request['column']),round(600/$request['fila']),round($origemx),round($origemy));
                     $temp->resize(25,25);
                     $path = public_path().'/storage-public/Gridsmin/';
                     if (!file_exists($path)) {

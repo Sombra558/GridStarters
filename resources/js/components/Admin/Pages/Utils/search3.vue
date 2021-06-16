@@ -8,13 +8,13 @@
          <div  class="col-md-5 row justify-content-between">
                <div class="col-6">
             <select  class="form-select form-select-sm selectReporte" aria-label=".form-select-sm example"  v-model="reportSelected">
-                <option :value="null"> Seleccione Reporte</option>
+                <option :value="null">Select Report</option>
                  <option v-for="report in filteredSales" :key="report.id" :value="report">{{report.transaction_id}}</option>
                
             </select>
          </div>
          <div class="col-6">
-            <button :disabled="reportSelected===null ? true : false" class="btn btn-uggrad" @click.prevent="descargar(reportSelected.transaction_id)">Descargar</button>
+            <button :disabled="reportSelected===null ? true : false" class="btn btn-uggrad" @click.prevent="descargar(reportSelected.transaction_id)">Download</button>
          </div>
          </div>
   

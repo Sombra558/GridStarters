@@ -58,7 +58,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                             <div class="modal-header" style="border:none">
-                                <h5 class="modal-title w-100 text-center" id="exampleModalLongTitle"> <strong>Cambiar Ruta</strong></h5>
+                                <h5 class="modal-title w-100 text-center" id="exampleModalLongTitle"> <strong>Config Block Size</strong></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -66,15 +66,15 @@
                             <div class="modal-body px-5 py-4" style="border:none">
                                     <div class="form-group">
                                         <label for="nombreURL">Columns Size</label>
-                                        <input type="text" class="form-control" v-model="bloqueconfig.columnasize"  >
+                                        <input type="number"  min="1" pattern="^[0-9]+" class="form-control" v-model="columntemp"  >
                                     </div>
                                     <div class="form-group">
                                         <label for="nombreURL">Row Size</label>
-                                        <input class="form-control" type="text" v-model="bloqueconfig.filasize">
+                                        <input class="form-control"  min="1" pattern="^[0-9]+" type="number" v-model="rowtemp">
                                     </div>
                                     <div class="row justify-content-around"> 
-                                        <button class="btn col-4" style="border: 1.5px solid #32BAB0; color:#32BAB0; border-radius: 10px!important;"  data-dismiss="modal" aria-label="Close"> cancelar</button>
-                                        <input type="submit"  @click.prevent="definirsize()" class="btn btn-upgrap col-3" value="Guardar">
+                                        <button class="btn col-4" style="border: 1.5px solid #32BAB0; color:#32BAB0; border-radius: 10px!important;"  data-dismiss="modal" aria-label="Close">Cencel</button>
+                                        <input type="submit"  @click.prevent="definirsize()" class="btn btn-upgrap col-3" value="Save">
                                     </div>
                                    
                                
@@ -114,6 +114,8 @@
                 bloqueSelected:null,
                 blockselected:null,
                 matriz: [],
+                columntemp:1,
+                rowtemp:1,
                 bloqueconfig:{
                     columnasize: 1,
                     filasize:1
@@ -132,10 +134,16 @@
                 },200)
             },
              mostrarmodal2(){
+    
+                   
+                   this.bloqueconfig.columnasize=this.columntemp;
+                   this.bloqueconfig.filasize=this.rowtemp;
                
-                setTimeout(function(){
-                $("#cambiourl").modal("show");
-                },200)
+                   setTimeout(function(){
+                    $("#cambiourl").modal("show");
+                    },200)
+              
+                
             },
             definirsize(){
                  localStorage.clear();
@@ -159,7 +167,23 @@
                                 }
                     }
                     localStorage.clear();
-                 $("#cambiourl").modal("hide");
+                  
+                    if (this.columntemp - Math.floor(this.columntemp) == 0 && this.rowtemp - Math.floor(this.rowtemp)== 0) {
+                        if (this.columntemp<43 && this.rowtemp<25) {
+                        this.bloqueconfig.columnasize=this.columntemp;
+                        this.bloqueconfig.filasize=this.rowtemp;
+                            console.log(this.bloqueconfig);
+                        setTimeout(function(){
+                        $("#cambiourl").modal("hide");
+                            },200)
+                    }else{
+                        console.log('limite superado');
+                    }
+                    } else {
+                        alert ("Es un numero decimal");
+                    }
+                      
+                 
             },
             casillaSelected(fila,columna) {
                 localStorage.clear();

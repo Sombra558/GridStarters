@@ -3553,6 +3553,8 @@ __webpack_require__.r(__webpack_exports__);
       bloqueSelected: null,
       blockselected: null,
       matriz: [],
+      columntemp: 1,
+      rowtemp: 1,
       bloqueconfig: {
         columnasize: 1,
         filasize: 1
@@ -3571,6 +3573,8 @@ __webpack_require__.r(__webpack_exports__);
       }, 200);
     },
     mostrarmodal2: function mostrarmodal2() {
+      this.bloqueconfig.columnasize = this.columntemp;
+      this.bloqueconfig.filasize = this.rowtemp;
       setTimeout(function () {
         $("#cambiourl").modal("show");
       }, 200);
@@ -3600,7 +3604,21 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       localStorage.clear();
-      $("#cambiourl").modal("hide");
+
+      if (this.columntemp - Math.floor(this.columntemp) == 0 && this.rowtemp - Math.floor(this.rowtemp) == 0) {
+        if (this.columntemp < 43 && this.rowtemp < 25) {
+          this.bloqueconfig.columnasize = this.columntemp;
+          this.bloqueconfig.filasize = this.rowtemp;
+          console.log(this.bloqueconfig);
+          setTimeout(function () {
+            $("#cambiourl").modal("hide");
+          }, 200);
+        } else {
+          console.log('limite superado');
+        }
+      } else {
+        alert("Es un numero decimal");
+      }
     },
     casillaSelected: function casillaSelected(fila, columna) {
       localStorage.clear();
@@ -70701,7 +70719,7 @@ var render = function() {
           },
           [
             _c("option", { domProps: { value: null } }, [
-              _vm._v("Tipo de pago")
+              _vm._v("Payment type")
             ]),
             _vm._v(" "),
             _c("option", { attrs: { value: "Paypal" } }, [_vm._v("Paypal")])
@@ -70803,7 +70821,7 @@ var render = function() {
           },
           [
             _c("option", { domProps: { value: null } }, [
-              _vm._v(" Seleccione Reporte")
+              _vm._v("Select Report")
             ]),
             _vm._v(" "),
             _vm._l(_vm.filteredSales, function(report) {
@@ -70831,7 +70849,7 @@ var render = function() {
               }
             }
           },
-          [_vm._v("Descargar")]
+          [_vm._v("Download")]
         )
       ])
     ])
@@ -70950,7 +70968,15 @@ var render = function() {
           _c("strong", [_vm._v(_vm._s(_vm.blocks))]),
           _vm._v(" "),
           _c("button", { staticClass: "btn btn-date" }, [
-            _vm._v("Update " + _vm._s(_vm.moment().format("LL")))
+            _vm._v(
+              "Update " +
+                _vm._s(
+                  _vm
+                    .moment()
+                    .locale("en")
+                    .format("LL")
+                )
+            )
           ])
         ])
       ]),
@@ -70962,7 +70988,15 @@ var render = function() {
           _c("strong", [_vm._v(_vm._s(_vm.grids))]),
           _vm._v(" "),
           _c("button", { staticClass: "btn btn-date" }, [
-            _vm._v("Update " + _vm._s(_vm.moment().format("LL")))
+            _vm._v(
+              "Update " +
+                _vm._s(
+                  _vm
+                    .moment()
+                    .locale("en")
+                    .format("LL")
+                )
+            )
           ])
         ])
       ]),
@@ -71639,7 +71673,7 @@ var render = function() {
                     [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "nombreURL" } }, [
-                          _vm._v("Monto Minimo a Retirar")
+                          _vm._v("Minimum Amount to Withdraw")
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -71652,7 +71686,7 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
-                          attrs: { type: "text", name: "value" },
+                          attrs: { type: "number", name: "value" },
                           domProps: { value: _vm.retirovalue.value },
                           on: {
                             input: function($event) {
@@ -71684,7 +71718,7 @@ var render = function() {
                               "aria-label": "Close"
                             }
                           },
-                          [_vm._v(" cancelar")]
+                          [_vm._v(" Cancel")]
                         ),
                         _vm._v(" "),
                         _c("input", {
@@ -71694,7 +71728,7 @@ var render = function() {
                             disabled: _vm.estadoproceso
                           },
                           domProps: {
-                            value: _vm.estadoproceso ? "Procesando" : "Guardar"
+                            value: _vm.estadoproceso ? "Procesando" : "Save"
                           }
                         })
                       ])
@@ -71746,7 +71780,7 @@ var render = function() {
                     [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "nombreURL" } }, [
-                          _vm._v("Monto Grid")
+                          _vm._v("Grid amount")
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -71759,7 +71793,7 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
-                          attrs: { type: "text", name: "value" },
+                          attrs: { type: "number", name: "value" },
                           domProps: { value: _vm.gridvalue.value },
                           on: {
                             input: function($event) {
@@ -71791,7 +71825,7 @@ var render = function() {
                               "aria-label": "Close"
                             }
                           },
-                          [_vm._v(" cancelar")]
+                          [_vm._v(" Cancel")]
                         ),
                         _vm._v(" "),
                         _c("input", {
@@ -71801,7 +71835,7 @@ var render = function() {
                             disabled: _vm.estadoproceso
                           },
                           domProps: {
-                            value: _vm.estadoproceso ? "Procesando" : "Guardar"
+                            value: _vm.estadoproceso ? "Processing" : "Save"
                           }
                         })
                       ])
@@ -71853,7 +71887,7 @@ var render = function() {
                     [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "nombreURL" } }, [
-                          _vm._v("Monto Block")
+                          _vm._v("Block amount")
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -71866,7 +71900,7 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
-                          attrs: { type: "text", name: "value" },
+                          attrs: { type: "number", name: "value" },
                           domProps: { value: _vm.blockvalue.value },
                           on: {
                             input: function($event) {
@@ -71898,7 +71932,7 @@ var render = function() {
                               "aria-label": "Close"
                             }
                           },
-                          [_vm._v(" cancelar")]
+                          [_vm._v(" Cancel")]
                         ),
                         _vm._v(" "),
                         _c("input", {
@@ -71908,7 +71942,7 @@ var render = function() {
                             disabled: _vm.estadoproceso
                           },
                           domProps: {
-                            value: _vm.estadoproceso ? "Procesando" : "Guardar"
+                            value: _vm.estadoproceso ? "Processing" : "Save"
                           }
                         })
                       ])
@@ -72185,7 +72219,7 @@ var staticRenderFns = [
             staticClass: "modal-title  w-100 text-center ",
             attrs: { id: "exampleModalLongTitle" }
           },
-          [_c("strong", [_vm._v("Monto Minimo")])]
+          [_c("strong", [_vm._v("Minimum amount")])]
         ),
         _vm._v(" "),
         _c(
@@ -72217,7 +72251,7 @@ var staticRenderFns = [
             staticClass: "modal-title  w-100 text-center ",
             attrs: { id: "exampleModalLongTitle" }
           },
-          [_c("strong", [_vm._v("Monto Grid")])]
+          [_c("strong", [_vm._v("Grid amount")])]
         ),
         _vm._v(" "),
         _c(
@@ -72249,7 +72283,7 @@ var staticRenderFns = [
             staticClass: "modal-title  w-100 text-center ",
             attrs: { id: "exampleModalLongTitle" }
           },
-          [_c("strong", [_vm._v("Monto Block")])]
+          [_c("strong", [_vm._v("Block amount")])]
         ),
         _vm._v(" "),
         _c(
@@ -73559,23 +73593,19 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.bloqueconfig.columnasize,
-                            expression: "bloqueconfig.columnasize"
+                            value: _vm.columntemp,
+                            expression: "columntemp"
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text" },
-                        domProps: { value: _vm.bloqueconfig.columnasize },
+                        attrs: { type: "number", min: "1", pattern: "^[0-9]+" },
+                        domProps: { value: _vm.columntemp },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(
-                              _vm.bloqueconfig,
-                              "columnasize",
-                              $event.target.value
-                            )
+                            _vm.columntemp = $event.target.value
                           }
                         }
                       })
@@ -73591,23 +73621,19 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.bloqueconfig.filasize,
-                            expression: "bloqueconfig.filasize"
+                            value: _vm.rowtemp,
+                            expression: "rowtemp"
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text" },
-                        domProps: { value: _vm.bloqueconfig.filasize },
+                        attrs: { min: "1", pattern: "^[0-9]+", type: "number" },
+                        domProps: { value: _vm.rowtemp },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(
-                              _vm.bloqueconfig,
-                              "filasize",
-                              $event.target.value
-                            )
+                            _vm.rowtemp = $event.target.value
                           }
                         }
                       })
@@ -73628,12 +73654,12 @@ var render = function() {
                             "aria-label": "Close"
                           }
                         },
-                        [_vm._v(" cancelar")]
+                        [_vm._v("Cencel")]
                       ),
                       _vm._v(" "),
                       _c("input", {
                         staticClass: "btn btn-upgrap col-3",
-                        attrs: { type: "submit", value: "Guardar" },
+                        attrs: { type: "submit", value: "Save" },
                         on: {
                           click: function($event) {
                             $event.preventDefault()
@@ -73732,7 +73758,7 @@ var staticRenderFns = [
             staticClass: "modal-title w-100 text-center",
             attrs: { id: "exampleModalLongTitle" }
           },
-          [_c("strong", [_vm._v("Cambiar Ruta")])]
+          [_c("strong", [_vm._v("Config Block Size")])]
         ),
         _vm._v(" "),
         _c(
@@ -74996,7 +75022,7 @@ var staticRenderFns = [
             staticClass: "modal-title w-100 text-center",
             attrs: { id: "exampleModalLongTitle" }
           },
-          [_c("strong", [_vm._v("Cambiar Ruta ")])]
+          [_c("strong", [_vm._v("Withdraw ")])]
         ),
         _vm._v(" "),
         _c(
@@ -75424,8 +75450,8 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row flex-column align-items-center" }, [
       _c("span", { staticClass: "arrastre" }, [
-        _vm._v("Arrastra aquí tu imagen de perfil o "),
-        _c("strong", [_vm._v("sube una foto")])
+        _vm._v("Drag your profile picture here or "),
+        _c("strong", [_vm._v("upload a photo")])
       ])
     ])
   },

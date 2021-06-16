@@ -99,7 +99,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                             <div class="modal-header" style="border:none">
-                                <h5 class="modal-title  w-100 text-center "  id="exampleModalLongTitle"> <strong>Monto Minimo</strong></h5>
+                                <h5 class="modal-title  w-100 text-center "  id="exampleModalLongTitle"> <strong>Minimum amount</strong></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
@@ -107,14 +107,14 @@
                             <div class="modal-body px-5 py-4">
                                 <form @submit.prevent="editarretiro()" id="form-comprobante" method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
-                                        <label for="nombreURL">Monto Minimo a Retirar</label>
-                                        <input type="text" class="form-control" v-model="retirovalue.value" name="value">
+                                        <label for="nombreURL">Minimum Amount to Withdraw</label>
+                                        <input type="number" class="form-control" v-model="retirovalue.value" name="value">
                                     </div>
                                    
                                      <div class="row justify-content-around"> 
-                                        <button class="btn col-4" style="border: 1.5px solid #32BAB0; color:#32BAB0; border-radius: 10px!important;"  data-dismiss="modal" aria-label="Close"> cancelar</button>
+                                        <button class="btn col-4" style="border: 1.5px solid #32BAB0; color:#32BAB0; border-radius: 10px!important;"  data-dismiss="modal" aria-label="Close"> Cancel</button>
                                        
-                                        <input type="submit" :disabled="estadoproceso" class="btn btn-upgrap col-3" :value="estadoproceso ? 'Procesando' : 'Guardar'">
+                                        <input type="submit" :disabled="estadoproceso" class="btn btn-upgrap col-3" :value="estadoproceso ? 'Procesando' : 'Save'">
                                     </div>
                                     
                                 </form>
@@ -127,7 +127,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                             <div class="modal-header" style="border:none">
-                                <h5 class="modal-title  w-100 text-center "  id="exampleModalLongTitle"> <strong>Monto Grid</strong></h5>
+                                <h5 class="modal-title  w-100 text-center "  id="exampleModalLongTitle"> <strong>Grid amount</strong></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
@@ -135,14 +135,14 @@
                             <div class="modal-body px-5 py-4">
                                 <form @submit.prevent="editargrid()" id="form-comprobante" method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
-                                        <label for="nombreURL">Monto Grid</label>
-                                        <input type="text" class="form-control" v-model="gridvalue.value" name="value">
+                                        <label for="nombreURL">Grid amount</label>
+                                        <input type="number" class="form-control" v-model="gridvalue.value" name="value">
                                     </div>
                                    
                                      <div class="row justify-content-around"> 
-                                        <button class="btn col-4" style="border: 1.5px solid #32BAB0; color:#32BAB0; border-radius: 10px!important;"  data-dismiss="modal" aria-label="Close"> cancelar</button>
+                                        <button class="btn col-4" style="border: 1.5px solid #32BAB0; color:#32BAB0; border-radius: 10px!important;"  data-dismiss="modal" aria-label="Close"> Cancel</button>
                                        
-                                        <input type="submit" :disabled="estadoproceso" class="btn btn-upgrap col-3" :value="estadoproceso ? 'Procesando' : 'Guardar'">
+                                        <input type="submit" :disabled="estadoproceso" class="btn btn-upgrap col-3" :value="estadoproceso ? 'Processing' : 'Save'">
                                     </div>
                                     
                                 </form>
@@ -155,7 +155,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                             <div class="modal-header" style="border:none">
-                                <h5 class="modal-title  w-100 text-center "  id="exampleModalLongTitle"> <strong>Monto Block</strong></h5>
+                                <h5 class="modal-title  w-100 text-center "  id="exampleModalLongTitle"> <strong>Block amount</strong></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
@@ -163,14 +163,14 @@
                             <div class="modal-body px-5 py-4">
                                 <form @submit.prevent="editarblock()" id="form-comprobante" method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
-                                        <label for="nombreURL">Monto Block</label>
-                                        <input type="text" class="form-control" v-model="blockvalue.value" name="value">
+                                        <label for="nombreURL">Block amount</label>
+                                        <input type="number" class="form-control" v-model="blockvalue.value" name="value">
                                     </div>
                                    
                                      <div class="row justify-content-around"> 
-                                        <button class="btn col-4" style="border: 1.5px solid #32BAB0; color:#32BAB0; border-radius: 10px!important;"  data-dismiss="modal" aria-label="Close"> cancelar</button>
+                                        <button class="btn col-4" style="border: 1.5px solid #32BAB0; color:#32BAB0; border-radius: 10px!important;"  data-dismiss="modal" aria-label="Close"> Cancel</button>
                                        
-                                        <input type="submit" :disabled="estadoproceso" class="btn btn-upgrap col-3" :value="estadoproceso ? 'Procesando' : 'Guardar'">
+                                        <input type="submit" :disabled="estadoproceso" class="btn btn-upgrap col-3" :value="estadoproceso ? 'Processing' : 'Save'">
                                     </div>
                                     
                                 </form>
