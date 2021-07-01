@@ -91,9 +91,6 @@
                 color:#5F01F5;
             }
             .card--profile-body{
-            
-                margin-top: 10px;
-                padding-top: 10px;
                 height: 187px;
                 width: 100%;
                 display: flex;
