@@ -81,9 +81,11 @@
                         </div>
                         <div class="form-group row mb-0">
                                 <div style="padding:0px;" class="col-md-12">
-                                        <button type="button" class="btn-register">
+                                       <a href="/login">
+                                       <button type="button" class="btn-register">
                                                 Sign in
                                         </button>
+                                       </a> 
                                 </div>
                                 
                         </div>

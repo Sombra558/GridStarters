@@ -16,6 +16,10 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <style>
+     .lindeando:hover{
+            text-decoration:none;
+            color:#ffffff;
+        }
       ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: grey!important;
         opacity: 1; /* Firefox */
@@ -807,10 +811,15 @@
                                                             <div id="navbarDropdown" class="nav-link text-white " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                                                 <div style="width:250px;"  class="d-flex">
                                                                 <div class="flexi-user-auth">
-                                                                        <a href="/home">
+                                                                        <a class="lindeando" href="/home">
                                                                             {{ Auth::user()->name }} <span class="caret"></span>
                                                                         </a>
+                                                                        @if(Auth::user()->roles[0]->name==='Administrator')
                                                                         <span>{{ Auth::user()->roles[0]->name }}</span>
+                                                                        @else
+                                                                       <a href="/home/perfil">{{ Auth::user()->roles[0]->name }}</a>
+                                                                        @endif
+                                                                      
                                                                 </div>
                                                                 
                                                                 @if(Auth::user()->img)
@@ -830,14 +839,14 @@
                                                                     Admin
                                                                 </a>
                                                                 @endif
-                                                                <a class="dropdown-item" href="/home">
+                                                                <a class="dropdown-item" href="/">
                                                                     Home
                                                                 </a>
                                                                 <a class="dropdown-item" href="/home/mygrids">
-                                                                    My Grids
+                                                                    My boards
                                                                 </a>
-                                                                <a class="dropdown-item" href="/">
-                                                                    Landing
+                                                                <a class="dropdown-item" href="/home">
+                                                                    My Account
                                                                 </a>
                                                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                                                 onclick="event.preventDefault();

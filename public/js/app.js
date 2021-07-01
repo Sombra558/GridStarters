@@ -4198,6 +4198,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "profile-user",
   props: ['user', 'retirovalue'],
@@ -71140,7 +71141,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLongTitle" } },
-        [_vm._v("Ver Imagen")]
+        [_vm._v("View File")]
       ),
       _vm._v(" "),
       _c(
@@ -74997,15 +74998,14 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-sm-12 col-md-10 offset-md-1" }, [
-      _c("a", { attrs: { href: "/grid-confirm-payment" } }, [
-        _c("img", {
-          attrs: {
-            width: "100%",
-            src: "/img/hora-de-impulsar-tu-negocio.png",
-            alt: "hora-de-impulsar-tu-negocio"
-          }
-        })
-      ])
+      _c(
+        "a",
+        {
+          staticStyle: { color: "#000000", "text-decoration": "none" },
+          attrs: { href: "/grid-confirm-payment" }
+        },
+        [_vm._v("Buy your Grid")]
+      )
     ])
   },
   function() {
@@ -75656,15 +75656,6 @@ var staticRenderFns = [
           staticStyle: { "margin-left": "0px" }
         },
         [_vm._v("\n        No. of grids that you would like to block\n    ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "preview col-sm-12 col-md-3 maxi",
-          attrs: { href: "/home" }
-        },
-        [_vm._v("Preview")]
       )
     ])
   }

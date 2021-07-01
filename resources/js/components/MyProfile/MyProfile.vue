@@ -119,7 +119,8 @@
                 </table>
             <div v-if="user.matriz.length===0" class="row">
                 <div class="col-sm-12 col-md-10 offset-md-1">
-                      <a href="/grid-confirm-payment"><img  width="100%" src="/img/hora-de-impulsar-tu-negocio.png" alt="hora-de-impulsar-tu-negocio"></a>
+                          <a style="color:#000000;text-decoration:none;" href="/grid-confirm-payment">Buy your Grid</a>
+                      <!--<a href="/grid-confirm-payment"><img  width="100%" src="/img/hora-de-impulsar-tu-negocio.png" alt="hora-de-impulsar-tu-negocio"></a>-->
                 </div>
                
             </div>

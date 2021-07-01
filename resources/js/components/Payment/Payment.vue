@@ -22,7 +22,7 @@
                             <span style="margin-left:0px" class="col-sm-12 col-md-9">
                                 No. of grids that you would like to block
                             </span>
-                            <a class="preview col-sm-12 col-md-3 maxi" href="/home">Preview</a>
+                 
                         </div>
                         <div style="margin-top:20px;" class="padre-content-position">
                             <div class="col-6 content-position">

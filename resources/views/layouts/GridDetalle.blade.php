@@ -16,6 +16,10 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <style>
+     .lindeando:hover{
+            text-decoration:none;
+            color:#ffffff;
+        }
       ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: grey!important;
         opacity: 1; /* Firefox */

@@ -16,14 +16,9 @@ class GridController extends Controller
         $rules = [
             'value' => ['required', 'numeric', 'min:5'],
             'currency' => ['required', 'exists:currencies,iso'],
-           
         ];
-
         $request->validate($rules);
-
         $paymentPlatform = resolve(PayPalService::class);
-
-
         return $paymentPlatform->handlePayment($request);
         /*$username=Auth::user()->name;
         $username=str_replace(' ','-',$username);

@@ -46,7 +46,11 @@
         .bg-millonarioB{
             background: linear-gradient(91.97deg , #30019B 9.96%, #0F0426 89.26%);
         }
-        
+        .lindeando:hover{
+            text-decoration:none;
+            color:#ffffff;
+            margin-top;: 0px !important;
+        }
         @media only screen and (max-width: 767px){
             .btn-upgrap{
             font-family: 'Valera';
@@ -431,10 +435,14 @@
                                                             <div id="navbarDropdown" class="nav-link text-white " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                                                 <div class="row">
                                                                 <div class="flexi-user-auth">
-                                                                <a href="/home">
+                                                                <a href="/home" class="lindeando">
                                                                     {{ Auth::user()->name }} <span class="caret"></span>
                                                                 </a>
-                                                                <span>{{ Auth::user()->roles[0]->name }}</span>
+                                                                @if(Auth::user()->roles[0]->name==='Administrator')
+                                                                        <span>{{ Auth::user()->roles[0]->name }}</span>
+                                                                        @else
+                                                                       <a class="lindeando" href="/home/perfil">go to my profile</a>
+                                                                        @endif
                                                                 </div>
                                                                 
                                                                 @if(Auth::user()->img)
@@ -452,17 +460,14 @@
                                                                     Admin
                                                                 </a>
                                                                 @endif
-                                                                <a class="dropdown-item" href="/home">
+                                                                <a class="dropdown-item" href="/">
                                                                     Home
                                                                 </a>
                                                                 <a class="dropdown-item" href="/home/mygrids">
-                                                                    My Grids
+                                                                    My boards
                                                                 </a>
-                                                                <a class="dropdown-item" href="/home/perfil">
-                                                                    My Profile
-                                                                </a>
-                                                                <a class="dropdown-item" href="/">
-                                                                    Landing
+                                                                <a class="dropdown-item" href="/home">
+                                                                    My Account
                                                                 </a>
                                                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                                                 onclick="event.preventDefault();
