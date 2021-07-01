@@ -1,7 +1,7 @@
 <template>
 
       <div class="card-profile ">
-                    <div class="card-header-profile">
+                    <div style="margin-bottom:10px;"  class="card-header-profile">
                         <div class="card-img-user-profile">
                             <img v-if="user.user.img" :src="'/storage/'+user.user.img" alt="user-img">
                              <img v-else src="/img/user/user_min.jpg" alt="user-img">
@@ -12,7 +12,7 @@
                         </div>
                       
                     </div>
-                    <a :href="'grid/'+user.nombreURL" class="portafolio">
+                    <a :href="'grid/'+user.nombreURL" >
                     <div class="card-profile-img-background">
                           <div :style="'-webkit-animation: 15s colorgroud'+Math.floor(Math.random() * 4) +' infinite;'" :id="'body-user-'+user.id" class="card--profile-body ">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">

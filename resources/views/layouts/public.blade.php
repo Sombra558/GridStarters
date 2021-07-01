@@ -420,9 +420,9 @@
         display: inline-block;
         -webkit-animation: 15s perspectivaY infinite;
         -webkit-backface-visibility: visible;
-        -webkit-box-shadow: 11px 7px 44px 1px rgba(0,0,0,0.75);
-        -moz-box-shadow: 11px 7px 44px 1px rgba(0,0,0,0.75);
-        box-shadow: 11px 7px 44px 1px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 6px 7px 44px 1px rgba(0,0,0,0.75);
+        -moz-box-shadow: 6px 7px 44px 1px rgba(0,0,0,0.75);
+        box-shadow: 6px 7px 44px 1px rgba(0,0,0,0.75);
         margin-bottom: 3rem ;
         z-index: 0;       
     }

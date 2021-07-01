@@ -75808,100 +75808,100 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card-profile " }, [
-    _c("div", { staticClass: "card-header-profile" }, [
-      _c("div", { staticClass: "card-img-user-profile" }, [
-        _vm.user.user.img
-          ? _c("img", {
-              attrs: { src: "/storage/" + _vm.user.user.img, alt: "user-img" }
-            })
-          : _c("img", {
-              attrs: { src: "/img/user/user_min.jpg", alt: "user-img" }
-            })
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "card-user-data",
-          staticStyle: { "margin-left": "10px" }
-        },
-        [
-          _c("h3", [_vm._v(_vm._s(_vm.user.user.name))]),
-          _vm._v(" "),
-          _c("strong", [_vm._v(_vm._s(_vm.user.bloques.length) + " sold")])
-        ]
-      )
-    ]),
-    _vm._v(" "),
     _c(
-      "a",
+      "div",
       {
-        staticClass: "portafolio",
-        attrs: { href: "grid/" + _vm.user.nombreURL }
+        staticClass: "card-header-profile",
+        staticStyle: { "margin-bottom": "10px" }
       },
       [
-        _c("div", { staticClass: "card-profile-img-background" }, [
-          _c(
-            "div",
-            {
-              staticClass: "card--profile-body ",
-              style:
-                "-webkit-animation: 15s colorgroud" +
-                Math.floor(Math.random() * 4) +
-                " infinite;",
-              attrs: { id: "body-user-" + _vm.user.id }
-            },
-            [
-              _c(
-                "svg",
-                {
-                  attrs: {
-                    width: "32",
-                    height: "32",
-                    viewBox: "0 0 32 32",
-                    fill: "none",
-                    xmlns: "http://www.w3.org/2000/svg"
-                  }
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      "fill-rule": "evenodd",
-                      "clip-rule": "evenodd",
-                      d:
-                        "M20.2153 16.0708C20.2153 18.3988 18.3273 20.2855 15.9993 20.2855C13.6713 20.2855 11.7847 18.3988 11.7847 16.0708C11.7847 13.7415 13.6713 11.8548 15.9993 11.8548C18.3273 11.8548 20.2153 13.7415 20.2153 16.0708Z",
-                      stroke: "#FBF9FF",
-                      "stroke-width": "1.5",
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      "fill-rule": "evenodd",
-                      "clip-rule": "evenodd",
-                      d:
-                        "M15.9974 25.8065C21.0747 25.8065 25.7187 22.1559 28.3334 16.0705C25.7187 9.9852 21.0747 6.33453 15.9974 6.33453H16.0027C10.9254 6.33453 6.28141 9.9852 3.66675 16.0705C6.28141 22.1559 10.9254 25.8065 16.0027 25.8065H15.9974Z",
-                      stroke: "#FBF9FF",
-                      "stroke-width": "1.5",
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "grid/" + _vm.user.nombreURL } }, [
-                _vm._v(
-                  "\n                          visit profile\n                      "
-                )
-              ])
-            ]
-          )
-        ])
+        _c("div", { staticClass: "card-img-user-profile" }, [
+          _vm.user.user.img
+            ? _c("img", {
+                attrs: { src: "/storage/" + _vm.user.user.img, alt: "user-img" }
+              })
+            : _c("img", {
+                attrs: { src: "/img/user/user_min.jpg", alt: "user-img" }
+              })
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "card-user-data",
+            staticStyle: { "margin-left": "10px" }
+          },
+          [
+            _c("h3", [_vm._v(_vm._s(_vm.user.user.name))]),
+            _vm._v(" "),
+            _c("strong", [_vm._v(_vm._s(_vm.user.bloques.length) + " sold")])
+          ]
+        )
       ]
-    )
+    ),
+    _vm._v(" "),
+    _c("a", { attrs: { href: "grid/" + _vm.user.nombreURL } }, [
+      _c("div", { staticClass: "card-profile-img-background" }, [
+        _c(
+          "div",
+          {
+            staticClass: "card--profile-body ",
+            style:
+              "-webkit-animation: 15s colorgroud" +
+              Math.floor(Math.random() * 4) +
+              " infinite;",
+            attrs: { id: "body-user-" + _vm.user.id }
+          },
+          [
+            _c(
+              "svg",
+              {
+                attrs: {
+                  width: "32",
+                  height: "32",
+                  viewBox: "0 0 32 32",
+                  fill: "none",
+                  xmlns: "http://www.w3.org/2000/svg"
+                }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    "fill-rule": "evenodd",
+                    "clip-rule": "evenodd",
+                    d:
+                      "M20.2153 16.0708C20.2153 18.3988 18.3273 20.2855 15.9993 20.2855C13.6713 20.2855 11.7847 18.3988 11.7847 16.0708C11.7847 13.7415 13.6713 11.8548 15.9993 11.8548C18.3273 11.8548 20.2153 13.7415 20.2153 16.0708Z",
+                    stroke: "#FBF9FF",
+                    "stroke-width": "1.5",
+                    "stroke-linecap": "round",
+                    "stroke-linejoin": "round"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  attrs: {
+                    "fill-rule": "evenodd",
+                    "clip-rule": "evenodd",
+                    d:
+                      "M15.9974 25.8065C21.0747 25.8065 25.7187 22.1559 28.3334 16.0705C25.7187 9.9852 21.0747 6.33453 15.9974 6.33453H16.0027C10.9254 6.33453 6.28141 9.9852 3.66675 16.0705C6.28141 22.1559 10.9254 25.8065 16.0027 25.8065H15.9974Z",
+                    stroke: "#FBF9FF",
+                    "stroke-width": "1.5",
+                    "stroke-linecap": "round",
+                    "stroke-linejoin": "round"
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "grid/" + _vm.user.nombreURL } }, [
+              _vm._v(
+                "\n                          visit profile\n                      "
+              )
+            ])
+          ]
+        )
+      ])
+    ])
   ])
 }
 var staticRenderFns = []
