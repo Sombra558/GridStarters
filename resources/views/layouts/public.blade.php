@@ -413,6 +413,114 @@
     top:1rem;
   }
   }
+
+  .portafolio{
+        text-align: center;
+        width: calc(100% + 10px);
+        display: inline-block;
+        -webkit-animation: 15s perspectivaY infinite;
+        -webkit-backface-visibility: visible;
+        -webkit-box-shadow: 11px 7px 44px 1px rgba(0,0,0,0.75);
+        -moz-box-shadow: 11px 7px 44px 1px rgba(0,0,0,0.75);
+        box-shadow: 11px 7px 44px 1px rgba(0,0,0,0.75);
+        margin-bottom: 3rem ;
+        z-index: 0;       
+    }
+    @keyframes perspectivaY{
+            0%{-webkit-transform: perspective(400px)
+                                rotateY(20deg);
+            
+            }
+            25%{
+                -webkit-transform: perspective(400px)
+                                rotateY(-10deg);
+            }
+            50%{ 
+                -webkit-transform: perspective(400px)
+                                rotateY(10deg);
+            }
+            75%{ 
+                -webkit-transform: perspective(400px)
+                                rotateY(-10deg);
+            }
+            100%{ 
+                -webkit-transform: perspective(400px)
+                                rotateY(20deg);
+            }
+    }
+    @keyframes colorgroud0{
+        0%{
+            background: #32BAB0b8;
+        }
+      
+        50%{
+            background: #5F01F5b8;
+        }
+        100%{
+            background: #32BAB0b8;
+        }
+    }
+    @keyframes colorgroud1{
+        0%{
+            background: #DB88A7b8;
+        }
+      
+        50%{
+            background: #32BAB0b8;
+        }
+        100%{
+            background: #DB88A7b8;
+        }
+    }
+    @keyframes colorgroud2{
+        0%{
+            background: #30019Bb8;
+        }
+      
+        50%{
+            background: #32BAB0b8;
+        }
+        100%{
+            background: #30019Bb8;
+        }
+    }
+    @keyframes colorgroud3{
+        0%{
+            background: #E85F8Fb8;
+        }
+      
+        50%{
+            background: #5F01F5b8;
+        }
+        100%{
+            background: #E85F8Fb8;
+        }
+    }
+    @keyframes colorgroud4{
+        0%{
+            background: #32BAB0b8;
+        }
+      
+        50%{
+            background: #DB88A7b8;
+        }
+        100%{
+            background: #32BAB0b8;
+        }
+    }
+    @keyframes colorgroud5{
+        0%{
+            background: #32BAB0b8;
+        }
+      
+        50%{
+            background: #30019Bb8;
+        }
+        100%{
+            background: #32BAB0b8;
+        }
+    }
+
     </style>
    
 

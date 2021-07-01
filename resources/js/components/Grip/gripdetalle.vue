@@ -73,7 +73,7 @@
                                         <input class="form-control"  min="1" pattern="^[0-9]+" type="number" v-model="rowtemp">
                                     </div>
                                     <div class="row justify-content-around"> 
-                                        <button class="btn col-4" style="border: 1.5px solid #32BAB0; color:#32BAB0; border-radius: 10px!important;"  data-dismiss="modal" aria-label="Close">Cencel</button>
+                                        <button class="btn col-4" style="border: 1.5px solid #32BAB0; color:#32BAB0; border-radius: 10px!important;"  data-dismiss="modal" aria-label="Close">Cancel</button>
                                         <input type="submit"  @click.prevent="definirsize()" class="btn btn-upgrap col-3" value="Save">
                                     </div>
                                    
@@ -90,18 +90,17 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                             <div class="modal-header" style="border:none">
-                                <h5 class="modal-title  w-100 text-center "  id="exampleModalLongTitle"> <strong>Visualizar</strong></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body px-5 py-4">
+                            <div class="modal-body">
                                 <img :src="'/storage/'+blockselected.original" width="100%" height="250px" alt="">
                             </div>
 
                             </div>
                         </div>
-                </div>
+            </div>
         </div>
 
 </template>
