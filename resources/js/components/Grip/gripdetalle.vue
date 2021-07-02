@@ -451,5 +451,9 @@ label{
 
         background-position: center center;
     }
+    .drag-selector__item.selected {
+            background-color: #D04141;
+        }
+    
    
 </style>
