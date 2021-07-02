@@ -9,11 +9,13 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import Vuex from 'vuex';
+
 Vue.use(Vuex);
 const moment = require('moment');
 require('moment/locale/es');
 Vue.prototype.moment = moment;
-
+import VueDragSelector from "vue-drag-selector";
+Vue.use(VueDragSelector);
 Vue.component('payment-component', require('./components/Payment/Payment.vue').default);
 Vue.component('grid-payment-component', require('./components/Payment/GridPayment.vue').default);
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);

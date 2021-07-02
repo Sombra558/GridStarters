@@ -20,10 +20,10 @@
             </div>
              <div class="col-sm-12">
                  <div class="container-fluid">
-                      
+                       <a style="margin-left:15px;" href="#" @click.prevent="mostrarmodal2()">Config Block Size</a>
                      <div class="d-flex justify-content-center">
                           
-                                <table style="padding:0px;"  class="table table-responsive ">
+                            <table style="padding:0px;"  class="table table-responsive ">
                             <caption >{{grip.user.name}} Grid</caption>
                             <thead >
                                 <tr >
@@ -35,39 +35,21 @@
                             <tbody>
                                 <tr>
                                 <th scope="row">
-                                    <drag-selector v-model="checkedList"
-                                                @change="handleDragSelectorChange" class="drag-selector">
-                                                <div class="row maximizando enpadre" v-for="(fila,index) in matriz" :key="'fila'+index">
-                                                        <drag-selector-item  v-for="(columna,k) in fila" :key="'columna'+k"
-                                                        :value="{fila:index,columna:columna.numero}" 
-                                                        class="drag-selector__item col color">
-                                                         
-                                                        </drag-selector-item>
-
-                                                </div>
-                                
-                                    </drag-selector>
+                                    <div class="row maximizando enpadre" v-for="(fila,index) in matriz" :key="'fila'+index">
+                                            
+                                            <div>
+                                                
+                                            </div>
+                                            <div :style="columna.src ? 'background-image: url(/storage-public/'+columna.src+');' : 'background-color: #FBF9FF;'" @click.prevent="columna.src ? mostrar(columna) :casillaSelected(Number(fila[index].numero),matriz[Number(fila[index].numero)][Number(columna.numero)])" :id="columna.src ? '' : 'bloque-'+fila[index].numero+'-'+columna.numero" class="col color" v-for="(columna,k) in fila" :key="'columna'+k">
+                                                
+                                            </div>
+                                    </div>
                                 </th>
                                 
                                 </tr>
                             
                             </tbody>
                             </table>
-                        
-                              
-                                
-                                   <!--  <drag-select attribute="attr" @change="selected = $event" >
-                                            <div class="row maximizando enpadre"  v-for="(fila,index) in matriz" :key="'fila'+index" >
-                                                    
-                                                <div class="col color"  v-for="(columna,k) in fila" :key="'columna'+k" :attr="index+'-'+columna.numero" :class="{'item-selected-class': selected.includes(index+'-'+columna.numero)}">
-                                                                        
-                                                </div>
-                                                      
-                                                    
-                                                   
-                                             </div>
-                                     </drag-select>-->
-                                
                      </div>
                             
                  </div>
@@ -124,12 +106,8 @@
 </template>
 
 <script>
-import DragSelect from "drag-select-vue";
     export default {
         props:['grip'],
-        components: {
-            DragSelect,
-        },
         data() {
             return {
                 bloqueSelected:null,
@@ -142,40 +120,12 @@ import DragSelect from "drag-select-vue";
                     filasize:1
                 },
                 retiroSelected:null,
-                checkedList: [],
-               
             }
         },
         mounted() {
             this.matriz=JSON.parse(this.grip.matriz);
-
-        },
-        computed: {
-            muestraselectos() {
-               if (this.selected.length>0) {
-                   this.productoselecto=[];
-                   for (let i = 0; i < this.selected.length; i++) {
-                                        for (let j = 0; j < this.selectedcolumn.length; j++) {
-                                               
-                                                this.productoselecto.push({
-                                                    fila: this.selected[i],
-                                                    columna:this.selectedcolumn[j],
-                                                });
-                                            }
-                    }
-               
-               }else{
-                   return 'no ejecuta';
-               }
-            }
         },
         methods: {
-            handleDragSelectorChange(checkedList) {
-                console.log(checkedList);
-            },
-            metodomuestra(fila,columna){
-                   console.log('ejecuta');
-           },
              mostrar(block){
                  this.blockselected=block;
                 setTimeout(function(){
@@ -408,36 +358,52 @@ label{
         border-top:  none!important;
 
     }
-   
+    .enpadre:last-child{
+         border-bottom: 1px solid grey;
+    }
     .color{
         background-color: #FBF9FF;
-        margin:1.5px;
         height: 25px;
-        width:20px;
-        background-repeat: no-repeat;
+        width:25px;
+           background-repeat: no-repeat;
         background-size: 100% 100%;
-        border: 1px solid grey;
-   
-       
+        border-top: 1px solid grey;
+        border-left: 1px solid grey;
     }
-    
+    .color:first-child{
+        background-color: #FBF9FF;
+           background-repeat: no-repeat;
+        background-size: 100% 100%;
+        height: 25px;
+        width:25px;
+    }
+    .color:last-child{
+        background-color: #FBF9FF;
+        height: 25px;
+           background-repeat: no-repeat;
+        background-size: 100% 100%;
+        width:25px;
+     
+        border-right: 1px solid grey;
+        
+    }
     .color:hover{
         background-color: #D04141;
     }
     .maximizando{
         margin-left: 15px;
-        min-width: 1585px;
+        min-width: 1260px;
     }
     @media only screen and (max-width: 1394px) {
             .maximizando{
             margin-left: 15px;
-             min-width: 1585px;
+            min-width: 1395px;
         }
         }
      @media only screen and (min-width: 1395px) {
              .maximizando{
                 margin-left: 15px;
-                  min-width: 1585px;
+                min-width: 1260px;
             }
         }
     .flexiando{
