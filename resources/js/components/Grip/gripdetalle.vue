@@ -12,7 +12,7 @@
                                             </div>
                                         </div>
                                         <div class=" col-sm-12 col-md-9 d-flex justify-content-md-end justify-content-xl-end">
-                                            <p class="grids-descripcion"><strong class="resalte">1.075</strong>  Grids. Leave your mark on the world buying a digital space <strong class="resalte">forever</strong></p>
+                                            <p class="grids-descripcion"><strong class="resalte">1.075</strong>{{this.$store.state.dragstatus}}Grids. Leave your mark on the world buying a digital space <strong class="resalte">forever</strong></p>
                                         </div>
                         </div>
                 </div>
@@ -24,49 +24,38 @@
                      <div class="d-flex justify-content-center">
                           
                                 <table style="padding:0px;"  class="table table-responsive ">
-                            <caption >{{grip.user.name}} Grid</caption>
-                            <thead >
-                                <tr >
-                                    <th>
-                                    
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <th scope="row">
-                                    <drag-selector v-model="checkedList"
-                                                @change="handleDragSelectorChange" class="drag-selector">
-                                                <div class="row maximizando enpadre" v-for="(fila,index) in matriz" :key="'fila'+index">
-                                                        <drag-selector-item  v-for="(columna,k) in fila" :key="'columna'+k"
-                                                        :value="{fila:index,columna:columna.numero}" 
-                                                        class="drag-selector__item col color">
-                                                         
-                                                        </drag-selector-item>
+                                            <caption >{{grip.user.name}} Grid</caption>
+                                            <thead >
+                                                <tr >
+                                                    <th>
+                                                    
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                <th scope="row">
+                                                    <drag-selector v-model="checkedList" @change="handleDragSelectorChange" class="drag-selector">
+                                                                <div class="row maximizando enpadre" v-for="(fila,index) in matriz" :key="'fila'+index">
+                                                                        <drag-selector-item v-for="(columna,k) in fila" :key="'columna'+k"
+                                                                        :value="{identificador:index+'-'+columna.numero,fila:index,columna:columna.numero,matriz_id:grip.id,nombreURL:grip.nombreURL}" 
+                                                                        class="drag-selector__item col color">
+                                                                        
+                                                                        </drag-selector-item>
 
-                                                </div>
-                                
-                                    </drag-selector>
-                                </th>
-                                
-                                </tr>
-                            
-                            </tbody>
-                            </table>
+                                                                </div>
+                                                
+                                                    </drag-selector>
+                                                </th>
+                                                
+                                                </tr>
+                                            
+                                            </tbody>
+                                </table>
                         
                               
-                                
-                                   <!--  <drag-select attribute="attr" @change="selected = $event" >
-                                            <div class="row maximizando enpadre"  v-for="(fila,index) in matriz" :key="'fila'+index" >
-                                                    
-                                                <div class="col color"  v-for="(columna,k) in fila" :key="'columna'+k" :attr="index+'-'+columna.numero" :class="{'item-selected-class': selected.includes(index+'-'+columna.numero)}">
-                                                                        
-                                                </div>
-                                                      
-                                                    
-                                                   
-                                             </div>
-                                     </drag-select>-->
+              
+                                 
                                 
                      </div>
                             
@@ -124,11 +113,12 @@
 </template>
 
 <script>
-import DragSelect from "drag-select-vue";
+import DragSelector from './DragSelector';
+import DragSelectorItem from './DragSelectorItem';
     export default {
         props:['grip'],
         components: {
-            DragSelect,
+             DragSelector,DragSelectorItem
         },
         data() {
             return {
@@ -143,11 +133,12 @@ import DragSelect from "drag-select-vue";
                 },
                 retiroSelected:null,
                 checkedList: [],
-               
+                drag:false,
             }
         },
         mounted() {
             this.matriz=JSON.parse(this.grip.matriz);
+            localStorage.clear();
 
         },
         computed: {
@@ -171,11 +162,12 @@ import DragSelect from "drag-select-vue";
         },
         methods: {
             handleDragSelectorChange(checkedList) {
-                console.log(checkedList);
+                //localStorage.clear();
+              
+                //localStorage.setItem('mycartgridstartes', JSON.stringify(checkedList));
+                //this.$store.commit("setCart",  checkedList);
+                
             },
-            metodomuestra(fila,columna){
-                   console.log('ejecuta');
-           },
              mostrar(block){
                  this.blockselected=block;
                 setTimeout(function(){
@@ -183,16 +175,11 @@ import DragSelect from "drag-select-vue";
                 },200)
             },
              mostrarmodal2(){
-    
-                   
                    this.bloqueconfig.columnasize=this.columntemp;
                    this.bloqueconfig.filasize=this.rowtemp;
-               
                    setTimeout(function(){
                     $("#cambiourl").modal("show");
                     },200)
-              
-                
             },
             definirsize(){
                  localStorage.clear();
@@ -210,13 +197,10 @@ import DragSelect from "drag-select-vue";
                                     if (validate2bloque!=null) {
                                         document.querySelector(`#bloque-${this.bloqueSelected.fila +i}-${this.bloqueSelected.columna+j}`).style.backgroundColor = '#FBF9FF'; 
                                     }
-
-                                    
                             }
                                 }
                     }
                     localStorage.clear();
-                  
                     if (this.columntemp - Math.floor(this.columntemp) == 0 && this.rowtemp - Math.floor(this.rowtemp)== 0) {
                         if (this.columntemp<43 && this.rowtemp<25) {
                         this.bloqueconfig.columnasize=this.columntemp;
@@ -231,8 +215,6 @@ import DragSelect from "drag-select-vue";
                     } else {
                         alert ("Es un numero decimal");
                     }
-                      
-                 
             },
             casillaSelected(fila,columna) {
                 localStorage.clear();

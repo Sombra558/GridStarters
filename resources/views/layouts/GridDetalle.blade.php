@@ -15,7 +15,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="/js/DragSelector.umd.min.js" defer></script>
 
     <style>
      .lindeando:hover{

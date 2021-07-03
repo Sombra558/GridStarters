@@ -43,6 +43,7 @@ Vue.component('retiros-admin-component', require('./components/Admin/Pages/retir
 const store = new Vuex.Store({
     state: {
         user: null,
+        dragstatus:false,
         cart:[],
         grid:[],
         filterGrip: {
@@ -81,6 +82,9 @@ const store = new Vuex.Store({
         setCart(state, cart) {  
            state.cart=cart;
         },
+        setDrag(state, drag) {  
+            state.dragstatus=drag;
+         },
         setGrid(state, grid) {
             state.grid = grid;
         },
