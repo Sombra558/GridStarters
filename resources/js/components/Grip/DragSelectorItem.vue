@@ -36,12 +36,14 @@ export default {
 
     methods: {
         handleClick() {
+            console.log('ejecuta');
             this.handleSelectChange(true);
         },
 
         handleSelectChange(val) {
         
             if (this.selected === val) return;
+
             this.selected = val;
             this.selected = val;
             
@@ -57,6 +59,7 @@ export default {
 
 <style scoped>
     .drag-selector-item-wrapper {
+     
         cursor: move;
     }
 </style>

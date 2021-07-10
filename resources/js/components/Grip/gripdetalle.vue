@@ -12,7 +12,7 @@
                                             </div>
                                         </div>
                                         <div class=" col-sm-12 col-md-9 d-flex justify-content-md-end justify-content-xl-end">
-                                            <p class="grids-descripcion"><strong class="resalte">1.075</strong>{{this.$store.state.dragstatus}}Grids. Leave your mark on the world buying a digital space <strong class="resalte">forever</strong></p>
+                                            <p class="grids-descripcion"><strong class="resalte">1.075</strong>Grids. Leave your mark on the world buying a digital space <strong class="resalte">forever</strong></p>
                                         </div>
                         </div>
                 </div>
@@ -37,10 +37,12 @@
                                                 <th scope="row">
                                                     <drag-selector v-model="checkedList" @change="handleDragSelectorChange" class="drag-selector">
                                                                 <div class="row maximizando enpadre" v-for="(fila,index) in matriz" :key="'fila'+index">
-                                                                        <drag-selector-item v-for="(columna,k) in fila" :key="'columna'+k"
-                                                                        :value="{identificador:index+'-'+columna.numero,fila:index,columna:columna.numero,matriz_id:grip.id,nombreURL:grip.nombreURL}" 
-                                                                        class="drag-selector__item col color">
-                                                                        
+                                                                    
+                                                                        <drag-selector-item v-for="(columna,k) in fila" :style="columna.src ? 'background-image: url(/storage-public/'+columna.src+');' : ''" :key="'columna'+k"
+                                                                        :value="{identificador:String(index)+String(columna.numero),fila:index,columna:columna.numero,matriz_id:grip.id,nombreURL:grip.nombreURL}" 
+                                                                        class="col color" 
+                                                                       :id="columna.src ? '' : 'bloque-'+fila[index].numero+'-'+columna.numero">
+                                                                
                                                                         </drag-selector-item>
 
                                                                 </div>
@@ -52,46 +54,9 @@
                                             
                                             </tbody>
                                 </table>
-                        
-                              
-              
-                                 
-                                
-                     </div>
-                            
-                 </div>
-              
-             <div class="modal fade p-0" id="cambiourl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                            <div class="modal-header" style="border:none">
-                                <h5 class="modal-title w-100 text-center" id="exampleModalLongTitle"> <strong>Config Block Size</strong></h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body px-5 py-4" style="border:none">
-                                    <div class="form-group">
-                                        <label for="nombreURL">Columns Size</label>
-                                        <input type="number"  min="1" pattern="^[0-9]+" class="form-control" v-model="columntemp"  >
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="nombreURL">Row Size</label>
-                                        <input class="form-control"  min="1" pattern="^[0-9]+" type="number" v-model="rowtemp">
-                                    </div>
-                                    <div class="row justify-content-around"> 
-                                        <button class="btn col-4" style="border: 1.5px solid #32BAB0; color:#32BAB0; border-radius: 10px!important;"  data-dismiss="modal" aria-label="Close">Cancel</button>
-                                        <input type="submit"  @click.prevent="definirsize()" class="btn btn-upgrap col-3" value="Save">
-                                    </div>
-                                   
-                               
-                            </div>
-
-                            </div>
-                        </div>
-                </div>
-                      
-                  
+                         
+                     </div>     
+                 </div>   
             </div>
             <div v-if="blockselected" class="modal fade" id="mostrarblock" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -113,6 +78,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import DragSelector from './DragSelector';
 import DragSelectorItem from './DragSelectorItem';
     export default {
@@ -127,45 +93,29 @@ import DragSelectorItem from './DragSelectorItem';
                 matriz: [],
                 columntemp:1,
                 rowtemp:1,
-                bloqueconfig:{
-                    columnasize: 1,
-                    filasize:1
-                },
                 retiroSelected:null,
                 checkedList: [],
-                drag:false,
+            
             }
+        },
+        computed: {
+            ...mapState({
+                cart: (state) => state.cart,
+            }),
         },
         mounted() {
             this.matriz=JSON.parse(this.grip.matriz);
             localStorage.clear();
 
         },
-        computed: {
-            muestraselectos() {
-               if (this.selected.length>0) {
-                   this.productoselecto=[];
-                   for (let i = 0; i < this.selected.length; i++) {
-                                        for (let j = 0; j < this.selectedcolumn.length; j++) {
-                                               
-                                                this.productoselecto.push({
-                                                    fila: this.selected[i],
-                                                    columna:this.selectedcolumn[j],
-                                                });
-                                            }
-                    }
-               
-               }else{
-                   return 'no ejecuta';
-               }
-            }
-        },
         methods: {
             handleDragSelectorChange(checkedList) {
-                //localStorage.clear();
-              
-                //localStorage.setItem('mycartgridstartes', JSON.stringify(checkedList));
-                //this.$store.commit("setCart",  checkedList);
+                
+              this.cart.forEach(element => {
+                   document.querySelector(`#bloque-${element.fila}-${element.columna}`).style.backgroundColor = '#D04141';
+                   console.log("agrega");
+              });
+                
                 
             },
              mostrar(block){
@@ -174,140 +124,8 @@ import DragSelectorItem from './DragSelectorItem';
                 $("#mostrarblock").modal("show");
                 },200)
             },
-             mostrarmodal2(){
-                   this.bloqueconfig.columnasize=this.columntemp;
-                   this.bloqueconfig.filasize=this.rowtemp;
-                   setTimeout(function(){
-                    $("#cambiourl").modal("show");
-                    },200)
-            },
-            definirsize(){
-                 localStorage.clear();
-                 if(this.bloqueSelected!=null){
-                        document.querySelector(`#bloque-${this.bloqueSelected.fila}-${this.bloqueSelected.columna}`).style.backgroundColor = '#FBF9FF';
-                         for (let i = 0; i < this.bloqueSelected.filasize; i++) {
-                            var bloquetemp=null;
-                            for (let j = 0; j < Number(this.bloqueSelected.columnsize); j++) {
-                                var validate2bloque=null;
-                                    bloquetemp={
-                                        fila:this.bloqueSelected.fila +i,
-                                        columna: this.bloqueSelected.columna+j
-                                    }
-                                    validate2bloque=document.querySelector(`#bloque-${this.bloqueSelected.fila +i}-${this.bloqueSelected.columna+j}`);
-                                    if (validate2bloque!=null) {
-                                        document.querySelector(`#bloque-${this.bloqueSelected.fila +i}-${this.bloqueSelected.columna+j}`).style.backgroundColor = '#FBF9FF'; 
-                                    }
-                            }
-                                }
-                    }
-                    localStorage.clear();
-                    if (this.columntemp - Math.floor(this.columntemp) == 0 && this.rowtemp - Math.floor(this.rowtemp)== 0) {
-                        if (this.columntemp<43 && this.rowtemp<25) {
-                        this.bloqueconfig.columnasize=this.columntemp;
-                        this.bloqueconfig.filasize=this.rowtemp;
-                            console.log(this.bloqueconfig);
-                        setTimeout(function(){
-                        $("#cambiourl").modal("hide");
-                            },200)
-                    }else{
-                        console.log('limite superado');
-                    }
-                    } else {
-                        alert ("Es un numero decimal");
-                    }
-            },
-            casillaSelected(fila,columna) {
-                localStorage.clear();
-                var validabloque = document.querySelector(`#bloque-${fila}-${columna.numero}`);
-                    if (validabloque!=null) {
-                        if(this.bloqueSelected!=null){
-                        document.querySelector(`#bloque-${this.bloqueSelected.fila}-${this.bloqueSelected.columna}`).style.backgroundColor = '#FBF9FF';
-                         for (let i = 0; i < this.bloqueconfig.filasize; i++) {
-                            var bloquetemp=null;
-                            for (let j = 0; j < this.bloqueconfig.columnasize; j++) {
-                                var validate2bloque=null;
-                                    bloquetemp={
-                                        fila:this.bloqueSelected.fila +i,
-                                        columna: this.bloqueSelected.columna+j
-                                    }
-                                    validate2bloque=document.querySelector(`#bloque-${this.bloqueSelected.fila +i}-${this.bloqueSelected.columna+j}`);
-                                    if (validate2bloque!=null) {
-                                        document.querySelector(`#bloque-${this.bloqueSelected.fila +i}-${this.bloqueSelected.columna+j}`).style.backgroundColor = '#FBF9FF'; 
-                                    }
-
-                                    
-                            }
-                                }
-                    }
-                    this.bloqueSelected= {
-                        fila:fila,
-                        columna:columna.numero,
-                        matriz_id:this.grip.id,
-                        url:this.grip.nombreURL,
-                        filasize:this.bloqueconfig.filasize,
-                        columnsize:this.bloqueconfig.columnasize,
-                    }
-                    //origem
-                    //document.querySelector(`#bloque-${this.bloqueSelected.fila}-${this.bloqueSelected.columna}`).style.backgroundColor = '#D04141';
-                    for (let i = 0; i < this.bloqueconfig.filasize; i++) {
-                        var bloquetemp=null;
-                        var statusblotemp=false;
-                        for (let j = 0; j < this.bloqueconfig.columnasize; j++) {
-                            bloquetemp={
-                                fila:this.bloqueSelected.fila +i,
-                                columna: this.bloqueSelected.columna+j,
-                                matriz_id:this.grip.id,
-                                url:this.grip.nombreURL,
-                                filasize:this.bloqueconfig.filasize,
-                                columnsize:this.bloqueconfig.columnasize,
-                            }
-                            var tempvalidadebloque=document.querySelector(`#bloque-${this.bloqueSelected.fila +i}-${this.bloqueSelected.columna+j}`);
-                            if (tempvalidadebloque!=null) {
-                                document.querySelector(`#bloque-${this.bloqueSelected.fila +i}-${this.bloqueSelected.columna+j}`).style.backgroundColor = '#D04141';
-                                this.addToCart(bloquetemp);
-                            }else{
-                                statusblotemp=true;
-                                break;
-                            }
-                        }
-                        if (statusblotemp===true) {
-                            localStorage.clear();
-                            var cart = [];
-                            this.$store.commit("setCart",  cart);
-                            break;
-                        }
-                    }
-                }else{
-                    console.log('error selected bloque este bloque no es seleccionable')
-                }
-                
-            },
-              addToCart(bloque){
-            //localStorage.clear();
-            var micart = localStorage.getItem('mycartgridstartes');
-            if (micart) {
-                
-                            micart = JSON.parse(micart);
-                            micart.push(bloque);
-                            localStorage.setItem('mycartgridstartes', JSON.stringify(micart));
-                            this.$store.commit("setCart",  micart);
-                            console.log('agregado al carrito');
-                        
-                
-
-                    
-                      
-                        //localStorage.clear();
-                  
-            } else {
-                var minewcart =[];
-                minewcart.push(bloque);
-                localStorage.setItem('mycartgridstartes', JSON.stringify(minewcart));
-                this.$store.commit("setCart",  minewcart);
-                console.log('agregado al carrito');
-            }
+            
            
-        },
         },
       
     }
@@ -393,7 +211,7 @@ label{
    
     .color{
         background-color: #FBF9FF;
-        margin:1.5px;
+        margin:2px;
         height: 25px;
         width:20px;
         background-repeat: no-repeat;
