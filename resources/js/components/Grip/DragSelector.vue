@@ -88,20 +88,16 @@ export default {
                 const index = this.value.indexOf(value);
                 
                 if (selected) {
-                    this.value.push(value);
-                    var micart = localStorage.getItem('mycartgridstartes');
+                   
+                        this.value.push(value);
+                         var micart = localStorage.getItem('mycartgridstartes');
                      if (micart) {
                     
                                 micart = JSON.parse(micart);
                                 micart.push(value);
                                 localStorage.setItem('mycartgridstartes', JSON.stringify(micart));
                                 this.$store.commit("setCart",  micart);
-                                console.log('agregado al carrito');
-                            
-                    
-
-                        
-                        
+                           
                             //localStorage.clear();
                     
                     } else {
@@ -109,19 +105,14 @@ export default {
                         minewcart.push(value);
                         localStorage.setItem('mycartgridstartes', JSON.stringify(minewcart));
                         this.$store.commit("setCart",  minewcart);
-                        console.log('agregado al carrito');
+              
                     }
-                }
-                else {
-                    console.log(index);
-                    this.value.splice(index, 1);
-                    var micart = localStorage.getItem('mycartgridstartes');
-                    micart = JSON.parse(micart);
-                    micart.splice(index, 1);
-                    localStorage.setItem('mycartgridstartes', JSON.stringify(micart));
-                    this.$store.commit("setCart",  micart);
+                    
+                    
+                
                     
                 }
+                
                 this.emitChangeThrottled();
             });
         },

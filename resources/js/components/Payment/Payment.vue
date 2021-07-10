@@ -95,6 +95,9 @@
          console.log(micart);
          if (micart) {
            this.bloque=micart;
+           this.bloque=this.bloque.sort(function(a, b) {
+              return a.identificador - b.identificador;
+            });
          }
         },
         computed: {
