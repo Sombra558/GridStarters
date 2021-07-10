@@ -368,7 +368,7 @@
            height:46px;
            border-radius:200px;
        }
-       @media only screen and (max-width: 540px){
+@media only screen and (max-width: 767px){
     .cont-menu-mobile{
         height: 100vh;
         width:100%;
@@ -412,7 +412,7 @@
     right:1rem;
     top:1rem;
   }
-  }
+}
 
   .portafolio{
         text-align: center;
