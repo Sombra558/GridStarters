@@ -1,5 +1,5 @@
 <template>
-    <div class="drag-selector-wrapper" @mousedown="handleMouseDown">
+    <div class="drag-selector-wrapper" @mousedown="handleMouseDown" v-touch:start="handleMouseDown">
         <div class="drag-area-box" :style="selectAreaStyle"></div>
         <slot></slot>
     </div>
@@ -123,12 +123,28 @@ export default {
         },
 
         handleMouseDown(e) {
+            this.cart.forEach(element => {
+                   document.querySelector(`#bloque-${element.fila}-${element.columna}`).style.backgroundColor = '#FBF9FF';
+              
+              });
+             var micart = localStorage.getItem('mycartgridstartes');
+                     if (micart) {
+                    
+                                micart = JSON.parse(micart);
+                                micart=[];
+                                localStorage.setItem('mycartgridstartes', JSON.stringify(micart));
+                                this.$store.commit("setCart",  micart);
+                           
+                            //localStorage.clear();
+                    
+                    }
             this.cancelAllSelect();
             this.$nextTick(() => {
                 this.resetPoint(e);
                 this.updatePointData(this.point, e);
                 window.addEventListener('mouseup', this.handleMouseUp);
                 window.addEventListener('mousemove', this.handleMouseMoveThrottled);
+          
             });
         },
 
@@ -227,6 +243,10 @@ export default {
         }
     },
     computed: {
+        ...mapState({
+                cart: (state) => state.cart,
+            }),
+
         hasScrollX() {
             return !(this.browserPoint.clientWidth - this.browserPoint.scrollWidth);
         },

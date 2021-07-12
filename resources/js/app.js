@@ -14,6 +14,10 @@ Vue.use(Vuex);
 const moment = require('moment');
 require('moment/locale/es');
 Vue.prototype.moment = moment;
+import Vue2TouchEvents from 'vue2-touch-events'
+
+Vue.use(Vue2TouchEvents)
+
 import VueDragSelector from "vue-drag-selector";
 Vue.use(VueDragSelector);
 Vue.component('payment-component', require('./components/Payment/Payment.vue').default);

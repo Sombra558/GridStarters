@@ -8,7 +8,7 @@
 
 <script>
 import emitter from './mixins/emitter';
-
+import { mapState } from "vuex";
 export default {
     name: 'drag-selector-item',
 
@@ -43,7 +43,7 @@ export default {
         handleSelectChange(val) {
         
             if (this.selected === val) return;
-
+             
             this.selected = val;
             this.selected = val;
             
