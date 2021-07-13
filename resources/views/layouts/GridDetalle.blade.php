@@ -800,6 +800,7 @@
                 
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img width="171px" heigth="128px" src="/img/logo.png" alt="">
+                    
                 </a>
                 <div>
              

@@ -112,8 +112,8 @@ import DragSelectorItem from './DragSelectorItem';
             handleDragSelectorChange(checkedList) {
                 
               this.cart.forEach(element => {
-                   document.querySelector(`#bloque-${element.fila}-${element.columna}`).style.backgroundColor = '#D04141';
-                   console.log("agrega");
+                   document.querySelector(`#bloque-${element.fila}-${element.columna}`).style.backgroundColor = '#5F01F5';
+                  
               });
                 
                 
@@ -222,7 +222,7 @@ label{
     }
     
     .color:hover{
-        background-color: #D04141;
+        background-color: #5F01F5;
     }
     .maximizando{
         margin-left: 15px;

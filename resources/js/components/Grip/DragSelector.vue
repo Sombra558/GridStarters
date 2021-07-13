@@ -90,13 +90,18 @@ export default {
                 if (selected) {
                    
                         this.value.push(value);
-                         var micart = localStorage.getItem('mycartgridstartes');
+                        var micart = localStorage.getItem('mycartgridstartes');
                      if (micart) {
-                    
+                            
                                 micart = JSON.parse(micart);
-                                micart.push(value);
-                                localStorage.setItem('mycartgridstartes', JSON.stringify(micart));
-                                this.$store.commit("setCart",  micart);
+                           
+                                if (micart.some(evt => evt.identificador===value.identificador)!=true) {
+                                 
+                                     micart.push(value);
+                                        localStorage.setItem('mycartgridstartes', JSON.stringify(micart));
+                                        this.$store.commit("setCart",  micart);
+                                }
+                              
                            
                             //localStorage.clear();
                     

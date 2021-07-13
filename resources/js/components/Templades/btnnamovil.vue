@@ -14,13 +14,11 @@ import { mapState } from "vuex";
             }
         },
         methods: {
-            gotobuy() {
-                if (this.cart.length===0) {
-                    console.log('selecione casilla')
-                }else{
-                    window.location="/confirm-payment";
+           gotobuy() {
+                if (this.cart.length===Number(this.filas*this.columnas)) {
+                     window.location="/confirm-payment";
                 }
-                
+               
             }
         },
         mounted () {
@@ -35,6 +33,36 @@ import { mapState } from "vuex";
             ...mapState({
                 cart: (state) => state.cart,
             }),
+            columnas() {
+                var arreglo=[];
+                if (this.cart.length>0) {
+                    this.cart.forEach(element => {
+                        if (arreglo.length>0) {
+                                if (arreglo.some(evt => evt === element.columna)==false) {
+                                    arreglo.push(element.columna);
+                                }
+                        }else{
+                            arreglo.push(element.columna);
+                        }
+                    });  
+                }
+                return arreglo.length;
+            },
+            filas() {
+                var arreglo=[];
+                if (this.cart.length>0) {
+                    this.cart.forEach(element => {
+                        if (arreglo.length>0) {
+                                if (arreglo.some(evt => evt === element.fila)==false) {
+                                    arreglo.push(element.fila);
+                                }
+                        }else{
+                            arreglo.push(element.fila);
+                        }
+                    });  
+                }
+                return arreglo.length;
+            }
         },
     }
 </script>
