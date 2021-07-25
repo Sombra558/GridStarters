@@ -534,32 +534,42 @@
                                 <nav style="box-shadow:none!important;" class="navbar navbar-expand-md navbar-light shadow-sm d-md-block d-none">
                                         <div class="container-fluid"> 
                                         <ul class="navbar-nav ml-auto">
-                                        @guest
+                                                     @guest
                                                         <li class="nav-item">
                                                             <a class="nav-link text-center btn-upgrap" href="{{ route('login') }}">{{ __('Login') }}</a>
                                                         </li> 
                                                     @else
-                                                        <li class="nav-item dropdown">
-                                                            <div id="navbarDropdown" class="nav-link text-white " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                                                <div class="row">
-                                                                <div class="flexi-user-auth">
-                                                                <a href="/home" class="lindeando">
-                                                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                                                </a>
-                                                                @if(Auth::user()->roles[0]->name==='Administrator')
-                                                                        <span>{{ Auth::user()->roles[0]->name }}</span>
-                                                                        @else
-                                                                       <a class="lindeando" href="/home/perfil">go to my profile</a>
-                                                                        @endif
-                                                                </div>
-                                                                
-                                                                @if(Auth::user()->img)
-                                                                    <img style="margin-left:33px" class="avatar" src="/storage/{{Auth::user()->img}}" alt="user-img">
-                                                                    @else
-                                                                    <img style="margin-left:33px" class="avatar" src="/img/user/user_min.jpg" alt="user-img">
-                                                                    @endif
-                                                                </div>
-                                                            </div>
+                                                        <li class="nav-item row">
+                                                            
+                                                                    <div class="nav-link text-white ">
+                                                                                <div class="row">
+                                                                                        <div class="flexi-user-auth">
+                                                                                        <a href="/home" class="lindeando">
+                                                                                            {{ Auth::user()->name }} <span class="caret"></span>
+                                                                                        </a>
+                                                                                        @if(Auth::user()->roles[0]->name==='Administrator')
+                                                                                                <span>{{ Auth::user()->roles[0]->name }}</span>
+                                                                                                @else
+                                                                                            <a class="lindeando" href="/home/perfil">go to my profile</a>
+                                                                                                @endif
+                                                                                        </div>
+                                                                        
+                                                                            
+                                                                                </div>
+                                                                    </div>
+                                                                    <div id="navbarDropdown" class="nav-link text-white " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                                            <div class="row">
+                                                                                
+                                                                                    <div>
+                                                                                        @if(Auth::user()->img)
+                                                                                        <img style="margin-left:33px" class="avatar" src="/storage/{{Auth::user()->img}}" alt="user-img">
+                                                                                        @else
+                                                                                        <img style="margin-left:33px" class="avatar" src="/img/user/user_min.jpg" alt="user-img">
+                                                                                        @endif
+                                                                                    </div>
+                                                                        
+                                                                            </div>
+                                                                    </div>
                                                             
 
                                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -602,10 +612,10 @@
     <div class="container-fluid">
     <div class="bg-millonarioB w-100 row justify-content-between m-0  align-items-center">
         <ul style="width:100%" class="navbar-nav row m-0 flex-row justify-content-between align-content-center col-12 p-0">
-        <div id="navbarDropdown" class="nav-link text-white col-12" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+        <div  class="nav-link text-white col-12" >
             <div  class="d-flex justify-content-start">
                 @guest
-                <div id="navbarDropdown" class="nav-link text-white col-10" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <div class="nav-link text-white col-10"  >
                     <div class="row col-12 m-0">
                    
                     
@@ -613,13 +623,14 @@
                     </div>
                 </div>
                 @else
-                <div id="navbarDropdown" class="nav-link text-white col-10" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <div class="nav-link text-white col-10">
                     <div class="row col-12 m-0">
                     <div class="flexi-user-auth">
-                    <a href="/home">
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-                    <span>{{ Auth::user()->roles[0]->name }}</span>
+                        <a href="/home">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                         <span><a href="/home/perfil">go to my profile</a></span>
                     </div>
                     @if(Auth::user()->img)
                     <img style="margin-left:33px" class="avatar" src="/storage/{{Auth::user()->img}}" alt="user-img">
@@ -679,19 +690,17 @@
                    <strong>Admin </strong> 
                 </a>
                 @endif
-                <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/home">
+                <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/">
                    <strong> Home </strong>
                 </a>
                 
                 <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/home/mygrids">
-                   <strong> My Grids </strong>
+                   <strong> My boards </strong>
                 </a>
-                <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/home/perfil">
-                   <strong> My Profile </strong>
+                <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/home">
+                   <strong> My Account </strong>
                 </a>
-                <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/">
-                   <strong> Landing </strong>
-                </a>
+             
                 <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">

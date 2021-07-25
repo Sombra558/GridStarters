@@ -1,5 +1,5 @@
 <template>
-    <div class="drag-selector-wrapper" @mousedown="handleMouseDown" v-touch:start="handleMouseDown">
+    <div class="drag-selector-wrapper" @mousedown="handleMouseDown" >
         <div class="drag-area-box" :style="selectAreaStyle"></div>
         <slot></slot>
     </div>
@@ -139,7 +139,7 @@ export default {
                                 micart=[];
                                 localStorage.setItem('mycartgridstartes', JSON.stringify(micart));
                                 this.$store.commit("setCart",  micart);
-                           
+                                
                             //localStorage.clear();
                     
                     }

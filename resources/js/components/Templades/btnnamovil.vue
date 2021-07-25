@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import toastr from "toastr";
+import 'toastr/build/toastr.min.css';
 import { mapState } from "vuex";
     export default {
         name:"navbar-detalle",
@@ -17,6 +19,8 @@ import { mapState } from "vuex";
            gotobuy() {
                 if (this.cart.length===Number(this.filas*this.columnas)) {
                      window.location="/confirm-payment";
+                }else{
+                    toastr.info("Debe ser una seleccion simetrica", "GridsTarters:");
                 }
                
             }

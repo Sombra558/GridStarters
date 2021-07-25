@@ -16,6 +16,30 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <style>
+    .flexi-user-auth{
+           display: flex;
+           flex-direction:column;
+           justify-content:center;
+       }
+       .flexi-user-auth a{
+           text-decoration:none;
+           font-family: 'Valera';
+           font-size:16px;
+           font-weight:400;
+           color:#ffffff;
+       }
+       .flexi-user-auth span{
+           text-decoration:none;
+           font-family: 'Valera';
+           font-size:16px;
+           color:#9DD5A8;
+           font-weight:400;
+       }
+       .avatar{
+           width:46px;
+           height:46px;
+           border-radius:200px;
+       }
      .lindeando:hover{
             text-decoration:none;
             color:#ffffff;
@@ -1039,28 +1063,37 @@
                                                             <a class="nav-link text-center btn-upgrap" href="{{ route('login') }}">{{ __('Login') }}</a>
                                                         </li> 
                                                     @else
-                                                        <li class="nav-item dropdown">
-                                                            <div id="navbarDropdown" class="nav-link text-white " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                                                <div style="width:250px;"  class="d-flex">
-                                                                <div class="flexi-user-auth">
-                                                                        <a class="lindeando" href="/home">
-                                                                            {{ Auth::user()->name }} <span class="caret"></span>
-                                                                        </a>
-                                                                        @if(Auth::user()->roles[0]->name==='Administrator')
-                                                                        <span>{{ Auth::user()->roles[0]->name }}</span>
-                                                                        @else
-                                                                       <a class="lindeando" href="/home/perfil">go to my profile</a>
-                                                                        @endif
-                                                                </div>
-                                                                
-                                                                @if(Auth::user()->img)
-                                                                <img style="margin-left:33px" class="avatar" src="/storage/{{Auth::user()->img}}" alt="user-img">
-                                                                @else
-                                                                <img style="margin-left:33px" class="avatar" src="/img/user/user_min.jpg" alt="user-img">
-                                                                @endif
-                                                                </div>
-                                                            </div>
-                                                            
+                                                        <li style="min-width:240px;!important" class="nav-item d-flex">
+                                                       
+                                                        <div class="nav-link text-white ">
+                                                                                <div class="row">
+                                                                                        <div class="flexi-user-auth">
+                                                                                        <a href="/home" class="lindeando">
+                                                                                            {{ Auth::user()->name }} <span class="caret"></span>
+                                                                                        </a>
+                                                                                        @if(Auth::user()->roles[0]->name==='Administrator')
+                                                                                                <span>{{ Auth::user()->roles[0]->name }}</span>
+                                                                                                @else
+                                                                                            <a class="lindeando" href="/home/perfil">go to my profile</a>
+                                                                                                @endif
+                                                                                        </div>
+                                                                        
+                                                                            
+                                                                                </div>
+                                                                    </div>
+                                                                    <div id="navbarDropdown" class="nav-link text-white " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                                            <div class="row">
+                                                                                
+                                                                                    <div>
+                                                                                        @if(Auth::user()->img)
+                                                                                        <img style="margin-left:33px" class="avatar" src="/storage/{{Auth::user()->img}}" alt="user-img">
+                                                                                        @else
+                                                                                        <img style="margin-left:33px" class="avatar" src="/img/user/user_min.jpg" alt="user-img">
+                                                                                        @endif
+                                                                                    </div>
+                                                                        
+                                                                            </div>
+                                                                    </div>
 
                                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                                         
@@ -1181,19 +1214,17 @@
                 </a>
                 @endif
                
-                <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/home">
+                <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/">
                    <strong> Home </strong>
                 </a>
                 
                 <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/home/mygrids">
-                   <strong> My Grids </strong>
+                   <strong> My Boards </strong>
                 </a>
-                <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/home/perfil">
-                   <strong> My Profile </strong>
+                <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/home">
+                   <strong> My Account </strong>
                 </a>
-                <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/">
-                   <strong> Landing </strong>
-                </a>
+               
                 <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">

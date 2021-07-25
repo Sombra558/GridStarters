@@ -81,6 +81,8 @@
 import { mapState } from "vuex";
 import DragSelector from './DragSelector';
 import DragSelectorItem from './DragSelectorItem';
+import toastr from "toastr";
+import 'toastr/build/toastr.min.css';
     export default {
         props:['grip'],
         components: {
@@ -112,7 +114,28 @@ import DragSelectorItem from './DragSelectorItem';
             handleDragSelectorChange(checkedList) {
                 
               this.cart.forEach(element => {
-                   document.querySelector(`#bloque-${element.fila}-${element.columna}`).style.backgroundColor = '#5F01F5';
+                  if (document.querySelector(`#bloque-${element.fila}-${element.columna}`)) {
+                      document.querySelector(`#bloque-${element.fila}-${element.columna}`).style.backgroundColor = '#5F01F5';
+                  }else{
+                      this.cart.forEach(element => {
+                          if (document.querySelector(`#bloque-${element.fila}-${element.columna}`)) {
+                              console.log('limpia');
+                            document.querySelector(`#bloque-${element.fila}-${element.columna}`).style.backgroundColor = '#FBF9FF';
+                          }
+                        });
+                        var micart = localStorage.getItem('mycartgridstartes');
+                                if (micart) {
+                                            console.log('limpoa caro');
+                                            micart = JSON.parse(micart);
+                                            micart=[];
+                                            localStorage.setItem('mycartgridstartes', JSON.stringify(micart));
+                                            this.$store.commit("setCart",  micart);
+                                            window.location.reload();
+                                        //localStorage.clear();
+                                
+                                }
+                            }
+                   
                   
               });
                 

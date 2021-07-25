@@ -17,6 +17,30 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <style>
+     .flexi-user-auth{
+           display: flex;
+           flex-direction:column;
+           justify-content:center;
+       }
+       .flexi-user-auth a{
+           text-decoration:none;
+           font-family: 'Valera';
+           font-size:16px;
+           font-weight:400;
+           color:#ffffff;
+       }
+       .flexi-user-auth span{
+           text-decoration:none;
+           font-family: 'Valera';
+           font-size:16px;
+           color:#9DD5A8;
+           font-weight:400;
+       }
+       .avatar{
+           width:46px;
+           height:46px;
+           border-radius:200px;
+       }
      .lindeando:hover{
             text-decoration:none;
             color:#ffffff;
@@ -139,7 +163,7 @@
             background-color:#32BAB0!important;
             color:#ffffff!important;
             width: 100%;
-            min-width: 181px;
+            min-width: 150px;
             border-radius: 10px!important;
             }
             .btn-upgrap2{
@@ -820,7 +844,7 @@
                     <!-- Left Side Of Navbar -->
                   
                     <ul style="width:100%" class="navbar-nav d-flex justify-content-between align-content-center">
-                             <li style="margin-top:18px;margin-left:30px" class="nav-item">
+                             <li style="margin-top:18px;margin-left:15px" class="nav-item">
                                 <span class="uploadforever">$5 Each・Upload A Photo Forever</span>
                             </li>
                            
@@ -840,7 +864,7 @@
                                     </a>
                                 </li>
                                 @if(Auth::user() != null)
-                                <li  style="margin-top:8px;margin-left:25px;" class="nav-item">
+                                <li  style="margin-top:8px;margin-left:15px;" class="nav-item">
                                         <div class="row contenedor-detalles">
                                             <div class="col-6">
                                                     <h5 class="text-detalle">SOLD</h5>
@@ -861,7 +885,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul  style="min-width:400px!important;" class="navbar-nav justify-content-between">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -873,8 +897,8 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <btn-buy-component></btn-buy-component>
+                            <li class="nav-item">
+                                <btn-buy-component style="margin-top:15px;"></btn-buy-component>
                                 <div class="d-md-none">
                                     <a class="btn btn-upgrap3" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -888,6 +912,69 @@
                                 </div>
                              
                             </li>
+                            <li style="min-width:220px;!important" class="nav-item d-flex">
+                                                       
+                                                        <div class="nav-link text-white ">
+                                                                                <div class="row">
+                                                                                        <div class="flexi-user-auth">
+                                                                                        <a href="/home" class="lindeando">
+                                                                                            {{ Auth::user()->name }} <span class="caret"></span>
+                                                                                        </a>
+                                                                                        @if(Auth::user()->roles[0]->name==='Administrator')
+                                                                                                <span>{{ Auth::user()->roles[0]->name }}</span>
+                                                                                                @else
+                                                                                            <a class="lindeando" href="/home/perfil">go to my profile</a>
+                                                                                                @endif
+                                                                                        </div>
+                                                                        
+                                                                            
+                                                                                </div>
+                                                                    </div>
+                                                                    <div id="navbarDropdown" class="nav-link text-white " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                                            <div class="row">
+                                                                                
+                                                                                    <div>
+                                                                                        @if(Auth::user()->img)
+                                                                                        <img style="margin-left:33px" class="avatar" src="/storage/{{Auth::user()->img}}" alt="user-img">
+                                                                                        @else
+                                                                                        <img style="margin-left:33px" class="avatar" src="/img/user/user_min.jpg" alt="user-img">
+                                                                                        @endif
+                                                                                    </div>
+                                                                        
+                                                                            </div>
+                                                                    </div>
+                                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                                        
+                                                        <div >
+                                                            @if(Auth::user()->roles[0]->name === 'Administrator')
+                                                            <a class="dropdown-item" href="/admin">
+                                                                Admin
+                                                            </a>
+                                                            @endif
+                                                            <a class="dropdown-item" href="/">
+                                                                Home
+                                                            </a>
+                                                            <a class="dropdown-item" href="/home/mygrids">
+                                                                My boards
+                                                            </a>
+                                                            <a class="dropdown-item" href="/home">
+                                                                My Account
+                                                            </a>
+                                                           
+                                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                                            onclick="event.preventDefault();
+                                                                            document.getElementById('logout-form').submit();">
+                                                                {{ __('Logout') }}
+                                                            </a>
+
+                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                                @csrf
+                                                            </form>
+                                                        </div>
+
+                                                        </div>
+                                                           
+                                                        </li>
                         @endguest
                     </ul>
                 </div>
