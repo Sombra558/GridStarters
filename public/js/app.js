@@ -3949,7 +3949,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
             _this.$store.commit("setCart", micart);
 
-            window.location.reload(); //localStorage.clear();
+            localStorage.clear();
+            toastr__WEBPACK_IMPORTED_MODULE_3___default.a.info("imposible de seleccionar si ya el bloque esta siendo usado", "GridsTarters:"); //window.location.reload();
           }
         }
       });
@@ -11720,10 +11721,37 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {
     gotobuy: function gotobuy() {
-      if (this.cart.length === Number(this.filas * this.columnas)) {
-        window.location = "/confirm-payment";
+      var valid = false;
+      var valid2 = false;
+
+      for (var index = 0; index < this.filas.length; index++) {
+        if (this.filas[index + 1]) {
+          if (Number(this.filas[index] + 1) === this.filas[index + 1]) {
+            valid = false;
+          } else {
+            valid = true;
+          }
+        }
+      }
+
+      for (var i = 0; i < this.columnas.length; i++) {
+        if (this.columnas[i + 1]) {
+          if (Number(this.columnas[i] + 1) === this.columnas[i + 1]) {
+            valid2 = false;
+          } else {
+            valid2 = true;
+          }
+        }
+      }
+
+      if (valid === true || valid2 === true) {
+        toastr__WEBPACK_IMPORTED_MODULE_1___default.a.info("No debe existir bloques vacios entre seleccion", "GridsTarters:");
       } else {
-        toastr__WEBPACK_IMPORTED_MODULE_1___default.a.info("Debe ser una seleccion simetrica", "GridsTarters:");
+        if (this.cart.length === Number(this.filas.length * this.columnas.length)) {
+          window.location = "/confirm-payment";
+        } else {
+          toastr__WEBPACK_IMPORTED_MODULE_1___default.a.info("Debe ser una seleccion simetrica", "GridsTarters:");
+        }
       }
     }
   },
@@ -11760,7 +11788,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
       }
 
-      return arreglo.length;
+      return arreglo.sort(function (a, b) {
+        return a - b;
+      });
     },
     filas: function filas() {
       var arreglo = [];
@@ -11779,7 +11809,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
       }
 
-      return arreglo.length;
+      return arreglo.sort(function (a, b) {
+        return a - b;
+      });
     }
   })
 });

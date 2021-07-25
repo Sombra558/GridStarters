@@ -130,9 +130,10 @@ import 'toastr/build/toastr.min.css';
                                             micart=[];
                                             localStorage.setItem('mycartgridstartes', JSON.stringify(micart));
                                             this.$store.commit("setCart",  micart);
-                                            window.location.reload();
-                                        //localStorage.clear();
-                                
+                                            
+                                            localStorage.clear();
+                                            toastr.info("imposible de seleccionar si ya el bloque esta siendo usado", "GridsTarters:");
+                                            //window.location.reload();
                                 }
                             }
                    
