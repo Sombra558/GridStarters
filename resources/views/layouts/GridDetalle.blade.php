@@ -884,8 +884,12 @@
 
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul  style="min-width:400px!important;" class="navbar-nav justify-content-between">
+                    @guest
+                    <ul  class="navbar-nav justify-content-between">
+                    @else
+                    <ul  style="max-width:400px!important; width:100%!important;" class="navbar-nav justify-content-between">
+                    @endguest
+                    <ul  style="max-width:400px!important; width:100%!important;" class="navbar-nav justify-content-between">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
