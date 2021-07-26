@@ -2,7 +2,7 @@
     <section class="container">
             <h2 class="top-users-heading">Top users</h2>
             <div style="margin-bottom:100px" class="row ">
-                <div style="margin-top:20px;" class="col-sm-12 col-md-6 col-lg-4" v-for="user in users" :key="user.user.id">
+                <div style="margin-top:20px;" class="col-sm-12 col-md-6 col-lg-4" v-for="user in filteredUserGrids" :key="user.user.id">
                         <CardUser v-if="user.user!=null" :user="user" />
                 </div>
             </div>
@@ -10,12 +10,19 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import CardUser from './card-user';
     export default {
         props:['users'],
         name:"top-users",
         components: {
             CardUser,
+        },
+        computed: {
+           ...mapGetters(["filteredUserGrids"]),
+        },
+        mounted () {
+            this.$store.commit("setUserGrids", this.users);
         },
     }
 </script>

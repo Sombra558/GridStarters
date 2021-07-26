@@ -27,6 +27,7 @@ Vue.component('grip-detalle-component', require('./components/Grip/gripdetalle.v
 Vue.component('btn-buy-component', require('./components/Templades/navbardetalle').default);
 Vue.component('btn-buy-comp', require('./components/Templades/buyinpublic').default);
 Vue.component('top-component', require('./components/landing/Inicio/topusers.vue').default);
+Vue.component('search-component', require('./components/landing/Inicio/search.vue').default);
 //profile user
 Vue.component('user-profile-component', require('./components/MyProfile/MyProfile').default);
 Vue.component('btn-grids-component', require('./components/Templades/btnmygryps').default);
@@ -49,6 +50,7 @@ Vue.component('retiros-admin-component', require('./components/Admin/Pages/retir
 const store = new Vuex.Store({
     state: {
         user: null,
+        usergrids: [],
         dragstatus:false,
         cart:[],
         grid:[],
@@ -62,6 +64,9 @@ const store = new Vuex.Store({
             mes:new Date().getMonth(),
         },
         todosusers:[],
+        filterUserGrids:{
+            user:"",
+        },
         filterUsers: {
             user: "",
             mes:new Date().getMonth(),
@@ -85,6 +90,9 @@ const store = new Vuex.Store({
         setUser(state, payload) {
             state.user = payload.user;
         },
+        setUserGrids(state, usergrids) {
+            state.usergrids = usergrids;
+        },
         setCart(state, cart) {  
            state.cart=cart;
         },
@@ -103,6 +111,9 @@ const store = new Vuex.Store({
         },
         setPublics(state, publics) {
             state.publics = publics;
+        },
+        setfilterUserGrids(state, data) {
+            state.filterUserGrids[data['filter']] = data.value;
         },
         setfilterPublics(state, data) {
             state.filterPublics[data['filter']] = data.value;
@@ -134,6 +145,13 @@ const store = new Vuex.Store({
     
     },
     getters: {
+        filteredUserGrids(state) {
+            let grids = state.usergrids;
+            if (state.filterUserGrids.user.length > 1) {
+                grids = grids.filter(r => r.user.name.toLowerCase().includes(state.filterUserGrids.user.toLowerCase()));
+            }
+            return grids;
+        },
         filteredgrid(state) {
             let grid = state.grid;
             if (state.filterGrid.user.length > 1) {

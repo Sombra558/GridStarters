@@ -1072,7 +1072,7 @@
                                                                                             {{ Auth::user()->name }} <span class="caret"></span>
                                                                                         </a>
                                                                                         @if(Auth::user()->roles[0]->name==='Administrator')
-                                                                                                <span>{{ Auth::user()->roles[0]->name }}</span>
+                                                                                        <span><a style="color:#9DD5A8;!important;" class="lindeando" href="/admin">{{ Auth::user()->roles[0]->name }}</a></span>
                                                                                                 @else
                                                                                             <a class="lindeando" href="/home/perfil">go to my profile</a>
                                                                                                 @endif

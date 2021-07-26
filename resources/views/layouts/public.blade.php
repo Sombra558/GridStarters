@@ -579,7 +579,8 @@
                                                                                             {{ Auth::user()->name }} <span class="caret"></span>
                                                                                         </a>
                                                                                         @if(Auth::user()->roles[0]->name==='Administrator')
-                                                                                                <span>{{ Auth::user()->roles[0]->name }}</span>
+                                                                                            
+                                                                                                <span><a style="color:#9DD5A8;!important;" class="lindeando" href="/admin">{{ Auth::user()->roles[0]->name }}</a></span>
                                                                                                 @else
                                                                                             <a class="lindeando" href="/home/perfil">go to my profile</a>
                                                                                                 @endif
@@ -894,14 +895,10 @@
                                                             </svg>
 
                                                             <h1>Upload A Photo Forever In One of our Grids</h1>
-                                                            <form action="{{ route('search') }}" method="POST">
-                                                                @csrf
-                                                                <div class="input-group mt-5 input-search">
-                                                                <input type="text" name="key" class="form-control" placeholder="Find your creator" aria-label="Find your creator" aria-describedby="basic-addon1">
-                                                                <button class="icon"><i class="fa fa-search"></i></button>
+                                                         
+                                                                
+                                                                <search-component></search-component>
                                                            
-                                                                 </div>
-                                                            </form>
                                                           
                                                     </div>
                                             </div>

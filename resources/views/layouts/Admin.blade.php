@@ -6,15 +6,10 @@
     <meta name="theme-color" content="#30019B">
     <meta name="msapplication-navbutton-color" content="#30019B">
     <meta name="apple-mobile-web-app-status-bar-style" content="#30019B">
-
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>Sistemas Administrativo Gridstarters</title>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
     <style>
      .lindeando:hover{
             text-decoration:none;
@@ -147,7 +142,6 @@
             .btn-upgrap3{
             display:none;
             }
-
             } 
         @media only screen and (max-width: 767px){
             .fondo-movil{
@@ -155,7 +149,6 @@
                 background: linear-gradient(90deg, rgba(48,1,155,1) 0%, rgba(15,4,38,1) 100%);
                 height:100vh;
             }
-           
             .flexi-login{
             display:flex;
             justify-content:center;
@@ -256,7 +249,6 @@
         
                 text-decoration:none;
             }
-        
             .btn-login{
                 margin-top: 10px;
                 background: #30019B;
@@ -270,7 +262,6 @@
             .btn-register{
                 margin-top: 0px;
                 background: #B7B4BE;
-            
                 width: 100%;
                 height: 41px;
                 border-radius:12px;
@@ -644,7 +635,6 @@
             .btn-register{
                 margin-top: 0px;
                 background: #B7B4BE;
-            
                 width: 100%;
                 height: 41px;
                 border-radius:12px;
@@ -717,14 +707,12 @@
                 font-weight: 700;
                 font-size:16px!important;
                 max-width:340px;
-                color:#0f042690;
-              
+                color:#0f042690;  
             }
             .card-body-reset{
                 display:flex;
                 justify-content:center;
             }
-
             }
         .btn-login-sm{
             margin-top: 10px;
@@ -762,9 +750,6 @@
            border-radius:200px;
        }
     </style>
-   
-
-    <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -792,15 +777,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul style="width:100%; margin-right:20px;" class="navbar-nav d-flex justify-content-end align-content-center">
                             
-                           
-                        
-                            
-
                     </ul>
-                    
-
-                    <!-- Right Side Of Navbar -->
-                   
                                                 <ul class="navbar-nav ml-auto">
                                                     @guest
                                                         <li class="nav-item">
@@ -815,13 +792,11 @@
                                                                             {{ Auth::user()->name }} <span class="caret"></span>
                                                                         </a>
                                                                         @if(Auth::user()->roles[0]->name==='Administrator')
-                                                                        <span>{{ Auth::user()->roles[0]->name }}</span>
+                                                                        <span><a style="color:#9DD5A8;!important;" class="lindeando" href="/admin">{{ Auth::user()->roles[0]->name }}</a></span>
                                                                         @else
                                                                        <a href="/home/perfil">{{ Auth::user()->roles[0]->name }}</a>
                                                                         @endif
-                                                                      
                                                                 </div>
-                                                                
                                                                 @if(Auth::user()->img)
                                                                 <img style="margin-left:33px" class="avatar" src="/storage/{{Auth::user()->img}}" alt="user-img">
                                                                 @else
@@ -862,9 +837,7 @@
                                                             </div>
                                                         </li>
                                                     @endguest
-                                                </ul>  
-                    
-                   
+                                                </ul> 
                 </div>
             </div>
         </nav>
