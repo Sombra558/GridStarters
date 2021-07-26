@@ -1,5 +1,5 @@
 <template>
-    <button v-if="user.matriz.length>0" @click.prevent="gotogrips" id="btn-grids" class="btn btn-upgrap" >
+    <button @click.prevent="gotogrips" id="btn-grids" class="btn btn-upgrap nav-item" >
         My boards
     </button>
 </template>
@@ -35,6 +35,13 @@ import { mapState } from "vuex";
     }
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
+ .btn-upgrap{
+            font-family: 'Valera';
+            background-color:#32BAB0!important;
+            color:#ffffff!important;
+            width: 100%;
+            min-width: 150px;
+            border-radius: 10px!important;
+            }
 </style>

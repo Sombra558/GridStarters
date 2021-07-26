@@ -1,5 +1,4 @@
 <template>
- 
         <div>
             <div class="col-sm-12 menu-secundario ">
                 <div class="container-fluid">
@@ -11,18 +10,17 @@
                                                 <p style="margin:0px;" class="premium">Premium</p>     
                                             </div>
                                         </div>
-                                        <div class=" col-sm-12 col-md-9 d-flex justify-content-md-end justify-content-xl-end">
+                                        <div style="margin-top:5px;" class="col-sm-12 col-md-3 d-flex justify-content-md-end justify-content-xl-end"><a class="btn btn-upgrap14" href="#" @click.prevent="limpiar()" >
+clear selection</a></div>
+                                        <div class="col-sm-12 col-md-6 d-flex justify-content-md-end justify-content-xl-end">
                                             <p class="grids-descripcion"><strong class="resalte">1.075</strong>Grids. Leave your mark on the world buying a digital space <strong class="resalte">forever</strong></p>
                                         </div>
                         </div>
                 </div>
-               
             </div>
              <div class="col-sm-12">
-                 <div class="container-fluid">
-                      
+                 <div class="container-fluid">            
                      <div class="d-flex justify-content-center">
-                          
                                 <table style="padding:0px;"  class="table table-responsive ">
                                             <caption >{{grip.user.name}} Grid</caption>
                                             <thead >
@@ -42,16 +40,12 @@
                                                                         :value="{identificador:String(index)+String(columna.numero),fila:index,columna:columna.numero,matriz_id:grip.id,nombreURL:grip.nombreURL}" 
                                                                         class="col color" 
                                                                        :id="columna.src ? '' : 'bloque-'+fila[index].numero+'-'+columna.numero">
-                                                                
+                                                    
                                                                         </drag-selector-item>
-
                                                                 </div>
-                                                
                                                     </drag-selector>
                                                 </th>
-                                                
                                                 </tr>
-                                            
                                             </tbody>
                                 </table>
                          
@@ -112,6 +106,24 @@ import 'toastr/build/toastr.min.css';
 
         },
         methods: {
+            limpiar(){
+                 this.cart.forEach(element => {
+                          if (document.querySelector(`#bloque-${element.fila}-${element.columna}`)) {
+                              console.log('limpia');
+                            document.querySelector(`#bloque-${element.fila}-${element.columna}`).style.backgroundColor = '#FBF9FF';
+                          }
+                 });
+                  var micart = localStorage.getItem('mycartgridstartes');
+                        if (micart) {
+                                            console.log('limpoa caro');
+                                            micart = JSON.parse(micart);
+                                            micart=[];
+                                            localStorage.setItem('mycartgridstartes', JSON.stringify(micart));
+                                            this.$store.commit("setCart",  micart);
+                                            localStorage.clear();
+                                            //window.location.reload();
+                        }
+            },
             handleDragSelectorChange(checkedList) {
                 
               this.cart.forEach(element => {
@@ -148,14 +160,20 @@ import 'toastr/build/toastr.min.css';
                 setTimeout(function(){
                 $("#mostrarblock").modal("show");
                 },200)
-            },
-            
-           
+            },  
         },
       
     }
 </script>
 <style scoped>
+ .btn-upgrap14{
+            font-family: 'Valera';
+            background-color:#32BAB0!important;
+            color:#ffffff!important;
+            min-width: 220px;
+            height: 38px;
+            border-radius: 10px!important;
+            }
 .modal-dialog{
     max-width: 600px!important;
 }
@@ -181,8 +199,7 @@ label{
                 font-weight: 700;
                 color: #30019B;
             }
-        }
-        
+        } 
      @media only screen and (min-width: 769px) {
              .grids-descripcion{
                 width: 500px;
@@ -204,11 +221,10 @@ label{
    }
    p{
        font-family: 'Valera';
-        font-size: 20px;
+       font-size: 20px;
        line-height: 23,7px;
        font-weight: 500;
    }
-   
    .username{
        font-family: 'Rubik';
        font-size: 20px;
@@ -231,9 +247,7 @@ label{
         padding: 0rem;
         vertical-align: top;
         border-top:  none!important;
-
     }
-   
     .color{
         background-color: #FBF9FF;
         margin:2px;
@@ -241,11 +255,8 @@ label{
         width:20px;
         background-repeat: no-repeat;
         background-size: 100% 100%;
-        border: 1px solid grey;
-   
-       
+        border: 1px solid grey;  
     }
-    
     .color:hover{
         background-color: #5F01F5;
     }
@@ -279,6 +290,4 @@ label{
     .drag-selector__item.selected {
             background-color: #D04141;
         }
-    
-   
 </style>

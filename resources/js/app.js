@@ -25,10 +25,12 @@ Vue.component('grid-payment-component', require('./components/Payment/GridPaymen
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('grip-detalle-component', require('./components/Grip/gripdetalle.vue').default);
 Vue.component('btn-buy-component', require('./components/Templades/navbardetalle').default);
+Vue.component('btn-buy-comp', require('./components/Templades/buyinpublic').default);
 Vue.component('top-component', require('./components/landing/Inicio/topusers.vue').default);
 //profile user
 Vue.component('user-profile-component', require('./components/MyProfile/MyProfile').default);
 Vue.component('btn-grids-component', require('./components/Templades/btnmygryps').default);
+Vue.component('btn-grids-comp', require('./components/Templades/mygridsinpublic').default);
 Vue.component('btn-grids-movil-component', require('./components/Templades/btnnamovil').default);
 Vue.component('my-grids-component', require('./components/MyProfile/MyGrids').default);
 Vue.component('my-grids-detalle-component', require('./components/MyProfile/MyGridDetalle').default);

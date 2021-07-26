@@ -533,7 +533,38 @@
                             <div class="container-fluid">
                                 <nav style="box-shadow:none!important;" class="navbar navbar-expand-md navbar-light shadow-sm d-md-block d-none">
                                         <div class="container-fluid"> 
-                                        <ul class="navbar-nav ml-auto">
+                                        @guest
+                                        <ul style="max-width:350px!important; width:100%!important;" class="navbar-nav ml-auto justify-content-between" >
+                                                    @else
+
+                                                    <ul style="max-width:550px!important; width:100%!important;" class="navbar-nav ml-auto justify-content-between" >
+                                                 
+                                                    @endguest       
+                                       
+                                        <li class="nav-item">
+                                                    @guest
+                                                    <btn-buy-comp ></btn-buy-comp>
+                                                    @else
+
+                                                    <btn-buy-comp style="margin-top:15px;"></btn-buy-comp>
+                                                 
+                                                    @endguest       
+                                              
+                                            
+                                            
+                                            </li>
+                                            <li class="nav-item">
+                                                    @guest
+                                                   
+                                                    @else
+
+                                                
+                                                    <btn-grids-comp style="margin-top:15px;"></btn-grids-comp>
+                                                    @endguest       
+                                              
+                                            
+                                            
+                                            </li>
                                                      @guest
                                                         <li class="nav-item">
                                                             <a class="nav-link text-center btn-upgrap" href="{{ route('login') }}">{{ __('Login') }}</a>
