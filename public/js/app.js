@@ -11438,11 +11438,9 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var micart = localStorage.getItem('mycartgridstartes');
     micart = JSON.parse(micart);
-    console.log(micart);
 
     if (micart) {
-      this.bloque = micart;
-      this.bloque = this.bloque.sort(function (a, b) {
+      this.bloque = micart.sort(function (a, b) {
         return a.identificador - b.identificador;
       });
     }
