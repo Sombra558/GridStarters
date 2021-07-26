@@ -214,6 +214,8 @@
 </template>
 
 <script>
+import toastr from "toastr";
+import 'toastr/build/toastr.min.css';
     export default {
         name:"profile-user",
         props:['user','retirovalue'],
@@ -263,7 +265,8 @@
                         console.log(err);
                     });
                 }else{
-                    console.log('imposible realizar transaccion');
+                    toastr.info("imposible realizar transaccion", "GridsTarters:");
+                  
                     this.estadoproceso=false;
                 }
                 

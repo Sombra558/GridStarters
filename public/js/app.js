@@ -4247,6 +4247,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
+/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(toastr__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var toastr_build_toastr_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! toastr/build/toastr.min.css */ "./node_modules/toastr/build/toastr.min.css");
+/* harmony import */ var toastr_build_toastr_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(toastr_build_toastr_min_css__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -4462,6 +4466,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "profile-user",
   props: ['user', 'retirovalue'],
@@ -4514,7 +4520,7 @@ __webpack_require__.r(__webpack_exports__);
           console.log(err);
         });
       } else {
-        console.log('imposible realizar transaccion');
+        toastr__WEBPACK_IMPORTED_MODULE_0___default.a.info("imposible realizar transaccion", "GridsTarters:");
         this.estadoproceso = false;
       }
     },
