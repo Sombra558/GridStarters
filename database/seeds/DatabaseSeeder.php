@@ -38,7 +38,6 @@ class DatabaseSeeder extends Seeder
             'image' => 'img/payment-platforms/stripe.jpg',
             'subscriptions_enabled' => true,
         ]);
-  
         PaymentPlatform::create([
             'name' => 'MercadoPago',
             'image' => 'img/payment-platforms/mercadopago.jpg',
