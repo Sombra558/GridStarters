@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             'value' => 50,
             'nombre' => 'retiro',
         ]);
+        
         PaymentPlatform::create([
             'name' => 'PayPal',
             'image' => 'img/payment-platforms/paypal.jpg',
