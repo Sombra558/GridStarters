@@ -8,13 +8,12 @@
                     
                     <form action="{{ route('grid-create-grid') }}" method="POST">
                     @csrf
-                        <input type="hidden" name="value" value="{{$gridvalue->value}}">
                         <input type="hidden" name="currency" value="usd">
-                        <grid-payment-component :user="{{$user}}"></grid-payment-component>
+                        <grid-payment-component :user="{{$user}}" gridvalue="{{$gridvalue->value}}"></grid-payment-component>
                         
                        
                      
-                        <input style="margin-top:65px" class="btn btn-cancel" type="submit" value="Buy Grid">
+                       
                     </form>
                 </div>
                 <div class="col-md-6 padre-pago-descripcion">

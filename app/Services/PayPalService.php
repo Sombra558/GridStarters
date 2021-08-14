@@ -64,6 +64,8 @@ class PayPalService
 
         session()->put('approvalId', $order->id);
         session()->put('matriz', $request->matriz);
+        session()->put('filas', $request->filas);
+        session()->put('columns', $request->columns);
       
         return redirect($approve->href);
     }
@@ -181,6 +183,8 @@ class PayPalService
             $evento= Grip::create([
                 'user_id' =>Auth::user()->id,
                 'matriz' => session()->get('matriz'),
+                'filas' => session()->get('filas'),
+                'columns' => session()->get('columns'),
                 'nombreURL' =>  $nombreURL,
             ]); 
             $evento->nombreURL=strtolower($nombreURL);

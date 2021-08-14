@@ -17,6 +17,8 @@ class CreateGripsTable extends Migration
             $table->bigIncrements('id');
             $table->longText('matriz',10000);
             $table->string('nombreURL');
+            $table->string('columns')->nullable();
+            $table->string('filas')->nullable();
             $table->unsignedbigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
             $table->boolean('subscriptions_enabled')->default(false);

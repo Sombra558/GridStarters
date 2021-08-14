@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(RolesTableSeeder::class);
         ConfiguracionPublica::create([
-            'value' => 250,
+            'value' => 3,
             'nombre' => 'grid',
         ]);
         ConfiguracionPublica::create([

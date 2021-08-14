@@ -20,9 +20,9 @@ clear selection</a></div>
             </div>
              <div class="col-sm-12">
                  <div class="container-fluid">            
-                     <div class="d-flex justify-content-center">
-                                <table style="padding:0px;"  class="table table-responsive ">
-                                            <caption >{{grip.user.name}} Grid</caption>
+                     <div style="width:100%!important" c>
+                                <table style="padding:0px;"  class="table table-responsive d-flex justify-content-center">
+                                          
                                             <thead >
                                                 <tr >
                                                     <th>
@@ -253,6 +253,8 @@ label{
         margin:2px;
         height: 25px;
         width:20px;
+        max-height: 25px;
+        max-width:20px;
         background-repeat: no-repeat;
         background-size: 100% 100%;
         border: 1px solid grey;  
@@ -262,18 +264,19 @@ label{
     }
     .maximizando{
         margin-left: 15px;
-        min-width: 1585px;
+          width: 100%!important;
     }
     @media only screen and (max-width: 1394px) {
             .maximizando{
             margin-left: 15px;
-             min-width: 1585px;
+              width: 100%!important;
         }
         }
      @media only screen and (min-width: 1395px) {
              .maximizando{
                 margin-left: 15px;
-                  min-width: 1585px;
+                width: 100%!important;
+               
             }
         }
     .flexiando{
