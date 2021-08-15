@@ -16,6 +16,10 @@
                                 </div>
                             <input style="opacity:0" class="d-block" id="ProfImgChangeInput" name="img" type="file" accept="image/*" @change="fileSelected">
                         </div>
+                        <div class="form-groud">
+                             <label for="img-grip">Url</label>
+                             <input type="text" class="form-control" required name="url">
+                        </div>
                         <div class="row">
                             <span style="margin-left:0px" class="col-sm-12 col-md-9">
                                 No. of grids that you would like to block

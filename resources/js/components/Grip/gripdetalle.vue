@@ -13,15 +13,15 @@
                                         <div style="margin-top:5px;" class="col-sm-12 col-md-3 d-flex justify-content-md-end justify-content-xl-end"><a class="btn btn-upgrap14" href="#" @click.prevent="limpiar()" >
 clear selection</a></div>
                                         <div class="col-sm-12 col-md-6 d-flex justify-content-md-end justify-content-xl-end">
-                                            <p class="grids-descripcion"><strong class="resalte">1.075</strong>Grids. Leave your mark on the world buying a digital space <strong class="resalte">forever</strong></p>
+                                            <p class="grids-descripcion"><strong class="resalte">{{Number(grip.columns*grip.filas)}}</strong> Blocks. Leave your mark on the world buying a digital space <strong class="resalte">forever</strong></p>
                                         </div>
                         </div>
                 </div>
             </div>
              <div class="col-sm-12">
                  <div class="container-fluid">            
-                     <div  >
-                                <table style="padding:0px;margin:0px;"  :class="Number(grip.columns)<24 ? 'table table-responsive d-flex justify-content-center m-0': 'table table-responsive'">
+                     <div style="width:100%!important;" class="d-flex justify-content-center m-0" >
+                                <table style="padding:0px;margin:0px;"  :class="Number(grip.columns)<24 ? 'table table-responsive': 'table table-responsive'">
                                           
                                             <thead >
                                                 <tr >
@@ -37,7 +37,8 @@ clear selection</a></div>
                                                                 <div :style="'min-width:'+Number(grip.columns*36)+'px!important; margin-left:'+Number(grip.columns*0)+'px!important;'" class="d-flex maximizando" v-for="(fila,index) in matriz" :key="'fila'+index">
                                                                     
                                                                         <drag-selector-item v-for="(columna,k) in fila" :style="columna.src ? 'background-image: url(/storage-public/'+columna.src+');' : ''" :key="'columna'+k"
-                                                                        :value="{n:columna.n,identificador:String(index)+String(columna.numero),fila:index,columna:columna.numero,matriz_id:grip.id,nombreURL:grip.nombreURL}" 
+                                                                        
+                                                                        :value="{url:columna.url,src:columna.original,n:columna.n,identificador:String(index)+String(columna.numero),fila:index,columna:columna.numero,matriz_id:grip.id,nombreURL:grip.nombreURL}" 
                                                                         class="col color" 
                                                                        :id="columna.src ? '' : 'bloque-'+index+'-'+columna.numero">
                                                     
@@ -61,7 +62,11 @@ clear selection</a></div>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <img :src="'/storage/'+blockselected.original" width="100%" height="250px" alt="">
+                                <img :src="'/storage/'+blockselected.src" width="100%" height="250px" alt="">
+                                <div class="mt-2 d-flex justify-content-center">
+                                    <a class="btn btn-upgrap14" :href="blockselected.url" target="_blank" rel="noopener noreferrer">Ir al enlace</a>
+                                </div>
+                                
                             </div>
 
                             </div>
@@ -138,7 +143,7 @@ import 'toastr/build/toastr.min.css';
                         });
                         var micart = localStorage.getItem('mycartgridstartes');
                                 if (micart) {
-                                            console.log('limpoa caro');
+                                            this.mostrar(element);
                                             micart = JSON.parse(micart);
                                             micart=[];
                                             localStorage.setItem('mycartgridstartes', JSON.stringify(micart));

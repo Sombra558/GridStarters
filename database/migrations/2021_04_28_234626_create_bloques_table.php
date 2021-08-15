@@ -20,6 +20,7 @@ class CreateBloquesTable extends Migration
             $table->string('column')->nullable();
             $table->string('fila')->nullable();
             $table->string('codigo')->nullable();
+            $table->string('url')->nullable();
             $table->string('size')->nullable();
             $table->boolean('estado')->default(false);
             $table->unsignedbigInteger('matriz_id');

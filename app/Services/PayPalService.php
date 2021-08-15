@@ -97,6 +97,7 @@ class PayPalService
                 'column' => $bloque->columna,
                 'fila' =>   $bloque->fila,
                 'size' =>  $request['size'],
+                'url' =>  $request['url'],
                 'codigo' => $randomString2,
                 'img' => $pathorigin,
                 'estado' => true,
@@ -235,7 +236,7 @@ class PayPalService
                     $mytemp = json_decode($matriz->matriz);
                     $mytemp[$myblocks[$a]->fila][$myblocks[$a]->column]->src=$myImg[$a]["path"];
                     $mytemp[$myblocks[$a]->fila][$myblocks[$a]->column]->original=$myblocks[$a]->img;
-                    
+                    $mytemp[$myblocks[$a]->fila][$myblocks[$a]->column]->url=$myblocks[$a]->url;
                     $mytemp = json_encode($mytemp);
                     $matriz->matriz = $mytemp;
                     $matriz->save();

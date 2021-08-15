@@ -3976,6 +3976,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -4044,7 +4049,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           var micart = localStorage.getItem('mycartgridstartes');
 
           if (micart) {
-            console.log('limpoa caro');
+            _this.mostrar(element);
+
             micart = JSON.parse(micart);
             micart = [];
             localStorage.setItem('mycartgridstartes', JSON.stringify(micart));
@@ -4905,6 +4911,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'confirm-payment-grid',
   props: ['user', 'gridvalue'],
@@ -4954,7 +4966,25 @@ __webpack_require__.r(__webpack_exports__);
     precio: function precio() {
       var pre = 0;
       pre = Number(this.filas * this.columns) * this.gridvalue;
+
+      if (pre < 0) {
+        pre = pre * -1;
+      }
+
       return pre;
+    },
+    validando: function validando() {
+      var valid = false;
+
+      if (Number(this.columns <= 0) || Number(this.columns) > 100) {
+        valid = true;
+      }
+
+      if (this.filas <= 0 || this.filas > 100) {
+        valid = true;
+      }
+
+      return valid;
     }
   },
   methods: {
@@ -5016,6 +5046,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -68703,96 +68737,122 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _vm._m(0)
+          _c(
+            "div",
+            {
+              staticClass:
+                "col-sm-12 col-md-6 d-flex justify-content-md-end justify-content-xl-end"
+            },
+            [
+              _c("p", { staticClass: "grids-descripcion" }, [
+                _c("strong", { staticClass: "resalte" }, [
+                  _vm._v(_vm._s(Number(_vm.grip.columns * _vm.grip.filas)))
+                ]),
+                _vm._v(
+                  " Blocks. Leave your mark on the world buying a digital space "
+                ),
+                _c("strong", { staticClass: "resalte" }, [_vm._v("forever")])
+              ])
+            ]
+          )
         ])
       ])
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "col-sm-12" }, [
       _c("div", { staticClass: "container-fluid" }, [
-        _c("div", [
-          _c(
-            "table",
-            {
-              class:
-                Number(_vm.grip.columns) < 24
-                  ? "table table-responsive d-flex justify-content-center m-0"
-                  : "table table-responsive",
-              staticStyle: { padding: "0px", margin: "0px" }
-            },
-            [
-              _vm._m(1),
-              _vm._v(" "),
-              _c("tbody", [
-                _c("tr", [
-                  _c(
-                    "th",
-                    [
-                      _c(
-                        "drag-selector",
-                        {
-                          staticClass: "drag-selector",
-                          style: { cursor: _vm.selectedCursor },
-                          on: { change: _vm.handleDragSelectorChange },
-                          model: {
-                            value: _vm.checkedList,
-                            callback: function($$v) {
-                              _vm.checkedList = $$v
-                            },
-                            expression: "checkedList"
-                          }
-                        },
-                        _vm._l(_vm.matriz, function(fila, index) {
-                          return _c(
-                            "div",
-                            {
-                              key: "fila" + index,
-                              staticClass: "d-flex maximizando",
-                              style:
-                                "min-width:" +
-                                Number(_vm.grip.columns * 36) +
-                                "px!important; margin-left:" +
-                                Number(_vm.grip.columns * 0) +
-                                "px!important;"
-                            },
-                            _vm._l(fila, function(columna, k) {
-                              return _c("drag-selector-item", {
-                                key: "columna" + k,
-                                staticClass: "col color",
-                                style: columna.src
-                                  ? "background-image: url(/storage-public/" +
-                                    columna.src +
-                                    ");"
-                                  : "",
-                                attrs: {
-                                  value: {
-                                    n: columna.n,
-                                    identificador:
-                                      String(index) + String(columna.numero),
-                                    fila: index,
-                                    columna: columna.numero,
-                                    matriz_id: _vm.grip.id,
-                                    nombreURL: _vm.grip.nombreURL
-                                  },
-                                  id: columna.src
-                                    ? ""
-                                    : "bloque-" + index + "-" + columna.numero
-                                }
-                              })
-                            }),
-                            1
-                          )
-                        }),
-                        0
-                      )
-                    ],
-                    1
-                  )
+        _c(
+          "div",
+          {
+            staticClass: "d-flex justify-content-center m-0",
+            staticStyle: { width: "100%!important" }
+          },
+          [
+            _c(
+              "table",
+              {
+                class:
+                  Number(_vm.grip.columns) < 24
+                    ? "table table-responsive"
+                    : "table table-responsive",
+                staticStyle: { padding: "0px", margin: "0px" }
+              },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("tbody", [
+                  _c("tr", [
+                    _c(
+                      "th",
+                      [
+                        _c(
+                          "drag-selector",
+                          {
+                            staticClass: "drag-selector",
+                            style: { cursor: _vm.selectedCursor },
+                            on: { change: _vm.handleDragSelectorChange },
+                            model: {
+                              value: _vm.checkedList,
+                              callback: function($$v) {
+                                _vm.checkedList = $$v
+                              },
+                              expression: "checkedList"
+                            }
+                          },
+                          _vm._l(_vm.matriz, function(fila, index) {
+                            return _c(
+                              "div",
+                              {
+                                key: "fila" + index,
+                                staticClass: "d-flex maximizando",
+                                style:
+                                  "min-width:" +
+                                  Number(_vm.grip.columns * 36) +
+                                  "px!important; margin-left:" +
+                                  Number(_vm.grip.columns * 0) +
+                                  "px!important;"
+                              },
+                              _vm._l(fila, function(columna, k) {
+                                return _c("drag-selector-item", {
+                                  key: "columna" + k,
+                                  staticClass: "col color",
+                                  style: columna.src
+                                    ? "background-image: url(/storage-public/" +
+                                      columna.src +
+                                      ");"
+                                    : "",
+                                  attrs: {
+                                    value: {
+                                      url: columna.url,
+                                      src: columna.original,
+                                      n: columna.n,
+                                      identificador:
+                                        String(index) + String(columna.numero),
+                                      fila: index,
+                                      columna: columna.numero,
+                                      matriz_id: _vm.grip.id,
+                                      nombreURL: _vm.grip.nombreURL
+                                    },
+                                    id: columna.src
+                                      ? ""
+                                      : "bloque-" + index + "-" + columna.numero
+                                  }
+                                })
+                              }),
+                              1
+                            )
+                          }),
+                          0
+                        )
+                      ],
+                      1
+                    )
+                  ])
                 ])
-              ])
-            ]
-          )
-        ])
+              ]
+            )
+          ]
+        )
       ])
     ]),
     _vm._v(" "),
@@ -68815,17 +68875,36 @@ var render = function() {
               { staticClass: "modal-dialog", attrs: { role: "document" } },
               [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(2),
+                  _vm._m(1),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("img", {
                       attrs: {
-                        src: "/storage/" + _vm.blockselected.original,
+                        src: "/storage/" + _vm.blockselected.src,
                         width: "100%",
                         height: "250px",
                         alt: ""
                       }
-                    })
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "mt-2 d-flex justify-content-center" },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-upgrap14",
+                            attrs: {
+                              href: _vm.blockselected.url,
+                              target: "_blank",
+                              rel: "noopener noreferrer"
+                            }
+                          },
+                          [_vm._v("Ir al enlace")]
+                        )
+                      ]
+                    )
                   ])
                 ])
               ]
@@ -68836,25 +68915,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "col-sm-12 col-md-6 d-flex justify-content-md-end justify-content-xl-end"
-      },
-      [
-        _c("p", { staticClass: "grids-descripcion" }, [
-          _c("strong", { staticClass: "resalte" }, [_vm._v("1.075")]),
-          _vm._v("Grids. Leave your mark on the world buying a digital space "),
-          _c("strong", { staticClass: "resalte" }, [_vm._v("forever")])
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -70581,7 +70641,7 @@ var render = function() {
     }),
     _vm._v(" "),
     _c("div", { staticClass: "form-groud" }, [
-      _c("label", { attrs: { for: "Columns" } }, [_vm._v("Columns")]),
+      _c("label", { attrs: { for: "Columns" } }, [_vm._v("Columns max(100)")]),
       _vm._v(" "),
       _c("input", {
         directives: [
@@ -70593,7 +70653,7 @@ var render = function() {
           }
         ],
         staticClass: "form-control",
-        attrs: { type: "text", name: "columns" },
+        attrs: { type: "text", name: "columns", required: "" },
         domProps: { value: _vm.columns },
         on: {
           input: function($event) {
@@ -70607,7 +70667,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "form-groud" }, [
-      _c("label", { attrs: { for: "Filas" } }, [_vm._v("Rows")]),
+      _c("label", { attrs: { for: "Filas" } }, [_vm._v("Rows max(100)")]),
       _vm._v(" "),
       _c("input", {
         directives: [
@@ -70619,7 +70679,7 @@ var render = function() {
           }
         ],
         staticClass: "form-control",
-        attrs: { type: "text", name: "filas" },
+        attrs: { type: "text", name: "filas", required: "" },
         domProps: { value: _vm.filas },
         on: {
           input: function($event) {
@@ -70632,10 +70692,20 @@ var render = function() {
       })
     ]),
     _vm._v(" "),
+    _c("div", [
+      _c("h3", [_vm._v("Resumen:")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Grid Value: " + _vm._s(_vm.gridvalue) + "$")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Blocks: " + _vm._s(Number(_vm.columns * _vm.filas)))]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Total: " + _vm._s(_vm.precio) + "$")])
+    ]),
+    _vm._v(" "),
     _c("input", {
       staticClass: "btn btn-cancel",
       staticStyle: { "margin-top": "65px" },
-      attrs: { type: "submit", value: "Buy Grid" }
+      attrs: { disabled: _vm.validando, type: "submit", value: "Buy Grid" }
     })
   ])
 }
@@ -70729,6 +70799,8 @@ var render = function() {
     _vm._v(" "),
     _vm._m(0),
     _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
     _c(
       "div",
       {
@@ -70788,6 +70860,19 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-groud" }, [
+      _c("label", { attrs: { for: "img-grip" } }, [_vm._v("Url")]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: { type: "text", required: "", name: "url" }
+      })
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

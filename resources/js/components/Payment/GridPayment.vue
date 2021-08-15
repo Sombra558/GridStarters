@@ -3,15 +3,21 @@
         <input type="hidden" name="matriz" :value="JSON.stringify(matrizdin)">
           <input type="hidden" name="value" :value="precio">
         <div class="form-groud">
-            <label for="Columns">Columns</label>
-            <input class="form-control" type="text" name="columns" v-model="columns"> 
+            <label for="Columns">Columns max(100)</label>
+            <input class="form-control" type="text" name="columns" required v-model="columns">
         </div> 
         <div class="form-groud">
-            <label for="Filas">Rows</label>
-            <input class="form-control" type="text" name="filas" v-model="filas">
+            <label for="Filas">Rows max(100)</label>
+            <input class="form-control" type="text" name="filas" required v-model="filas">
+           
         </div> 
-     
-         <input style="margin-top:65px" class="btn btn-cancel" type="submit" value="Buy Grid">
+        <div>
+            <h3>Resumen:</h3>
+            <p>Grid Value: {{gridvalue}}$</p>
+            <p>Blocks: {{ Number(columns*filas)}}</p>
+            <p>Total: {{precio}}$</p>
+        </div>
+         <input :disabled="validando" style="margin-top:65px" class="btn btn-cancel" type="submit" value="Buy Grid">
     </div>             
 </template>
 
@@ -58,7 +64,20 @@
            precio(){
                var pre=0;
                pre=Number(this.filas*this.columns)*this.gridvalue;
+               if (pre<0) {
+                   pre=pre*(-1);
+               }
                return pre;
+           },
+           validando(){
+               var valid=false;
+               if (Number(this.columns<=0) || Number(this.columns)>100) {
+                   valid=true;
+               }
+                if (this.filas<=0 || this.filas>100) {
+                   valid=true;
+               }
+               return valid;
            }
         },
         methods: {
