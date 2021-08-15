@@ -20,8 +20,8 @@ clear selection</a></div>
             </div>
              <div class="col-sm-12">
                  <div class="container-fluid">            
-                     <div style="width:100%!important" c>
-                                <table style="padding:0px;"  class="table table-responsive d-flex justify-content-center">
+                     <div  >
+                                <table style="padding:0px;margin:0px;"  :class="Number(grip.columns)<24 ? 'table table-responsive d-flex justify-content-center m-0': 'table table-responsive'">
                                           
                                             <thead >
                                                 <tr >
@@ -32,9 +32,9 @@ clear selection</a></div>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                <th scope="row">
+                                                <th >
                                                     <drag-selector v-bind:style="{cursor: selectedCursor}" v-model="checkedList" @change="handleDragSelectorChange" class="drag-selector">
-                                                                <div class="row maximizando enpadre" v-for="(fila,index) in matriz" :key="'fila'+index">
+                                                                <div :style="'min-width:'+Number(grip.columns*36)+'px!important; margin-left:'+Number(grip.columns*0)+'px!important;'" class="d-flex maximizando" v-for="(fila,index) in matriz" :key="'fila'+index">
                                                                     
                                                                         <drag-selector-item v-for="(columna,k) in fila" :style="columna.src ? 'background-image: url(/storage-public/'+columna.src+');' : ''" :key="'columna'+k"
                                                                         :value="{n:columna.n,identificador:String(index)+String(columna.numero),fila:index,columna:columna.numero,matriz_id:grip.id,nombreURL:grip.nombreURL}" 
@@ -262,22 +262,19 @@ label{
     .color:hover{
         background-color: #5F01F5;
     }
-    .maximizando{
-        margin-left: 15px;
-          width: 100%!important;
-    }
-    @media only screen and (max-width: 1394px) {
+  
+    @media only screen and (max-width: 767px) {
             .maximizando{
-            margin-left: 15px;
-              width: 100%!important;
+               margin-left: 270px;
+                
         }
-        }
-     @media only screen and (min-width: 1395px) {
+    }
+ 
+     @media only screen and (min-width: 768px) {
              .maximizando{
-                margin-left: 15px;
-                width: 100%!important;
-               
-            }
+                margin-left: 105px;
+                
+        }
         }
     .flexiando{
         display: flex;
