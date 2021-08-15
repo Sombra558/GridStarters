@@ -46,6 +46,12 @@ import 'toastr/build/toastr.min.css';
                     toastr.info("No debe existir bloques vacios entre seleccion", "GridsTarters:");
                }else{
                      if (this.cart.length===Number(this.filas.length*this.columnas.length)) {
+                         var ordenado=this.cart.sort(function(a, b) {
+                            return a.n - b.n;
+                        });
+                        this.$store.commit("setCart",  ordenado);
+
+                         
                      window.location="/confirm-payment";
                 }else{
                     toastr.info("Debe ser una seleccion simetrica", "GridsTarters:");

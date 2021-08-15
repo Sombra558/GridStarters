@@ -20,6 +20,7 @@ class CreateAccountRegistersTable extends Migration
             $table->string('size')->nullable();
             $table->string('type')->nullable();
             $table->double('amount',10,2);
+            $table->double('tax',10,2);
             $table->unsignedbigInteger('user_banks_id');
             $table->foreign('user_banks_id')->references('id')->on('user_banks')->onDelete('CASCADE');
             $table->timestamps();

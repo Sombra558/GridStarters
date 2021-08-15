@@ -2266,9 +2266,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "admin-home",
-  props: ['blocks', 'grids']
+  props: ['blocks', 'grids', 'sales', 'gridsales'],
+  computed: {
+    totalincome: function totalincome() {
+      var pre = 0;
+      this.sales.forEach(function (element) {
+        pre = pre + element.amount;
+      });
+      return pre;
+    },
+    totalgridincome: function totalgridincome() {
+      var pru = 0;
+      this.gridsales.forEach(function (element) {
+        pru = pru + element.amount;
+      });
+      return pru;
+    },
+    rate: function rate() {
+      var pro = 0;
+      this.sales.forEach(function (element) {
+        pro = pro + element.tax;
+      });
+      return pro;
+    }
+  }
 });
 
 /***/ }),
@@ -2793,11 +2828,50 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "admin-retiros",
-  props: ['blocks', 'grids', 'solds', 'retiros', 'gridvalue', 'blockvalue', 'retirovalue'],
+  props: ['blocks', 'grids', 'solds', 'retiros', 'gridvalue', 'blockvalue', 'retirovalue', 'taxvalue'],
   data: function data() {
     return {
       secondtag: "Solds",
@@ -2848,6 +2922,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         console.log(err);
       });
     },
+    editartax: function editartax() {
+      var url = "/admin/modificar-configuracion/" + this.taxvalue.id;
+      axios.put(url, {
+        value: this.taxvalue.value
+      }).then(function (result) {
+        window.location.reload();
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
     bannerChangeCoverPicture: function bannerChangeCoverPicture() {
       document.getElementById("CoverChangeInput").click();
     },
@@ -2878,6 +2962,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     mostrar2: function mostrar2() {
       setTimeout(function () {
         $("#cambiolimiteblock").modal("show");
+      }, 200);
+    },
+    mostrar3: function mostrar3() {
+      setTimeout(function () {
+        $("#cambiotax").modal("show");
       }, 200);
     },
     mostrarmodal: function mostrarmodal(retiro) {
@@ -3907,7 +3996,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       rowtemp: 1,
       retiroSelected: null,
       checkedList: [],
-      selectedCursor: "url(\"data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='32px' height='32px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E %3Cpath d='M443.6,387.1L312.4,255.4l131.5-130c5.4-5.4,5.4-14.2,0-19.6l-37.4-37.6c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4 L256,197.8L124.9,68.3c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4L68,105.9c-5.4,5.4-5.4,14.2,0,19.6l131.5,130L68.4,387.1 c-2.6,2.6-4.1,6.1-4.1,9.8c0,3.7,1.4,7.2,4.1,9.8l37.4,37.6c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1L256,313.1l130.7,131.1 c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1l37.4-37.6c2.6-2.6,4.1-6.1,4.1-9.8C447.7,393.2,446.2,389.7,443.6,387.1z'/%3E %3C/svg%3E\"), pointer"
+      selectedCursor: "url(\"/img/puntero/cohete.svg\"), pointer"
     };
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
@@ -4843,6 +4932,7 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     matrizdin: function matrizdin() {
       var matemp = [];
+      var n = 0;
 
       for (var index = 0; index < Number(this.filas); index++) {
         var filatem = [];
@@ -4850,8 +4940,10 @@ __webpack_require__.r(__webpack_exports__);
         for (var j = 0; j < Number(this.columns); j++) {
           filatem.push({
             numero: j,
-            src: null
+            src: null,
+            n: n
           });
+          n++;
         }
 
         matemp.push(filatem);
@@ -4972,8 +5064,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'confirm-payment',
   props: ['user'],
@@ -4984,3233 +5074,7 @@ __webpack_require__.r(__webpack_exports__);
       grip: {
         src: null
       },
-      bloque: null,
-      matriz: [[{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }], [{
-        numero: 0,
-        src: null
-      }, {
-        numero: 1,
-        src: null
-      }, {
-        numero: 2,
-        src: null
-      }, {
-        numero: 3,
-        src: null
-      }, {
-        numero: 4,
-        src: null
-      }, {
-        numero: 5,
-        src: null
-      }, {
-        numero: 6,
-        src: null
-      }, {
-        numero: 7,
-        src: null
-      }, {
-        numero: 8,
-        src: null
-      }, {
-        numero: 9,
-        src: null
-      }, {
-        numero: 10,
-        src: null
-      }, {
-        numero: 11,
-        src: null
-      }, {
-        numero: 12,
-        src: null
-      }, {
-        numero: 13,
-        src: null
-      }, {
-        numero: 14,
-        src: null
-      }, {
-        numero: 15,
-        src: null
-      }, {
-        numero: 16,
-        src: null
-      }, {
-        numero: 17,
-        src: null
-      }, {
-        numero: 18,
-        src: null
-      }, {
-        numero: 19,
-        src: null
-      }, {
-        numero: 20,
-        src: null
-      }, {
-        numero: 21,
-        src: null
-      }, {
-        numero: 22,
-        src: null
-      }, {
-        numero: 23,
-        src: null
-      }, {
-        numero: 24,
-        src: null
-      }, {
-        numero: 25,
-        src: null
-      }, {
-        numero: 26,
-        src: null
-      }, {
-        numero: 27,
-        src: null
-      }, {
-        numero: 28,
-        src: null
-      }, {
-        numero: 29,
-        src: null
-      }, {
-        numero: 30,
-        src: null
-      }, {
-        numero: 31,
-        src: null
-      }, {
-        numero: 32,
-        src: null
-      }, {
-        numero: 33,
-        src: null
-      }, {
-        numero: 34,
-        src: null
-      }, {
-        numero: 35,
-        src: null
-      }, {
-        numero: 36,
-        src: null
-      }, {
-        numero: 37,
-        src: null
-      }, {
-        numero: 38,
-        src: null
-      }, {
-        numero: 39,
-        src: null
-      }, {
-        numero: 40,
-        src: null
-      }, {
-        numero: 41,
-        src: null
-      }, {
-        numero: 42,
-        src: null
-      }]]
+      bloque: null
     };
   },
   mounted: function mounted() {
@@ -8219,7 +5083,7 @@ __webpack_require__.r(__webpack_exports__);
 
     if (micart) {
       this.bloque = micart.sort(function (a, b) {
-        return a.identificador - b.identificador;
+        return a.n - b.n;
       });
     }
   },
@@ -8660,6 +5524,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         toastr__WEBPACK_IMPORTED_MODULE_1___default.a.info("No debe existir bloques vacios entre seleccion", "GridsTarters:");
       } else {
         if (this.cart.length === Number(this.filas.length * this.columnas.length)) {
+          var ordenado = this.cart.sort(function (a, b) {
+            return a.n - b.n;
+          });
+          this.$store.commit("setCart", ordenado);
           window.location = "/confirm-payment";
         } else {
           toastr__WEBPACK_IMPORTED_MODULE_1___default.a.info("Debe ser una seleccion simetrica", "GridsTarters:");
@@ -69078,12 +65946,32 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-sm-12 col-md-4" }, [
-        _c("h2", { staticClass: "subtitleadmin" }, [_vm._v("Total income")]),
+        _c("h2", { staticClass: "subtitleadmin" }, [
+          _vm._v("Total block income")
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "home-card" }, [
-          _c("strong", [
-            _vm._v(_vm._s(Number(_vm.blocks * 5 + _vm.grids * 250)) + "$")
-          ])
+          _c("strong", [_vm._v(_vm._s(_vm.totalincome) + "$")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-12 col-md-4" }, [
+        _c("h2", { staticClass: "subtitleadmin" }, [
+          _vm._v("Total grid income")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "home-card" }, [
+          _c("strong", [_vm._v(_vm._s(_vm.totalgridincome) + "$")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-12 col-md-4" }, [
+        _c("h2", { staticClass: "subtitleadmin" }, [
+          _vm._v("Gridstarters rate")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "home-card" }, [
+          _c("strong", [_vm._v(_vm._s(_vm.rate) + "$")])
         ])
       ])
     ])
@@ -69556,6 +66444,39 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "home-card" }, [
+              _c("div", { staticClass: "flexi" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-date",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.mostrar3()
+                      }
+                    }
+                  },
+                  [_vm._v("Edit tax")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("strong", [_vm._v(_vm._s(_vm.taxvalue.value) + "%")]),
+              _vm._v(" "),
+              _c("span", { staticStyle: { "padding-bottom": "25px" } }, [
+                _vm._v("Tax Value")
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "col-sm-12 col-md-4",
+            staticStyle: { "margin-bottom": "15px" }
+          },
+          [
+            _c("div", { staticClass: "home-card" }, [
               _c("strong", [_vm._v(_vm._s(_vm.blocks))]),
               _vm._v(" "),
               _c("span", [_vm._v("Sold blocks")])
@@ -69639,7 +66560,9 @@ var render = function() {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(grid.payment_method))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(grid.amount) + "$")])
+                    _c("td", [_vm._v(_vm._s(grid.amount) + "$")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(grid.tax) + "$")])
                   ])
                 }),
                 0
@@ -70031,6 +66954,113 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "cambiotax",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "exampleModalLongTitle",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "modal-dialog", attrs: { role: "document" } },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(5),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body px-5 py-4" }, [
+                  _c(
+                    "form",
+                    {
+                      attrs: {
+                        id: "form-comprobante",
+                        method: "POST",
+                        enctype: "multipart/form-data"
+                      },
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.editartax()
+                        }
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "nombreURL" } }, [
+                          _vm._v("Tax amount")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.taxvalue.value,
+                              expression: "taxvalue.value"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "number", name: "value" },
+                          domProps: { value: _vm.taxvalue.value },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.taxvalue,
+                                "value",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row justify-content-around" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn col-4",
+                            staticStyle: {
+                              border: "1.5px solid #32BAB0",
+                              color: "#32BAB0",
+                              "border-radius": "10px!important"
+                            },
+                            attrs: {
+                              "data-dismiss": "modal",
+                              "aria-label": "Close"
+                            }
+                          },
+                          [_vm._v(" Cancel")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "btn btn-upgrap col-3",
+                          attrs: {
+                            type: "submit",
+                            disabled: _vm.estadoproceso
+                          },
+                          domProps: {
+                            value: _vm.estadoproceso ? "Processing" : "Save"
+                          }
+                        })
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
       _vm.retiroSelected
         ? _c(
             "div",
@@ -70050,7 +67080,7 @@ var render = function() {
                 { staticClass: "modal-dialog", attrs: { role: "document" } },
                 [
                   _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(5),
+                    _vm._m(6),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body" }, [
                       _c(
@@ -70113,7 +67143,7 @@ var render = function() {
                             })
                           ]),
                           _vm._v(" "),
-                          _vm._m(6),
+                          _vm._m(7),
                           _vm._v(" "),
                           _c("div", { staticClass: "flexi-btn-form" }, [
                             _c("input", {
@@ -70168,7 +67198,7 @@ var render = function() {
                       [
                         _c("div", { staticClass: "updateFoto2" }),
                         _vm._v(" "),
-                        _vm._m(7)
+                        _vm._m(8)
                       ]
                     ),
                     _vm._v(" "),
@@ -70259,7 +67289,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Payment Method")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Amount")])
+        _c("th", [_vm._v("Amount")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Tax")])
       ])
     ])
   },
@@ -70360,6 +67392,38 @@ var staticRenderFns = [
             attrs: { id: "exampleModalLongTitle" }
           },
           [_c("strong", [_vm._v("Block amount")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "close",
+            attrs: {
+              type: "button",
+              "data-dismiss": "modal",
+              "aria-label": "Close"
+            }
+          },
+          [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "modal-header", staticStyle: { border: "none" } },
+      [
+        _c(
+          "h5",
+          {
+            staticClass: "modal-title  w-100 text-center ",
+            attrs: { id: "exampleModalLongTitle" }
+          },
+          [_c("strong", [_vm._v("Tax Value")])]
         ),
         _vm._v(" "),
         _c(
@@ -71698,6 +68762,7 @@ var render = function() {
                                     : "",
                                   attrs: {
                                     value: {
+                                      n: columna.n,
                                       identificador:
                                         String(index) + String(columna.numero),
                                       fila: index,
@@ -71707,10 +68772,7 @@ var render = function() {
                                     },
                                     id: columna.src
                                       ? ""
-                                      : "bloque-" +
-                                        fila[index].numero +
-                                        "-" +
-                                        columna.numero
+                                      : "bloque-" + index + "-" + columna.numero
                                   }
                                 })
                               }),

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class AccountRegisters extends Model
 {
     protected $fillable = [
-        'user_banks_id','transaction_id','payment_method','amount','type','size',
+        'user_banks_id','transaction_id','payment_method','amount','type','size','tax',
     ];
 
     public function bank(){

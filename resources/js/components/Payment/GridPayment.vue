@@ -42,10 +42,12 @@
         computed: {
            matrizdin(){
                var matemp=[];
+               var n=0;
                for (let index = 0; index < Number(this.filas); index++) {
                    var filatem = [];
                    for (let j = 0; j < Number(this.columns); j++) {
-                       filatem.push({numero:j,src:null});
+                       filatem.push({numero:j,src:null,n:n});
+                       n++;
                    }
                    matemp.push(filatem);
                    

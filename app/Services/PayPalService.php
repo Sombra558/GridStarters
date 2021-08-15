@@ -77,6 +77,7 @@ class PayPalService
         $approve = $orderLinks->where('rel', 'approve')->first();
         $cart = json_decode($request['cart']);
         $blockvalue=ConfiguracionPublica::where('nombre','block')->first();
+        $taxvalue=ConfiguracionPublica::where('nombre','tax')->first();
         $matriz=Grip::find($request['matriz_id']);
         
         $aumentox=600/$request['column'];
@@ -224,6 +225,8 @@ class PayPalService
             $myImg=session()->get('myImg');
             $matriz=session()->get('matriz');
             $blockvalue=ConfiguracionPublica::where('nombre','block')->first();
+            $taxvalue=ConfiguracionPublica::where('nombre','tax')->first();
+            $impuestoo=$taxvalue->value/100;
             for ($a=0; $a < $myblocks->count(); $a++) { 
 
                     $myblocks[$a]->fragmento = $myImg[$a]["path"];
@@ -239,12 +242,15 @@ class PayPalService
             }
             $userbank=UserBank::where('user_id',$matriz->user_id)->first();
             $positivo= session()->get('column')*session()->get('fila');
+            $transactioncompleta=$positivo*$blockvalue->value;
+            $tax=$transactioncompleta*$impuestoo;
             if ($userbank) {
-                $userbank->available=$userbank->available+$positivo*$blockvalue->value;
+                $userbank->available=$userbank->available + $transactioncompleta-$tax;
                 $userbank->save();
                 AccountRegisters::create([
                     'user_banks_id' =>$userbank->id,
-                    'amount' => $positivo*$blockvalue->value,
+                    'amount' => $transactioncompleta-$tax,
+                    'tax' => $tax,
                     'type' => "sold",
                     'transaction_id' => $transactionId,
                     'payment_method' =>  'Paypal',
@@ -253,13 +259,14 @@ class PayPalService
             }else{
                 $new=UserBank::create([
                     'user_id' =>$matriz->user_id,
-                    'available' => $positivo*$blockvalue->value,
+                    'available' => $transactioncompleta-$tax,
                     
                     'withdrawn' =>   0,
                 ]);
                 AccountRegisters::create([
                     'user_banks_id' =>$new->id,
-                    'amount' => $positivo*$blockvalue->value,
+                    'amount' => $transactioncompleta-$tax,
+                    'tax' => $tax,
                     'type' => "sold",
                     'transaction_id' => $transactionId,
                     'payment_method' =>  'Paypal',

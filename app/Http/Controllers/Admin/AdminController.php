@@ -19,7 +19,9 @@ class AdminController extends Controller
     {
         $totalblock=Bloque::all()->count();
         $totalgrid=Grip::all()->count();
-        return view('Admin.Home.index',compact('totalblock','totalgrid'));
+        $gridsales=PurchasesHistory::where('descripcion','Grid purchase')->get()->load(['user']);
+        $sales=AccountRegisters::all();
+        return view('Admin.Home.index',compact('totalblock','totalgrid','sales','gridsales'));
     }
     public function public()
     {
@@ -50,6 +52,7 @@ class AdminController extends Controller
         $blockvalue=ConfiguracionPublica::where('nombre','block')->first();
         $gridvalue=ConfiguracionPublica::where('nombre','grid')->first();
         $retirovalue=ConfiguracionPublica::where('nombre','retiro')->first();
+        $taxvalue=ConfiguracionPublica::where('nombre','tax')->first();
         $users=User::all()->where('id','!=',1);
         $totalblock=Bloque::all()->count();
         $totalgrid=Grip::all()->count();
@@ -60,7 +63,7 @@ class AdminController extends Controller
             return $q->with('user');
         }]);
        
-        return view('Admin.Retiros.Retiros',compact('blockvalue','gridvalue','retirovalue','totalblock','totalgrid','accountregistersolds','accountretirosregisters'));
+        return view('Admin.Retiros.Retiros',compact('blockvalue','gridvalue','taxvalue','retirovalue','totalblock','totalgrid','accountregistersolds','accountretirosregisters'));
     }
     public function verificar(Request $request,$id)
     {

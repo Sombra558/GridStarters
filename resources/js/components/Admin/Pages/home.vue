@@ -16,9 +16,21 @@
             </div>
         </div>
         <div class="col-sm-12 col-md-4">
-            <h2  class="subtitleadmin">Total income</h2>
+            <h2  class="subtitleadmin">Total block income</h2>
             <div class="home-card">
-                <strong>{{Number(blocks*5 + grids*250)}}$</strong>
+                <strong>{{totalincome}}$</strong>
+            </div>
+        </div>
+         <div class="col-sm-12 col-md-4">
+            <h2  class="subtitleadmin">Total grid income</h2>
+            <div class="home-card">
+                <strong>{{totalgridincome}}$</strong>
+            </div>
+        </div>
+         <div class="col-sm-12 col-md-4">
+            <h2  class="subtitleadmin">Gridstarters rate</h2>
+            <div class="home-card">
+                <strong>{{rate}}$</strong>
             </div>
         </div>
     </div>
@@ -29,7 +41,30 @@
 <script>
     export default {
         name:"admin-home",
-        props:['blocks','grids']
+        props:['blocks','grids','sales','gridsales'],
+        computed: {
+            totalincome() {
+                var pre=0;
+                this.sales.forEach(element => {
+                    pre=pre+element.amount;
+                });
+                return pre; 
+            },
+            totalgridincome() {
+                var pru=0;
+                this.gridsales.forEach(element => {
+                    pru=pru+element.amount;
+                });
+                return pru; 
+            },
+            rate() {
+                var pro=0;
+                this.sales.forEach(element => {
+                    pro=pro+element.tax;
+                });
+                return pro; 
+            }
+        },
     }
 </script>
 

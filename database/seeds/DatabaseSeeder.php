@@ -28,7 +28,10 @@ class DatabaseSeeder extends Seeder
             'value' => 50,
             'nombre' => 'retiro',
         ]);
-        
+        ConfiguracionPublica::create([
+            'value' => 5,
+            'nombre' => 'tax',
+        ]);
         PaymentPlatform::create([
             'name' => 'PayPal',
             'image' => 'img/payment-platforms/paypal.jpg',

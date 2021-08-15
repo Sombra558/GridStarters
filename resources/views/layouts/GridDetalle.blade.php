@@ -872,7 +872,7 @@
                                             </div>
                                             <div class="col-6">
                                                     <h5 class="text-detalle">AVAILABLE</h5>
-                                                    <P  class="text-detalle-2">{{1075 - $grip->bloques->count()}}</P>
+                                                    <P  class="text-detalle-2">{{$grip->columns*$grip->filas - $grip->bloques->count()}}</P>
                                             </div>
                                         </div>
                                 </li>

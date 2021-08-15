@@ -29,6 +29,15 @@
             </div>
             
         </div>
+         <div style="margin-bottom:15px" class="col-sm-12 col-md-4">
+       
+            <div class="home-card">
+                <div class="flexi"><button class="btn btn-date" @click.prevent="mostrar3()">Edit tax</button></div>
+                <strong>{{taxvalue.value}}%</strong>
+                <span style="padding-bottom:25px">Tax Value</span>
+            </div>
+            
+        </div>
         <div style="margin-bottom:15px" class="col-sm-12 col-md-4">
           
             <div class="home-card">
@@ -59,6 +68,7 @@
                     <th>Transaction's ID</th>
                     <th>Payment Method</th>
                     <th>Amount</th>
+                    <th>Tax</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -68,6 +78,7 @@
                     <td>{{grid.payment_method}}</td>
                  
                     <td>{{grid.amount}}$</td>
+                    <td>{{grid.tax}}$</td>
                 </tr>
                
                 </tbody>
@@ -179,6 +190,34 @@
                             </div>
                         </div>
                 </div>
+                <div class="modal fade" id="cambiotax" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header" style="border:none">
+                                <h5 class="modal-title  w-100 text-center "  id="exampleModalLongTitle"> <strong>Tax Value</strong></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body px-5 py-4">
+                                <form @submit.prevent="editartax()" id="form-comprobante" method="POST" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label for="nombreURL">Tax amount</label>
+                                        <input type="number" class="form-control" v-model="taxvalue.value" name="value">
+                                    </div>
+                                   
+                                     <div class="row justify-content-around"> 
+                                        <button class="btn col-4" style="border: 1.5px solid #32BAB0; color:#32BAB0; border-radius: 10px!important;"  data-dismiss="modal" aria-label="Close"> Cancel</button>
+                                       
+                                        <input type="submit" :disabled="estadoproceso" class="btn btn-upgrap col-3" :value="estadoproceso ? 'Processing' : 'Save'">
+                                    </div>
+                                    
+                                </form>
+                            </div>
+
+                            </div>
+                        </div>
+                </div>
             <div v-if="retiroSelected" class="modal fade" id="checkdetail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -261,7 +300,7 @@ import { mapGetters } from "vuex";
 import Search from './Utils/search4';
     export default {
         name:"admin-retiros",
-        props:['blocks','grids','solds','retiros','gridvalue','blockvalue','retirovalue'],
+        props:['blocks','grids','solds','retiros','gridvalue','blockvalue','retirovalue','taxvalue'],
         data() {
             return {
                  secondtag: "Solds",
@@ -314,6 +353,16 @@ import Search from './Utils/search4';
                     console.log(err);
                 });
             },
+             editartax(){
+                var url="/admin/modificar-configuracion/"+this.taxvalue.id;
+                axios.put(url,{
+                    value:this.taxvalue.value,
+                }).then((result) => {
+                    window.location.reload();
+                }).catch((err) => {
+                    console.log(err);
+                });
+            },
             bannerChangeCoverPicture(){
                 document.getElementById("CoverChangeInput").click(); 
             },
@@ -344,6 +393,11 @@ import Search from './Utils/search4';
             mostrar2(){
                 setTimeout(function(){
                 $("#cambiolimiteblock").modal("show");
+                },200)
+            },
+             mostrar3(){
+                setTimeout(function(){
+                $("#cambiotax").modal("show");
                 },200)
             },
              mostrarmodal(retiro){
