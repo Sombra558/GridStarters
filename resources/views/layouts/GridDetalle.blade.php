@@ -823,7 +823,7 @@
             <div class="container-fluid">
                 
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img width="171px" heigth="128px" src="/img/logo.png" alt="">
+                    <img width="171px" heigth="128px" src="/img/logo.svg" alt="">
                     
                 </a>
                 <div>

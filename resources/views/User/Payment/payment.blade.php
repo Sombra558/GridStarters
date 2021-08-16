@@ -15,7 +15,7 @@
                     </form>
                 </div>
                 <div class="col-md-6 padre-pago-descripcion">
-                    <a href="/grid-confirm-payment"><img  width="100%" src="/img/hora-de-impulsar-tu-negocio.png" alt="hora-de-impulsar-tu-negocio"></a>
+                    <a href="/grid-confirm-payment"><img  width="100%" src="/img/hora-de-impulsar-tu-negocio.svg" alt="hora-de-impulsar-tu-negocio"></a>
                     <div class="metod-pay">
                         <h3>Payment methods</h3>
                         <img src="/img/PayPal-Logo.png" alt="" srcset="">

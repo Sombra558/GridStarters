@@ -69164,7 +69164,13 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(Number(1075 - grid.bloques.length)))]),
+              _c("td", [
+                _vm._v(
+                  _vm._s(
+                    Number(grid.columns * grid.filas - grid.bloques.length)
+                  )
+                )
+              ]),
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(grid.bloques.length))]),
               _vm._v(" "),
