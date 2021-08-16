@@ -108,7 +108,7 @@
         },
         methods: {
             cancel(){
-                window.location= `/grid/${this.bloque[0].url}`;
+                window.location= `/grid/${this.bloque[0].nombreURL}`;
             },
             bannerChangeCoverPicture(){
                 document.getElementById("CoverChangeInput").click(); 

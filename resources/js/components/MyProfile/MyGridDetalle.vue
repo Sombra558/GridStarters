@@ -213,8 +213,11 @@
     }
     .color{
         background-color: #FBF9FF;
+     
         height: 25px;
-        width:25px;
+        width:20px;
+        max-height: 25px;
+        max-width:20px;
            background-repeat: no-repeat;
         background-size: 100% 100%;
         border-top: 1px solid grey;
