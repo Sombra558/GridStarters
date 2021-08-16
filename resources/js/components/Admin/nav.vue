@@ -10,7 +10,7 @@
             </div>
         </div>
         <ul class="items-de-sidebar p-0">
-                <li class="row mx-0 justify-content-center">
+                <li :class="ruta==='admin' ? 'row mx-0 justify-content-center actives' : 'row mx-0 justify-content-center' ">
                     <div style="width:165px" class="col-ms-12">
                         <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M17.839 5.65899C18.509 6.17799 18.92 6.94899 18.99 7.78799L19 7.98899V16.098C19 18.188 17.349 19.888 15.28 19.998H13.29C12.339 19.979 11.57 19.239 11.5 18.309L11.49 18.168V15.309C11.49 14.998 11.259 14.739 10.95 14.688L10.86 14.678H8.189C7.87 14.688 7.61 14.918 7.57 15.218L7.56 15.309V18.159C7.56 18.218 7.549 18.288 7.54 18.338L7.53 18.359L7.519 18.428C7.4 19.279 6.7 19.928 5.83 19.989L5.7 19.998H3.91C1.82 19.998 0.11 18.359 0 16.298V7.98899C0.009 7.13799 0.38 6.34799 1 5.79799L7.23 0.787988C8.5 -0.221012 10.28 -0.261012 11.589 0.667988L11.75 0.787988L17.839 5.65899ZM17.599 16.258L17.61 16.098V7.99799C17.599 7.56899 17.42 7.16799 17.11 6.86899L16.98 6.75799L10.88 1.87799C10.12 1.26799 9.04 1.23899 8.24 1.76799L8.089 1.87799L2.009 6.77899C1.66 7.03799 1.45 7.42799 1.4 7.83799L1.389 7.99799V16.098C1.389 17.428 2.429 18.518 3.75 18.598H5.7C5.92 18.598 6.11 18.449 6.139 18.239L6.16 18.059L6.17 18.008V15.309C6.17 14.239 6.99 13.369 8.04 13.288H10.86C11.929 13.288 12.799 14.109 12.88 15.159V18.168C12.88 18.378 13.03 18.559 13.23 18.598H15.089C16.429 18.598 17.519 17.569 17.599 16.258Z" fill="#0F0426"/>
@@ -20,7 +20,7 @@
                     
                    
                 </li>
-            <li class="row justify-content-center mx-0">
+            <li :class="ruta==='admin/public-content' ? 'row mx-0 justify-content-center actives' : 'row mx-0 justify-content-center' ">
                <div style="width:165px"  class="col-ms-12">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="Iconly/Light/Image">
@@ -34,7 +34,7 @@
                         <a href="/admin/public-content" class="pl-3">Public Content</a>
                     </div>
                </li>
-            <li class="row justify-content-center mx-0">
+            <li :class="ruta==='admin/users' ? 'row mx-0 justify-content-center actives' : 'row mx-0 justify-content-center'" >
                 <div style="width:165px"  class="col-ms-12">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="Iconly/Light/3 User">
@@ -52,7 +52,7 @@
                 </div>
                 </li>
             
-            <li class="row justify-content-center mx-0">
+            <li :class="ruta==='admin/sales' ? 'row mx-0 justify-content-center actives' : 'row mx-0 justify-content-center' ">
                 <div style="width:165px"  class="col-ms-12">
                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M16.2777 12.8892C16.9524 12.8892 17.5188 13.446 17.4156 14.1123C16.8103 18.0323 13.4545 20.9429 9.40717 20.9429C4.92928 20.9429 1.2998 17.3134 1.2998 12.8365C1.2998 9.14812 4.10191 5.71233 7.25665 4.93549C7.93454 4.76812 8.62928 5.24496 8.62928 5.94286C8.62928 10.6713 8.78823 11.8944 9.68612 12.5597C10.584 13.225 11.6398 12.8892 16.2777 12.8892Z" stroke="#0F0426" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -64,7 +64,7 @@
                 </div>
                 </li>
 
-            <li class="row justify-content-center mx-0">
+            <li :class="ruta==='admin/reports' ? 'row mx-0 justify-content-center actives' : 'row mx-0 justify-content-center' ">
                <div style="width:165px"  class="col-ms-12">
                 <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5.24512 13.7815L8.23825 9.89131L11.6524 12.5732L14.5815 8.79291" stroke="#0F0426" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -76,7 +76,7 @@
                </div>
                 </li>
 
-                 <li class="row justify-content-center mx-0">
+                 <li :class="ruta==='admin/withdrawal' ? 'row mx-0 justify-content-center actives' : 'row mx-0 justify-content-center' ">
                     <div style="width:165px"  class="col-ms-12">
                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21.875 5.46875H3.125C2.69353 5.46875 2.34375 5.81853 2.34375 6.25V18.75C2.34375 19.1815 2.69353 19.5312 3.125 19.5312H21.875C22.3065 19.5312 22.6562 19.1815 22.6562 18.75V6.25C22.6562 5.81853 22.3065 5.46875 21.875 5.46875Z" stroke="#0F0426" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -88,7 +88,7 @@
                 <a href="/admin/withdrawal" class="pl-3">Withdrawal</a>
                     </div>
                 </li>
-                   <li class="row mx-0 justify-content-center">
+                   <li :class="ruta==='admin/public-content' ? 'row mx-0 justify-content-center actives' : 'row mx-0 justify-content-center' ">
                        <a class="text-white salir" href="/logout"
                             @click.prevent="logout()">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="2.5em" height="2.5em" style="-ms-transform: rotate(180deg); -webkit-transform: rotate(180deg); transform: rotate(180deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g class="icon-tabler" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2v-2"/><path d="M7 12h14l-3-3m0 6l3-3"/></g></svg>
@@ -105,7 +105,7 @@
 import { mapState } from "vuex";
     export default {
         name:"menu-lateral-estudiante",
-        props:['user'],
+        props:['user','ruta'],
         computed: {
          ...mapState(["stateMenu"]),
         },
@@ -127,6 +127,9 @@ import { mapState } from "vuex";
 </script>
 
 <style lang="scss" scoped>
+.actives a{
+    color:#30019B!important;
+}
     @media only screen and (max-width: 540px){
     .fondo{
         background: #FBF9FF;

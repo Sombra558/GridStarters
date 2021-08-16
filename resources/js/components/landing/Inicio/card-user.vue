@@ -8,7 +8,11 @@
                         </div>
                         <div style="margin-left: 10px" class="card-user-data">
                               <h3>{{user.user.name}}</h3>
-                              <strong>{{user.bloques.length}} sold</strong>
+                              <div class="d-flex justify-content-between">
+                                  <strong>{{user.bloques.length}} sold</strong>
+                                  <strong>@{{user.nombreURL}}</strong>
+                              </div>
+                              
                         </div>
                       
                     </div>

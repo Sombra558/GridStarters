@@ -844,7 +844,7 @@
 
         <main style="{{Request::is('register') ? '' : 'margin-top:80px;' }}">
         <div class="row">
-            <nav-admin-component :user="{{ Auth::user() != null ? Auth::user()->load('roles') : 0 }}" class="col-sm-3"></nav-admin-component>
+            <nav-admin-component ruta="{{Request::path()}}" :user="{{ Auth::user() != null ? Auth::user()->load('roles') : 0 }}" class="col-sm-3"></nav-admin-component>
             <div style="margin-top:41px;" class="col-sm-9">
                 @yield('content')
             </div>

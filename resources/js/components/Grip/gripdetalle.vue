@@ -7,18 +7,21 @@
                                             <div style="margin-left:8px; margin-top:5px;"><img v-if="grip.user.img" class="col avatar" :src="'/storage/'+grip.user.img" alt="user-avatar"><img v-else class="col avatar" src="/img/user/user_min.jpg" alt="user-avatar"></div>
                                             <div style="margin-left:8px; margin-top:5px;">
                                                 <strong style="margin:0px;" class="username">{{grip.user.name}}</strong>
-                                                <p style="margin:0px;" class="premium">Premium</p>     
+                                                <p style="margin:0px;" class="premium">Premium</p>   
+                                                     
                                             </div>
+                                            <div style="margin-top:5px; margin-left:15px;">
+                                                         <a class="btn btn-upgrap14" href="#" @click.prevent="limpiar()" >clear selection</a>
+                                                </div>  
                                         </div>
-                                        <div style="margin-top:5px;" class="col-sm-12 col-md-3 d-flex justify-content-md-end justify-content-xl-end"><a class="btn btn-upgrap14" href="#" @click.prevent="limpiar()" >
-clear selection</a></div>
+                                   
                                         <div class="col-sm-12 col-md-6 d-flex justify-content-md-end justify-content-xl-end">
                                             <p class="grids-descripcion"><strong class="resalte">{{Number(grip.columns*grip.filas)}}</strong> Blocks. Leave your mark on the world buying a digital space <strong class="resalte">forever</strong></p>
                                         </div>
                         </div>
                 </div>
             </div>
-             <div class="col-sm-12">
+             <div  style="margin-top:10px;" class="col-sm-12">
                  <div class="container-fluid">            
                      <div style="width:100%!important;" class="d-flex justify-content-center m-0" >
                                 <table style="padding:0px;margin:0px;"  :class="Number(grip.columns)<24 ? 'table table-responsive': 'table table-responsive'">

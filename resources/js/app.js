@@ -148,7 +148,19 @@ const store = new Vuex.Store({
         filteredUserGrids(state) {
             let grids = state.usergrids;
             if (state.filterUserGrids.user.length > 1) {
-                grids = grids.filter(r => r.user.name.toLowerCase().includes(state.filterUserGrids.user.toLowerCase()));
+                grids = grids.filter(r => {
+                    var rutauser='@'+r.nombreURL;
+                
+                    if (r.user.name.toLowerCase().includes(state.filterUserGrids.user.toLowerCase())
+                    ||
+                    r.user.email.toLowerCase().includes(state.filterUserGrids.user.toLowerCase())
+                    ||
+                    rutauser.toLowerCase().includes(state.filterUserGrids.user.toLowerCase())
+                    ) {  
+                        return r;  
+                    }
+                   
+                    });
             }
             return grids;
         },

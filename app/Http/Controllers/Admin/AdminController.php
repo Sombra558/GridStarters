@@ -17,6 +17,7 @@ class AdminController extends Controller
 {
     public function index()
     {
+      
         $totalblock=Bloque::all()->count();
         $totalgrid=Grip::all()->count();
         $gridsales=PurchasesHistory::where('descripcion','Grid purchase')->get()->load(['user']);
