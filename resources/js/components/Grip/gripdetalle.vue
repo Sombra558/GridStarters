@@ -36,7 +36,7 @@
                                             <tbody>
                                                 <tr>
                                                 <th >
-                                                    <drag-selector v-bind:style="{cursor: selectedCursor}" v-model="checkedList" @change="handleDragSelectorChange" class="drag-selector">
+                                                    <drag-selector v-model="checkedList" @change="handleDragSelectorChange" class="drag-selector">
                                                                 <div :style="'min-width:'+Number(grip.columns*16)+'px!important; margin-left:'+Number(grip.columns*0)+'px!important;'" class="d-flex maximizando" v-for="(fila,index) in matriz" :key="'fila'+index">
                                                                     
                                                                         <drag-selector-item v-for="(columna,k) in fila" :style="columna.src ? 'background-image: url(/storage-public/'+columna.src+');' : ''" :key="'columna'+k"
@@ -258,11 +258,11 @@ label{
     }
     .color{
         background-color: #FBF9FF;
-        margin:2px;
-        height: 14px;
-        width:14px!important;
-        max-height: 14px;
-        max-width:14px!important;
+        margin:1.2px;
+        height: 16px;
+        width:16px!important;
+        max-height: 16px;
+        max-width:16px!important;
         background-repeat: no-repeat;
         background-size: 100% 100%;
         border: 1px solid grey;  
