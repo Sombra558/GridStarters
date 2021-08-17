@@ -197,10 +197,9 @@ import 'toastr/build/toastr.min.css';
     }
     .btn-limit{
         width: 65px;
-        height: 22px;
+        height: 27px;
         background-color: #5F01F5;
         color: #ffffff;
-        padding-bottom: 8px;
         border-radius: 4px;
        
         font-size: 12px;
