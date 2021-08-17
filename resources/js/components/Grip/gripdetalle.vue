@@ -37,12 +37,12 @@
                                                 <tr>
                                                 <th >
                                                     <drag-selector v-bind:style="{cursor: selectedCursor}" v-model="checkedList" @change="handleDragSelectorChange" class="drag-selector">
-                                                                <div :style="'min-width:'+Number(grip.columns*36)+'px!important; margin-left:'+Number(grip.columns*0)+'px!important;'" class="d-flex maximizando" v-for="(fila,index) in matriz" :key="'fila'+index">
+                                                                <div :style="'min-width:'+Number(grip.columns*16)+'px!important; margin-left:'+Number(grip.columns*0)+'px!important;'" class="d-flex maximizando" v-for="(fila,index) in matriz" :key="'fila'+index">
                                                                     
                                                                         <drag-selector-item v-for="(columna,k) in fila" :style="columna.src ? 'background-image: url(/storage-public/'+columna.src+');' : ''" :key="'columna'+k"
                                                                         
                                                                         :value="{url:columna.url,src:columna.original,n:columna.n,identificador:String(index)+String(columna.numero),fila:index,columna:columna.numero,matriz_id:grip.id,nombreURL:grip.nombreURL}" 
-                                                                        class="col color" 
+                                                                        class="color" 
                                                                        :id="columna.src ? '' : 'bloque-'+index+'-'+columna.numero">
                                                     
                                                                         </drag-selector-item>
@@ -65,10 +65,10 @@
                                 </button>
                             </div>
                             <div class="modal-body">
+                                 <a :href="blockselected.url" target="_blank" rel="noopener noreferrer">
                                 <img :src="'/storage/'+blockselected.src" width="100%" height="250px" alt="">
-                                <div class="mt-2 d-flex justify-content-center">
-                                    <a class="btn btn-upgrap14" :href="blockselected.url" target="_blank" rel="noopener noreferrer">Ir al enlace</a>
-                                </div>
+                                 </a>
+                               
                                 
                             </div>
 
@@ -259,10 +259,10 @@ label{
     .color{
         background-color: #FBF9FF;
         margin:2px;
-        height: 25px;
-        width:20px;
-        max-height: 25px;
-        max-width:20px;
+        height: 14px;
+        width:14px!important;
+        max-height: 14px;
+        max-width:14px!important;
         background-repeat: no-repeat;
         background-size: 100% 100%;
         border: 1px solid grey;  

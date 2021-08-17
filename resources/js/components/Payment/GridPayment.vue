@@ -1,23 +1,63 @@
 <template>
     <div>
         <input type="hidden" name="matriz" :value="JSON.stringify(matrizdin)">
-          <input type="hidden" name="value" :value="precio">
-        <div class="form-groud">
-            <label for="Columns">Columns</label>
-            <input class="form-control" type="text" name="columns" required v-model="columns">
-        </div> 
-        <div class="form-groud">
-            <label for="Filas">Rows</label>
-            <input class="form-control" type="text" name="filas" required v-model="filas">
-           
-        </div> 
+        <input type="hidden" name="value" :value="precio">
+        <input v-if="planSelected" type="hidden" :value="planSelected.columns" name="columns" >
+        <input v-if="planSelected" type="hidden" :value="planSelected.filas" name="filas" >
         <div>
-            <h3>Resumen:</h3>
-            <p>Grid Value: {{gridvalue}}$</p>
-            <p>Blocks: {{ Number(columns*filas)}}</p>
-            <p>Total: {{precio}}$</p>
+               <div class="row maxii">
+              <div v-for="plan in planes" :key="plan.id"  class="col-sm-12 col-md-12 col-lg-6">
+                  <div :class="plan.id===planSelected.id ? 'card-plan planofer' : 'card-plan'">
+                      <div class="d-flex justify-content-between">
+                          <div>
+                              <input  style="margin-left: 5px;" type="radio" v-model="planSelected" name="plan" :value="plan"
+                        checked>
+                        <label class="plan-name" for="plan">{{plan.name}}</label>
+                        <p class="plan-precio2" v-if="plan.estado===1">USD 14,99</p>
+                        <p class="plan-precio">USD {{plan.precio}} {{plan.estado===1 ? 'NOW' : ''}}</p>
+                          </div>
+                          <img v-if="plan.src" :src="plan.src" alt="plan src">
+                          <span  v-if="plan.estado===1" class="btn btn-limit">Limited</span>
+                      </div>
+                       
+                        
+                        <p class="plan-subname">{{plan.name}} include</p>
+                        <p style="margin-left: 20px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 0.5C3.875 0.5 0.5 3.875 0.5 8C0.5 12.125 3.875 15.5 8 15.5C12.125 15.5 15.5 12.125 15.5 8C15.5 3.875 12.125 0.5 8 0.5ZM11.15 6.725L7.55 10.325C7.25 10.625 6.8 10.625 6.5 10.325L4.85 8.675C4.55 8.375 4.55 7.925 4.85 7.625C5.15 7.325 5.6 7.325 5.9 7.625L7.025 8.75L10.1 5.675C10.4 5.375 10.85 5.375 11.15 5.675C11.45 5.975 11.45 6.425 11.15 6.725Z" fill="#5F01F5"/>
+                        </svg>
+                        {{Number(plan.columns*plan.filas)}} blocks</p>
+                  </div>
+               
+              </div>
+            </div>
         </div>
-         <input :disabled="validando" style="margin-top:65px" class="btn btn-cancel" type="submit" value="Buy Grid">
+        <div v-if="planSelected">
+           
+                 <div class="resumen-card">
+                    <h3 class="resumen-order">Order summary</h3>
+                    <div style="margin-left:26px;margin-right:26px;" class="d-flex justify-content-between">
+                        <span>Grid Value:</span>
+                        <span>{{planSelected.precio}}$</span>
+                    </div>
+                    <div style="margin-left:26px;margin-right:26px;" class="d-flex justify-content-between">
+                        <span>Blocks:</span>
+                        <span>{{ Number(planSelected.columns*planSelected.filas)}} UND</span>
+                    </div>
+                     <div style="margin-left:26px;margin-right:26px;" class="d-flex justify-content-between">
+                        <span>Total:</span>
+                         <span>{{planSelected.precio}}$</span>
+                    </div>
+                    
+                    <div class="centradiv">
+                         <input  style="margin-top:65px" class="btn btn-order" type="submit" value="Place order">
+                    </div>
+                    
+                </div>
+          
+
+        </div>
+       
+        
     </div>             
 </template>
 
@@ -26,13 +66,14 @@ import toastr from "toastr";
 import 'toastr/build/toastr.min.css';
     export default {
         name:'confirm-payment-grid',
-        props:['user','gridvalue'],
+        props:['user','gridvalue','planes'],
         data() {
             return {
                 lastFile: null,
                 columns:1,
                 filas:1,
                 estadoprocess:false,
+                planSelected:null,
                 grip:{
                     src:null,
                 },
@@ -46,14 +87,16 @@ import 'toastr/build/toastr.min.css';
          if (micart) {
            this.bloque=micart;
          }
+         this.planSelected=this.planes[0];
         },
         computed: {
            matrizdin(){
                var matemp=[];
                var n=0;
-               for (let index = 0; index < Number(this.filas); index++) {
+               if (this.planSelected!=null) {
+                 for (let index = 0; index < Number(this.planSelected.filas); index++) {
                    var filatem = [];
-                   for (let j = 0; j < Number(this.columns); j++) {
+                   for (let j = 0; j < Number(this.planSelected.columns); j++) {
                        filatem.push({numero:j,src:null,n:n});
                        n++;
                    }
@@ -61,14 +104,19 @@ import 'toastr/build/toastr.min.css';
                    
                }
 
+               }
+              
                return matemp;
            },
            precio(){
                var pre=0;
-               pre=Number(this.filas*this.columns)*this.gridvalue;
-               if (pre<0) {
-                   pre=pre*(-1);
+               if (this.planSelected!=null) {
+                   pre=Number(this.planSelected.precio);
+                    if (pre<0) {
+                        pre=pre*(-1);
+                    }
                }
+               
                return pre;
            },
            validando(){
@@ -133,6 +181,75 @@ import 'toastr/build/toastr.min.css';
 </script>
 
 <style lang="scss" scoped>
+    .centradiv{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .maxii{
+        width: 100%;
+        max-width: 451px;
+    }
+    .btn-limit{
+        width: 69px;
+        height: 22px;
+        background-color: #5F01F5;
+        color: #ffffff;
+        padding-bottom: 8px;
+        border-radius: 4px;
+        margin-right: 1px;
+        font-size: 12px;
+    }
+    .btn-order{
+        width: 100%;
+        max-width: 379px;
+        background-color: #5F01F5;
+        margin-bottom: 15px!important;
+        color: #ffffff;
+    }
+   
+    .resumen-order{
+        font-size: 17px;
+        margin-top: 22px;
+        margin-left: 26px;
+    }
+    .card-plan{
+        width: 107%;
+        margin-bottom: 20px;
+        max-height: 183px;
+        border-radius: 6px;
+        border: 1px solid #101521;
+    }
+    .plan-name{
+        color: #000000;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .plan-precio{
+        margin-left: 20px;
+        color: #5F01F5;
+        font-size: 16px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+     .plan-precio2{
+         margin-top: 0px;
+         margin-bottom: 0px;
+        margin-left: 20px;
+        text-decoration: line-through;
+        color: #000000;
+        font-size: 10px;
+    }
+    .planofer{
+        -webkit-box-shadow: 0px 4px 4px 0px #5F01F5; 
+box-shadow: 0px 4px 4px 0px #5F01F5;
+    }
+    .plan-subname{
+        color: #000000;
+        font-size: 14px;
+        font-weight: bold;
+        margin-left: 20px;
+    }
     .updateFoto{
         display: flex;
         justify-content: center;
@@ -176,6 +293,14 @@ import 'toastr/build/toastr.min.css';
                 margin-left: 15px;
             }
             }
+             .resumen-card{
+        width: 100%;
+        max-width: 451px;
+        margin-left:0px;
+        border: 1px solid #D1D1D1;
+        height: 234px;
+        border-radius: 6px;
+    }
 
      @media only screen and (max-width: 767px){
             .padre-content-position{
@@ -250,6 +375,15 @@ import 'toastr/build/toastr.min.css';
     }
     }   
      @media only screen and (min-width: 768px){
+          .resumen-card{
+        width: 100%;
+        max-width: 435px;
+        margin-left:0px;
+        border: 1px solid #D1D1D1;
+   
+        height: 234px;
+        border-radius: 6px;
+    }
             .padre-content-position{
                     display: flex;
                     justify-content: space-between;

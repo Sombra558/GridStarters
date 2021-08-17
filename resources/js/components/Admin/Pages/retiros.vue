@@ -11,6 +11,7 @@
             </div>
             
         </div>
+        <!--
          <div style="margin-bottom:15px" class="col-sm-12 col-md-4">
        
             <div class="home-card">
@@ -19,7 +20,7 @@
                 <span style="padding-bottom:25px">Grid Value</span>
             </div>
             
-        </div>
+        </div>-->
          <div style="margin-bottom:15px" class="col-sm-12 col-md-4">
        
             <div class="home-card">

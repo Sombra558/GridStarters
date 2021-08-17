@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Grip;
 use App\User;
 use App\ConfiguracionPublica;
+use App\Planes;
 class HomeController extends Controller
 {
     /**
@@ -55,8 +56,9 @@ class HomeController extends Controller
     public function paymentgrid()
     {
         $user= Auth::user()->load(['matriz']);
+        $planes=Planes::get();
         $gridvalue=ConfiguracionPublica::where('nombre','grid')->first();
-        return view('User.Payment.gridpayment',compact('user','gridvalue'));
+        return view('User.Payment.gridpayment',compact('user','gridvalue','planes'));
     }
     public function mygrid()
     {

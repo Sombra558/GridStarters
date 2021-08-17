@@ -2867,6 +2867,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -4924,17 +4925,58 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'confirm-payment-grid',
-  props: ['user', 'gridvalue'],
+  props: ['user', 'gridvalue', 'planes'],
   data: function data() {
     return {
       lastFile: null,
       columns: 1,
       filas: 1,
       estadoprocess: false,
+      planSelected: null,
       grip: {
         src: null
       },
@@ -4949,35 +4991,42 @@ __webpack_require__.r(__webpack_exports__);
     if (micart) {
       this.bloque = micart;
     }
+
+    this.planSelected = this.planes[0];
   },
   computed: {
     matrizdin: function matrizdin() {
       var matemp = [];
       var n = 0;
 
-      for (var index = 0; index < Number(this.filas); index++) {
-        var filatem = [];
+      if (this.planSelected != null) {
+        for (var index = 0; index < Number(this.planSelected.filas); index++) {
+          var filatem = [];
 
-        for (var j = 0; j < Number(this.columns); j++) {
-          filatem.push({
-            numero: j,
-            src: null,
-            n: n
-          });
-          n++;
+          for (var j = 0; j < Number(this.planSelected.columns); j++) {
+            filatem.push({
+              numero: j,
+              src: null,
+              n: n
+            });
+            n++;
+          }
+
+          matemp.push(filatem);
         }
-
-        matemp.push(filatem);
       }
 
       return matemp;
     },
     precio: function precio() {
       var pre = 0;
-      pre = Number(this.filas * this.columns) * this.gridvalue;
 
-      if (pre < 0) {
-        pre = pre * -1;
+      if (this.planSelected != null) {
+        pre = Number(this.planSelected.precio);
+
+        if (pre < 0) {
+          pre = pre * -1;
+        }
       }
 
       return pre;
@@ -10508,7 +10557,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".updateFoto[data-v-47fd6b9c] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 89px;\n  border-radius: 5px;\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  background-position: center center;\n}\n.updateFoto strong[data-v-47fd6b9c] {\n  width: 100%;\n  text-align: center;\n}\n.buy-tite[data-v-47fd6b9c] {\n  color: #5F01F5;\n  font-family: \"valera\";\n  font-size: 20px;\n  line-height: 2.6;\n  margin-top: 10px;\n  font-weight: 700;\n}\nform label[data-v-47fd6b9c], span[data-v-47fd6b9c] {\n  color: #0F0426;\n  font-family: \"Valera\";\n  font-size: 16px;\n  line-height: 1.08;\n  margin-top: 10px;\n  font-weight: 700;\n}\n.maxi[data-v-47fd6b9c] {\n  margin-left: 0px;\n}\n@media only screen and (max-width: 768px) {\n.maxi[data-v-47fd6b9c] {\n    margin-left: 15px;\n}\n}\n@media only screen and (max-width: 767px) {\n.padre-content-position[data-v-47fd6b9c] {\n    display: flex;\n    justify-content: space-between;\n    width: 100%;\n}\n.content-position[data-v-47fd6b9c]:first-child {\n    flex-basis: calc(50% - 2rem);\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 140px;\n    border-radius: 5px;\n}\n.content-position[data-v-47fd6b9c]:last-child {\n    flex-basis: calc(50% - 2rem);\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 140px;\n    border-radius: 5px;\n}\n.content-position label[data-v-47fd6b9c], span[data-v-47fd6b9c] {\n    font-family: \"valera\";\n    font-size: 14px;\n    margin-left: 15px;\n    font-weight: 700;\n}\n.preview[data-v-47fd6b9c] {\n    text-decoration: none;\n    background-color: #ffffff;\n    border: 1px solid #30019B;\n    color: #30019B;\n    font-family: \"valera\";\n    font-size: 16px;\n    max-width: 100px;\n    line-height: 2.08;\n    margin-top: 0px;\n    margin-top: 20px;\n    padding: 0px 20px;\n    font-weight: 700;\n    border-radius: 5px;\n}\n.padre-pago-descripcion[data-v-47fd6b9c] {\n    display: flex;\n    flex-direction: column-reverse;\n}\n.metod-pay h3[data-v-47fd6b9c] {\n    margin-top: 20px;\n    font-size: 18px;\n}\n.flexi-btn-form[data-v-47fd6b9c] {\n    display: flex;\n    justify-content: space-between;\n}\n.btn-grip[data-v-47fd6b9c] {\n    font-family: \"Valera\";\n    background-color: #30019B !important;\n    color: #ffffff !important;\n    flex-basis: calc(50% - 2rem);\n    width: 144px;\n    border-radius: 10px !important;\n}\n.btn-cancel[data-v-47fd6b9c] {\n    font-family: \"Valera\";\n    background-color: #0f04263f !important;\n    color: #ffffff !important;\n    flex-basis: calc(50% - 2rem);\n    width: 144px;\n    border-radius: 10px !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.padre-content-position[data-v-47fd6b9c] {\n    display: flex;\n    justify-content: space-between;\n    width: 100%;\n}\n.content-position[data-v-47fd6b9c]:first-child {\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 240px;\n    border-radius: 5px;\n}\n.content-position[data-v-47fd6b9c]:last-child {\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 240px;\n    border-radius: 5px;\n}\n.content-position label[data-v-47fd6b9c], span[data-v-47fd6b9c] {\n    font-family: \"valera\";\n    font-size: 16px;\n    font-weight: 700;\n}\n.preview[data-v-47fd6b9c] {\n    text-decoration: none;\n    background-color: #ffffff;\n    border: 1px solid #30019B;\n    color: #30019B;\n    font-family: \"valera\";\n    font-size: 16px;\n    max-width: 100px;\n    line-height: 2.08;\n    margin-top: 0px;\n    padding: 0px 20px;\n    font-weight: 700;\n    border-radius: 5px;\n}\n.padre-pago-descripcion[data-v-47fd6b9c] {\n    display: flex;\n    flex-direction: column;\n}\n.btn-grip[data-v-47fd6b9c] {\n    font-family: \"Valera\";\n    background-color: #30019B !important;\n    color: #ffffff !important;\n    width: 181px;\n    border-radius: 10px !important;\n}\n.btn-cancel[data-v-47fd6b9c] {\n    font-family: \"Valera\";\n    background-color: #0f04263f !important;\n    color: #ffffff !important;\n    width: 144px;\n    border-radius: 10px !important;\n}\n}", ""]);
+exports.push([module.i, ".centradiv[data-v-47fd6b9c] {\n  display: flex;\n  justify-content: center;\n  width: 100%;\n}\n.maxii[data-v-47fd6b9c] {\n  width: 100%;\n  max-width: 451px;\n}\n.btn-limit[data-v-47fd6b9c] {\n  width: 69px;\n  height: 22px;\n  background-color: #5F01F5;\n  color: #ffffff;\n  padding-bottom: 8px;\n  border-radius: 4px;\n  margin-right: 1px;\n  font-size: 12px;\n}\n.btn-order[data-v-47fd6b9c] {\n  width: 100%;\n  max-width: 379px;\n  background-color: #5F01F5;\n  margin-bottom: 15px !important;\n  color: #ffffff;\n}\n.resumen-order[data-v-47fd6b9c] {\n  font-size: 17px;\n  margin-top: 22px;\n  margin-left: 26px;\n}\n.card-plan[data-v-47fd6b9c] {\n  width: 107%;\n  margin-bottom: 20px;\n  max-height: 183px;\n  border-radius: 6px;\n  border: 1px solid #101521;\n}\n.plan-name[data-v-47fd6b9c] {\n  color: #000000;\n  font-size: 16px;\n  font-weight: bold;\n}\n.plan-precio[data-v-47fd6b9c] {\n  margin-left: 20px;\n  color: #5F01F5;\n  font-size: 16px;\n  margin-top: 0px;\n  margin-bottom: 0px;\n}\n.plan-precio2[data-v-47fd6b9c] {\n  margin-top: 0px;\n  margin-bottom: 0px;\n  margin-left: 20px;\n  text-decoration: line-through;\n  color: #000000;\n  font-size: 10px;\n}\n.planofer[data-v-47fd6b9c] {\n  box-shadow: 0px 4px 4px 0px #5F01F5;\n}\n.plan-subname[data-v-47fd6b9c] {\n  color: #000000;\n  font-size: 14px;\n  font-weight: bold;\n  margin-left: 20px;\n}\n.updateFoto[data-v-47fd6b9c] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 89px;\n  border-radius: 5px;\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  background-position: center center;\n}\n.updateFoto strong[data-v-47fd6b9c] {\n  width: 100%;\n  text-align: center;\n}\n.buy-tite[data-v-47fd6b9c] {\n  color: #5F01F5;\n  font-family: \"valera\";\n  font-size: 20px;\n  line-height: 2.6;\n  margin-top: 10px;\n  font-weight: 700;\n}\nform label[data-v-47fd6b9c], span[data-v-47fd6b9c] {\n  color: #0F0426;\n  font-family: \"Valera\";\n  font-size: 16px;\n  line-height: 1.08;\n  margin-top: 10px;\n  font-weight: 700;\n}\n.maxi[data-v-47fd6b9c] {\n  margin-left: 0px;\n}\n@media only screen and (max-width: 768px) {\n.maxi[data-v-47fd6b9c] {\n    margin-left: 15px;\n}\n}\n.resumen-card[data-v-47fd6b9c] {\n  width: 100%;\n  max-width: 451px;\n  margin-left: 0px;\n  border: 1px solid #D1D1D1;\n  height: 234px;\n  border-radius: 6px;\n}\n@media only screen and (max-width: 767px) {\n.padre-content-position[data-v-47fd6b9c] {\n    display: flex;\n    justify-content: space-between;\n    width: 100%;\n}\n.content-position[data-v-47fd6b9c]:first-child {\n    flex-basis: calc(50% - 2rem);\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 140px;\n    border-radius: 5px;\n}\n.content-position[data-v-47fd6b9c]:last-child {\n    flex-basis: calc(50% - 2rem);\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 140px;\n    border-radius: 5px;\n}\n.content-position label[data-v-47fd6b9c], span[data-v-47fd6b9c] {\n    font-family: \"valera\";\n    font-size: 14px;\n    margin-left: 15px;\n    font-weight: 700;\n}\n.preview[data-v-47fd6b9c] {\n    text-decoration: none;\n    background-color: #ffffff;\n    border: 1px solid #30019B;\n    color: #30019B;\n    font-family: \"valera\";\n    font-size: 16px;\n    max-width: 100px;\n    line-height: 2.08;\n    margin-top: 0px;\n    margin-top: 20px;\n    padding: 0px 20px;\n    font-weight: 700;\n    border-radius: 5px;\n}\n.padre-pago-descripcion[data-v-47fd6b9c] {\n    display: flex;\n    flex-direction: column-reverse;\n}\n.metod-pay h3[data-v-47fd6b9c] {\n    margin-top: 20px;\n    font-size: 18px;\n}\n.flexi-btn-form[data-v-47fd6b9c] {\n    display: flex;\n    justify-content: space-between;\n}\n.btn-grip[data-v-47fd6b9c] {\n    font-family: \"Valera\";\n    background-color: #30019B !important;\n    color: #ffffff !important;\n    flex-basis: calc(50% - 2rem);\n    width: 144px;\n    border-radius: 10px !important;\n}\n.btn-cancel[data-v-47fd6b9c] {\n    font-family: \"Valera\";\n    background-color: #0f04263f !important;\n    color: #ffffff !important;\n    flex-basis: calc(50% - 2rem);\n    width: 144px;\n    border-radius: 10px !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.resumen-card[data-v-47fd6b9c] {\n    width: 100%;\n    max-width: 435px;\n    margin-left: 0px;\n    border: 1px solid #D1D1D1;\n    height: 234px;\n    border-radius: 6px;\n}\n.padre-content-position[data-v-47fd6b9c] {\n    display: flex;\n    justify-content: space-between;\n    width: 100%;\n}\n.content-position[data-v-47fd6b9c]:first-child {\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 240px;\n    border-radius: 5px;\n}\n.content-position[data-v-47fd6b9c]:last-child {\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 240px;\n    border-radius: 5px;\n}\n.content-position label[data-v-47fd6b9c], span[data-v-47fd6b9c] {\n    font-family: \"valera\";\n    font-size: 16px;\n    font-weight: 700;\n}\n.preview[data-v-47fd6b9c] {\n    text-decoration: none;\n    background-color: #ffffff;\n    border: 1px solid #30019B;\n    color: #30019B;\n    font-family: \"valera\";\n    font-size: 16px;\n    max-width: 100px;\n    line-height: 2.08;\n    margin-top: 0px;\n    padding: 0px 20px;\n    font-weight: 700;\n    border-radius: 5px;\n}\n.padre-pago-descripcion[data-v-47fd6b9c] {\n    display: flex;\n    flex-direction: column;\n}\n.btn-grip[data-v-47fd6b9c] {\n    font-family: \"Valera\";\n    background-color: #30019B !important;\n    color: #ffffff !important;\n    width: 181px;\n    border-radius: 10px !important;\n}\n.btn-cancel[data-v-47fd6b9c] {\n    font-family: \"Valera\";\n    background-color: #0f04263f !important;\n    color: #ffffff !important;\n    width: 144px;\n    border-radius: 10px !important;\n}\n}", ""]);
 
 // exports
 
@@ -10641,7 +10690,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.btn-upgrap14[data-v-6f48ed13]{\n            font-family: 'Valera';\n            background-color:#32BAB0!important;\n            color:#ffffff!important;\n            min-width: 220px;\n            height: 38px;\n            border-radius: 10px!important;\n}\n.modal-dialog[data-v-6f48ed13]{\n    max-width: 600px!important;\n}\n.modal-content[data-v-6f48ed13]{\n    border-radius:12px;\n}\n.menu-secundario[data-v-6f48ed13]{\n    background-color: #ffffff;\n    width: 100%;\n}\nlabel[data-v-6f48ed13]{\n    font-weight: 100!important;\n}\n@media only screen and (max-width: 768px) {\n.grids-descripcion[data-v-6f48ed13]{\n                margin-top: 20px;\n                text-align: center;\n                font-size: 14px;\n}\n.resalte[data-v-6f48ed13]{\n                font-size: 16px;\n                line-height: 23,7px;\n                font-weight: 700;\n                color: #30019B;\n}\n}\n@media only screen and (min-width: 769px) {\n.grids-descripcion[data-v-6f48ed13]{\n                width: 500px;\n                margin-top: 0px;\n                 font-size: 16px;\n                text-align: end;\n}\n.resalte[data-v-6f48ed13]{\n                font-size: 20px;\n                line-height: 23,7px;\n                font-weight: 700;\n                color: #30019B;\n}\n}\n.avatar[data-v-6f48ed13]{\n       width: 85px;\n       height: 53px;\n       border-radius: 50%;\n}\np[data-v-6f48ed13]{\n       font-family: 'Valera';\n       font-size: 20px;\n       line-height: 23,7px;\n       font-weight: 500;\n}\n.username[data-v-6f48ed13]{\n       font-family: 'Rubik';\n       font-size: 20px;\n       line-height: 23,7px;\n       font-weight: bold;\n}\n.premium[data-v-6f48ed13]{\n       background:linear-gradient(90deg, rgba(95,1,245,1) 4.66%, rgba(50,186,176,1) 45.34%);\n       -webkit-background-clip: text;\n       color: transparent;\n       margin-top: -10px!important;\n       font-family: 'Rubik';\n       font-weight: 300!important;\n}\n.table thead th[data-v-6f48ed13] {\n        vertical-align: bottom;\n        border-bottom: none!important;\n}\n.table th[data-v-6f48ed13], .table td[data-v-6f48ed13] {\n        padding: 0rem;\n        vertical-align: top;\n        border-top:  none!important;\n}\n.color[data-v-6f48ed13]{\n        background-color: #FBF9FF;\n        margin:2px;\n        height: 25px;\n        width:20px;\n        max-height: 25px;\n        max-width:20px;\n        background-repeat: no-repeat;\n        background-size: 100% 100%;\n        border: 1px solid grey;\n}\n.color[data-v-6f48ed13]:hover{\n        background-color: #5F01F5;\n}\n@media only screen and (max-width: 767px) {\n.maximizando[data-v-6f48ed13]{\n               margin-left: 270px;\n}\n}\n@media only screen and (min-width: 768px) {\n.maximizando[data-v-6f48ed13]{\n                margin-left: 105px;\n}\n}\n.flexiando[data-v-6f48ed13]{\n        display: flex;\n        justify-content: center;\n        width: 100%;\n}\n.img-grid[data-v-6f48ed13]{\n        background-repeat: no-repeat;\n        background-size: contain;\n\n        background-position: center center;\n}\n.drag-selector__item.selected[data-v-6f48ed13] {\n            background-color: #D04141;\n}\n", ""]);
+exports.push([module.i, "\n.btn-upgrap14[data-v-6f48ed13]{\n            font-family: 'Valera';\n            background-color:#32BAB0!important;\n            color:#ffffff!important;\n            min-width: 220px;\n            height: 38px;\n            border-radius: 10px!important;\n}\n.modal-dialog[data-v-6f48ed13]{\n    max-width: 600px!important;\n}\n.modal-content[data-v-6f48ed13]{\n    border-radius:12px;\n}\n.menu-secundario[data-v-6f48ed13]{\n    background-color: #ffffff;\n    width: 100%;\n}\nlabel[data-v-6f48ed13]{\n    font-weight: 100!important;\n}\n@media only screen and (max-width: 768px) {\n.grids-descripcion[data-v-6f48ed13]{\n                margin-top: 20px;\n                text-align: center;\n                font-size: 14px;\n}\n.resalte[data-v-6f48ed13]{\n                font-size: 16px;\n                line-height: 23,7px;\n                font-weight: 700;\n                color: #30019B;\n}\n}\n@media only screen and (min-width: 769px) {\n.grids-descripcion[data-v-6f48ed13]{\n                width: 500px;\n                margin-top: 0px;\n                 font-size: 16px;\n                text-align: end;\n}\n.resalte[data-v-6f48ed13]{\n                font-size: 20px;\n                line-height: 23,7px;\n                font-weight: 700;\n                color: #30019B;\n}\n}\n.avatar[data-v-6f48ed13]{\n       width: 85px;\n       height: 53px;\n       border-radius: 50%;\n}\np[data-v-6f48ed13]{\n       font-family: 'Valera';\n       font-size: 20px;\n       line-height: 23,7px;\n       font-weight: 500;\n}\n.username[data-v-6f48ed13]{\n       font-family: 'Rubik';\n       font-size: 20px;\n       line-height: 23,7px;\n       font-weight: bold;\n}\n.premium[data-v-6f48ed13]{\n       background:linear-gradient(90deg, rgba(95,1,245,1) 4.66%, rgba(50,186,176,1) 45.34%);\n       -webkit-background-clip: text;\n       color: transparent;\n       margin-top: -10px!important;\n       font-family: 'Rubik';\n       font-weight: 300!important;\n}\n.table thead th[data-v-6f48ed13] {\n        vertical-align: bottom;\n        border-bottom: none!important;\n}\n.table th[data-v-6f48ed13], .table td[data-v-6f48ed13] {\n        padding: 0rem;\n        vertical-align: top;\n        border-top:  none!important;\n}\n.color[data-v-6f48ed13]{\n        background-color: #FBF9FF;\n        margin:2px;\n        height: 14px;\n        width:14px!important;\n        max-height: 14px;\n        max-width:14px!important;\n        background-repeat: no-repeat;\n        background-size: 100% 100%;\n        border: 1px solid grey;\n}\n.color[data-v-6f48ed13]:hover{\n        background-color: #5F01F5;\n}\n@media only screen and (max-width: 767px) {\n.maximizando[data-v-6f48ed13]{\n               margin-left: 270px;\n}\n}\n@media only screen and (min-width: 768px) {\n.maximizando[data-v-6f48ed13]{\n                margin-left: 105px;\n}\n}\n.flexiando[data-v-6f48ed13]{\n        display: flex;\n        justify-content: center;\n        width: 100%;\n}\n.img-grid[data-v-6f48ed13]{\n        background-repeat: no-repeat;\n        background-size: contain;\n\n        background-position: center center;\n}\n.drag-selector__item.selected[data-v-6f48ed13] {\n            background-color: #D04141;\n}\n", ""]);
 
 // exports
 
@@ -10717,7 +10766,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n@media only screen and (max-width: 767px){\n.card-profile{\r\n                height: 100%;\r\n                min-height: 240px;\n}\n.card-header-profile{\r\n                display: flex;\r\n                justify-content: space-between;\r\n                align-items: center;\n}\n.card-header-profile .card-img-user-profile{\r\n                flex-basis: calc(13% - 5px);\r\n                height: 50px;\r\n                width: 50px;\r\n                border-radius: 50%;\n}\n.card-profile-img-background{\r\n                background: url('/img/card-user-profile.png');\r\n                height: 187px;\r\n                width: 100%;\n}\n.card-header-profile .card-img-user-profile img{\r\n            \r\n                height: 53px;\r\n                width: 53px;\r\n                border-radius: 50%;\n}\n.card-header-profile .card-user-data{\r\n                flex-basis: calc(87% - 5px);\n}\n.card-header-profile .card-user-data h3{\r\n                font-family: 'Rubik';\r\n                font-size: 20px!important;\r\n                font-weight: bold!important;\r\n                margin: 0px;\n}\n.card-header-profile .card-user-data strong{\r\n                font-family: 'Rubik';\r\n                font-size: 16px;\r\n                font-weight: 700;\r\n                color:#5F01F5;\n}\n.card--profile-body{\r\n                height: 187px;\r\n                width: 100%;\r\n                display: flex;\r\n                flex-direction: column;\r\n                justify-content: center;\r\n                align-items: center;\n}\n.card--profile-body a{\r\n                font-family: 'Varela';\r\n                color:#ffffff;\r\n                font-size: 20px;\r\n                font-weight: 700;\r\n                text-decoration: none;\n}\n}\n@media only screen and (min-width: 768px){\n.card-profile{\r\n                height: 100%;\r\n                min-height: 240px;\n}\n.card-header-profile{\r\n                display: flex;\r\n                justify-content: space-between;\r\n                align-items: center;\n}\n.card-header-profile .card-img-user-profile{\r\n                flex-basis: calc(13% - 5px);\r\n                height: 50px;\r\n                width: 50px;\r\n                border-radius: 50%;\n}\n.card-header-profile .card-img-user-profile img{\r\n            \r\n                height: 53px;\r\n                width: 53px;\r\n                border-radius: 50%;\n}\n.card-header-profile .card-user-data{\r\n                flex-basis: calc(87% - 5px);\n}\n.card-header-profile .card-user-data h3{\r\n                font-family: 'Rubik';\r\n                font-size: 20px!important;\r\n                font-weight: bold!important;\r\n                margin: 0px;\n}\n.card-header-profile .card-user-data strong{\r\n                font-family: 'Rubik';\r\n                font-size: 16px;\r\n                font-weight: 700;\r\n                color:#5F01F5;\n}\n.card-profile-img-background{\r\n                background: url('/img/card-user-profile.png');\r\n                height: 187px;\r\n                width: 100%;\n}\n.card--profile-body{\r\n                -webkit-transition-duration: 0.9s;\r\n                background: transparent;\r\n                color:#ffffff;\r\n                height: 187px;\r\n                width: 100%;\r\n                display: flex;\r\n                flex-direction: column;\r\n                justify-content: center;\r\n                align-items: center;\n}\n.card--profile-body a{\r\n                font-family: 'Varela';\r\n                color:#ffffff;\r\n                font-size: 20px;\r\n                text-decoration: none;\n}\n}\n.btn-sold{\r\n        height: 40px;\r\n        width: 99px;\r\n        border-radius: 16px;\r\n        font-size:16px!important;\r\n        border: 1px solid #5F01F5;\n}   \r\n", ""]);
+exports.push([module.i, "\n@media only screen and (max-width: 767px){\n.pro{\n}\n.card-profile{\r\n                height: 100%;\r\n                min-height: 240px;\n}\n.card-header-profile{\r\n                display: flex;\r\n                justify-content: space-between;\r\n                align-items: center;\n}\n.card-header-profile .card-img-user-profile{\r\n                flex-basis: calc(13% - 5px);\r\n                height: 50px;\r\n                width: 50px;\r\n                border-radius: 50%;\n}\n.card-profile-img-background{\r\n                background: url('/img/card-user-profile.png');\r\n                height: 187px;\r\n                width: 100%;\n}\n.card-header-profile .card-img-user-profile img{\r\n            \r\n                height: 53px;\r\n                width: 53px;\r\n                border-radius: 50%;\n}\n.card-header-profile .card-user-data{\r\n                flex-basis: calc(87% - 5px);\n}\n.card-header-profile .card-user-data h3{\r\n                font-family: 'Rubik';\r\n                font-size: 20px!important;\r\n                font-weight: bold!important;\r\n                margin: 0px;\n}\n.card-header-profile .card-user-data strong{\r\n                font-family: 'Rubik';\r\n                font-size: 16px;\r\n                font-weight: 700;\r\n                color:#5F01F5;\n}\n.card--profile-body{\r\n                height: 187px;\r\n                width: 100%;\r\n                display: flex;\r\n                flex-direction: column;\r\n                justify-content: center;\r\n                align-items: center;\n}\n.card--profile-body a{\r\n                font-family: 'Rubik';\r\n                font-weight: bold!important;\r\n                color:#ffffff;\r\n                font-size: 20px;\r\n                text-decoration: none;\n}\n}\n@media only screen and (min-width: 768px){\n.card-profile{\r\n                height: 100%;\r\n                min-height: 240px;\n}\n.card-header-profile{\r\n                display: flex;\r\n                justify-content: space-between;\r\n                align-items: center;\n}\n.card-header-profile .card-img-user-profile{\r\n                flex-basis: calc(13% - 5px);\r\n                height: 50px;\r\n                width: 50px;\r\n                border-radius: 50%;\n}\n.card-header-profile .card-img-user-profile img{\r\n            \r\n                height: 53px;\r\n                width: 53px;\r\n                border-radius: 50%;\n}\n.card-header-profile .card-user-data{\r\n                flex-basis: calc(87% - 5px);\n}\n.card-header-profile .card-user-data h3{\r\n                font-family: 'Rubik';\r\n                font-size: 20px!important;\r\n                font-weight: bold!important;\r\n                margin: 0px;\n}\n.card-header-profile .card-user-data strong{\r\n                font-family: 'Rubik';\r\n                font-size: 16px;\r\n                font-weight: 700;\r\n                color:#5F01F5;\n}\n.card-profile-img-background{\r\n                background: url('/img/card-user-profile.png');\r\n                height: 187px;\r\n                width: 100%;\n}\n.card--profile-body{\r\n                -webkit-transition-duration: 0.9s;\r\n                background: transparent;\r\n                color:#ffffff;\r\n                height: 187px;\r\n                width: 100%;\r\n                display: flex;\r\n                flex-direction: column;\r\n                justify-content: center;\r\n                align-items: center;\n}\n.card--profile-body a{\r\n                font-family: 'Rubik';\r\n                font-weight: bold!important;\r\n                color:#ffffff;\r\n                font-size: 20px;\r\n                text-decoration: none;\n}\n}\n.btn-sold{\r\n        height: 40px;\r\n        width: 99px;\r\n        border-radius: 16px;\r\n        font-size:16px!important;\r\n        border: 1px solid #5F01F5;\n}   \r\n", ""]);
 
 // exports
 
@@ -66441,39 +66490,6 @@ var render = function() {
                     on: {
                       click: function($event) {
                         $event.preventDefault()
-                        return _vm.mostrar1()
-                      }
-                    }
-                  },
-                  [_vm._v("Edit amount")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("strong", [_vm._v(_vm._s(_vm.gridvalue.value) + "$")]),
-              _vm._v(" "),
-              _c("span", { staticStyle: { "padding-bottom": "25px" } }, [
-                _vm._v("Grid Value")
-              ])
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "col-sm-12 col-md-4",
-            staticStyle: { "margin-bottom": "15px" }
-          },
-          [
-            _c("div", { staticClass: "home-card" }, [
-              _c("div", { staticClass: "flexi" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-date",
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
                         return _vm.mostrar2()
                       }
                     }
@@ -68890,7 +68906,7 @@ var render = function() {
                                   staticClass: "d-flex maximizando",
                                   style:
                                     "min-width:" +
-                                    Number(_vm.grip.columns * 36) +
+                                    Number(_vm.grip.columns * 16) +
                                     "px!important; margin-left:" +
                                     Number(_vm.grip.columns * 0) +
                                     "px!important;"
@@ -68898,7 +68914,7 @@ var render = function() {
                                 _vm._l(fila, function(columna, k) {
                                   return _c("drag-selector-item", {
                                     key: "columna" + k,
-                                    staticClass: "col color",
+                                    staticClass: "color",
                                     style: columna.src
                                       ? "background-image: url(/storage-public/" +
                                         columna.src +
@@ -68966,31 +68982,24 @@ var render = function() {
                   _vm._m(1),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
-                    _c("img", {
-                      attrs: {
-                        src: "/storage/" + _vm.blockselected.src,
-                        width: "100%",
-                        height: "250px",
-                        alt: ""
-                      }
-                    }),
-                    _vm._v(" "),
                     _c(
-                      "div",
-                      { staticClass: "mt-2 d-flex justify-content-center" },
+                      "a",
+                      {
+                        attrs: {
+                          href: _vm.blockselected.url,
+                          target: "_blank",
+                          rel: "noopener noreferrer"
+                        }
+                      },
                       [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-upgrap14",
-                            attrs: {
-                              href: _vm.blockselected.url,
-                              target: "_blank",
-                              rel: "noopener noreferrer"
-                            }
-                          },
-                          [_vm._v("Ir al enlace")]
-                        )
+                        _c("img", {
+                          attrs: {
+                            src: "/storage/" + _vm.blockselected.src,
+                            width: "100%",
+                            height: "250px",
+                            alt: ""
+                          }
+                        })
                       ]
                     )
                   ])
@@ -70734,76 +70743,208 @@ var render = function() {
       domProps: { value: _vm.precio }
     }),
     _vm._v(" "),
-    _c("div", { staticClass: "form-groud" }, [
-      _c("label", { attrs: { for: "Columns" } }, [_vm._v("Columns")]),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.columns,
-            expression: "columns"
-          }
-        ],
-        staticClass: "form-control",
-        attrs: { type: "text", name: "columns", required: "" },
-        domProps: { value: _vm.columns },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.columns = $event.target.value
-          }
-        }
-      })
-    ]),
+    _vm.planSelected
+      ? _c("input", {
+          attrs: { type: "hidden", name: "columns" },
+          domProps: { value: _vm.planSelected.columns }
+        })
+      : _vm._e(),
     _vm._v(" "),
-    _c("div", { staticClass: "form-groud" }, [
-      _c("label", { attrs: { for: "Filas" } }, [_vm._v("Rows")]),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.filas,
-            expression: "filas"
-          }
-        ],
-        staticClass: "form-control",
-        attrs: { type: "text", name: "filas", required: "" },
-        domProps: { value: _vm.filas },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.filas = $event.target.value
-          }
-        }
-      })
-    ]),
+    _vm.planSelected
+      ? _c("input", {
+          attrs: { type: "hidden", name: "filas" },
+          domProps: { value: _vm.planSelected.filas }
+        })
+      : _vm._e(),
     _vm._v(" "),
     _c("div", [
-      _c("h3", [_vm._v("Resumen:")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Grid Value: " + _vm._s(_vm.gridvalue) + "$")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Blocks: " + _vm._s(Number(_vm.columns * _vm.filas)))]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Total: " + _vm._s(_vm.precio) + "$")])
+      _c(
+        "div",
+        { staticClass: "row maxii" },
+        _vm._l(_vm.planes, function(plan) {
+          return _c(
+            "div",
+            { key: plan.id, staticClass: "col-sm-12 col-md-12 col-lg-6" },
+            [
+              _c(
+                "div",
+                {
+                  class:
+                    plan.id === _vm.planSelected.id
+                      ? "card-plan planofer"
+                      : "card-plan"
+                },
+                [
+                  _c("div", { staticClass: "d-flex justify-content-between" }, [
+                    _c("div", [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.planSelected,
+                            expression: "planSelected"
+                          }
+                        ],
+                        staticStyle: { "margin-left": "5px" },
+                        attrs: { type: "radio", name: "plan", checked: "" },
+                        domProps: {
+                          value: plan,
+                          checked: _vm._q(_vm.planSelected, plan)
+                        },
+                        on: {
+                          change: function($event) {
+                            _vm.planSelected = plan
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { staticClass: "plan-name", attrs: { for: "plan" } },
+                        [_vm._v(_vm._s(plan.name))]
+                      ),
+                      _vm._v(" "),
+                      plan.estado === 1
+                        ? _c("p", { staticClass: "plan-precio2" }, [
+                            _vm._v("USD 14,99")
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "plan-precio" }, [
+                        _vm._v(
+                          "USD " +
+                            _vm._s(plan.precio) +
+                            " " +
+                            _vm._s(plan.estado === 1 ? "NOW" : "")
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    plan.src
+                      ? _c("img", { attrs: { src: plan.src, alt: "plan src" } })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    plan.estado === 1
+                      ? _c("span", { staticClass: "btn btn-limit" }, [
+                          _vm._v("Limited")
+                        ])
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "plan-subname" }, [
+                    _vm._v(_vm._s(plan.name) + " include")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticStyle: { "margin-left": "20px" } }, [
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          width: "16",
+                          height: "16",
+                          viewBox: "0 0 16 16",
+                          fill: "none",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M8 0.5C3.875 0.5 0.5 3.875 0.5 8C0.5 12.125 3.875 15.5 8 15.5C12.125 15.5 15.5 12.125 15.5 8C15.5 3.875 12.125 0.5 8 0.5ZM11.15 6.725L7.55 10.325C7.25 10.625 6.8 10.625 6.5 10.325L4.85 8.675C4.55 8.375 4.55 7.925 4.85 7.625C5.15 7.325 5.6 7.325 5.9 7.625L7.025 8.75L10.1 5.675C10.4 5.375 10.85 5.375 11.15 5.675C11.45 5.975 11.45 6.425 11.15 6.725Z",
+                            fill: "#5F01F5"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(Number(plan.columns * plan.filas)) +
+                        " blocks"
+                    )
+                  ])
+                ]
+              )
+            ]
+          )
+        }),
+        0
+      )
     ]),
     _vm._v(" "),
-    _c("input", {
-      staticClass: "btn btn-cancel",
-      staticStyle: { "margin-top": "65px" },
-      attrs: { disabled: _vm.validando, type: "submit", value: "Buy Grid" }
-    })
+    _vm.planSelected
+      ? _c("div", [
+          _c("div", { staticClass: "resumen-card" }, [
+            _c("h3", { staticClass: "resumen-order" }, [
+              _vm._v("Order summary")
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "d-flex justify-content-between",
+                staticStyle: { "margin-left": "26px", "margin-right": "26px" }
+              },
+              [
+                _c("span", [_vm._v("Grid Value:")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(_vm.planSelected.precio) + "$")])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "d-flex justify-content-between",
+                staticStyle: { "margin-left": "26px", "margin-right": "26px" }
+              },
+              [
+                _c("span", [_vm._v("Blocks:")]),
+                _vm._v(" "),
+                _c("span", [
+                  _vm._v(
+                    _vm._s(
+                      Number(_vm.planSelected.columns * _vm.planSelected.filas)
+                    ) + " UND"
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "d-flex justify-content-between",
+                staticStyle: { "margin-left": "26px", "margin-right": "26px" }
+              },
+              [
+                _c("span", [_vm._v("Total:")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(_vm.planSelected.precio) + "$")])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(0)
+          ])
+        ])
+      : _vm._e()
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "centradiv" }, [
+      _c("input", {
+        staticClass: "btn btn-order",
+        staticStyle: { "margin-top": "65px" },
+        attrs: { type: "submit", value: "Place order" }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -71341,11 +71482,18 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _c("a", { attrs: { href: "grid/" + _vm.user.nombreURL } }, [
-              _vm._v(
-                "\n                          visit profile\n                      "
-              )
-            ])
+            _c(
+              "a",
+              {
+                staticClass: "pro",
+                attrs: { href: "grid/" + _vm.user.nombreURL }
+              },
+              [
+                _vm._v(
+                  "\n                          visit profile\n                      "
+                )
+              ]
+            )
           ]
         )
       ])

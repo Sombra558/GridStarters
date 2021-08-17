@@ -6,13 +6,10 @@ use App\User;
 use App\ConfiguracionPublica;
 use App\PaymentPlatform;
 use App\Currency;
+use App\Planes;
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
+    
     public function run()
     {
         $this->call(RolesTableSeeder::class);
@@ -72,5 +69,29 @@ class DatabaseSeeder extends Seeder
           ]);
         $user->assignRole('Administrator');
         $user->markEmailAsVerified();
+        Planes::create([
+            'estado' => false,
+            'columns' => '100',
+            'name' => 'Influencer',
+            'src' => '/img/planes/realidad-virtual.svg',
+            'filas' => '100',
+            'precio' => 49.99,
+        ]);
+        Planes::create([
+            'estado' => false,
+            'columns' => '80',
+            'name' => 'Geek',
+            'src' => '/img/planes/gafas-de-proteccion.svg',
+            'filas' => '50',
+            'precio' => 29.99,
+        ]);
+        Planes::create([
+            'estado' => true,
+            'columns' => '40',
+            'name' => 'Starter',
+            'filas' => '25',
+            'precio' => 9.99,
+        ]);
+        
     }
 }

@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="container-fluid">
-        <h2 class="buy-tite">Buy Grids</h2>
+<section style="margin-bottom:20px;" class="container">
+        <h2 style="margin-left=20px;" class="buy-tite">Select your plan</h2>
             <div class="row">
                 <div class="col-md-6">
                     
                     <form action="{{ route('grid-create-grid') }}" method="POST">
                     @csrf
                         <input type="hidden" name="currency" value="usd">
-                        <grid-payment-component :user="{{$user}}" gridvalue="{{$gridvalue->value}}"></grid-payment-component>
+                        <grid-payment-component :planes="{{$planes}}" :user="{{$user}}" gridvalue="{{$gridvalue->value}}"></grid-payment-component>
                         
                        
                      
