@@ -49,9 +49,9 @@
                     </div>
                     
                     <div class="centradiv">
-                         <input  style="margin-top:65px" class="btn btn-order" type="submit" value="Place order">
+                         <input  style="margin-top:45px" class="btn btn-order" type="submit" value="Place order">
                     </div>
-                    
+                    <br>
                 </div>
           
 
@@ -189,6 +189,7 @@ import 'toastr/build/toastr.min.css';
         display: flex;
         justify-content: center;
         width: 100%;
+        padding-bottom: 15px;
     }
     .maxii{
         width: 100%;
