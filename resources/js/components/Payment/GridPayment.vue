@@ -3,11 +3,11 @@
         <input type="hidden" name="matriz" :value="JSON.stringify(matrizdin)">
           <input type="hidden" name="value" :value="precio">
         <div class="form-groud">
-            <label for="Columns">Columns max(100)</label>
+            <label for="Columns">Columns</label>
             <input class="form-control" type="text" name="columns" required v-model="columns">
         </div> 
         <div class="form-groud">
-            <label for="Filas">Rows max(100)</label>
+            <label for="Filas">Rows</label>
             <input class="form-control" type="text" name="filas" required v-model="filas">
            
         </div> 
@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import toastr from "toastr";
+import 'toastr/build/toastr.min.css';
     export default {
         name:'confirm-payment-grid',
         props:['user','gridvalue'],
@@ -73,9 +75,11 @@
                var valid=false;
                if (Number(this.columns<=0) || Number(this.columns)>100) {
                    valid=true;
+                    toastr.info("El maximo permitido es 100 columnas", "GridsTarters:");
                }
                 if (this.filas<=0 || this.filas>100) {
                    valid=true;
+                   toastr.info("El maximo permitido es 100 filas", "GridsTarters:");
                }
                return valid;
            }

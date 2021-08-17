@@ -4897,6 +4897,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
+/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(toastr__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var toastr_build_toastr_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! toastr/build/toastr.min.css */ "./node_modules/toastr/build/toastr.min.css");
+/* harmony import */ var toastr_build_toastr_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(toastr_build_toastr_min_css__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -4920,6 +4924,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'confirm-payment-grid',
   props: ['user', 'gridvalue'],
@@ -4981,10 +4987,12 @@ __webpack_require__.r(__webpack_exports__);
 
       if (Number(this.columns <= 0) || Number(this.columns) > 100) {
         valid = true;
+        toastr__WEBPACK_IMPORTED_MODULE_0___default.a.info("El maximo permitido es 100 columnas", "GridsTarters:");
       }
 
       if (this.filas <= 0 || this.filas > 100) {
         valid = true;
+        toastr__WEBPACK_IMPORTED_MODULE_0___default.a.info("El maximo permitido es 100 filas", "GridsTarters:");
       }
 
       return valid;
@@ -70727,7 +70735,7 @@ var render = function() {
     }),
     _vm._v(" "),
     _c("div", { staticClass: "form-groud" }, [
-      _c("label", { attrs: { for: "Columns" } }, [_vm._v("Columns max(100)")]),
+      _c("label", { attrs: { for: "Columns" } }, [_vm._v("Columns")]),
       _vm._v(" "),
       _c("input", {
         directives: [
@@ -70753,7 +70761,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "form-groud" }, [
-      _c("label", { attrs: { for: "Filas" } }, [_vm._v("Rows max(100)")]),
+      _c("label", { attrs: { for: "Filas" } }, [_vm._v("Rows")]),
       _vm._v(" "),
       _c("input", {
         directives: [
