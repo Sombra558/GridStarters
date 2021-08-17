@@ -218,6 +218,7 @@ import 'toastr/build/toastr.min.css';
         margin-bottom: 20px;
         max-height: 183px;
         border-radius: 6px;
+        padding: 10px;
         border: 1px solid #101521;
     }
     .plan-name{
