@@ -7,10 +7,16 @@
                              <img v-else src="/img/user/user_min.jpg" alt="user-img">
                         </div>
                         <div style="margin-left: 10px" class="card-user-data">
-                              <h3>{{user.user.name}}</h3>
-                              <div class="d-flex justify-content-between">
-                                  <strong>{{user.bloques.length}} sold</strong>
-                                  <strong>@{{user.nombreURL}}</strong>
+                              <div class="d-flex justify-content-between align-center">
+                                  <div>
+                                      <h3>{{user.user.name}}</h3>
+                                        <strong>@{{user.nombreURL}}</strong>
+                                  </div>
+                                   <strong class="btn btn-sold" >{{user.bloques.length}} sold</strong>
+                              </div>
+                              <div >
+                                 
+                                 
                               </div>
                               
                         </div>
@@ -170,5 +176,12 @@
                 text-decoration: none;
             }
         }
- 
+    .btn-sold{
+        height: 40px;
+        width: 99px;
+        border-radius: 16px;
+        font-size:16px!important;
+        border: 1px solid #5F01F5;
+       
+    }   
 </style>

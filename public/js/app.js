@@ -5680,6 +5680,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['user'],
   data: function data() {
@@ -10703,7 +10709,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n@media only screen and (max-width: 767px){\n.card-profile{\r\n                height: 100%;\r\n                min-height: 240px;\n}\n.card-header-profile{\r\n                display: flex;\r\n                justify-content: space-between;\r\n                align-items: center;\n}\n.card-header-profile .card-img-user-profile{\r\n                flex-basis: calc(13% - 5px);\r\n                height: 50px;\r\n                width: 50px;\r\n                border-radius: 50%;\n}\n.card-profile-img-background{\r\n                background: url('/img/card-user-profile.png');\r\n                height: 187px;\r\n                width: 100%;\n}\n.card-header-profile .card-img-user-profile img{\r\n            \r\n                height: 53px;\r\n                width: 53px;\r\n                border-radius: 50%;\n}\n.card-header-profile .card-user-data{\r\n                flex-basis: calc(87% - 5px);\n}\n.card-header-profile .card-user-data h3{\r\n                font-family: 'Rubik';\r\n                font-size: 20px!important;\r\n                font-weight: bold!important;\r\n                margin: 0px;\n}\n.card-header-profile .card-user-data strong{\r\n                font-family: 'Rubik';\r\n                font-size: 16px;\r\n                font-weight: 700;\r\n                color:#5F01F5;\n}\n.card--profile-body{\r\n                height: 187px;\r\n                width: 100%;\r\n                display: flex;\r\n                flex-direction: column;\r\n                justify-content: center;\r\n                align-items: center;\n}\n.card--profile-body a{\r\n                font-family: 'Varela';\r\n                color:#ffffff;\r\n                font-size: 20px;\r\n                font-weight: 700;\r\n                text-decoration: none;\n}\n}\n@media only screen and (min-width: 768px){\n.card-profile{\r\n                height: 100%;\r\n                min-height: 240px;\n}\n.card-header-profile{\r\n                display: flex;\r\n                justify-content: space-between;\r\n                align-items: center;\n}\n.card-header-profile .card-img-user-profile{\r\n                flex-basis: calc(13% - 5px);\r\n                height: 50px;\r\n                width: 50px;\r\n                border-radius: 50%;\n}\n.card-header-profile .card-img-user-profile img{\r\n            \r\n                height: 53px;\r\n                width: 53px;\r\n                border-radius: 50%;\n}\n.card-header-profile .card-user-data{\r\n                flex-basis: calc(87% - 5px);\n}\n.card-header-profile .card-user-data h3{\r\n                font-family: 'Rubik';\r\n                font-size: 20px!important;\r\n                font-weight: bold!important;\r\n                margin: 0px;\n}\n.card-header-profile .card-user-data strong{\r\n                font-family: 'Rubik';\r\n                font-size: 16px;\r\n                font-weight: 700;\r\n                color:#5F01F5;\n}\n.card-profile-img-background{\r\n                background: url('/img/card-user-profile.png');\r\n                height: 187px;\r\n                width: 100%;\n}\n.card--profile-body{\r\n                -webkit-transition-duration: 0.9s;\r\n                background: transparent;\r\n                color:#ffffff;\r\n                height: 187px;\r\n                width: 100%;\r\n                display: flex;\r\n                flex-direction: column;\r\n                justify-content: center;\r\n                align-items: center;\n}\n.card--profile-body a{\r\n                font-family: 'Varela';\r\n                color:#ffffff;\r\n                font-size: 20px;\r\n                text-decoration: none;\n}\n}\r\n \r\n", ""]);
+exports.push([module.i, "\n@media only screen and (max-width: 767px){\n.card-profile{\r\n                height: 100%;\r\n                min-height: 240px;\n}\n.card-header-profile{\r\n                display: flex;\r\n                justify-content: space-between;\r\n                align-items: center;\n}\n.card-header-profile .card-img-user-profile{\r\n                flex-basis: calc(13% - 5px);\r\n                height: 50px;\r\n                width: 50px;\r\n                border-radius: 50%;\n}\n.card-profile-img-background{\r\n                background: url('/img/card-user-profile.png');\r\n                height: 187px;\r\n                width: 100%;\n}\n.card-header-profile .card-img-user-profile img{\r\n            \r\n                height: 53px;\r\n                width: 53px;\r\n                border-radius: 50%;\n}\n.card-header-profile .card-user-data{\r\n                flex-basis: calc(87% - 5px);\n}\n.card-header-profile .card-user-data h3{\r\n                font-family: 'Rubik';\r\n                font-size: 20px!important;\r\n                font-weight: bold!important;\r\n                margin: 0px;\n}\n.card-header-profile .card-user-data strong{\r\n                font-family: 'Rubik';\r\n                font-size: 16px;\r\n                font-weight: 700;\r\n                color:#5F01F5;\n}\n.card--profile-body{\r\n                height: 187px;\r\n                width: 100%;\r\n                display: flex;\r\n                flex-direction: column;\r\n                justify-content: center;\r\n                align-items: center;\n}\n.card--profile-body a{\r\n                font-family: 'Varela';\r\n                color:#ffffff;\r\n                font-size: 20px;\r\n                font-weight: 700;\r\n                text-decoration: none;\n}\n}\n@media only screen and (min-width: 768px){\n.card-profile{\r\n                height: 100%;\r\n                min-height: 240px;\n}\n.card-header-profile{\r\n                display: flex;\r\n                justify-content: space-between;\r\n                align-items: center;\n}\n.card-header-profile .card-img-user-profile{\r\n                flex-basis: calc(13% - 5px);\r\n                height: 50px;\r\n                width: 50px;\r\n                border-radius: 50%;\n}\n.card-header-profile .card-img-user-profile img{\r\n            \r\n                height: 53px;\r\n                width: 53px;\r\n                border-radius: 50%;\n}\n.card-header-profile .card-user-data{\r\n                flex-basis: calc(87% - 5px);\n}\n.card-header-profile .card-user-data h3{\r\n                font-family: 'Rubik';\r\n                font-size: 20px!important;\r\n                font-weight: bold!important;\r\n                margin: 0px;\n}\n.card-header-profile .card-user-data strong{\r\n                font-family: 'Rubik';\r\n                font-size: 16px;\r\n                font-weight: 700;\r\n                color:#5F01F5;\n}\n.card-profile-img-background{\r\n                background: url('/img/card-user-profile.png');\r\n                height: 187px;\r\n                width: 100%;\n}\n.card--profile-body{\r\n                -webkit-transition-duration: 0.9s;\r\n                background: transparent;\r\n                color:#ffffff;\r\n                height: 187px;\r\n                width: 100%;\r\n                display: flex;\r\n                flex-direction: column;\r\n                justify-content: center;\r\n                align-items: center;\n}\n.card--profile-body a{\r\n                font-family: 'Varela';\r\n                color:#ffffff;\r\n                font-size: 20px;\r\n                text-decoration: none;\n}\n}\n.btn-sold{\r\n        height: 40px;\r\n        width: 99px;\r\n        border-radius: 16px;\r\n        font-size:16px!important;\r\n        border: 1px solid #5F01F5;\n}   \r\n", ""]);
 
 // exports
 
@@ -71252,13 +71258,23 @@ var render = function() {
             staticStyle: { "margin-left": "10px" }
           },
           [
-            _c("h3", [_vm._v(_vm._s(_vm.user.user.name))]),
+            _c(
+              "div",
+              { staticClass: "d-flex justify-content-between align-center" },
+              [
+                _c("div", [
+                  _c("h3", [_vm._v(_vm._s(_vm.user.user.name))]),
+                  _vm._v(" "),
+                  _c("strong", [_vm._v("@" + _vm._s(_vm.user.nombreURL))])
+                ]),
+                _vm._v(" "),
+                _c("strong", { staticClass: "btn btn-sold" }, [
+                  _vm._v(_vm._s(_vm.user.bloques.length) + " sold")
+                ])
+              ]
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "d-flex justify-content-between" }, [
-              _c("strong", [_vm._v(_vm._s(_vm.user.bloques.length) + " sold")]),
-              _vm._v(" "),
-              _c("strong", [_vm._v("@" + _vm._s(_vm.user.nombreURL))])
-            ])
+            _c("div")
           ]
         )
       ]
