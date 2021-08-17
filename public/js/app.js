@@ -10557,7 +10557,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".centradiv[data-v-47fd6b9c] {\n  display: flex;\n  justify-content: center;\n  width: 100%;\n}\n.maxii[data-v-47fd6b9c] {\n  width: 100%;\n  max-width: 451px;\n}\n.btn-limit[data-v-47fd6b9c] {\n  width: 69px;\n  height: 22px;\n  background-color: #5F01F5;\n  color: #ffffff;\n  padding-bottom: 8px;\n  border-radius: 4px;\n  margin-right: 1px;\n  font-size: 12px;\n}\n.btn-order[data-v-47fd6b9c] {\n  width: 100%;\n  max-width: 379px;\n  background-color: #5F01F5;\n  margin-bottom: 15px !important;\n  color: #ffffff;\n}\n.resumen-order[data-v-47fd6b9c] {\n  font-size: 17px;\n  margin-top: 22px;\n  margin-left: 26px;\n}\n.card-plan[data-v-47fd6b9c] {\n  width: 107%;\n  margin-bottom: 20px;\n  max-height: 183px;\n  border-radius: 6px;\n  padding: 10px;\n  border: 1px solid #101521;\n}\n.plan-name[data-v-47fd6b9c] {\n  color: #000000;\n  font-size: 16px;\n  font-weight: bold;\n}\n.plan-precio[data-v-47fd6b9c] {\n  margin-left: 20px;\n  color: #5F01F5;\n  font-size: 16px;\n  margin-top: 0px;\n  margin-bottom: 0px;\n}\n.plan-precio2[data-v-47fd6b9c] {\n  margin-top: 0px;\n  margin-bottom: 0px;\n  margin-left: 20px;\n  text-decoration: line-through;\n  color: #000000;\n  font-size: 10px;\n}\n.planofer[data-v-47fd6b9c] {\n  box-shadow: 0px 4px 4px 0px #5F01F5;\n}\n.plan-subname[data-v-47fd6b9c] {\n  color: #000000;\n  font-size: 14px;\n  font-weight: bold;\n  margin-left: 20px;\n}\n.updateFoto[data-v-47fd6b9c] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 89px;\n  border-radius: 5px;\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  background-position: center center;\n}\n.updateFoto strong[data-v-47fd6b9c] {\n  width: 100%;\n  text-align: center;\n}\n.buy-tite[data-v-47fd6b9c] {\n  color: #5F01F5;\n  font-family: \"valera\";\n  font-size: 20px;\n  line-height: 2.6;\n  margin-top: 10px;\n  font-weight: 700;\n}\nform label[data-v-47fd6b9c], span[data-v-47fd6b9c] {\n  color: #0F0426;\n  font-family: \"Valera\";\n  font-size: 16px;\n  line-height: 1.08;\n  margin-top: 10px;\n  font-weight: 700;\n}\n.maxi[data-v-47fd6b9c] {\n  margin-left: 0px;\n}\n@media only screen and (max-width: 768px) {\n.maxi[data-v-47fd6b9c] {\n    margin-left: 15px;\n}\n}\n.resumen-card[data-v-47fd6b9c] {\n  width: 100%;\n  max-width: 451px;\n  margin-left: 0px;\n  border: 1px solid #D1D1D1;\n  height: 234px;\n  border-radius: 6px;\n}\n@media only screen and (max-width: 767px) {\n.padre-content-position[data-v-47fd6b9c] {\n    display: flex;\n    justify-content: space-between;\n    width: 100%;\n}\n.content-position[data-v-47fd6b9c]:first-child {\n    flex-basis: calc(50% - 2rem);\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 140px;\n    border-radius: 5px;\n}\n.content-position[data-v-47fd6b9c]:last-child {\n    flex-basis: calc(50% - 2rem);\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 140px;\n    border-radius: 5px;\n}\n.content-position label[data-v-47fd6b9c], span[data-v-47fd6b9c] {\n    font-family: \"valera\";\n    font-size: 14px;\n    margin-left: 15px;\n    font-weight: 700;\n}\n.preview[data-v-47fd6b9c] {\n    text-decoration: none;\n    background-color: #ffffff;\n    border: 1px solid #30019B;\n    color: #30019B;\n    font-family: \"valera\";\n    font-size: 16px;\n    max-width: 100px;\n    line-height: 2.08;\n    margin-top: 0px;\n    margin-top: 20px;\n    padding: 0px 20px;\n    font-weight: 700;\n    border-radius: 5px;\n}\n.padre-pago-descripcion[data-v-47fd6b9c] {\n    display: flex;\n    flex-direction: column-reverse;\n}\n.metod-pay h3[data-v-47fd6b9c] {\n    margin-top: 20px;\n    font-size: 18px;\n}\n.flexi-btn-form[data-v-47fd6b9c] {\n    display: flex;\n    justify-content: space-between;\n}\n.btn-grip[data-v-47fd6b9c] {\n    font-family: \"Valera\";\n    background-color: #30019B !important;\n    color: #ffffff !important;\n    flex-basis: calc(50% - 2rem);\n    width: 144px;\n    border-radius: 10px !important;\n}\n.btn-cancel[data-v-47fd6b9c] {\n    font-family: \"Valera\";\n    background-color: #0f04263f !important;\n    color: #ffffff !important;\n    flex-basis: calc(50% - 2rem);\n    width: 144px;\n    border-radius: 10px !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.resumen-card[data-v-47fd6b9c] {\n    width: 100%;\n    max-width: 435px;\n    margin-left: 0px;\n    border: 1px solid #D1D1D1;\n    height: 234px;\n    border-radius: 6px;\n}\n.padre-content-position[data-v-47fd6b9c] {\n    display: flex;\n    justify-content: space-between;\n    width: 100%;\n}\n.content-position[data-v-47fd6b9c]:first-child {\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 240px;\n    border-radius: 5px;\n}\n.content-position[data-v-47fd6b9c]:last-child {\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 240px;\n    border-radius: 5px;\n}\n.content-position label[data-v-47fd6b9c], span[data-v-47fd6b9c] {\n    font-family: \"valera\";\n    font-size: 16px;\n    font-weight: 700;\n}\n.preview[data-v-47fd6b9c] {\n    text-decoration: none;\n    background-color: #ffffff;\n    border: 1px solid #30019B;\n    color: #30019B;\n    font-family: \"valera\";\n    font-size: 16px;\n    max-width: 100px;\n    line-height: 2.08;\n    margin-top: 0px;\n    padding: 0px 20px;\n    font-weight: 700;\n    border-radius: 5px;\n}\n.padre-pago-descripcion[data-v-47fd6b9c] {\n    display: flex;\n    flex-direction: column;\n}\n.btn-grip[data-v-47fd6b9c] {\n    font-family: \"Valera\";\n    background-color: #30019B !important;\n    color: #ffffff !important;\n    width: 181px;\n    border-radius: 10px !important;\n}\n.btn-cancel[data-v-47fd6b9c] {\n    font-family: \"Valera\";\n    background-color: #0f04263f !important;\n    color: #ffffff !important;\n    width: 144px;\n    border-radius: 10px !important;\n}\n}", ""]);
+exports.push([module.i, ".inclui[data-v-47fd6b9c] {\n  margin-bottom: 10px !important;\n}\n.centradiv[data-v-47fd6b9c] {\n  display: flex;\n  justify-content: center;\n  width: 100%;\n}\n.maxii[data-v-47fd6b9c] {\n  width: 100%;\n  max-width: 451px;\n}\n.btn-limit[data-v-47fd6b9c] {\n  width: 65px;\n  height: 22px;\n  background-color: #5F01F5;\n  color: #ffffff;\n  padding-bottom: 8px;\n  border-radius: 4px;\n  font-size: 12px;\n}\n.btn-order[data-v-47fd6b9c] {\n  width: 100%;\n  max-width: 379px;\n  background-color: #5F01F5;\n  margin-bottom: 15px !important;\n  color: #ffffff;\n}\n.resumen-order[data-v-47fd6b9c] {\n  font-size: 17px;\n  margin-top: 22px;\n  margin-left: 26px;\n}\n.card-plan[data-v-47fd6b9c] {\n  width: 107%;\n  margin-bottom: 20px;\n  max-height: 183px;\n  border-radius: 6px;\n  padding: 10px;\n  border: 1px solid #101521;\n}\n.plan-name[data-v-47fd6b9c] {\n  color: #000000;\n  font-size: 16px;\n  font-weight: bold;\n}\n.plan-precio[data-v-47fd6b9c] {\n  margin-left: 20px;\n  color: #5F01F5;\n  font-size: 14px;\n  margin-top: 0px;\n  margin-bottom: 0px;\n}\n.plan-precio2[data-v-47fd6b9c] {\n  margin-top: 0px;\n  margin-bottom: 0px;\n  margin-left: 20px;\n  text-decoration: line-through;\n  color: #000000;\n  font-size: 10px;\n}\n.planofer[data-v-47fd6b9c] {\n  box-shadow: 0px 4px 4px 0px #5F01F5;\n}\n.plan-subname[data-v-47fd6b9c] {\n  color: #000000;\n  font-size: 14px;\n  font-weight: bold;\n  margin-bottom: 5px;\n  margin-left: 20px;\n}\n.updateFoto[data-v-47fd6b9c] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 89px;\n  border-radius: 5px;\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  background-position: center center;\n}\n.updateFoto strong[data-v-47fd6b9c] {\n  width: 100%;\n  text-align: center;\n}\n.buy-tite[data-v-47fd6b9c] {\n  color: #5F01F5;\n  font-family: \"valera\";\n  font-size: 20px;\n  line-height: 2.6;\n  margin-top: 10px;\n  font-weight: 700;\n}\nform label[data-v-47fd6b9c], span[data-v-47fd6b9c] {\n  color: #0F0426;\n  font-family: \"Valera\";\n  font-size: 16px;\n  line-height: 1.08;\n  margin-top: 10px;\n  font-weight: 700;\n}\n.maxi[data-v-47fd6b9c] {\n  margin-left: 0px;\n}\n@media only screen and (max-width: 768px) {\n.maxi[data-v-47fd6b9c] {\n    margin-left: 15px;\n}\n}\n.resumen-card[data-v-47fd6b9c] {\n  width: 100%;\n  max-width: 451px;\n  margin-left: 0px;\n  border: 1px solid #D1D1D1;\n  height: 234px;\n  border-radius: 6px;\n}\n@media only screen and (max-width: 767px) {\n.padre-content-position[data-v-47fd6b9c] {\n    display: flex;\n    justify-content: space-between;\n    width: 100%;\n}\n.content-position[data-v-47fd6b9c]:first-child {\n    flex-basis: calc(50% - 2rem);\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 140px;\n    border-radius: 5px;\n}\n.content-position[data-v-47fd6b9c]:last-child {\n    flex-basis: calc(50% - 2rem);\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 140px;\n    border-radius: 5px;\n}\n.content-position label[data-v-47fd6b9c], span[data-v-47fd6b9c] {\n    font-family: \"valera\";\n    font-size: 14px;\n    margin-left: 15px;\n    font-weight: 700;\n}\n.preview[data-v-47fd6b9c] {\n    text-decoration: none;\n    background-color: #ffffff;\n    border: 1px solid #30019B;\n    color: #30019B;\n    font-family: \"valera\";\n    font-size: 16px;\n    max-width: 100px;\n    line-height: 2.08;\n    margin-top: 0px;\n    margin-top: 20px;\n    padding: 0px 20px;\n    font-weight: 700;\n    border-radius: 5px;\n}\n.padre-pago-descripcion[data-v-47fd6b9c] {\n    display: flex;\n    flex-direction: column-reverse;\n}\n.metod-pay h3[data-v-47fd6b9c] {\n    margin-top: 20px;\n    font-size: 18px;\n}\n.flexi-btn-form[data-v-47fd6b9c] {\n    display: flex;\n    justify-content: space-between;\n}\n.btn-grip[data-v-47fd6b9c] {\n    font-family: \"Valera\";\n    background-color: #30019B !important;\n    color: #ffffff !important;\n    flex-basis: calc(50% - 2rem);\n    width: 144px;\n    border-radius: 10px !important;\n}\n.btn-cancel[data-v-47fd6b9c] {\n    font-family: \"Valera\";\n    background-color: #0f04263f !important;\n    color: #ffffff !important;\n    flex-basis: calc(50% - 2rem);\n    width: 144px;\n    border-radius: 10px !important;\n}\n}\n@media only screen and (min-width: 768px) {\n.resumen-card[data-v-47fd6b9c] {\n    width: 100%;\n    max-width: 435px;\n    margin-left: 0px;\n    border: 1px solid #D1D1D1;\n    height: 234px;\n    border-radius: 6px;\n}\n.padre-content-position[data-v-47fd6b9c] {\n    display: flex;\n    justify-content: space-between;\n    width: 100%;\n}\n.content-position[data-v-47fd6b9c]:first-child {\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 240px;\n    border-radius: 5px;\n}\n.content-position[data-v-47fd6b9c]:last-child {\n    background-color: #b7b4be4f;\n    height: 86px;\n    max-width: 240px;\n    border-radius: 5px;\n}\n.content-position label[data-v-47fd6b9c], span[data-v-47fd6b9c] {\n    font-family: \"valera\";\n    font-size: 16px;\n    font-weight: 700;\n}\n.preview[data-v-47fd6b9c] {\n    text-decoration: none;\n    background-color: #ffffff;\n    border: 1px solid #30019B;\n    color: #30019B;\n    font-family: \"valera\";\n    font-size: 16px;\n    max-width: 100px;\n    line-height: 2.08;\n    margin-top: 0px;\n    padding: 0px 20px;\n    font-weight: 700;\n    border-radius: 5px;\n}\n.padre-pago-descripcion[data-v-47fd6b9c] {\n    display: flex;\n    flex-direction: column;\n}\n.btn-grip[data-v-47fd6b9c] {\n    font-family: \"Valera\";\n    background-color: #30019B !important;\n    color: #ffffff !important;\n    width: 181px;\n    border-radius: 10px !important;\n}\n.btn-cancel[data-v-47fd6b9c] {\n    font-family: \"Valera\";\n    background-color: #0f04263f !important;\n    color: #ffffff !important;\n    width: 144px;\n    border-radius: 10px !important;\n}\n}", ""]);
 
 // exports
 
@@ -70814,8 +70814,7 @@ var render = function() {
                         _vm._v(
                           "USD " +
                             _vm._s(plan.precio) +
-                            " " +
-                            _vm._s(plan.estado === 1 ? "NOW" : "")
+                            _vm._s(plan.estado === 1 ? " NOW" : "")
                         )
                       ])
                     ]),
@@ -70835,34 +70834,41 @@ var render = function() {
                     _vm._v(_vm._s(plan.name) + " include")
                   ]),
                   _vm._v(" "),
-                  _c("p", { staticStyle: { "margin-left": "20px" } }, [
-                    _c(
-                      "svg",
-                      {
-                        attrs: {
-                          width: "16",
-                          height: "16",
-                          viewBox: "0 0 16 16",
-                          fill: "none",
-                          xmlns: "http://www.w3.org/2000/svg"
-                        }
-                      },
-                      [
-                        _c("path", {
+                  _c(
+                    "p",
+                    {
+                      staticClass: "inclui",
+                      staticStyle: { "margin-left": "20px" }
+                    },
+                    [
+                      _c(
+                        "svg",
+                        {
                           attrs: {
-                            d:
-                              "M8 0.5C3.875 0.5 0.5 3.875 0.5 8C0.5 12.125 3.875 15.5 8 15.5C12.125 15.5 15.5 12.125 15.5 8C15.5 3.875 12.125 0.5 8 0.5ZM11.15 6.725L7.55 10.325C7.25 10.625 6.8 10.625 6.5 10.325L4.85 8.675C4.55 8.375 4.55 7.925 4.85 7.625C5.15 7.325 5.6 7.325 5.9 7.625L7.025 8.75L10.1 5.675C10.4 5.375 10.85 5.375 11.15 5.675C11.45 5.975 11.45 6.425 11.15 6.725Z",
-                            fill: "#5F01F5"
+                            width: "16",
+                            height: "16",
+                            viewBox: "0 0 16 16",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg"
                           }
-                        })
-                      ]
-                    ),
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(Number(plan.columns * plan.filas)) +
-                        " blocks"
-                    )
-                  ])
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M8 0.5C3.875 0.5 0.5 3.875 0.5 8C0.5 12.125 3.875 15.5 8 15.5C12.125 15.5 15.5 12.125 15.5 8C15.5 3.875 12.125 0.5 8 0.5ZM11.15 6.725L7.55 10.325C7.25 10.625 6.8 10.625 6.5 10.325L4.85 8.675C4.55 8.375 4.55 7.925 4.85 7.625C5.15 7.325 5.6 7.325 5.9 7.625L7.025 8.75L10.1 5.675C10.4 5.375 10.85 5.375 11.15 5.675C11.45 5.975 11.45 6.425 11.15 6.725Z",
+                              fill: "#5F01F5"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(Number(plan.columns * plan.filas)) +
+                          " blocks"
+                      )
+                    ]
+                  )
                 ]
               )
             ]
