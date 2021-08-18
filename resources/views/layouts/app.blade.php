@@ -6,6 +6,7 @@
     <meta name="theme-color" content="#30019B">
     <meta name="msapplication-navbutton-color" content="#30019B">
     <meta name="apple-mobile-web-app-status-bar-style" content="#30019B">
+    <link rel="icon" href="/img/puntero/cohete.svg">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

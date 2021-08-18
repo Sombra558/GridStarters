@@ -7,6 +7,7 @@
     <meta name="msapplication-navbutton-color" content="#30019B">
     <meta name="apple-mobile-web-app-status-bar-style" content="#30019B">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="icon" href="/img/puntero/cohete.svg">
     <title>Sistemas Administrativo Gridstarters</title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
