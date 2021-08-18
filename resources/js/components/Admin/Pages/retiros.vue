@@ -120,7 +120,7 @@
                                 <form @submit.prevent="editarretiro()" id="form-comprobante" method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="nombreURL">Minimum Amount to Withdraw</label>
-                                        <input type="number" class="form-control" v-model="retirovalue.value" name="value">
+                                        <input type="number" min="0" step="0.01" class="form-control" v-model="retirovalue.value" name="value">
                                     </div>
                                    
                                      <div class="row justify-content-around"> 
@@ -176,7 +176,7 @@
                                 <form @submit.prevent="editarblock()" id="form-comprobante" method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="nombreURL">Block amount</label>
-                                        <input type="number" class="form-control" v-model="blockvalue.value" name="value">
+                                        <input type="number"  min="0" step="0.01" class="form-control" v-model="blockvalue.value" name="value">
                                     </div>
                                    
                                      <div class="row justify-content-around"> 
@@ -204,7 +204,7 @@
                                 <form @submit.prevent="editartax()" id="form-comprobante" method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="nombreURL">Tax amount</label>
-                                        <input type="number" class="form-control" v-model="taxvalue.value" name="value">
+                                        <input type="number" min="0" step="0.01" class="form-control" v-model="taxvalue.value" name="value">
                                     </div>
                                    
                                      <div class="row justify-content-around"> 

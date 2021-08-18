@@ -66756,7 +66756,12 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
-                          attrs: { type: "number", name: "value" },
+                          attrs: {
+                            type: "number",
+                            min: "0",
+                            step: "0.01",
+                            name: "value"
+                          },
                           domProps: { value: _vm.retirovalue.value },
                           on: {
                             input: function($event) {
@@ -66970,7 +66975,12 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
-                          attrs: { type: "number", name: "value" },
+                          attrs: {
+                            type: "number",
+                            min: "0",
+                            step: "0.01",
+                            name: "value"
+                          },
                           domProps: { value: _vm.blockvalue.value },
                           on: {
                             input: function($event) {
@@ -67077,7 +67087,12 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
-                          attrs: { type: "number", name: "value" },
+                          attrs: {
+                            type: "number",
+                            min: "0",
+                            step: "0.01",
+                            name: "value"
+                          },
                           domProps: { value: _vm.taxvalue.value },
                           on: {
                             input: function($event) {
