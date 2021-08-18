@@ -65,10 +65,12 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                 <a :href="blockselected.url" target="_blank" rel="noopener noreferrer">
+                              
                                 <img :src="'/storage/'+blockselected.src" width="100%" height="250px" alt="">
-                                 </a>
                                
+                                <div v-if="blockselected.url" class="mt-2 d-flex justify-content-center">
+                                    <a class="btn btn-upgrap14" :href="blockselected.url" target="_blank" rel="noopener noreferrer">Ir al enlace</a>
+                                </div>
                                 
                             </div>
 

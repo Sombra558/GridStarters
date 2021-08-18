@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
 use App\Grip;
+use App\ConfiguracionPublica;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -40,13 +41,14 @@ class LandingController extends Controller
     public function showgrip($nombreURL)
     {
         $grip= Grip::where('nombreURL',$nombreURL)->first();
+        $blockvalue=ConfiguracionPublica::where('nombre','block')->first();
         if ($grip->count()>0) {
             $grip->load(['user','bloques'=>function($k){
                 return $k->where('estado',0)->get();
             }]);
-            return view('Grip.show',compact('grip'));
+            return view('Grip.show',compact('grip','blockvalue'));
         }else{
-            return view('error.error404',compact('grip'));
+            return view('error.error404',compact('grip','blockvalue'));
         }       
     }
 }

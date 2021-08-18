@@ -846,7 +846,7 @@
                   
                     <ul style="width:100%" class="navbar-nav d-flex justify-content-between align-content-center">
                              <li style="margin-top:18px;margin-left:15px" class="nav-item">
-                                <span class="uploadforever">$5 Each・Upload A Photo Forever</span>
+                                <span class="uploadforever">${{$blockvalue->value}} Each・Upload A Photo Forever</span>
                             </li>
                            
                             <div style="margin-right:35px;" class="d-flex justify-content-end align-content-center">

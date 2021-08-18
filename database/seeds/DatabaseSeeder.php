@@ -70,27 +70,27 @@ class DatabaseSeeder extends Seeder
         $user->assignRole('Administrator');
         $user->markEmailAsVerified();
         Planes::create([
-            'estado' => false,
+            'estado' => true,
             'columns' => '100',
             'name' => 'Influencer',
-            'src' => '/img/planes/realidad-virtual.svg',
             'filas' => '100',
-            'precio' => 49.99,
+            'precio' => 34.99,
         ]);
         Planes::create([
             'estado' => false,
             'columns' => '80',
             'name' => 'Geek',
-            'src' => '/img/planes/gafas-de-proteccion.svg',
+            'src' => '/img/planes/realidad-virtual.svg',
             'filas' => '50',
             'precio' => 29.99,
         ]);
         Planes::create([
-            'estado' => true,
+            'estado' => false,
             'columns' => '40',
             'name' => 'Starter',
+            'src' => '/img/planes/gafas-de-proteccion.svg',
             'filas' => '25',
-            'precio' => 9.99,
+            'precio' => 14.99,
         ]);
         
     }

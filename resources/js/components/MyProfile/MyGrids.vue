@@ -17,7 +17,7 @@
                     <tbody>
                     <tr v-for="(grid,index) in user.matriz" :key="index">
                         <td>{{grid.created_at}}</td>
-                        <td><a class="btn btn-upgrap"  :href="'/home/my/'+grid.nombreURL">Go to my board</a></td>
+                        <td><a class="btn btn-upgrap"  :href="'/home/my/'+grid.nombreURL">View my grid</a></td>
                         <td>{{Number(grid.columns*grid.filas - grid.bloques.length)}}</td>
                         <td>{{grid.bloques.length}}</td>
                         <td><button type="button" class="btn btn-upgrap" @click.prevent="mostrarmodal2(grid)">
