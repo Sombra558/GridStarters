@@ -20,7 +20,7 @@ class PaymentController extends Controller
     public function pay(Request $request)
     {
         $rules = [
-            'value' => ['required', 'numeric', 'min:1'],
+            'value' => ['required', 'numeric', 'min:0.1'],
             'currency' => ['required', 'exists:currencies,iso'],
             'payment_platform' => ['required', 'exists:payment_platforms,id'],
         ];
