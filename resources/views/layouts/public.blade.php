@@ -606,11 +606,13 @@
                                                             
 
                                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                                               
                                                                 @if(Auth::user()->roles[0]->name === 'Administrator')
                                                                 <a class="dropdown-item" href="/admin">
                                                                     Admin
                                                                 </a>
                                                                 @endif
+                                                               
                                                                 <a class="dropdown-item" href="/">
                                                                     Home
                                                                 </a>
@@ -708,6 +710,9 @@
             @guest
             <div>
             <!--SE SUPONE QUW VA UNA VALIDACION EN LA RUTA DE ADMIN, PERO ME DABA ERROR ASI QUE LA QUITE-->
+            <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="grid-confirm-payment">
+                   <strong> Buy </strong>
+                </a>
                 <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/login">
                    <strong>Login</strong> 
                 </a>
@@ -723,6 +728,9 @@
                    <strong>Admin </strong> 
                 </a>
                 @endif
+                <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/grid-confirm-payment">
+                   <strong> Buy </strong>
+                </a>
                 <a class="dropdown-item text-center" style="color:#30019B; font-size:18px;" href="/">
                    <strong> Home </strong>
                 </a>
