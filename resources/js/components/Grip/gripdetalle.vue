@@ -69,7 +69,7 @@
                                 <img :src="'/storage/'+blockselected.src" width="100%" height="250px" alt="">
                                
                                 <div v-if="blockselected.url" class="mt-2 d-flex justify-content-center">
-                                    <a class="btn btn-upgrap14" :href="blockselected.url" target="_blank" rel="noopener noreferrer">Ir al enlace</a>
+                                    <a class="btn btn-upgrap14" :href="blockselected.url" target="_blank" rel="noopener noreferrer">Website</a>
                                 </div>
                                 
                             </div>
