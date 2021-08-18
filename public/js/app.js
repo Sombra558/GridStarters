@@ -69022,7 +69022,7 @@ var render = function() {
                                   rel: "noopener noreferrer"
                                 }
                               },
-                              [_vm._v("Website")]
+                              [_vm._v("Go to website")]
                             )
                           ]
                         )
