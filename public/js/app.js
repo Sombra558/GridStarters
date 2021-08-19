@@ -10711,7 +10711,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.menu-secundario[data-v-50a74b98]{\r\n    background-color: #ffffff;\r\n    width: 100%;\n}\n@media only screen and (max-width: 768px) {\n.grids-descripcion[data-v-50a74b98]{\r\n                margin-top: 20px;\r\n                text-align: center;\r\n                font-size: 14px;\n}\n.resalte[data-v-50a74b98]{\r\n                font-size: 16px;\r\n                line-height: 23,7px;\r\n                font-weight: 700;\r\n                color: #30019B;\n}\n}\n@media only screen and (min-width: 769px) {\n.grids-descripcion[data-v-50a74b98]{\r\n                width: 500px;\r\n                margin-top: 0px;\r\n                 font-size: 16px;\r\n                text-align: end;\n}\n.resalte[data-v-50a74b98]{\r\n                font-size: 20px;\r\n                line-height: 23,7px;\r\n                font-weight: 700;\r\n                color: #30019B;\n}\n}\n.avatar[data-v-50a74b98]{\r\n       width: 85px;\r\n       height: 53px;\r\n       border-radius: 50%;\n}\np[data-v-50a74b98]{\r\n       font-family: 'Valera';\r\n        font-size: 20px;\r\n       line-height: 23,7px;\r\n       font-weight: 500;\n}\n.username[data-v-50a74b98]{\r\n       font-family: 'Rubik';\r\n       font-size: 20px;\r\n       line-height: 23,7px;\r\n       font-weight: bold;\n}\n.premium[data-v-50a74b98]{\r\n       background:linear-gradient(90deg, rgba(95,1,245,1) 4.66%, rgba(50,186,176,1) 45.34%);\r\n       -webkit-background-clip: text;\r\n       color: transparent;\r\n       margin-top: -10px!important;\r\n       font-family: 'Rubik';\r\n       font-weight: 300;\n}\n.table thead th[data-v-50a74b98] {\r\n        vertical-align: bottom;\r\n        border-bottom: none!important;\n}\n.table th[data-v-50a74b98], .table td[data-v-50a74b98] {\r\n        padding: 0rem;\r\n        vertical-align: top;\r\n        border-top:  none!important;\n}\n.enpadre[data-v-50a74b98]:last-child{\r\n         border-bottom: 1px solid grey;\n}\n.color[data-v-50a74b98]{\r\n        background-color: #FBF9FF;\r\n     \r\n        height: 25px;\r\n        width:20px;\r\n        max-height: 25px;\r\n        max-width:20px;\r\n           background-repeat: no-repeat;\r\n        background-size: 100% 100%;\r\n        border-top: 1px solid grey;\r\n        border-left: 1px solid grey;\n}\n.color[data-v-50a74b98]:first-child{\r\n        background-color: #FBF9FF;\r\n           background-repeat: no-repeat;\r\n        background-size: 100% 100%;\r\n        height: 25px;\r\n        width:25px;\n}\n.color[data-v-50a74b98]:last-child{\r\n        background-color: #FBF9FF;\r\n        height: 25px;\r\n           background-repeat: no-repeat;\r\n        background-size: 100% 100%;\r\n        width:25px;\r\n     \r\n        border-right: 1px solid grey;\n}\n.color[data-v-50a74b98]:hover{\r\n        background-color: #D04141;\n}\n.maximizando[data-v-50a74b98]{\r\n        margin-left: 15px;\r\n        min-width: 1260px;\n}\n@media only screen and (max-width: 1394px) {\n.maximizando[data-v-50a74b98]{\r\n            margin-left: 15px;\r\n            min-width: 1395px;\n}\n}\n@media only screen and (min-width: 1395px) {\n.maximizando[data-v-50a74b98]{\r\n                margin-left: 15px;\r\n                min-width: 1260px;\n}\n}\n.flexiando[data-v-50a74b98]{\r\n        display: flex;\r\n        justify-content: center;\r\n        width: 100%;\n}\n.img-grid[data-v-50a74b98]{\r\n        background-repeat: no-repeat;\r\n        background-size: contain;\r\n\r\n        background-position: center center;\n}\r\n   \r\n", ""]);
+exports.push([module.i, "\n.btn-upgrap14[data-v-50a74b98]{\n            font-family: 'Valera';\n            background-color:#32BAB0!important;\n            color:#ffffff!important;\n            min-width: 220px;\n            height: 38px;\n            border-radius: 10px!important;\n}\n.modal-dialog[data-v-50a74b98]{\n    max-width: 600px!important;\n}\n.modal-content[data-v-50a74b98]{\n    border-radius:12px;\n}\n.menu-secundario[data-v-50a74b98]{\n    background-color: #ffffff;\n    width: 100%;\n}\nlabel[data-v-50a74b98]{\n    font-weight: 100!important;\n}\n@media only screen and (max-width: 768px) {\n.grids-descripcion[data-v-50a74b98]{\n                margin-top: 20px;\n                text-align: center;\n                font-size: 14px;\n}\n.resalte[data-v-50a74b98]{\n                font-size: 16px;\n                line-height: 23,7px;\n                font-weight: 700;\n                color: #30019B;\n}\n}\n@media only screen and (min-width: 769px) {\n.grids-descripcion[data-v-50a74b98]{\n                width: 500px;\n                margin-top: 0px;\n                 font-size: 16px;\n                text-align: end;\n}\n.resalte[data-v-50a74b98]{\n                font-size: 20px;\n                line-height: 23,7px;\n                font-weight: 700;\n                color: #30019B;\n}\n}\n.avatar[data-v-50a74b98]{\n       width: 85px;\n       height: 53px;\n       border-radius: 50%;\n}\np[data-v-50a74b98]{\n       font-family: 'Valera';\n       font-size: 20px;\n       line-height: 23,7px;\n       font-weight: 500;\n}\n.username[data-v-50a74b98]{\n       font-family: 'Rubik';\n       font-size: 20px;\n       line-height: 23,7px;\n       font-weight: bold;\n}\n.premium[data-v-50a74b98]{\n       background:linear-gradient(90deg, rgba(95,1,245,1) 4.66%, rgba(50,186,176,1) 45.34%);\n       -webkit-background-clip: text;\n       color: transparent;\n       margin-top: -10px!important;\n       font-family: 'Rubik';\n       font-weight: 300!important;\n}\n.table thead th[data-v-50a74b98] {\n        vertical-align: bottom;\n        border-bottom: none!important;\n}\n.table th[data-v-50a74b98], .table td[data-v-50a74b98] {\n        padding: 0rem;\n        vertical-align: top;\n        border-top:  none!important;\n}\n.color[data-v-50a74b98]{\n        background-color: #FBF9FF;\n        margin:0.5px;\n        height: 16px;\n        width:16px!important;\n        max-height: 16px;\n        max-width:16px!important;\n        background-repeat: no-repeat;\n        background-size: 100% 100%;\n        border: 1px solid grey;\n}\n.color[data-v-50a74b98]:hover{\n        background-color: #5F01F5;\n}\n@media only screen and (max-width: 767px) {\n.maximizando[data-v-50a74b98]{\n               margin-left: 270px;\n}\n}\n@media only screen and (min-width: 768px) {\n.maximizando[data-v-50a74b98]{\n                margin-left: 105px;\n}\n}\n.flexiando[data-v-50a74b98]{\n        display: flex;\n        justify-content: center;\n        width: 100%;\n}\n.img-grid[data-v-50a74b98]{\n        background-repeat: no-repeat;\n        background-size: contain;\n\n        background-position: center center;\n}\n.drag-selector__item.selected[data-v-50a74b98] {\n            background-color: #D04141;\n}\n", ""]);
 
 // exports
 
@@ -69135,7 +69135,24 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _vm._m(0)
+            _c(
+              "div",
+              {
+                staticClass:
+                  " col-sm-12 col-md-9 d-flex justify-content-md-end justify-content-xl-end"
+              },
+              [
+                _c("p", { staticClass: "grids-descripcion" }, [
+                  _c("strong", { staticClass: "resalte" }, [
+                    _vm._v(_vm._s(Number(_vm.grip.columns * _vm.grip.filas)))
+                  ]),
+                  _vm._v(
+                    "  Grids. Leave your mark on the world buying a digital space "
+                  ),
+                  _c("strong", { staticClass: "resalte" }, [_vm._v("forever")])
+                ])
+              ]
+            )
           ])
         ])
       ]),
@@ -69153,7 +69170,7 @@ var render = function() {
                   [
                     _c("caption", [_vm._v(_vm._s(_vm.user.name) + " Grid")]),
                     _vm._v(" "),
-                    _vm._m(1),
+                    _vm._m(0),
                     _vm._v(" "),
                     _c("tbody", [
                       _c("tr", [
@@ -69165,12 +69182,18 @@ var render = function() {
                               "div",
                               {
                                 key: "fila" + index,
-                                staticClass: "row maximizando enpadre"
+                                staticClass: "d-flex maximizando",
+                                style:
+                                  "min-width:" +
+                                  Number(_vm.grip.columns * 16) +
+                                  "px!important; margin-left:" +
+                                  Number(_vm.grip.columns * 0) +
+                                  "px!important;"
                               },
                               _vm._l(fila, function(columna, k) {
                                 return _c("div", {
                                   key: "columna" + k,
-                                  staticClass: "col color",
+                                  staticClass: "color",
                                   style: columna.src
                                     ? "background-image: url(/storage-public/" +
                                       columna.src +
@@ -69206,27 +69229,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          " col-sm-12 col-md-9 d-flex justify-content-md-end justify-content-xl-end"
-      },
-      [
-        _c("p", { staticClass: "grids-descripcion" }, [
-          _c("strong", { staticClass: "resalte" }, [_vm._v("1.075")]),
-          _vm._v(
-            "  Grids. Leave your mark on the world buying a digital space "
-          ),
-          _c("strong", { staticClass: "resalte" }, [_vm._v("forever")])
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

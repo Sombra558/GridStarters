@@ -12,7 +12,7 @@
                                             </div>
                                         </div>
                                         <div class=" col-sm-12 col-md-9 d-flex justify-content-md-end justify-content-xl-end">
-                                            <p class="grids-descripcion"><strong class="resalte">1.075</strong>  Grids. Leave your mark on the world buying a digital space <strong class="resalte">forever</strong></p>
+                                            <p class="grids-descripcion"><strong class="resalte">{{Number(grip.columns*grip.filas)}}</strong>  Grids. Leave your mark on the world buying a digital space <strong class="resalte">forever</strong></p>
                                         </div>
                         </div>
                 </div>
@@ -33,9 +33,9 @@
                             <tbody>
                                 <tr>
                                 <th scope="row">
-                                    <div class="row maximizando enpadre" v-for="(fila,index) in matriz" :key="'fila'+index">
+                                    <div :style="'min-width:'+Number(grip.columns*16)+'px!important; margin-left:'+Number(grip.columns*0)+'px!important;'" class="d-flex maximizando" v-for="(fila,index) in matriz" :key="'fila'+index">
                                             
-                                            <div :style="columna.src ? 'background-image: url(/storage-public/'+columna.src+');' : 'background-color: #FBF9FF;'"  :id="'bloque-'+fila[index].numero+'-'+columna.numero" class="col color" v-for="(columna,k) in fila" :key="'columna'+k">
+                                            <div :style="columna.src ? 'background-image: url(/storage-public/'+columna.src+');' : 'background-color: #FBF9FF;'"  :id="'bloque-'+fila[index].numero+'-'+columna.numero" class="color" v-for="(columna,k) in fila" :key="'columna'+k">
                                                 
                                              
                                                 
@@ -140,9 +140,26 @@
     }
 </script>
 <style scoped>
+ .btn-upgrap14{
+            font-family: 'Valera';
+            background-color:#32BAB0!important;
+            color:#ffffff!important;
+            min-width: 220px;
+            height: 38px;
+            border-radius: 10px!important;
+            }
+.modal-dialog{
+    max-width: 600px!important;
+}
+.modal-content{
+    border-radius:12px;
+}
 .menu-secundario{
     background-color: #ffffff;
     width: 100%;
+}
+label{
+    font-weight: 100!important;
 }
   @media only screen and (max-width: 768px) {
             .grids-descripcion{
@@ -156,8 +173,7 @@
                 font-weight: 700;
                 color: #30019B;
             }
-        }
-        
+        } 
      @media only screen and (min-width: 769px) {
              .grids-descripcion{
                 width: 500px;
@@ -179,11 +195,10 @@
    }
    p{
        font-family: 'Valera';
-        font-size: 20px;
+       font-size: 20px;
        line-height: 23,7px;
        font-weight: 500;
    }
-   
    .username{
        font-family: 'Rubik';
        font-size: 20px;
@@ -196,7 +211,7 @@
        color: transparent;
        margin-top: -10px!important;
        font-family: 'Rubik';
-       font-weight: 300;
+       font-weight: 300!important;
    }
     .table thead th {
         vertical-align: bottom;
@@ -206,58 +221,34 @@
         padding: 0rem;
         vertical-align: top;
         border-top:  none!important;
-
-    }
-    .enpadre:last-child{
-         border-bottom: 1px solid grey;
     }
     .color{
         background-color: #FBF9FF;
-     
-        height: 25px;
-        width:20px;
-        max-height: 25px;
-        max-width:20px;
-           background-repeat: no-repeat;
+        margin:0.5px;
+        height: 16px;
+        width:16px!important;
+        max-height: 16px;
+        max-width:16px!important;
+        background-repeat: no-repeat;
         background-size: 100% 100%;
-        border-top: 1px solid grey;
-        border-left: 1px solid grey;
-    }
-    .color:first-child{
-        background-color: #FBF9FF;
-           background-repeat: no-repeat;
-        background-size: 100% 100%;
-        height: 25px;
-        width:25px;
-    }
-    .color:last-child{
-        background-color: #FBF9FF;
-        height: 25px;
-           background-repeat: no-repeat;
-        background-size: 100% 100%;
-        width:25px;
-     
-        border-right: 1px solid grey;
-        
+        border: 1px solid grey;  
     }
     .color:hover{
-        background-color: #D04141;
+        background-color: #5F01F5;
     }
-    .maximizando{
-        margin-left: 15px;
-        min-width: 1260px;
-    }
-    @media only screen and (max-width: 1394px) {
+  
+    @media only screen and (max-width: 767px) {
             .maximizando{
-            margin-left: 15px;
-            min-width: 1395px;
+               margin-left: 270px;
+                
         }
-        }
-     @media only screen and (min-width: 1395px) {
+    }
+ 
+     @media only screen and (min-width: 768px) {
              .maximizando{
-                margin-left: 15px;
-                min-width: 1260px;
-            }
+                margin-left: 105px;
+                
+        }
         }
     .flexiando{
         display: flex;
@@ -270,5 +261,7 @@
 
         background-position: center center;
     }
-   
+    .drag-selector__item.selected {
+            background-color: #D04141;
+        }
 </style>
