@@ -119,7 +119,7 @@
                 </table>
             <div v-if="user.matriz.length===0" class="row">
                 <div class="col-sm-12 col-md-10 offset-md-1">
-                          <a style="color:#000000;text-decoration:none;" href="/grid-confirm-payment">Buy your Grid</a>
+                          <a style="color:#000000;text-decoration:none;" class="btn btn-upgrap14" href="/grid-confirm-payment">Buy your Grid</a>
                       <!--<a href="/grid-confirm-payment"><img  width="100%" src="/img/hora-de-impulsar-tu-negocio.png" alt="hora-de-impulsar-tu-negocio"></a>-->
                 </div>
                
@@ -310,6 +310,14 @@ import 'toastr/build/toastr.min.css';
 </script>
 
 <style lang="scss" scoped>
+.btn-upgrap14{
+            font-family: 'Valera';
+            background-color:#32BAB0!important;
+            color:#ffffff!important;
+            min-width: 220px;
+            height: 38px;
+            border-radius: 10px!important;
+            }
 .modal-dialog{
     max-width: 600px!important;
 }
