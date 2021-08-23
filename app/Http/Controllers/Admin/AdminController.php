@@ -18,7 +18,7 @@ class AdminController extends Controller
     public function index()
     {
       
-        $totalblock=Bloque::all()->count();
+        $totalblock=Bloque::where('estado',0)->get()->count();
         $totalgrid=Grip::all()->count();
         $gridsales=PurchasesHistory::where('descripcion','Grid purchase')->get()->load(['user']);
         $sales=AccountRegisters::all();
@@ -27,7 +27,7 @@ class AdminController extends Controller
     public function public()
     {
         $grids= Grip::all()->load(['user','bloques'=>function($q){
-            return $q->with('user');
+            return $q->where('estado',0)->with('user');
         }]);
         return view('Admin.Public.index',compact('grids'));
     }
@@ -55,7 +55,7 @@ class AdminController extends Controller
         $retirovalue=ConfiguracionPublica::where('nombre','retiro')->first();
         $taxvalue=ConfiguracionPublica::where('nombre','tax')->first();
         $users=User::all()->where('id','!=',1);
-        $totalblock=Bloque::all()->count();
+        $totalblock=Bloque::where('estado',0)->get()->count();
         $totalgrid=Grip::all()->count();
         $accountregistersolds=AccountRegisters::where('type','sold')->get()->load(['bank'=>function($q){
             return $q->with('user');
