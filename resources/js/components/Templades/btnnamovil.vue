@@ -1,6 +1,6 @@
 <template>
     <button class="btn row align-items-center d-md-none "  :disabled="cart.length===0"  @click.prevent="gotobuy">
-        <strong style="color:#30019B; font-size:18px;">Go to store</strong>
+        <strong :style="action==='movil' ? 'color:#ffffff; font-size:18px;' : 'color:#30019B; font-size:18px;'">Go to store</strong>
     </button>
 </template>
 
@@ -10,6 +10,7 @@ import 'toastr/build/toastr.min.css';
 import { mapState } from "vuex";
     export default {
         name:"navbar-detalle",
+        props:['action'],
         data() {
             return {
                 

@@ -40,7 +40,7 @@
                             
                         </div> 
                           <div class="flexi-btn-form">
-                            <input style="margin-top:65px" class="btn btn-grip" type="submit" value="Save & pay">
+                            <input :disabled="lastFile===null ? true : false" style="margin-top:65px" class="btn btn-grip" type="submit" value="Save & pay">
                             <input @click.prevent="cancel()" style="margin-top:65px" class="btn btn-cancel" type="button" value="Cancel">
                         </div>           
                         </div>
@@ -137,19 +137,22 @@
             },
             crearposition(){
              this.estadoprocess=true;
-             let form = $("#payment-form")[0];
-             let formulario = new FormData(form);
-             var ruta=`/crear-bloque`;
-                axios.post(ruta, formulario)
-                  .then((res) => {
-                   localStorage.clear();
-                   window.location=res.data;
-                   this.estadoprocess=false;
-                  })
-                  .catch((err) => {
+             if (this.lastFile!=null) {
+                let form = $("#payment-form")[0];
+                let formulario = new FormData(form);
+                var ruta=`/crear-bloque`;
+                    axios.post(ruta, formulario)
+                    .then((res) => {
+                    localStorage.clear();
+                    window.location=res.data;
                     this.estadoprocess=false;
-                    console.log(err);
-                 });
+                    })
+                    .catch((err) => {
+                        this.estadoprocess=false;
+                        console.log(err);
+                    });
+             }
+             
             },
         },
     }

@@ -1103,6 +1103,9 @@
                                                                 <a class="dropdown-item" href="/admin">
                                                                     Admin
                                                                 </a>
+                                                                <a class="dropdown-item" href="/home/perfil">
+                                                                    Perfil
+                                                                </a>
                                                                 @endif
                                                                 <a class="dropdown-item" href="/">
                                                                     Home

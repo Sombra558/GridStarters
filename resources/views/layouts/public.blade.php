@@ -611,6 +611,9 @@
                                                                 <a class="dropdown-item" href="/admin">
                                                                     Admin
                                                                 </a>
+                                                                <a class="dropdown-item" href="/home/perfil">
+                                                                    Perfil
+                                                                </a>
                                                                 @endif
                                                                
                                                                 <a class="dropdown-item" href="/">
@@ -652,26 +655,17 @@
                 @guest
                 <div class="nav-link text-white col-10"  >
                     <div class="row col-12 m-0">
-                   
+                    <btn-buy-comp style="width:60px; margin:0px!important;" ></btn-buy-comp>
                     
                     
                     </div>
                 </div>
                 @else
+               
                 <div class="nav-link text-white col-10">
                     <div class="row col-12 m-0">
-                    <div class="flexi-user-auth">
-                        <a href="/home">
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-
-                         <span><a href="/home/perfil">go to my profile</a></span>
-                    </div>
-                    @if(Auth::user()->img)
-                    <img style="margin-left:33px" class="avatar" src="/storage/{{Auth::user()->img}}" alt="user-img">
-                    @else
-                    <img style="margin-left:33px" class="avatar" src="/img/user/user_min.jpg" alt="user-img">
-                    @endif
+                    <btn-buy-comp style="width:60px; margin:0px!important;" ></btn-buy-comp>
+                    
                     </div>
                 </div>
                 @endguest

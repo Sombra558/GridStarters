@@ -5257,17 +5257,20 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       this.estadoprocess = true;
-      var form = $("#payment-form")[0];
-      var formulario = new FormData(form);
-      var ruta = "/crear-bloque";
-      axios.post(ruta, formulario).then(function (res) {
-        localStorage.clear();
-        window.location = res.data;
-        _this2.estadoprocess = false;
-      })["catch"](function (err) {
-        _this2.estadoprocess = false;
-        console.log(err);
-      });
+
+      if (this.lastFile != null) {
+        var form = $("#payment-form")[0];
+        var formulario = new FormData(form);
+        var ruta = "/crear-bloque";
+        axios.post(ruta, formulario).then(function (res) {
+          localStorage.clear();
+          window.location = res.data;
+          _this2.estadoprocess = false;
+        })["catch"](function (err) {
+          _this2.estadoprocess = false;
+          console.log(err);
+        });
+      }
     }
   }
 });
@@ -5359,6 +5362,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "navbar-detalle",
+  props: ['action'],
   data: function data() {
     return {};
   },
@@ -71113,7 +71117,11 @@ var render = function() {
       _c("input", {
         staticClass: "btn btn-grip",
         staticStyle: { "margin-top": "65px" },
-        attrs: { type: "submit", value: "Save & pay" }
+        attrs: {
+          disabled: _vm.lastFile === null ? true : false,
+          type: "submit",
+          value: "Save & pay"
+        }
       }),
       _vm._v(" "),
       _c("input", {
@@ -71235,9 +71243,16 @@ var render = function() {
       }
     },
     [
-      _c("strong", { staticStyle: { color: "#30019B", "font-size": "18px" } }, [
-        _vm._v("Go to store")
-      ])
+      _c(
+        "strong",
+        {
+          style:
+            _vm.action === "movil"
+              ? "color:#ffffff; font-size:18px;"
+              : "color:#30019B; font-size:18px;"
+        },
+        [_vm._v("Go to store")]
+      )
     ]
   )
 }
@@ -88416,8 +88431,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\GridStarters\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\GridStarters\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\millonario\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\millonario\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

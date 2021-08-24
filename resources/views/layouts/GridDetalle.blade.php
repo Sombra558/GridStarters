@@ -955,6 +955,9 @@
                                                             <a class="dropdown-item" href="/admin">
                                                                 Admin
                                                             </a>
+                                                            <a class="dropdown-item" href="/home/perfil">
+                                                                    Perfil
+                                                                </a>
                                                             @endif
                                                             <a class="dropdown-item" href="/">
                                                                 Home
@@ -999,8 +1002,8 @@
                 
                 <ul style="width:100%" class="navbar-nav row m-0 flex-row justify-content-between align-content-center col-6 p-0">
                     <div class="col-7 row align-items-center mx-0 justify-content-center p-0">
-                        <h5 class="text-detalle my-0 col-6" style="color:#fff;"><strong>SOLD</strong></h5>
-                        <P class="text-detalle-2 my-0 col-6" style="color:#fff; line-height"> {{$grip->bloques->count()}}</P>
+                        <btn-grids-movil-component action="movil" ></btn-grids-movil-component>
+                        
                     </div>  
                     <div class="row align-items-center m-0 p-0 col-5">
                         <button  onclick="active()" class="navbar-toggler p-0" style="border:none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
