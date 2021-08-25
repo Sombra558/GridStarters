@@ -5592,6 +5592,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "navbar-detalle",
+  props: ['action'],
   data: function data() {
     return {};
   },
@@ -71409,7 +71410,7 @@ var render = function() {
           })
         ]
       ),
-      _vm._v("Buy\n")
+      _vm._v(_vm._s(_vm.action === "movil" ? "" : "Buy") + "\n")
     ]
   )
 }

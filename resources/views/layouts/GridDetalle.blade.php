@@ -129,15 +129,21 @@
         }
      
         @media only screen and (max-width: 767px){
-            #btn-buy{
-                display:none;
-            }
+            
             .btn-upgrap{
                 display:none;
             }
             .uploadforever{
             display:none;
         }
+        .btn-upgrap{
+            font-family: 'Valera';
+            background-color:#32BAB0!important;
+            color:#ffffff!important;
+            width: 100%;
+            min-width: 40px;
+            border-radius: 10px!important;
+            }
 
             .btn-upgrap2{
             margin-left:20px;
@@ -1002,7 +1008,7 @@
                 
                 <ul style="width:100%" class="navbar-nav row m-0 flex-row justify-content-between align-content-center col-6 p-0">
                     <div class="col-7 row align-items-center mx-0 justify-content-center p-0">
-                        <btn-grids-movil-component action="movil" ></btn-grids-movil-component>
+                    <btn-buy-component action="movil"></btn-buy-component>
                         
                     </div>  
                     <div class="row align-items-center m-0 p-0 col-5">
