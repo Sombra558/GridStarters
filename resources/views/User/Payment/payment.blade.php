@@ -5,7 +5,7 @@
         <h2 class="buy-tite">Buy Blocks</h2>
             <div class="row">
                 <div class="col-md-6">
-                   <form action="{{ route('grid-create-2') }}" method="POST" enctype="multipart/form-data">
+                   <form action="{{ route('grid-create-2') }}" id="comprar" method="POST" enctype="multipart/form-data">
                    @csrf
                     <input type="hidden" name="value" value="{{$gridvalue->value}}">
                     <input type="hidden" name="currency" value="usd">

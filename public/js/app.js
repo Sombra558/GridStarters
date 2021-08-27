@@ -5108,6 +5108,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
+/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(toastr__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var toastr_build_toastr_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! toastr/build/toastr.min.css */ "./node_modules/toastr/build/toastr.min.css");
+/* harmony import */ var toastr_build_toastr_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(toastr_build_toastr_min_css__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -5160,6 +5164,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'confirm-payment',
   props: ['user'],
@@ -5270,6 +5276,18 @@ __webpack_require__.r(__webpack_exports__);
           _this2.estadoprocess = false;
           console.log(err);
         });
+      }
+    },
+    comprar: function comprar() {
+      var mercadoPagoForm = document.getElementById("comprar");
+      var fileName = document.getElementById("ProfImgChangeInput").value;
+      var idxDot = fileName.lastIndexOf(".") + 1;
+      var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+
+      if (extFile == "jpg" || extFile == "jpeg" || extFile == "png") {
+        mercadoPagoForm.submit();
+      } else {
+        toastr__WEBPACK_IMPORTED_MODULE_0___default.a.info("Only jpg/jpeg and png files are allowed!", "GridsTarters:");
       }
     }
   }
@@ -71067,7 +71085,7 @@ var render = function() {
           id: "ProfImgChangeInput",
           name: "img",
           type: "file",
-          accept: "image/*"
+          accept: ".jpg,.jpeg,.png"
         },
         on: { change: _vm.fileSelected }
       })
@@ -71120,8 +71138,14 @@ var render = function() {
         staticStyle: { "margin-top": "65px" },
         attrs: {
           disabled: _vm.lastFile === null ? true : false,
-          type: "submit",
+          type: "button",
           value: "Save & pay"
+        },
+        on: {
+          click: function($event) {
+            $event.preventDefault()
+            return _vm.comprar()
+          }
         }
       }),
       _vm._v(" "),

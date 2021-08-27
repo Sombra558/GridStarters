@@ -14,7 +14,7 @@
                                 <strong style="color:grey!important">Upload File</strong>
                                    
                                 </div>
-                            <input style="opacity:0" class="d-block" id="ProfImgChangeInput" name="img" type="file" accept="image/*" @change="fileSelected">
+                            <input style="opacity:0" class="d-block" id="ProfImgChangeInput" name="img" type="file" accept=".jpg,.jpeg,.png" @change="fileSelected">
                         </div>
                         <div class="form-groud">
                              <label for="img-grip">Link your website</label>
@@ -40,7 +40,7 @@
                             
                         </div> 
                           <div class="flexi-btn-form">
-                            <input :disabled="lastFile===null ? true : false" style="margin-top:65px" class="btn btn-grip" type="submit" value="Save & pay">
+                            <input :disabled="lastFile===null ? true : false" style="margin-top:65px" class="btn btn-grip" @click.prevent="comprar()"  type="button" value="Save & pay">
                             <input @click.prevent="cancel()" style="margin-top:65px" class="btn btn-cancel" type="button" value="Cancel">
                         </div>           
                         </div>
@@ -51,6 +51,8 @@
 </template>
 
 <script>
+import toastr from "toastr";
+import 'toastr/build/toastr.min.css';
     export default {
         name:'confirm-payment',
         props:['user'],
@@ -153,6 +155,21 @@
                     });
              }
              
+            },
+             comprar() {
+                const mercadoPagoForm = document.getElementById("comprar");
+                var fileName = document.getElementById("ProfImgChangeInput").value;
+                var idxDot = fileName.lastIndexOf(".") + 1;
+                var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+                if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+                          mercadoPagoForm.submit();
+                }else{
+                      toastr.info("Only jpg/jpeg and png files are allowed!", "GridsTarters:");
+                   
+                }   
+                
+              
+            
             },
         },
     }
