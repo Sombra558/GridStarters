@@ -14,6 +14,7 @@
                                 <strong style="color:grey!important">Upload File</strong>
                                    
                                 </div>
+                                <span style="font-size:12px!important">Please upload jpg, jpeg or png</span>
                             <input style="opacity:0" class="d-block" id="ProfImgChangeInput" name="img" type="file" accept=".jpg,.jpeg,.png" @change="fileSelected">
                         </div>
                         <div class="form-groud">

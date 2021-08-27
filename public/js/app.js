@@ -5164,6 +5164,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -71077,6 +71078,10 @@ var render = function() {
           ])
         ]
       ),
+      _vm._v(" "),
+      _c("span", { staticStyle: { "font-size": "12px!important" } }, [
+        _vm._v("Please upload jpg, jpeg or png")
+      ]),
       _vm._v(" "),
       _c("input", {
         staticClass: "d-block",
