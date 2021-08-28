@@ -63,21 +63,28 @@ class HomeController extends Controller
     public function mygrid()
     {
         $user= Auth::user()->load(['matriz'=>function($q){
-            return $q->with(['bloques']);
+            return $q->with(['bloques'=>function($k){
+                return $k->where('estado',false);
+            }]);
         }]);
+       
         return view('MyProfile.MisCuadrilla',compact('user'));
     }
     public function mygriddetail()
     {
         $user= Auth::user()->load(['matriz'=>function($q){
-            return $q->with(['bloques']);
+            return $q->with(['bloques'=>function($k){
+                return $k->where('estado',false);
+            }]);
         }]);
         return view('MyProfile.MyGrids',compact('user'));
     }
     public function showgrip($nombreURL)
     {
         $user= Auth::user()->load(['matriz'=>function($q){
-            return $q->with(['bloques']);
+            return $q->with(['bloques'=>function($k){
+                return $k->where('estado',false);
+            }]);
         }]);
         $grip= Grip::where('nombreURL',$nombreURL)->first();
        
