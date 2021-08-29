@@ -69026,7 +69026,7 @@ var render = function() {
                       attrs: {
                         src: "/storage/" + _vm.blockselected.src,
                         width: "100%",
-                        height: "250px",
+                        height: "350px",
                         alt: ""
                       }
                     }),
@@ -70076,7 +70076,7 @@ var render = function() {
                               "aria-label": "Close"
                             }
                           },
-                          [_vm._v(" cancelar")]
+                          [_vm._v("Cancel")]
                         ),
                         _vm._v(" "),
                         _c("input", {
@@ -70087,8 +70087,8 @@ var render = function() {
                           },
                           domProps: {
                             value: _vm.estadoproceso
-                              ? "Procesando"
-                              : "Solicitar Retiro"
+                              ? "Processing"
+                              : "Request withdrawal"
                           }
                         })
                       ])

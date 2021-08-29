@@ -147,9 +147,9 @@
                                         <input type="number" class="form-control" v-model="solicitud.amount" name="amount">
                                     </div>
                                     <div class="row justify-content-around"> 
-                                        <button class="btn col-4" style="border: 1.5px solid #32BAB0; color:#32BAB0; border-radius: 10px!important;"  data-dismiss="modal" aria-label="Close"> cancelar</button>
+                                        <button class="btn col-4" style="border: 1.5px solid #32BAB0; color:#32BAB0; border-radius: 10px!important;"  data-dismiss="modal" aria-label="Close">Cancel</button>
                                        
-                                        <input type="submit" :disabled="estadoproceso" class="btn btn-upgrap col-3" :value="estadoproceso ? 'Procesando' : 'Solicitar Retiro'">
+                                        <input type="submit" :disabled="estadoproceso" class="btn btn-upgrap col-3" :value="estadoproceso ? 'Processing' : 'Request withdrawal'">
                                     </div>
                                    
                                 </form>
